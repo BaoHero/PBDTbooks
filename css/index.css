@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+.page{
+    width: 100%;
+    max-height: max-content;
+}
+.header{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: #131921;
+}
+.header .header__logo img{
+    width: 35%;
+    border: 1px solid orange;
+    height: 100%;
+}
+.header .header__logo{
+    width: 10%;
+    height: 50px;
+}
+.header__findbar{
+    width: 50%;
+    border-radius: 1px;
+    border-color: coral;
+    background-color: #131921;
+    margin: 5px auto;
+    display: flex;
+}
+.header .header__findbar input[type=text]{
+    width: 90%;
+    padding: 10px;
+    border: none;
+}
+
+.header .header__findbar button{
+    padding: 10px;
+    width: 10%;
+    border:none;
+    font-size: 20px;
+    background-color: rgb(238, 186, 118);
+}
+.header__rightmenu{
+    width: 40%;
+    display: flex;
+}
+.header__rightmenu div{
+    margin: 5px auto;
+}
+#signin,#repo{
+    padding: 10px;
+    font-size: 15px;
+}
+.header_2{
+    width: 100%;
+    height: 60px;
+    background-color: #232f3e;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 12px;
+}
+#left-menu{
+    color: #ffffff;
+    background-color: #232f3e;
+    border: none;
+    font-size: 25px;
+    margin: 15px 15px 15px 20px;
+    
+}
+.body{
+    width: 100%;
+    height:1000px;
+    border:1px solid red;
+    display: flex;
+    margin-top: 40px;
+}
+.body .body__genres{
+    width: 17%;
+    border: 1px solid greenyellow;
+}
+.body .body__list{
+    width: 63%;
+}
+.body .body__advertisement{
+    width: 20%;
+    border: 1px solid yellow;
+}
+.list__img{
+    background-color: orange;
+}

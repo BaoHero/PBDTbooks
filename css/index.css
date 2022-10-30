@@ -134,4 +134,25 @@
     background-color: orange;
     padding: 3px;
 }
+/* Shopping Cart */
+#container {
+  /* margin-top: 110px; */
+  height: 734px;
+  padding: 14px 18px 18px;
+  background-color: #eaeded;
+}
 
+#container .content_cart {
+  background-color: #fff;
+  padding: 12px 20px;
+}
+
+#container .shopping_cart h1 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+#container .note {
+  margin-top: 20px;
+  font-size: 12px;
+}

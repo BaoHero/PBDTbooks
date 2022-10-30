@@ -7,17 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="background">
     <button type="button" onclick="handle_signin()" class="admin_user">admin_user</button>
     <div class="page_admin">
         admin
         <div class="header">
-            <div class="header__logo"><img src="imgs/z3831890468351_45333935c0e299fa10d84f99f8dee53f.jpg" alt="PBDTbooks-logo"></div>
+            <div class="header__logo"><img src="imgs/z3831890468351_45333935c0e299fa10d84f99f8dee53f.jpg"
+                    alt="PBDTbooks-logo"></div>
             <div class="header__findbar">
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text" required>
+                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
+                    required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
             <div class="header__rightmenu">
@@ -35,20 +38,22 @@
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
                 <div class="genres__item" id="genres__item">
-                    <h2 style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">Genres</h2>
+                    <h2
+                        style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">
+                        Genres</h2>
                 </div>
                 <!-- Các thao tác thêm sửa xoá -->
                 <div class="addf">
-                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder= "Thêm thể loại +">
+                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder="Thêm thể loại +">
                     <button type="submit" onclick="addgenres()" name="addg" id="addg">Add</button>
                 </div>
                 <div class="addf">
-                    <input type="text" name="delete_genre" id="delete_genre" placeholder= "Xoá thể loại -">
-                    <button type="submit" onclick="addgenres()" class="addg"name="addg" id="addg">Delete</button>
+                    <input type="text" name="delete_genre" id="delete_genre" placeholder="Xoá thể loại -">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Delete</button>
                 </div>
                 <div class="addf">
-                    <input type="text" name="modify_genre" id="modify_genre" placeholder= "Thay đổi thể loại <>">
-                    <button type="submit" onclick="addgenres()" class="addg"name="addg" id="addg">Modify</button>
+                    <input type="text" name="modify_genre" id="modify_genre" placeholder="Thay đổi thể loại <>">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Modify</button>
                 </div>
             </div>
             <!-- Danh sach san pham -->
@@ -57,7 +62,7 @@
                     <img src="imgs/9106ODkR7mL._AC_UL210_SR195,210_.jpg" alt="">
                 </div>
                 <div class="book_list">
-                    
+
                 </div>
             </div>
             <!-- Quang cao -->
@@ -71,9 +76,11 @@
     <div class="page_user">
         user
         <div class="header">
-            <div class="header__logo"><img src="imgs/z3831890468351_45333935c0e299fa10d84f99f8dee53f.jpg" alt="PBDTbooks-logo"></div>
+            <div class="header__logo"><img src="imgs/z3831890468351_45333935c0e299fa10d84f99f8dee53f.jpg"
+                    alt="PBDTbooks-logo"></div>
             <div class="header__findbar">
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text" required>
+                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
+                    required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
             <div class="header__rightmenu">
@@ -91,20 +98,22 @@
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
                 <div class="genres__item" id="genres__item">
-                    <h2 style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">Genres</h2>
+                    <h2
+                        style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">
+                        Genres</h2>
                 </div>
                 <!-- Các thao tác thêm sửa xoá -->
                 <div class="addf">
-                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder= "Thêm thể loại +">
+                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder="Thêm thể loại +">
                     <button type="submit" onclick="addgenres()" name="addg" id="addg">Add</button>
                 </div>
                 <div class="addf">
-                    <input type="text" name="delete_genre" id="delete_genre" placeholder= "Xoá thể loại -">
-                    <button type="submit" onclick="addgenres()" class="addg"name="addg" id="addg">Delete</button>
+                    <input type="text" name="delete_genre" id="delete_genre" placeholder="Xoá thể loại -">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Delete</button>
                 </div>
                 <div class="addf">
-                    <input type="text" name="modify_genre" id="modify_genre" placeholder= "Thay đổi thể loại <>">
-                    <button type="submit" onclick="addgenres()" class="addg"name="addg" id="addg">Modify</button>
+                    <input type="text" name="modify_genre" id="modify_genre" placeholder="Thay đổi thể loại <>">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Modify</button>
                 </div>
             </div>
             <!-- Danh sach san pham -->
@@ -113,7 +122,7 @@
                     <img src="imgs/9106ODkR7mL._AC_UL210_SR195,210_.jpg" alt="">
                 </div>
                 <div class="book_list">
-                    
+
                 </div>
             </div>
             <!-- Quang cao -->

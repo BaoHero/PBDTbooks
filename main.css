@@ -1,0 +1,194 @@
+html,body{
+    border: 1px white solid;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+/* Thiết lập cho mấy thẻ div cơ bản trước */
+.header{
+    border: 1px rgb(30, 29, 29) solid;
+    width: 100%;
+    height: 8%;
+    float: left;
+    background-color: rgb(37, 36, 36);
+}
+.head{
+    border: 1px rgb(2, 70, 102) solid;
+    width: 100%;
+    height: 5%;
+    float: left;
+    background-color: rgb(2, 70, 102);
+}
+.headoption{
+    color: aliceblue;
+    border: 1px rgb(168, 162, 162) solid;
+    width: 100%;
+    height: 4%;
+    float: left;
+    background-color: rgb(168, 162, 162);
+    padding-left: 1%;
+    padding-bottom: 10px;
+}
+/* Đây là cái chứa tiêu đề đó */
+.name{
+    border: 1px white solid;
+    width: 100%;
+    height: 5%;
+    float: left;
+    background-color: white;
+}
+.right{
+    border: 1px rgb(156, 153, 153) solid;
+    width: 10%;
+    height: 200%;
+    float: left;
+    box-sizing: border-box;
+    border-top-color: white;
+    border-left-color: white ;
+}
+.mid{
+    border: 1px white solid;
+    width: 90%;
+    height: 200%;
+    float: left;
+    box-sizing: border-box;
+}
+.Back{
+    color: aliceblue;
+    border: 1px rgb(35, 35, 38) solid;
+    width: 100%;
+    height: 4%;
+    float: left;
+    background-color: rgb(35, 35, 38);
+    cursor: pointer;
+}
+/* Đổi màu cái nút Back to top */
+.Back:hover{
+    background-color: white;
+    color: orange;
+}
+.end{
+    border: 1px rgb(62, 62, 194) solid;
+    width: 100%;
+    height: 30%;
+    clear: both;
+    background-color: rgb(62, 62, 194);
+}
+/* Bắt đầu chỉnh mấy ảnh chèn dô */
+#logo {
+    margin-left: 1%;
+    height: 100%;
+    width: 4%;
+    object-fit: contain;
+    float: left;
+}
+#logo2{
+    float: left;
+    margin-left: 2%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#logo3{
+    width: 2%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 1%;
+    cursor: pointer;
+}
+#logo4{
+    width: 4%;
+    float: right;
+    margin-right: 1%;
+    cursor: pointer;
+}
+/* Khung tìm kiếm */
+.find{
+    border: 1px blue solid;
+    width: 60%;
+    height: 40%;
+    margin-left: 5%;
+    float: left;
+    display: flow-root;
+    margin-top: 25px;
+}
+/* Này là chỉnh 5 mục Tất cả , trang chủ ,... */
+.OptionHead{
+    margin-top: 11px;
+}
+.OH{
+    text-align: center;
+    width: 5%;
+    height: 30px;
+    color: white;
+    border: 1px black solid ;
+    display: inline-block;
+    background-color: rgb(23, 22, 22);
+    margin-left: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.OH:hover{
+    background-color: aliceblue;
+    color: orange;
+}
+/* Chỉnh tiêu đề */
+.name h1{
+    font-size: 40px;
+    color: red;
+    text-align: center;
+}
+/* Chỉnh cái hình to */
+.pic #logo5{
+    margin-top: 1%;
+    margin-left: 15%;
+    width: 60%;  
+}
+/* Chỉnh cái danh sách bên trái */
+.List{
+    font-size: 20px;
+}
+.type{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px black solid ;
+    width: 80%;
+    height: 40px;
+    padding-top: 7px;
+    text-align: center;
+    cursor: pointer;
+}
+.type:hover{
+    background-color: orange ;
+    color: white;
+}
+/* Chỉnh ô kết thúc */
+.end p{
+    color: aliceblue;
+    margin-top: 14%;
+    text-align: center;
+}
+.mid h1{
+    font-size: 50px;
+    margin-left: 3%;
+}
+
+/* Chỉnh khi thu nhỏ màn hình */
+@media only screen and (max-width :2170px){
+    .head{
+        height: 20%;
+    }
+    .OH{
+        padding-left: 5px;
+        text-align: left;
+        width: 20%;
+        margin-top :5px ;
+        position: static;
+        display: block;
+    }
+    .type{
+        padding-top: 20%;
+        height: 80px;
+        position: static;
+    }
+}

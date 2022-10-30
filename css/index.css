@@ -20,20 +20,21 @@
 
 .header {
     display: flex;
-    height: 50px;
+    height: 80px;
     width: 100%;
     background-color: #131921;
 }
 
 .header .header__logo img {
-    width: 35%;
+    width: 50%;
     border: 1px solid orange;
     height: 100%;
+    
 }
 
 .header .header__logo {
     width: 10%;
-    height: 50px;
+    height: 80px;
 }
 
 .header__findbar {
@@ -41,7 +42,7 @@
     border-radius: 1px;
     border-color: coral;
     background-color: #131921;
-    margin: 5px auto;
+    margin: 16px auto;
     display: flex;
 }
 
@@ -65,7 +66,7 @@
 }
 
 .header__rightmenu div {
-    margin: 5px auto;
+    margin: 16px auto;
 }
 
 .header__rightmenu div img {
@@ -73,10 +74,10 @@
     height: 100%;
 }
 
-#signin,
-#repo {
-    padding: 10px;
+#signin,#repo {
+    padding: 15px;
     font-size: 15px;
+    
 }
 
 .header_2 {

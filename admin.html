@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
-
-<body class="background">
-    <button type="button" onclick="handle_signin()" class="admin_user">admin_user</button>
-
-    <!-- trang user -->
-
-    <div id="page_user" class="page_user">
-        user
+<body>
+    <div id="page_admin" class="page_admin">
+        admin
         <div class="header">
             <div class="header__logo"><img src="imgs/LOGO.png"
                     alt="PBDTbooks-logo"></div>
@@ -26,10 +21,9 @@
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
             <div class="header__rightmenu">
-                <div></div>
-                <div id="signin" name="signin"><a href="signin.html" onclick="dangnhap()">Đăng Nhập</a></div>
-                <div><button name="repo" id="repo"><i class="fas fa-cart-plus"></i></button></div>
-                
+
+                           
+                <div><img src="imgs/imageDHSG.jfif" alt=""></div>
             </div>
         </div>
         <div class="header_2">
@@ -43,6 +37,19 @@
                     <h2
                         style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">
                         Genres</h2>
+                </div>
+                <!-- Các thao tác thêm sửa xoá -->
+                <div class="addf">
+                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder="Thêm thể loại +">
+                    <button type="submit" onclick="addgenres()" name="addg" id="addg">Add</button>
+                </div>
+                <div class="addf">
+                    <input type="text" name="delete_genre" id="delete_genre" placeholder="Xoá thể loại -">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Delete</button>
+                </div>
+                <div class="addf">
+                    <input type="text" name="modify_genre" id="modify_genre" placeholder="Thay đổi thể loại <>">
+                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Modify</button>
                 </div>
             </div>
             <!-- Danh sach san pham -->
@@ -59,7 +66,5 @@
         </div>
         <div class="footer"></div>
     </div>
-    <script src="js/index.js"></script>
 </body>
-
 </html>

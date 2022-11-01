@@ -11,11 +11,13 @@ function handle_signin(){
     b = document.getElementById("page_user");
     console.log(a.style.display);
     console.log(b.style.display);
-    if(a.style.display="none"){
+    none = "none";
+    block = "block";
+    if(a.style.display == "none"){
         a.style.display = "block";
         b.style.display = "none";
     }
-    else if(a.style.display = "block"){
+    else {
         a.style.display = "none";
         b.style.display = "block";
     }

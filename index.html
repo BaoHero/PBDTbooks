@@ -23,7 +23,6 @@
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
             <div class="header__rightmenu">
-                <div><button type="button" onclick="test()">hel</button></div>
                 <div ><button class="signbt" id="signin" name="signin" type="button" onclick="dangnhap()">Đăng Nhập</button></div>
                 <div><button name="repo" id="repo"><i class="fas fa-cart-plus"></i></button></div>                
             </div>
@@ -53,32 +52,32 @@
             <!-- Quang cao -->
             <div class="body__advertisement"></div>
         </div>
-        <div class="form_sin" id="form_sin" name="form_sin">     
-            <form action="index.html" id="form" name="container" class="form" onsubmit="handle_account()">
-                <div class="signin_container">
-                    <h2>ĐĂNG NHẬP:</h2>
-                    <button class="hide_button"  id="hide_signin"><div onclick="hide_signin()" class="fa fa-times"></div></button>
-                    <hr>              
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" placeholder="Nhập email của bạn:" required>
-                    <label for="psw"><br>Mật khẩu: </label>
-                    <input type="password" name="psw" id="psw" placeholder="Nhập mật khẩu của bạn:" required>
-                    <label for="showpsw"><br>Hiển thị mật khẩu</label>
-                    <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password()">               
-                    <input type="submit" name="subm" id="subm" value="Đăng nhập">
-                    <hr>
-                    <small>Nếu bạn chưa có tài khoản.
-                        Vui lòng <a href="signup.html">Đăng ký</a>.
-                    </small>
-                </div>    
-            </form>
-            
-        </div>
+
         <div class="footer">
 
         </div>
     </div>
-<div id="hello">hello</div>
+    <div class="form_sin" id="form_sin" name="form_sin">     
+        <form action="index.html" id="form" name="container" class="form" onsubmit="handle_account()">
+            <div class="signin_container">
+                <h2>ĐĂNG NHẬP:</h2>
+                <button type="button" class="hide_button"  id="hide_signin" onclick="closedn()" ><div class="fa fa-times"></div></button>
+                <hr>              
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="Nhập email của bạn:" required>
+                <label for="psw"><br>Mật khẩu: </label>
+                <input type="password" name="psw" id="psw" placeholder="Nhập mật khẩu của bạn:" required>
+                <label for="showpsw"><br>Hiển thị mật khẩu</label>
+                <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password()">               
+                <input type="submit" name="subm" id="subm" value="Đăng nhập">
+                <hr>
+                <small>Nếu bạn chưa có tài khoản.
+                    Vui lòng <a href="signup.html">Đăng ký</a>.
+                </small>
+            </div>    
+        </form>
+        
+    </div>
 </body>
 
 </html>

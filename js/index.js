@@ -7,8 +7,8 @@ const book = {
 genres = ["Hành động", "Phiêu lưu", "Xuyên Không"];
 
 function handle_signin(){
-    a = document.getElementById("page_admin");
-    console.log(a.style.display);
+    var a = document.getElementById("page_admin");
+    
     if(a.style.display == "none"){
         a.style.display = "block";
     }
@@ -17,14 +17,16 @@ function handle_signin(){
     }
 }
 function dangnhap(){
-    document.getElementById("form_sin").style.display = "flex";
+    var a = document.getElementById("form_sin");
+    a.style.display = "flex";
+    var b = document.getElementById("page_user");
+    b.style.opacity = 0.25;
 }
-function hide_signin(){
-    console.log("hi");
-    a = document.getElementById("page_user");
-    if(a.style.display == "block"){
-        a.style.display = "none";
-    }
+function closedn(){
+    var a = document.getElementById("form_sin");
+    a.style.display = "none";
+    var b = document.getElementById("page_user");
+    b.style.opacity = 1;
 }
 function addgenres(){
     console.log(genres.length);
@@ -56,8 +58,4 @@ function show_password(){
     else{
         a.setAttribute("type","password");
     }
-}
-function test(){
-    a = document.getElementById("hello");
-    console.log(a.style.display);
 }

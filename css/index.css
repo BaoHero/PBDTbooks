@@ -231,7 +231,7 @@ html {
   background-color: white;
   width: 100%;
   position: relative;
-  border: #131921 solid 1px;
+  border: #959aa1 solid 0.1px;
 }
 .signin_container {
   padding: 20px;
@@ -287,8 +287,4 @@ html {
   text-align: center;
   border: none;
   background-color: red;
-}
-#hello{
-  color:red;
-  display: block;
 }

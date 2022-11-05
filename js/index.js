@@ -8,18 +8,22 @@ genres = ["Hành động", "Phiêu lưu", "Xuyên Không"];
 
 function handle_signin(){
     a = document.getElementById("page_admin");
-    b = document.getElementById("page_user");
     console.log(a.style.display);
-    console.log(b.style.display);
-    none = "none";
-    block = "block";
     if(a.style.display == "none"){
         a.style.display = "block";
-        b.style.display = "none";
     }
     else {
         a.style.display = "none";
-        b.style.display = "block";
+    }
+}
+function dangnhap(){
+    document.getElementById("form_sin").style.display = "flex";
+}
+function hide_signin(){
+    console.log("hi");
+    a = document.getElementById("page_user");
+    if(a.style.display == "block"){
+        a.style.display = "none";
     }
 }
 function addgenres(){
@@ -43,4 +47,17 @@ function addgenres(){
     for(i = 0 ; i < genres.length;i++){
         console.log(genres[i]);
     }
+}
+function show_password(){
+    a=document.getElementById("psw");
+    b = document.getElementById("showpsw");
+    if(b.checked == true)
+        a.setAttribute("type","text");
+    else{
+        a.setAttribute("type","password");
+    }
+}
+function test(){
+    a = document.getElementById("hello");
+    console.log(a.style.display);
 }

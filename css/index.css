@@ -9,30 +9,23 @@ html {
 }
 
 .page_admin {
-<<<<<<< HEAD
     width: 100%;
     max-height: max-content;
     display: block;
 }
-
 .page_user {
+    position: fixed;
     width: auto;
     max-height: max-content;
     display: block;
-=======
-  width: 100%;
-  max-height: max-content;
-  display: none;
-}
-
-.page_user {
-  width: auto;
-  max-height: max-content;
->>>>>>> f98a9e72b509085e58f954effb59853fac572c0b
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
 }
 
 .admin_user {
-  width: fit-content;
+  width: 100%;
   height: 30px;
 }
 
@@ -44,15 +37,9 @@ html {
 }
 
 .header .header__logo img {
-<<<<<<< HEAD
     width: 50%;
     
     height: 100%;
-=======
-  /* width: 50%; */
-  /* border: 1px solid orange; */
-  height: 80%;
->>>>>>> f98a9e72b509085e58f954effb59853fac572c0b
 }
 
 .header .header__logo {
@@ -102,25 +89,19 @@ html {
   height: 100%;
 }
 
-<<<<<<< HEAD
 #signin,#repo {
     padding: 15px;
     font-size: 15px;
 }
+#repo{
+  background-color: #f2f3ab;
+  border-radius: 5px;
+}
 #signin{
     border-radius: 4px;
-    background-color: #e3e634;
-}
-#signin a{
-    text-decoration: none;
-    font-size: larger;
-=======
-#signin,
-#repo {
-  padding: 15px;
-  font-size: 15px;
-  border-radius: 5px;
->>>>>>> f98a9e72b509085e58f954effb59853fac572c0b
+    background-color: #f2f3ab;
+    border: none;
+    font-size: large;
 }
 
 .header_2 {
@@ -234,9 +215,80 @@ html {
 }
 
 .background {
-<<<<<<< HEAD
     margin: 0;
-=======
-  margin: 0;
->>>>>>> f98a9e72b509085e58f954effb59853fac572c0b
+}
+
+.form_sin{
+  position: fixed;
+  top: 20%;
+  bottom: 20%;
+  left: 30%;
+  right: auto;
+  width: 40%;
+  display: none;
+}
+.form{
+  background-color: white;
+  width: 100%;
+  position: relative;
+  border: #131921 solid 1px;
+}
+.signin_container {
+  padding: 20px;
+  display: block;
+}
+.signin_container input[type=text], input[type=password]{
+  width: 80%;
+  margin:20px;
+  padding: 12px;
+  border:none;
+  background-color: #f1f1f1;
+}
+.signin_container input[type=text]{
+  margin-left:46px;
+}
+.signin_container input[type=text],input[type=password]:focus{
+  outline: none;
+}
+.signin_container input[type=checkbox]{
+  margin:25px 20px 30px 10px;
+  width: 15px;
+}
+.signin_container input[type=submit]{
+  margin: 20px 0 20px 0;
+  width: 100%;
+  padding: 10px;
+  background-color: lightgreen;
+  border:none;
+  opacity: 0.5;
+}
+.signin_container input[type=submit]:hover{
+  opacity: 1;
+}
+.signin_container small{
+  margin-top: 20px;
+  font-size: 15px;
+}
+.signin_container a{
+  text-decoration: none;
+  color: dodgerblue;
+}
+.signin_container hr{
+  opacity: 0.5;
+  margin-bottom: 25px;
+  margin-top: 20px;
+}
+.hide_button{
+  width: 50px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 25px;
+  text-align: center;
+  border: none;
+  background-color: red;
+}
+#hello{
+  color:red;
+  display: block;
 }

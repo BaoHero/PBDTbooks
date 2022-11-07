@@ -88,20 +88,28 @@ html {
   width: 100%;
   height: 100%;
 }
-
+.infor_user{
+  border-radius: 5px;
+  border: 1px solid #131921;
+  text-decoration: solid;
+  text-align: center;
+  background-color: #f2f3ab;
+}
+.fa-user-check{
+  padding: 15px;
+}
 #signin,#repo {
     padding: 15px;
-    font-size: 15px;
+   
 }
 #repo{
   background-color: #f2f3ab;
   border-radius: 5px;
 }
-#signin{
+.signbt{
     border-radius: 4px;
     background-color: #f2f3ab;
     border: none;
-    font-size: large;
 }
 
 .header_2 {
@@ -217,52 +225,56 @@ html {
 .background {
     margin: 0;
 }
-
-.form_sin{
+.form_sin_up{
   position: fixed;
-  top: 20%;
-  bottom: 20%;
+  top: 10%;
+  bottom:20%;
   left: 30%;
   right: auto;
   width: 40%;
   display: none;
 }
-.form{
+
+.form_sin_up form{
   background-color: white;
   width: 100%;
   position: relative;
-  border: #959aa1 solid 0.1px;
+  
 }
 .signin_container {
+  border: #959aa1 solid 0.1px;
   padding: 20px;
   display: block;
 }
 .signin_container input[type=text], input[type=password]{
-  width: 80%;
+  width: 92%;
   margin:20px;
   padding: 12px;
   border:none;
   background-color: #f1f1f1;
 }
-.signin_container input[type=text]{
-  margin-left:46px;
+.signup_more{
+  background-color: antiquewhite;
+  text-align: center;
+  padding: 10px;
+  height: max-content;
 }
 .signin_container input[type=text],input[type=password]:focus{
   outline: none;
 }
 .signin_container input[type=checkbox]{
   margin:25px 20px 30px 10px;
-  width: 15px;
+  width: 12px;
 }
-.signin_container input[type=submit]{
+.signin_container input[type=submit],input[type=button]{
   margin: 20px 0 20px 0;
   width: 100%;
   padding: 10px;
-  background-color: lightgreen;
+  background-color: greenyellow;
   border:none;
   opacity: 0.5;
 }
-.signin_container input[type=submit]:hover{
+.signin_container input[type=submit],input[type=button]:hover{
   opacity: 1;
 }
 .signin_container small{

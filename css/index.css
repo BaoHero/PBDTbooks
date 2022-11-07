@@ -87,6 +87,7 @@ html {
 .header__rightmenu div img {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .infor_user{
   border-radius: 5px;
@@ -94,6 +95,17 @@ html {
   text-decoration: solid;
   text-align: center;
   background-color: #f2f3ab;
+  position: absolute;
+  left: 63%;
+}
+.admin_button{
+  position: absolute;
+  left: 60%;
+}
+.fa-pencil-alt{
+  padding: 15px;
+  color: white;
+  font-size: larger;
 }
 .fa-user-check{
   padding: 15px;
@@ -105,11 +117,18 @@ html {
 #repo{
   background-color: #f2f3ab;
   border-radius: 5px;
+  position: absolute;
+  right: 2%;
+}
+#repo i{
+  font-size: large;
 }
 .signbt{
     border-radius: 4px;
     background-color: #f2f3ab;
     border: none;
+    position: absolute;
+    right:6%;
 }
 
 .header_2 {
@@ -121,7 +140,6 @@ html {
   font-size: 12px;
   line-height: 12px;
 }
-
 #left-menu {
   color: #ffffff;
   background-color: #232f3e;

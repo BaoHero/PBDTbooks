@@ -24,9 +24,10 @@
             </div>
             <div class="header__rightmenu">
                 <div class="admin_button" id="admin_button"></div>
-                <div class="infor_user"><i class="fas fa-user-check" id="infor_user">nguyenthinhphat</i></div>
-                <div><button class="signbt" id="signin" name="signin" type="button" onclick="openf('form_sin')">Đăng Nhập</button></div>
-                <div><button name="repo" id="repo"><i class="fas fa-cart-plus"></i></button></div>                
+                <div class="infor_user" id="infor_user"></div>
+                <div><i id="signin" class="fas fa-user-ninja signbt   " name="signin" type="button" onclick="openf('form_sin')">Đăng Nhập</i></div>
+                
+                <div><i id="repo" class="fas fa-cart-plus"></i></button></div>                
             </div>
         </div>
         <div class="header_2">
@@ -66,12 +67,12 @@
                 <button type="button" class="hide_button"  id="hide_signin" onclick="closef('form_sin')" ><div class="fa fa-times"></div></button>
                 <hr>              
                 <label for="email_sin">Email:</label>
-                <input type="text" name="email" id="email_sin" placeholder="Nhập email của bạn:" required>
+                <input type="text" name="email_sin" id="email_sin" placeholder="Nhập email của bạn:" required>
                 <label for="psw_sin"><br>Mật khẩu: </label>
                 <input type="password" name="psw_sin" id="psw_sin" placeholder="Nhập mật khẩu của bạn:" required>
                 <label for="showpsw"><br>Hiển thị mật khẩu</label>
                 <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password()">               
-                <input type="button" name="subm" id="subm" value="Đăng nhập" >
+                <input type="button" name="subm" id="subm" value="Đăng nhập" onclick="handle_signin()">
                 <hr>
             </div> 
             <div class="signin_container signup_more">

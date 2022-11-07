@@ -17,6 +17,14 @@ function closef(st){
     var b = document.getElementById("page_user");
     b.style.opacity = 1;
 }
+function closeb(st){
+    var a = document.getElementById(st);
+    a.style.display = "block";
+}
+function closeb(st){
+    var a = document.getElementById(st);
+    a.style.display = "none";
+}
 function addgenres(){
     console.log(genres.length);
     a = document.getElementById("add_genre").value;
@@ -59,23 +67,29 @@ function create_admin(){
 }
 
 function handle_signin(){
+    console.log("helooo");
     if(localStorage.getItem('User') == null){
         return false;
     }
     var userArray = JSON.parse(localStorage.getItem('User'));
-    var tk = document.getElementById("").value;
-    var mk = document.getElementById("psw").value;
-        
+    var tk = document.getElementById("email_sin").value;
+    var mk = document.getElementById("psw_sin").value;
+        var flat = 0;
     for(i = 0; i < userArray.length; i++){
         if(tk == userArray[i].username && mk == userArray[i].password){
-            closef('signin');
-            document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">'+userArray[i].fullname+'</i>'
-            
+            closeb('signin');
+            alert("bạn đã đăng nhập tài khoản " + tk);
+            document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">'+userArray[i].fullname+'</i>';
+            if(tk == 'admin' && mk == 'admin'){
+                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" onclick=""></i>';
+            }
+            flat = 1;
         }
-        else{
-            alert("sai tài khoản hoặc mật khẩu vui lòng nhập lại");
-            document.getElementById("signin_form").reset();
-        }
+    }
+    if(flat = 0){
+        alert("sai tài khoản hoặc mật khẩu vui lòng nhập lại");
+        document.getElementById("signin_form").reset();
+        return false;
     }
 }
 

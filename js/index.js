@@ -1,10 +1,12 @@
-const book = {
-    infor : "",
-    price: 0,
-    img :"",
-    genre:""
-};
 var userArray = [];
+function openb(st){
+    var a = document.getElementById(st);
+    a.style.display = "block";
+}
+function closeb(st){
+    var a = document.getElementById(st);
+    a.style.display = "none";
+}
 function openf(st){
     var a = document.getElementById(st);
     a.style.display = "flex";
@@ -17,13 +19,14 @@ function closef(st){
     var b = document.getElementById("page_user");
     b.style.opacity = 1;
 }
-function closeb(st){
-    var a = document.getElementById(st);
-    a.style.display = "block";
-}
-function closeb(st){
-    var a = document.getElementById(st);
-    a.style.display = "none";
+function show_password(){
+    a=document.getElementById("psw");
+    b = document.getElementById("showpsw");
+    if(b.checked == true)
+        a.setAttribute("type","text");
+    else{
+        a.setAttribute("type","password");
+    }
 }
 function addgenres(){
     console.log(genres.length);
@@ -75,14 +78,17 @@ function handle_signin(){
     var tk = document.getElementById("email_sin").value;
     var mk = document.getElementById("psw_sin").value;
         var flat = 0;
+    var am = "'page_admin'";
+    var us = "'page_user'";
     for(i = 0; i < userArray.length; i++){
         if(tk == userArray[i].username && mk == userArray[i].password){
             closeb('signin');
             alert("bạn đã đăng nhập tài khoản " + tk);
             document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">'+userArray[i].fullname+'</i>';
             if(tk == 'admin' && mk == 'admin'){
-                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" onclick=""></i>';
+                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="closeb('+us+') + openb('+am+')"></i>';
             }
+            closef("form_sin");
             flat = 1;
         }
     }
@@ -172,9 +178,9 @@ function adduser(){
         }
     }
 }
+function setting(){
+    
+}
 function test(){
-    var a = "+12";
-    console.log(a);
-    a = a[0] + " " + a[2];
-    console.log(a);
+    console.log("gi")
 }

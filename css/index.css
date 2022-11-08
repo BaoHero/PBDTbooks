@@ -11,7 +11,7 @@ html {
 .page_admin {
     width: 100%;
     max-height: max-content;
-    display: block;
+    display: none;
 }
 .page_user {
     position: fixed;

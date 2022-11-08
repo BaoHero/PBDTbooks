@@ -50,8 +50,8 @@ function addgenres(){
         console.log(genres[i]);
     }
 }
-function show_password(){
-    a=document.getElementById("psw");
+function show_password(st){
+    a=document.getElementById(st);
     b = document.getElementById("showpsw");
     if(b.checked == true)
         a.setAttribute("type","text");
@@ -63,8 +63,14 @@ function create_admin(){
     var a = "admin";
     if(localStorage.getItem('User') == null){
         alert("tk admin: admin mk: admin");
-        var user = {username:'admin',password:'admin',email:'ntp@gmail.com',fullname:'Nguyen Thinh Phat',address:'2 adv - P16 - Q8',phone:'01234' };
-        userArray.push(user);
+        var user1 = {username:'thinhphat',password:'admin',email:'ntp@gmail.com',fullname:'Nguyễn Thịnh Phát',address:'2 adv - P16 - Q8',phone:'012341' };
+        var user2 = {username:'quocdai',password:'admin',email:'lqd@gmail.com',fullname:'Lâm Quốc Đại',address:'2 adv - P16 - Q8',phone:'012342' };
+        var user3 = {username:'ducthang',password:'admin',email:'ddt@gmail.com',fullname:'Đào Đức Thắng',address:'2 adv - P16 - Q8',phone:'012343' };
+        var user4 = {username:'giabao',password:'admin',email:'tgb@gmail.com',fullname:'Trần Gia Bảo',address:'2 adv - P16 - Q8',phone:'012344' };
+        userArray.push(user1);
+        userArray.push(user2);
+        userArray.push(user3);
+        userArray.push(user4);
         localStorage.setItem('User',JSON.stringify(userArray));
     }
 }

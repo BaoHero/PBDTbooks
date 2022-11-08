@@ -91,7 +91,7 @@ function handle_signin(){
             closeb('signin');
             alert("bạn đã đăng nhập tài khoản " + tk);
             document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">'+userArray[i].fullname+'</i>';
-            if(tk == 'admin' && mk == 'admin'){
+            if(tk == 'thinhphat' || tk  == 'quocdai' || tk == 'giabao' || tk == 'ducthang' && mk == 'admin'){
                 document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="closeb('+us+') + openb('+am+')"></i>';
             }
             closef("form_sin");

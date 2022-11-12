@@ -1,4 +1,5 @@
 var userArray = [];
+var productArray = [];
 function openb(st) {
     var a = document.getElementById(st);
     a.style.display = "block";
@@ -191,8 +192,9 @@ function test() {
     console.log("gi")
 }
 
+//tao mang danh sach sach
 function createProduct() {
-    if (localStorage.getItem('product') === null) {
+    if (localStorage.getItem('product') == null) {
         var productArray = [
             // Superhero Comics & Graphic Novels
             { productId: 1001, author: 'Todd Mcfarlane', img: 'imgs/1001.webp', name: 'Spawn Compendium, Color Edition, Volume 1', price: 1000000 },
@@ -222,4 +224,14 @@ function createProduct() {
         ];
         localStorage.setItem('product', JSON.stringify(productArray));
     }
+}
+//ham hien thi sach
+function show_list() {
+    var productArray = JSON.parse(localStorage.getItem('product'));
+    var s = "";
+    for (i = 0; i < productArray.length; i++) {
+        var a = '<div class="books"><img src="' + productArray[i].img + '" class="image"><span class="book_name"><div class="name">' + productArray[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArray[i].author + '</div></span><div class="price">' + productArray[i].price + 'đ</div></div>';
+        s += a;
+    }
+    document.getElementById('show_list').innerHTML = s;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,21 +11,23 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <script src="js/index.js"></script>
 </head>
-<body class="background">
+
+<body>
     <!-- trang user -->
     <div id="page_user" class="page_user">
         <div class="header">
-            <div class="header__logo"><img src="imgs/LOGO.png"
-                    alt="PBDTbooks-logo"></div>
+            <div class="header__logo"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
             <div class="header__findbar">
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text" required>
+                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
+                    required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
             <div class="header__rightmenu">
                 <div class="admin_button" id="admin_button"></div>
                 <div class="infor_user" id="infor_user"></div>
-                <div><i id="signin" class="fas fa-user-ninja signbt   " name="signin" type="button" onclick="openf('form_sin')">Đăng Nhập</i></div>
-                <div><i id="repo" class="fas fa-cart-plus"></i></div>                
+                <div><i id="signin" class="fas fa-user-ninja signbt   " name="signin" type="button"
+                        onclick="openf('form_sin')">Đăng Nhập</i></div>
+                <div><i id="repo" class="fas fa-cart-plus"></i></div>
             </div>
         </div>
         <div class="header_2">
@@ -45,8 +48,8 @@
                 <div class="list__img">
                     <img src="imgs/9106ODkR7mL._AC_UL210_SR195,210_.jpg" alt="">
                 </div>
-                <div class="book_list">
-
+                <!-- hien thi sach -->
+                <div class="book_list" id="show_list">
                 </div>
             </div>
             <!-- Quang cao -->
@@ -59,13 +62,13 @@
     <!-- trang admin -->
     <div id="page_admin" class="page_admin">
         <div class="header">
-            <div class="header__logo"><img src="imgs/LOGO.png"
-                    alt="PBDTbooks-logo"></div>
+            <div class="header__logo"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
             <div class="header__findbar">
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text" required>
+                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
+                    required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
-            <div class="header__rightmenu">      
+            <div class="header__rightmenu">
                 <div></div>
             </div>
         </div>
@@ -111,60 +114,65 @@
         <div class="footer"></div>
     </div>
     <!-- form đăng nhập-->
-    <div class="form_sin_up" id="form_sin">     
-        <form action="#" id="signin_form" name="sign_form" class="form" method="get" onsubmit="return handle_signin()" >
+    <div class="form_sin_up" id="form_sin">
+        <form action="#" id="signin_form" name="sign_form" class="form" method="get" onsubmit="return handle_signin()">
             <div class="signin_container">
                 <h2>ĐĂNG NHẬP:</h2>
-                <button type="button" class="hide_button"  id="hide_signin" onclick="closef('form_sin')" ><div class="fa fa-times"></div></button>
-                <hr>              
+                <button type="button" class="hide_button" id="hide_signin" onclick="closef('form_sin')">
+                    <div class="fa fa-times"></div>
+                </button>
+                <hr>
                 <label for="email_sin">Email:</label>
                 <input type="text" name="email_sin" id="email_sin" placeholder="Nhập email của bạn:" required>
                 <label for="psw_sin"><br>Mật khẩu: </label>
                 <input type="password" name="psw_sin" id="psw_sin" placeholder="Nhập mật khẩu của bạn:" required>
                 <label for="showpsw"><br>Hiển thị mật khẩu</label>
-                <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password('psw_sin')">               
+                <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password('psw_sin')">
                 <input type="button" name="subm" id="subm" value="Đăng nhập" onclick="handle_signin()">
                 <hr>
-            </div> 
+            </div>
             <div class="signin_container signup_more">
                 <small>Nếu bạn chưa có tài khoản.
-                    Vui lòng <a onclick="closef('form_sin') + openf('form_sup')")>đăng ký</a>.
+                    Vui lòng <a onclick="closef('form_sin') + openf('form_sup')" )>đăng ký</a>.
                 </small>
-            </div>   
+            </div>
         </form>
     </div>
     <!-- form đăng ký -->
-    <div class="form_sin_up" id = "form_sup">
-        <form action="index.html" method="get" id ="signup_form" >
-          <div class="signin_container">
-            <button class="hide_button" onclick="closef('form_sup')" id="hide"><div class="fa fa-times"></div></button>
-            <h2 id ="t1" onclick="changet1()">ĐĂNG KÝ</h2>
-            <p>Điền vào form sau để tạo tài khoản.</p>
-            <hr>
-            <label for="email_sup"><b>Email</b></label>
-            <input type="text" placeholder="Nhập email" name="email_sup" id="email_sup" required>
-            <label for="usern"><b>Tài khoản:</b></label>
-            <input type="text" id="usern_sup" name="usern_sup" placeholder="Nhập username" required>
-            <label for="psw"><b>Mật khẩu:</b></label>
-            <input type="password" name="psw_sup" id="psw_sup" placeholder="Nhập mật khẩu" required>
-            <label for="psw_repeat"><b>Nhập lại mật khẩu</b></label>
-            <input type="password" name="psw_repeat" id="psw_repeat" placeholder="Repeat your password" required>
-            <label for="fullname"><b>Nhập họ và tên:</b></label>
-            <input type="text" id="fullname" name="fullname" placeholder="Họ và tên:">
-            <label for="rsbtn"><b><br>Làm mới thông tin:</b></label>
-            <input type="reset" name="rsbtn" id="rsbtn">
-            <hr>
-            <input type="submit" value="Đăng ký" >
-        </div>
-        <div class="signin_container signup_more">
-            <p>Nếu bạn đã có tài khoản? <a onclick="closef('form_sup') + openf('form_sin')">Đăng nhập</a>.</p>
-        </div>
-        </form>  
+    <div class="form_sin_up" id="form_sup">
+        <form action="index.html" method="get" id="signup_form">
+            <div class="signin_container">
+                <button class="hide_button" onclick="closef('form_sup')" id="hide">
+                    <div class="fa fa-times"></div>
+                </button>
+                <h2 id="t1" onclick="changet1()">ĐĂNG KÝ</h2>
+                <p>Điền vào form sau để tạo tài khoản.</p>
+                <hr>
+                <label for="email_sup"><b>Email</b></label>
+                <input type="text" placeholder="Nhập email" name="email_sup" id="email_sup" required>
+                <label for="usern"><b>Tài khoản:</b></label>
+                <input type="text" id="usern_sup" name="usern_sup" placeholder="Nhập username" required>
+                <label for="psw"><b>Mật khẩu:</b></label>
+                <input type="password" name="psw_sup" id="psw_sup" placeholder="Nhập mật khẩu" required>
+                <label for="psw_repeat"><b>Nhập lại mật khẩu</b></label>
+                <input type="password" name="psw_repeat" id="psw_repeat" placeholder="Repeat your password" required>
+                <label for="fullname"><b>Nhập họ và tên:</b></label>
+                <input type="text" id="fullname" name="fullname" placeholder="Họ và tên:">
+                <label for="rsbtn"><b><br>Làm mới thông tin:</b></label>
+                <input type="reset" name="rsbtn" id="rsbtn">
+                <hr>
+                <input type="submit" value="Đăng ký">
+            </div>
+            <div class="signin_container signup_more">
+                <p>Nếu bạn đã có tài khoản? <a onclick="closef('form_sup') + openf('form_sin')">Đăng nhập</a>.</p>
+            </div>
+        </form>
     </div>
     <script>
-        window.onload =function(){
-           adduser();
-
+        window.onload = function () {
+            adduser();
+            createProduct();
+            show_list();
         }
         create_admin();
     </script>

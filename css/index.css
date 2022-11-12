@@ -8,20 +8,28 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.page_admin {
-    width: 100%;
-    max-height: max-content;
-    display: none;
+body {
+  min-height: 2000px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+
+
+.page_admin {
+  width: 100%;
+  max-height: max-content;
+  display: none;
+}
+
 .page_user {
-    position: fixed;
-    width: auto;
-    max-height: max-content;
-    display: block;
-    top:0;
-    bottom:0;
-    left: 0;
-    right: 0;
+  /* position: fixed; */
+  width: auto;
+  max-height: max-content;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .admin_user {
@@ -37,9 +45,9 @@ html {
 }
 
 .header .header__logo img {
-    width: 50%;
-    
-    height: 100%;
+  width: 50%;
+
+  height: 100%;
 }
 
 .header .header__logo {
@@ -89,7 +97,8 @@ html {
   height: 100%;
   position: relative;
 }
-.infor_user{
+
+.infor_user {
   border-radius: 5px;
   border: 1px solid #131921;
   text-decoration: solid;
@@ -98,37 +107,45 @@ html {
   position: absolute;
   left: 63%;
 }
-.admin_button{
+
+.admin_button {
   position: absolute;
   left: 60%;
 }
-.fa-pencil-alt{
+
+.fa-pencil-alt {
   padding: 15px;
   color: white;
   font-size: larger;
 }
-.fa-user-check{
+
+.fa-user-check {
   padding: 15px;
 }
-#signin,#repo {
-    padding: 15px;
-   
+
+#signin,
+#repo {
+  padding: 15px;
+
 }
-#repo{
+
+#repo {
   background-color: #f2f3ab;
   border-radius: 5px;
   position: absolute;
   right: 2%;
 }
-#repo i{
+
+#repo i {
   font-size: large;
 }
-.signbt{
-    border-radius: 4px;
-    background-color: #f2f3ab;
-    border: none;
-    position: absolute;
-    right:6%;
+
+.signbt {
+  border-radius: 4px;
+  background-color: #f2f3ab;
+  border: none;
+  position: absolute;
+  right: 6%;
 }
 
 .header_2 {
@@ -140,6 +157,7 @@ html {
   font-size: 12px;
   line-height: 12px;
 }
+
 #left-menu {
   color: #ffffff;
   background-color: #232f3e;
@@ -150,10 +168,10 @@ html {
 
 .body {
   width: 100%;
-  height: 1000px;
   border: 1px solid red;
   display: flex;
   margin-top: 40px;
+
 }
 
 .body .body__genres {
@@ -176,13 +194,27 @@ html {
 }
 
 .book_list {
+  padding: 12px 0 32px 0;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
-.book {
-  width: 20%;
+.books {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+  object-fit: contain;
+  flex-direction: column;
+}
+
+img {
+  display: block;
 }
 
 .genres {
@@ -241,74 +273,90 @@ html {
 }
 
 .background {
-    margin: 0;
+  margin: 0;
 }
-.form_sin_up{
+
+.form_sin_up {
   position: fixed;
   top: 10%;
-  bottom:20%;
+  bottom: 20%;
   left: 30%;
   right: auto;
   width: 40%;
   display: none;
 }
 
-.form_sin_up form{
+.form_sin_up form {
   background-color: white;
   width: 100%;
   position: relative;
-  
+
 }
+
 .signin_container {
   border: #959aa1 solid 0.1px;
   padding: 20px;
   display: block;
 }
-.signin_container input[type=text], input[type=password]{
+
+.signin_container input[type=text],
+input[type=password] {
   width: 92%;
-  margin:20px;
+  margin: 20px;
   padding: 12px;
-  border:none;
+  border: none;
   background-color: #f1f1f1;
 }
-.signup_more{
+
+.signup_more {
   background-color: antiquewhite;
   text-align: center;
   padding: 10px;
   height: max-content;
 }
-.signin_container input[type=text],input[type=password]:focus{
+
+.signin_container input[type=text],
+input[type=password]:focus {
   outline: none;
 }
-.signin_container input[type=checkbox]{
-  margin:25px 20px 30px 10px;
+
+.signin_container input[type=checkbox] {
+  margin: 25px 20px 30px 10px;
   width: 12px;
 }
-.signin_container input[type=submit],input[type=button]{
+
+.signin_container input[type=submit],
+input[type=button] {
   margin: 20px 0 20px 0;
   width: 100%;
   padding: 10px;
   background-color: greenyellow;
-  border:none;
+  border: none;
   opacity: 0.5;
 }
-.signin_container input[type=submit],input[type=button]:hover{
+
+.signin_container input[type=submit],
+input[type=button]:hover {
   opacity: 1;
 }
-.signin_container small{
+
+.signin_container small {
   margin-top: 20px;
   font-size: 15px;
 }
-.signin_container a{
+
+.signin_container a {
   text-decoration: none;
   color: dodgerblue;
 }
-.signin_container hr{
+
+.signin_container hr {
   opacity: 0.5;
   margin-bottom: 25px;
   margin-top: 20px;
 }
-.hide_button{
+
+.hide_button {
   width: 50px;
   position: absolute;
   right: 0px;
@@ -317,4 +365,13 @@ html {
   text-align: center;
   border: none;
   background-color: red;
+}
+
+.author_name {
+  color: rgb(0, 38, 255);
+}
+
+.image {
+  max-width: 200px;
+  height: auto;
 }

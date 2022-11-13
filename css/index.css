@@ -51,8 +51,7 @@ body {
 }
 
 .header .header__logo {
-  width: 10%;
-  height: 80px;
+  width: 8%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +62,7 @@ body {
   border-radius: 1px;
   border-color: coral;
   background-color: #131921;
-  margin: 16px auto;
+  margin: 16px 16px 16px 190px ;
   display: flex;
 }
 
@@ -157,6 +156,9 @@ body {
   font-size: 12px;
   line-height: 12px;
 }
+.header_2 button {
+  cursor: pointer;
+}
 
 #left-menu {
   color: #ffffff;
@@ -168,7 +170,7 @@ body {
 
 .body {
   width: 100%;
-  border: 1px solid red;
+  border: 1px solid white;
   display: flex;
   margin-top: 40px;
 
@@ -176,23 +178,64 @@ body {
 
 .body .body__genres {
   width: 15%;
-  border: 1px solid greenyellow;
+  border-right : 1px solid gray ;
   display: block;
+}
+.body__genres .genres__item #genres_title {
+  color: blue ;
+  margin-top: 5%;
+  margin-left: 3%;
+}
+.genres__item ul {
+  margin-top: 20%;
 }
 
 .body .body__list {
   width: 65%;
 }
+.list__img img{
+  margin-top: 1%;
+  margin-left: 20%;
+  width: 60%;
+}
 
 .body .body__advertisement {
   width: 20%;
-  border: 1px solid yellow;
+  border: 1px solid white;
+}
+.body__genres .genres__item .Type {
+  margin-left: 5%;
+  width: 90%;
+  border: 1px solid black;
+  color: white ;
+  background-color: black;
+  cursor: pointer;
+}
+.body__genres .genres__item .Type:hover{
+  background-color: blue ;
+}
+#genres__item {
+  display: none;
+}
+#Off {
+  border-style:dotted;
+  color: #ffffff;
+  background-color: red;
+  cursor: pointer; 
+}
+.footer {
+  width: 100% ;
+  height: 200px ;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: rgb(12, 12, 90);
+}
+.body__advertisement img{
+  margin-top: 50%;
+  width: 90%;
 }
 
-.list__img {
-  background-color: orange;
-}
-
+/* Thiếp lập hiển thị cho sách */
 .book_list {
   padding: 12px 0 32px 0;
   display: flex;
@@ -201,17 +244,54 @@ body {
   justify-content: space-around;
   flex-direction: row;
 }
+.book_list_hero {
+  padding: 12px 0 32px 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
 
+}
+.book_list_mystery {
+  padding: 12px 0 32px 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.book_list_home {
+  margin-left: 1%;
+  padding: 12px 0 32px 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.book_list_com {
+  margin-left: 1%;
+  padding: 12px 0 32px 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+}
 .books {
+  margin-left: 1%;
   width: 30%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid white;
   cursor: pointer;
   object-fit: contain;
   flex-direction: column;
+  float: left;
 }
+
 
 img {
   display: block;

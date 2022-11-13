@@ -31,32 +31,52 @@
             </div>
         </div>
         <div class="header_2">
-            <div><button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "></i></button></div>
+            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars " onclick="batmenu()"></i></button>
         </div>
         <div class="body">
             <!-- The loai -->
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
                 <div class="genres__item" id="genres__item">
-                    <h2
-                        style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">
-                        Genres</h2>
+                   <h1 id="genres_title">DANH SÁCH THỂ LOẠI</h1>
+                   <ul>
+                     <li><input type="button" class="Type" value="Tất cả" onclick="show_list()"></li>
+                     <li><input type="button" class="Type" value="Truyện tranh và tiểu thuyết" onclick="Hero_Novel()"></li>
+                     <li><input type="button" class="Type" value="Huyền ảo và Kinh dị" onclick="Mystery()"></li>
+                     <li><input type="button" class="Type" value="Cuộc sống" onclick="home()"></li>
+                     <li><input type="button" class="Type" value="Khoa học công nghệ" onclick="Computer()"></li>
+                   </ul>
+                   <input type="button" id="Off" value="Close" onclick="tatmenu()">
                 </div>
+                
             </div>
+
             <!-- Danh sach san pham -->
             <div class="body__list">
                 <div class="list__img">
-                    <img src="imgs/9106ODkR7mL._AC_UL210_SR195,210_.jpg" alt="">
+                    <img src="imgs/anh-bia-facebook-co-nhung-nguoi-xuat-hien-trong-cuoc-doi-de-_adlfN_095941518.jpg" alt="">
                 </div>
                 <!-- hien thi sach -->
                 <div class="book_list" id="show_list">
                 </div>
+                <div class="book_list_hero" id="show_list_hero">
+                </div>
+                <div class="book_list_mystery" id="show_list_mystery">
+                </div>
+                <div class="book_list_home" id="show_list_home">
+                </div>
+                <div class="book_list_com" id="show_list_com">
+                </div>
+                
+
             </div>
             <!-- Quang cao -->
-            <div class="body__advertisement"></div>
+            <div class="body__advertisement">
+                <img src="imgs/tumblr_static_-511703865-content_2048_v2.jpg" alt="">
+            </div>
         </div>
 
-        <div class="footer">
+        <div class="footer"> 
         </div>
     </div>
     <!-- trang admin -->
@@ -111,7 +131,8 @@
             <div class="body__advertisement"></div>
         </div>
 
-        <div class="footer"></div>
+        <div class="footer"> 
+        </div>
     </div>
     <!-- form đăng nhập-->
     <div class="form_sin_up" id="form_sin">
@@ -173,6 +194,8 @@
             adduser();
             createProduct();
             show_list();
+            
+            
         }
         create_admin();
     </script>

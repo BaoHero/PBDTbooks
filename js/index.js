@@ -92,6 +92,7 @@ function handle_signin() {
             closeb('signin');
             alert("bạn đã đăng nhập tài khoản " + tk);
             document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + userArray[i].fullname + '</i>';
+            openf('logout');
             if (tk == 'thinhphat' || tk == 'quocdai' || tk == 'giabao' || tk == 'ducthang' && mk == 'admin') {
                 document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="closeb(' + us + ') + openb(' + am + ')"></i>';
             }
@@ -105,7 +106,9 @@ function handle_signin() {
         return false;
     }
 }
-
+function reload_site(){
+    location.reload();
+}
 function adduser() {
     var a = window.location.href;
     if (a.indexOf("?") == -1) {

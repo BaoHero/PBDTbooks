@@ -1,5 +1,6 @@
 var userArray = [];
 var productArray = [];
+var genresArray = []
 function openb(st) {
     var a = document.getElementById(st);
     a.style.display = "block";
@@ -10,7 +11,7 @@ function closeb(st) {
 }
 function openf(st) {
     var a = document.getElementById(st);
-    a.style.display = "flex";
+    a.style.display = "block";
     var b = document.getElementById("page_user");
     b.style.opacity = 0.25;
 }
@@ -92,7 +93,7 @@ function handle_signin() {
             closeb('signin');
             alert("bạn đã đăng nhập tài khoản " + tk);
             document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + userArray[i].fullname + '</i>';
-            openf('logout');
+            openb('logout');
             if (tk == 'thinhphat' || tk == 'quocdai' || tk == 'giabao' || tk == 'ducthang' && mk == 'admin') {
                 document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="closeb(' + us + ') + openb(' + am + ')"></i>';
             }
@@ -188,179 +189,95 @@ function adduser() {
         }
     }
 }
-function setting() {
-
-}
-function test() {
-    console.log("gi")
-}
-
 //tao mang danh sach sach
+var productArray =[]
 function createProduct() {
     if (localStorage.getItem('product') == null) {
-        var productArray = [
-            // Superhero Comics & Graphic Novels
-            { productId: 1001, author: 'Todd Mcfarlane', img: 'imgs/1001.webp', name: 'Spawn Compendium, Color Edition, Volume 1', price: 1000000 },
-            { productId: 1002, author: 'Sam Hamm', img: 'imgs/1002.webp', name: 'Batman 89', price: 400000 },
-            { productId: 1003, author: 'Ryan north', img: 'imgs/1003.jpg', name: 'Fantastic Four (2022-)', price: 100000 },
-            { productId: 1004, author: 'Stan Lee', img: 'imgs/1004.webp', name: 'Doctor Doom: The Book Of Doom Omnibus', price: 1750000 },
-            { productId: 1005, author: 'Brian Michael Bendis', img: 'imgs/1005.jpg', name: 'Avengers Vs. X-Men Omnibus', price: 2200000 },
+            productArray = [
+            // Comics & Graphic Novels
+            { productId: 1001, genresId:'CGN', author: 'Todd Mcfarlane', img: 'imgs/1001.webp', name: 'Spawn Compendium, Color Edition, Volume 1', price: 1000000 },
+            { productId: 1002, genresId:'CGN', author: 'Sam Hamm', img: 'imgs/1002.webp', name: 'Batman 89', price: 400000 },
+            { productId: 1003, genresId:'CGN', author: 'Ryan north', img: 'imgs/1003.jpg', name: 'Fantastic Four (2022-)', price: 100000 },
+            { productId: 1004, genresId:'CGN', author: 'Stan Lee', img: 'imgs/1004.webp', name: 'Doctor Doom: The Book Of Doom Omnibus', price: 1750000 },
+            { productId: 1005, genresId:'CGN', author: 'Brian Michael Bendis', img: 'imgs/1005.jpg', name: 'Avengers Vs. X-Men Omnibus', price: 2200000 },
             // Mystery, thriller and suspense
-            { productId: 1006, author: 'Stephen King', img: 'imgs/1006.webp', name: 'Fairy Tale', price: 370000 },
-            { productId: 1007, author: 'Colleen Hoover', img: 'imgs/1007.webp', name: 'Verity', price: 210000 },
-            { productId: 1008, author: 'Ashley Flowers', img: 'imgs/1008.webp', name: 'All Good People Here: A Novel', price: 350000 },
-            { productId: 1009, author: 'Louise Penny', img: 'imgs/1009.jpg', name: 'A World of Curiosities: A Novel (Chief Inspector Gamache Novel, 18)', price: 420000 },
-            { productId: 10010, author: 'Laura Dave', img: 'imgs/10010.webp', name: 'The Last Thing He Told Me: A Novel', price: 230000 },
+            { productId: 1006, genresId:'MTS', author: 'Stephen King', img: 'imgs/1006.webp', name: 'Fairy Tale', price: 370000 },
+            { productId: 1007, genresId:'MTS', author: 'Colleen Hoover', img: 'imgs/1007.webp', name: 'Verity', price: 210000 },
+            { productId: 1008, genresId:'MTS', author: 'Ashley Flowers', img: 'imgs/1008.webp', name: 'All Good People Here: A Novel', price: 350000 },
+            { productId: 1009, genresId:'MTS', author: 'Louise Penny', img: 'imgs/1009.jpg', name: 'A World of Curiosities: A Novel (Chief Inspector Gamache Novel, 18)', price: 420000 },
+            { productId: 1010, genresId:'MTS', author: 'Laura Dave', img: 'imgs/10010.webp', name: 'The Last Thing He Told Me: A Novel', price: 230000 },
             //Crafts, Hobbies & Home
-            { productId: 10011, author: 'John Kanell', img: 'imgs/10011.webp', name: 'Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)', price: 400000 },
-            { productId: 10012, author: 'Coloring Book Cafe', img: 'imgs/10012.webp', name: 'Country Collection Coloring Book', price: 200000 },
-            { productId: 10013, author: 'Anthony William', img: 'imgs/10013.jpg', name: 'Medical Medium Brain Saver', price: 600000 },
-            { productId: 10014, author: 'Bridget Coloring Press', img: 'imgs/10014.webp', name: 'You Fucking Got This', price: 100000 },
-            { productId: 10015, author: 'KC Davis LPC', img: 'imgs/10015.jpg', name: 'How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ', price: 20000 },
+            { productId: 1011, genresId:'CHH', author: 'John Kanell', img: 'imgs/10011.webp', name: 'Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)', price: 400000 },
+            { productId: 1012, genresId:'CHH', author: 'Coloring Book Cafe', img: 'imgs/10012.webp', name: 'Country Collection Coloring Book', price: 200000 },
+            { productId: 1013, genresId:'CHH', author: 'Anthony William', img: 'imgs/10013.jpg', name: 'Medical Medium Brain Saver', price: 600000 },
+            { productId: 1014, genresId:'CHH', author: 'Bridget Coloring Press', img: 'imgs/10014.webp', name: 'You Fucking Got This', price: 100000 },
+            { productId: 1015, genresId:'CHH', author: 'KC Davis LPC', img: 'imgs/10015.jpg', name: 'How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ', price: 20000 },
             //Computers and Technology
-            { productId: 10016, author: 'Chris Miller', img: 'imgs/10016.jpg', name: 'Chip War: The Quest to Dominate the World\'s Most Critical Technology', price: 0 },
-            { productId: 10017, author: 'Martin Kleppmann', img: 'imgs/10017.webp', name: 'Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems', price: 460000 },
-            { productId: 10018, author: 'Eric Matthes', img: 'imgs/10018.webp', name: 'Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming', price: 430000 },
-            { productId: 10019, author: 'Gayle Laakmann McDowell', img: 'imgs/10019.webp', name: 'Cracking the Coding Interview: 189 Programming Questions and Solutions', price: 700000 },
-            { productId: 10020, author: 'Alex Xu', img: 'imgs/10020.webp', name: 'System Design Interview – An insider\'s guide', price: 710000 },
+            { productId: 1016, genresId:'CT', author: 'Chris Miller', img: 'imgs/10016.jpg', name: 'Chip War: The Quest to Dominate the World\'s Most Critical Technology', price: 0 },
+            { productId: 1017, genresId:'CT', author: 'Martin Kleppmann', img: 'imgs/10017.webp', name: 'Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems', price: 460000 },
+            { productId: 1018, genresId:'CT', author: 'Eric Matthes', img: 'imgs/10018.webp', name: 'Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming', price: 430000 },
+            { productId: 1019, genresId:'CT', author: 'Gayle Laakmann McDowell', img: 'imgs/10019.webp', name: 'Cracking the Coding Interview: 189 Programming Questions and Solutions', price: 700000 },
+            { productId: 1020, genresId:'CT', author: 'Alex Xu', img: 'imgs/10020.webp', name: 'System Design Interview – An insider\'s guide', price: 710000 },
 
         ];
         localStorage.setItem('product', JSON.stringify(productArray));
     }
 }
-//ham hien thi sach
+
+function createGenres(){
+    if(localStorage.getItem('genres') == null){
+        genresArray = [
+            {genres_name:'Comics & Graphic Novels',id:'CGN'},
+            {genres_name:'Mystery, thriller and suspense',id:'MTS'},
+            {genres_name:'Crafts, Hobbies & Home',id:'CHH'},
+            {genres_name:'Computers and Technology',id:'CT'}
+        ];
+        localStorage.setItem('genres',JSON.stringify(genresArray));
+    }
+}
+//hien thi danh sach the loai
+function show_genres(){
+    if (localStorage.getItem('genres') == null) {
+        return false;
+    }
+    var a = '';
+    genresArray = JSON.parse(localStorage.getItem('genres'));
+    for(i = 0; i < genresArray.length; i++){
+        a = a + '<a href="?genres='+genresArray[i].id+'" class="genres__item" id="'+genresArray[i].id+'">'+genresArray[i].genres_name+'</a>'
+    }
+    document.getElementById("genres__list").innerHTML += a;
+}
+//ham hien thi sach san pham
 function show_list() {
-    document.getElementById('show_list_hero').style.display='none';
-    document.getElementById('show_list_mystery').style.display='none';
-    document.getElementById('show_list_home').style.display='none';
-    document.getElementById('show_list_com').style.display='none';
-    var productArray = JSON.parse(localStorage.getItem('product'));
-    var s = "";
-    for (i = 0; i < productArray.length; i++) {
-        var a = '<div class="books"><img src="' + productArray[i].img + '" class="image"><span class="book_name"><div class="name">' + productArray[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArray[i].author + '</div></span><div class="price">' + productArray[i].price + 'đ</div></div>';
-        s += a;
+    if (localStorage.getItem('product') == null) {
+        return false;
     }
-    document.getElementById('show_list').innerHTML = s;
-    document.getElementById('show_list').style.display='block';
-}
-//Hiển thị loại sách mình muốn
-// Truyện tranh và tiểu thuyết
-function createProductHero() {
-    if (localStorage.getItem('producthero') == null) {
-        var productArrayHero = [
-            // Superhero Comics & Graphic Novels
-            { productId: 1001, author: 'Todd Mcfarlane', img: 'imgs/1001.webp', name: 'Spawn Compendium, Color Edition, Volume 1', price: 1000000 },
-            { productId: 1002, author: 'Sam Hamm', img: 'imgs/1002.webp', name: 'Batman 89', price: 400000 },
-            { productId: 1003, author: 'Ryan north', img: 'imgs/1003.jpg', name: 'Fantastic Four (2022-)', price: 100000 },
-            { productId: 1004, author: 'Stan Lee', img: 'imgs/1004.webp', name: 'Doctor Doom: The Book Of Doom Omnibus', price: 1750000 },
-            { productId: 1005, author: 'Brian Michael Bendis', img: 'imgs/1005.jpg', name: 'Avengers Vs. X-Men Omnibus', price: 2200000 },    
-        ];
-        localStorage.setItem('productHero', JSON.stringify(productArrayHero));
+    productArray = JSON.parse(localStorage.getItem('product'));
+    var a = getQueryVariable('genres');
+    var temp = '';
+    if(a != undefined){
+        for(i = 0; i < productArray.length;i++){
+            if(productArray[i].genresId == a){
+                var temp = temp + '<div id="'+productArray[i].productId+'"class="item"><div class="item__inside"><div class="img_book"><img src="'+productArray[i].img+'" alt=""></div><div class="book_name">'+productArray[i].name+'</div><div class="book_price"><span>$'+productArray[i].price+'</span></div></div></div>';
+            }
+        }
     }
-}
-function Hero_Novel(){
-    document.getElementById('show_list').style.display='none';
-    document.getElementById('show_list_mystery').style.display='none';
-    document.getElementById('show_list_home').style.display='none';
-    document.getElementById('show_list_com').style.display='none';
-    var productArrayHero = JSON.parse(localStorage.getItem('productHero'));
-    var s = "";
-    for (i = 0; i < productArrayHero.length; i++) {
-        var a = '<div class="books"><img src="' + productArrayHero[i].img + '" class="image"><span class="book_name"><div class="name">' + productArrayHero[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArrayHero[i].author + '</div></span><div class="price">' + productArrayHero[i].price + 'đ</div></div>';
-        s += a;
+    else{
+        for(i = 0; i < productArray.length;i++){           
+                var temp = temp + '<div id="'+productArray[i].productId+'"class="item"><div class="item__inside"><div class="img_book"><img src="'+productArray[i].img+'" alt=""></div><div class="book_name">'+productArray[i].name+'</div><div class="book_price"><span>$'+productArray[i].price+'</span></div></div></div>';
+        }
     }
-    document.getElementById('show_list_hero').innerHTML = s;
-    document.getElementById('show_list_hero').style.display='block';
+    document.getElementById("list__books").innerHTML = temp;
 }
-// Huyền ảo và kinh dị
-function createProductMystery() {
-    if (localStorage.getItem('productmystery') == null) {
-        var productArrayMystery = [
-            // Mystery, thriller and suspense
-            { productId: 1006, author: 'Stephen King', img: 'imgs/1006.webp', name: 'Fairy Tale', price: 370000 },
-            { productId: 1007, author: 'Colleen Hoover', img: 'imgs/1007.webp', name: 'Verity', price: 210000 },
-            { productId: 1008, author: 'Ashley Flowers', img: 'imgs/1008.webp', name: 'All Good People Here: A Novel', price: 350000 },
-            { productId: 1009, author: 'Louise Penny', img: 'imgs/1009.jpg', name: 'A World of Curiosities: A Novel (Chief Inspector Gamache Novel, 18)', price: 420000 },
-            { productId: 10010, author: 'Laura Dave', img: 'imgs/10010.webp', name: 'The Last Thing He Told Me: A Novel', price: 230000 }
-        ];
-        localStorage.setItem('productMystery', JSON.stringify(productArrayMystery));
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == variable) {
+        return decodeURIComponent(pair[1]);
+      }
     }
-}
-function Mystery(){
-    document.getElementById('show_list').style.display='none';
-    document.getElementById('show_list_hero').style.display='none';
-    document.getElementById('show_list_home').style.display='none';
-    document.getElementById('show_list_com').style.display='none';
-    var productArrayMystery = JSON.parse(localStorage.getItem('productMystery'));
-    var s = "";
-    for (i = 0; i < productArrayMystery.length; i++) {
-        var a = '<div class="books"><img src="' + productArrayMystery[i].img + '" class="image"><span class="book_name"><div class="name">' + productArrayMystery[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArrayMystery[i].author + '</div></span><div class="price">' + productArrayMystery[i].price + 'đ</div></div>';
-        s += a;
-    }
-    document.getElementById('show_list_mystery').innerHTML = s;
-    document.getElementById('show_list_mystery').style.display='block';
-}
-// Cuộc sống
-function createProductHome() {
-    if (localStorage.getItem('producthome') == null) {
-        var productArrayHome = [
-            //Crafts, Hobbies & Home
-            { productId: 10011, author: 'John Kanell', img: 'imgs/10011.webp', name: 'Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)', price: 400000 },
-            { productId: 10012, author: 'Coloring Book Cafe', img: 'imgs/10012.webp', name: 'Country Collection Coloring Book', price: 200000 },
-            { productId: 10013, author: 'Anthony William', img: 'imgs/10013.jpg', name: 'Medical Medium Brain Saver', price: 600000 },
-            { productId: 10014, author: 'Bridget Coloring Press', img: 'imgs/10014.webp', name: 'You Fucking Got This', price: 100000 },
-            { productId: 10015, author: 'KC Davis LPC', img: 'imgs/10015.jpg', name: 'How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ', price: 20000 }
-        ];
-        localStorage.setItem('producthome', JSON.stringify(productArrayHome));
-    }
-}
-function home() {
-    document.getElementById('show_list').style.display='none';
-    document.getElementById('show_list_hero').style.display='none';
-    document.getElementById('show_list_mystery').style.display='none';
-    document.getElementById('show_list_com').style.display='none';
-    var productArrayHome = JSON.parse(localStorage.getItem('producthome'));
-    var s = "";
-    for (i = 0; i < productArrayHome.length; i++) {
-        var a = '<div class="books"><img src="' + productArrayHome[i].img + '" class="image"><span class="book_name"><div class="name">' + productArrayHome[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArrayHome[i].author + '</div></span><div class="price">' + productArrayHome[i].price + 'đ</div></div>';
-        s += a;
-    }
-    document.getElementById('show_list_home').innerHTML = s;
-    document.getElementById('show_list_home').style.display='block';
-}
-// Khoa học công nghệ
-function createProductCom() {
-    if (localStorage.getItem('productcom') == null) {
-        var productArrayCom = [
-            //Computers and Technology
-            { productId: 10016, author: 'Chris Miller', img: 'imgs/10016.jpg', name: 'Chip War: The Quest to Dominate the World\'s Most Critical Technology', price: 0 },
-            { productId: 10017, author: 'Martin Kleppmann', img: 'imgs/10017.webp', name: 'Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems', price: 460000 },
-            { productId: 10018, author: 'Eric Matthes', img: 'imgs/10018.webp', name: 'Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming', price: 430000 },
-            { productId: 10019, author: 'Gayle Laakmann McDowell', img: 'imgs/10019.webp', name: 'Cracking the Coding Interview: 189 Programming Questions and Solutions', price: 700000 },
-            { productId: 10020, author: 'Alex Xu', img: 'imgs/10020.webp', name: 'System Design Interview – An insider\'s guide', price: 710000 }
-        ];
-        localStorage.setItem('productcom', JSON.stringify(productArrayCom));
-    }
-}
-function Computer() {
-    document.getElementById('show_list').style.display='none';
-    document.getElementById('show_list_hero').style.display='none';
-    document.getElementById('show_list_mystery').style.display='none';
-    document.getElementById('show_list_home').style.display='none';
-    var productArrayCom = JSON.parse(localStorage.getItem('productcom'));
-    var s = "";
-    for (i = 0; i < productArrayCom.length; i++) {
-        var a = '<div class="books"><img src="' + productArrayCom[i].img + '" class="image"><span class="book_name"><div class="name">' + productArrayCom[i].name + '</div></span><span class="author_name"><div class="name_author">By ' + productArrayCom[i].author + '</div></span><div class="price">' + productArrayCom[i].price + 'đ</div></div>';
-        s += a;
-    }
-    document.getElementById('show_list_com').innerHTML = s;
-    document.getElementById('show_list_com').style.display='block';
-}
-function batmenu() {
-    document.getElementById('genres__item').style.display='block';    
-}
-function tatmenu() {
-    document.getElementById('genres__item').style.display='none';
 }
 
 

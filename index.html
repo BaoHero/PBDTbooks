@@ -29,12 +29,12 @@
                     <div id="search_card">
                         <div class="search_scope">
                             <div class="serch_facade">
-                                <span class="search_label">books</span>
+                                <span class="search_label">Lọc theo giá</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <select name="" id="" class="search_dropdown">
-                                <option value="tl">Thể loại</option>
-                                <option value="gia">Giá</option>
+                                <option value="tl">2000000 - 3000000</option>
+                                <option value="gia">30000000 - 4000000</option>
                             </select>
                         </div>
                     </div>
@@ -57,49 +57,32 @@
         <div class="header_2">
             <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars " onclick="batmenu()"></i></button>
         </div>
+        <div class="list__img">
+            <img src="imgs/anh-bia-facebook-co-nhung-nguoi-xuat-hien-trong-cuoc-doi-de-_adlfN_095941518.jpg" alt="">
+        </div>
+        <hr class="hrbody">
         <div class="body">
             <!-- The loai -->
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
-                <div class="genres__item" id="genres__item">
-                   <h1 id="genres_title">DANH SÁCH THỂ LOẠI</h1>
-                   <ul>
-                     <li><input type="button" class="Type" value="Tất cả" onclick="show_list()"></li>
-                     <li><input type="button" class="Type" value="Truyện tranh và tiểu thuyết" onclick="Hero_Novel()"></li>
-                     <li><input type="button" class="Type" value="Huyền ảo và Kinh dị" onclick="Mystery()"></li>
-                     <li><input type="button" class="Type" value="Cuộc sống" onclick="home()"></li>
-                     <li><input type="button" class="Type" value="Khoa học công nghệ" onclick="Computer()"></li>
-                   </ul>
-                   <input type="button" id="Off" value="Close" onclick="tatmenu()">
-                </div>
-                
-            </div>
+                <h1 class="genres_title">Genres</h1>
+                <hr class="hrgenres">
+                <div class="genres__list" id="genres__list">
 
+                </div>
+            </div>
             <!-- Danh sach san pham -->
             <div class="body__list">
-                <div class="list__img">
-                    <img src="imgs/anh-bia-facebook-co-nhung-nguoi-xuat-hien-trong-cuoc-doi-de-_adlfN_095941518.jpg" alt="">
+                <div class="list__books" id="list__books">
+                    <!-- hien thi sach -->                
                 </div>
-                <!-- hien thi sach -->
-                <div class="book_list" id="show_list">
-                </div>
-                <div class="book_list_hero" id="show_list_hero">
-                </div>
-                <div class="book_list_mystery" id="show_list_mystery">
-                </div>
-                <div class="book_list_home" id="show_list_home">
-                </div>
-                <div class="book_list_com" id="show_list_com">
-                </div>
-                
-
             </div>
             <!-- Quang cao -->
             <div class="body__advertisement">
                 <img src="imgs/tumblr_static_-511703865-content_2048_v2.jpg" alt="">
             </div>
         </div>
-
+        <hr class="hrfooter">
         <div class="footer"> 
         </div>
     </div>
@@ -229,11 +212,11 @@
     </div>
     <script>
         window.onload = function () {
-            adduser();
+            //adduser(); cái này còn hơi lỗi chưa sửa
             createProduct();
+            createGenres();
             show_list();
-            
-            
+            show_genres();
         }
         create_admin();
     </script>

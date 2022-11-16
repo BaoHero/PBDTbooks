@@ -1,42 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/signup.css" type="text/css">
-    <script src="js/index.js"></script>
-</head>
-<body>
-    <div class="background">
-      <form action="abc.html" method="get" onsubmit="return condition()" class="login" id ="signup_form">
-        <div class="container">
-          <button class="hide_button" onclick="closed('signup_form')" id="hide"><div class="fa fa-times"></div></button>
-          <h2 id ="t1" onclick="changet1()">ĐĂNG KÝ</h2>
-          <p>Điền vào form sau để tạo tài khoản.</p>
-          <hr>
-          <label for="email_sup"><b>Email</b></label>
-          <input type="text" placeholder="Nhập email" name="email_sup" id="email_sup">
-          <label for="usern"><b>Tài khoản:</b></label>
-          <input type="text" id="usern_sup" name="usern_sup" placeholder="Nhập username" required>
-          <label for="psw"><b>Mật khẩu:</b></label>
-          <input type="password" name="psw_sup" id="psw_sup" placeholder="Nhập mật khẩu" required>
-          <label for="psw-repeat"><b>Nhập lại mật khẩu</b></label>
-          <input type="password" name="psw-repeat" id="psw-repeat" placeholder="Repeat your password" required>
-          <label for="fullname"><b>Nhập họ và tên:</b></label>
-          <input type="text" id="fullname" name="fullname" placeholder="Họ và tên:">
-          <label for="rsbtn"><b><br>Làm mới thông tin:</b></label>
-          <input type="reset" name="rsbtn" id="rsbtn">
 
-          <hr>
-          <button type="submit" class="registerbtn">Đăng ký</button>
+<head>
+  <title>Dang nhap</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/signup.css">
+  <script src="js/signup.js"></script>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms">
+      <!-- form dang nhap -->
+      <div class="form login">
+        <span class="title">Đăng nhập</span>
+        <form action="#">
+          <div class="input__field">
+            <input type="text" placeholder="Nhập tên đăng nhập" required>
+            <i class="uil uil-user icon"></i>
+          </div>
+          <div class="input__field">
+            <input type="password" placeholder="Nhập mật khẩu" required>
+            <i class="uil uil-lock icon"></i>
+            <i class="uil uil-eye-slash showHidePw"></i>
+          </div>
+          <div class="checkbox__text">
+            <div class="checkbox__content">
+              <input type="checkbox" id="logcheck">
+              <label for="logcheck" class="checkbox__textbox">Remember me</label>
+            </div>
+            <a href="#" class="checkbox__textbox">Forgot password</a>
+          </div>
+          <div class="input__field button">
+            <input type="button" value="Đăng nhập" required>
+          </div>
+        </form>
+        <div class="signup">
+          <span class="signup__text">bạn chưa có tài khoản?
+            <a href="#" class="signup__text signup__textsign">Đăng ký tại đây.</a>
+          </span>
         </div>
-        <div class="container signin">
-          <p>Nếu bạn đã có tài khoản? <a href="index.html">Đăng nhập</a>.</p>
+      </div>
+
+      <!-- form dang ky -->
+      <div class="form login">
+        <span class="title">Đăng ký</span>
+        <form action="#">
+          <div class="input__field">
+            <input type="text" placeholder="Nhập tên đăng nhập" required>
+            <i class="uil uil-user icon"></i>
+          </div>
+          <div class="input__field">
+            <input type="text" placeholder="Nhập Email" required>
+            <i class="uil uil-envelope-alt icon"></i>
+          </div>
+          <div class="input__field">
+            <input type="password" placeholder="Nhập mật khẩu" required>
+            <i class="uil uil-lock icon"></i>
+            <i class="uil uil-eye-slash showHidePw"></i>
+          </div>
+          <div class="input__field">
+            <input type="password" placeholder="Nhập lại mật khẩu" required>
+            <i class="uil uil-lock icon"></i>
+            <i class="uil uil-eye-slash showHidePw"></i>
+          </div>
+          <div class="input__field">
+            <input type="text" placeholder="Nhập họ và tên" required>
+            <i class="uil uil-user-circle icon"></i>
+          </div>
+          <div class="checkbox__text">
+            <div class="checkbox__content">
+              <input type="checkbox" id="logcheck">
+              <label for="logcheck" class="checkbox__textbox">Remember me</label>
+            </div>
+            <a href="#" class="checkbox__textbox">Forgot password</a>
+          </div>
+          <div class="input__field button">
+            <input type="button" value="Đăng nhập" required>
+          </div>
+        </form>
+        <div class="signup">
+          <span class="signup__text">bạn chưa có tài khoản?
+            <a href="#" class="signup__text signup__textsign">Đăng ký tại đây.</a>
+          </span>
         </div>
-      </form>  
+      </div>
     </div>
+  </div>
 </body>
+
 </html>

@@ -78,7 +78,6 @@ function create_admin() {
 }
 
 function handle_signin() {
-    console.log("helooo");
     if (localStorage.getItem('User') == null) {
         return false;
     }
@@ -86,20 +85,11 @@ function handle_signin() {
     var tk = document.getElementById("email_sin").value;
     var mk = document.getElementById("psw_sin").value;
     var flat = 0;
-    var am = "'page_admin'";
-    var us = "'page_user'";
     for (i = 0; i < userArray.length; i++) {
         if (tk == userArray[i].username && mk == userArray[i].password) {
-            closeb('signin');
-            alert("bạn đã đăng nhập tài khoản " + tk);
-            document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + userArray[i].fullname + '</i>';
-            openb('logout');
-            if (tk == 'thinhphat' || tk == 'quocdai' || tk == 'giabao' || tk == 'ducthang' && mk == 'admin') {
-                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="closeb(' + us + ') + openb(' + am + ')"></i>';
-            }
-            closef("form_sin");
-            flat = 1;
+            window.location.href = '?dangnhap=true&taikhoan='+tk+'&ten='+userArray[i].fullname;
         }
+        flat = 1;
     }
     if (flat = 0) {
         alert("sai tài khoản hoặc mật khẩu vui lòng nhập lại");
@@ -107,8 +97,28 @@ function handle_signin() {
         return false;
     }
 }
+function signin(){
+
+    var a = getQueryVariable('dangnhap');
+    var tk = getQueryVariable('taikhoan');
+    var fullname = getQueryVariable('ten');
+    if(a != undefined){
+        closeb('signin');
+        alert("bạn đã đăng nhập tài khoản " + tk);
+        document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + fullname + '</i>';
+        openb('logout');
+        if (tk == 'thinhphat' || tk == 'quocdai' || tk == 'giabao' || tk == 'ducthang') {
+            document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
+        }
+        closef("form_sin");
+    }
+}
+function login_admin(){
+    location.href = 'admin.html';
+}
 function reload_site() {
-    location.reload();
+    confirm("Bạn có chắc muốn đăng xuất")
+    location.href = 'index.html';
 }
 function adduser() {
     var a = window.location.href;

@@ -47,7 +47,7 @@
             <div class="header__rightmenu">
                 <div class="admin_button" id="admin_button"></div>
                 <div class="infor_user" id="infor_user"></div>
-                <div><i id="signin" class="fas fa-user-ninja signbt   " name="signin" type="button"
+                <div><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
                         onclick="openf('form_sin')">Đăng Nhập</i></div>
                 <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
                         onclick="reload_site()">Đăng xuất</i></div>
@@ -85,93 +85,6 @@
         </div>
         <hr class="hrfooter">
         <div class="footer">
-        </div>
-    </div>
-    <!-- trang admin -->
-    <div id="page_admin" class="page_admin">
-        <div class="header">
-            <div class="header__logo"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
-            <div class="header__findbar">
-                <div class="findbar_left">
-                    <div id="search_card">
-                        <div class="search_scope">
-                            <div class="serch_facade">
-                                <span class="search_label">books</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <select name="" id="" class="search_dropdown">
-                                <option value="tl">Thể loại</option>
-                                <option value="gia">Giá</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
-                    required>
-                <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="header__rightmenu">
-                <div></div>
-            </div>
-        </div>
-        <div class="header_2">
-            <div><button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "></i></button></div>
-        </div>
-        <div class="body">
-            <!-- The loai -->
-            <div class="body__genres">
-                <!-- Danh sách thể loại -->
-                <div class="genres__item" id="genres__item">
-                    <h2
-                        style="color: red;font-family: Segie UI 1px;font-size: 21px;line-height: 31,5px;margin: 4px 4px 0 4px;padding-left: 16px;">
-                        Genres</h2>
-                </div>
-                <!-- Các thao tác thêm sửa xoá -->
-                <div class="addf">
-                    <input type="text" class="add_genres" name="add_genre" id="add_genre" placeholder="Thêm thể loại +">
-                    <button type="submit" onclick="addgenres()" name="addg" id="addg">Add</button>
-                </div>
-                <div class="addf">
-                    <input type="text" name="delete_genre" id="delete_genre" placeholder="Xoá thể loại -">
-                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Delete</button>
-                </div>
-                <div class="addf">
-                    <input type="text" name="modify_genre" id="modify_genre" placeholder="Thay đổi thể loại <>">
-                    <button type="submit" onclick="addgenres()" class="addg" name="addg" id="addg">Modify</button>
-                </div>
-            </div>
-            <!-- Danh sach san pham -->
-            <div class="body__list">
-                <div class="list__img">
-                    <img src="imgs/9106ODkR7mL._AC_UL210_SR195,210_.jpg" alt="">
-                </div>
-                <div class="book_list">
-
-                </div>
-            </div>
-            <!-- Quang cao -->
-            <div class="body__advertisement"></div>
-        </div>
-
-        <div class="footer">
-            <form action="" class="addproduct">
-                <div class="addproduct_item"><label for="">Nhập mã sản phẩm:</label><input type="text" id="addProductId"
-                        placeholder="Mã sản phẩm"></div>
-                <div class="addproduct_item"><label for="">Nhập mã thể loại:</label><input type="text" id="addGenresId"
-                        placeholder="Mã thể loại"></div>
-                <div class="addproduct_item"><label for="">Nhập tên tác giả:</label><input type="text" id="addAuthor"
-                        placeholder="Tác giả"></div>
-                <div class="addproduct_item"><label for="">Nhập đường dẫn hình ảnh:</label><input type="text"
-                        id="addImg" placeholder="Hình ảnh"></div>
-                <div class="addproduct_item"><label for="">Nhập tên sản phẩm:</label><input type="text" id="addName"
-                        placeholder="Tên sản phẩm"></div>
-                <div class="addproduct_item"><label for="">Nhập giá sản phẩm:</label><input type="text" id="addPrice"
-                        placeholder="Giá"></div>
-                <div class="addproduct_item"><label for="">Nhập thông tin sản phẩm:</label><input type="text"
-                        id="addInformation" placeholder="Thông tin chi tiết">
-                </div>
-                <button type="button" id="addproduct_button" onclick="AddProduct()" class="form_button">add</button>
-            </form>
         </div>
     </div>
     <!-- form đăng nhập-->
@@ -236,10 +149,10 @@
             createGenres();
             show_list();
             show_genres();
+            signin();
         }
         create_admin();
     </script>
-    <i class="fas fa-times    "></i>
 </body>
 
 </html>

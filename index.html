@@ -24,26 +24,26 @@
                 </div>
             </div>
             <form action="">
-            <div class="header__findbar">
-                <div class="findbar_left">
-                    <div id="search_card">
-                        <div class="search_scope">
-                            <div class="serch_facade">
-                                <span class="search_label">Lọc theo giá</span>
-                                <i class="fas fa-chevron-down"></i>
+                <div class="header__findbar">
+                    <div class="findbar_left">
+                        <div id="search_card">
+                            <div class="search_scope">
+                                <div class="serch_facade">
+                                    <span class="search_label">Lọc theo giá</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <select name="" id="" class="search_dropdown">
+                                    <option value="tl">2000000 - 3000000</option>
+                                    <option value="gia">30000000 - 4000000</option>
+                                </select>
                             </div>
-                            <select name="" id="" class="search_dropdown">
-                                <option value="tl">2000000 - 3000000</option>
-                                <option value="gia">30000000 - 4000000</option>
-                            </select>
                         </div>
                     </div>
+                    <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
+                        placeholder="Enter the text" required>
+                    <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
                 </div>
-                <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
-                    required>
-                <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
-            </div>
-        </form>
+            </form>
             <div class="header__rightmenu">
                 <div class="admin_button" id="admin_button"></div>
                 <div class="infor_user" id="infor_user"></div>
@@ -55,7 +55,8 @@
             </div>
         </div>
         <div class="header_2">
-            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars " onclick="batmenu()"></i></button>
+            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
+                    onclick="batmenu()"></i></button>
         </div>
         <div class="list__img">
             <img src="imgs/anh-bia-facebook-co-nhung-nguoi-xuat-hien-trong-cuoc-doi-de-_adlfN_095941518.jpg" alt="">
@@ -74,7 +75,7 @@
             <!-- Danh sach san pham -->
             <div class="body__list">
                 <div class="list__books" id="list__books">
-                    <!-- hien thi sach -->                
+                    <!-- hien thi sach -->
                 </div>
             </div>
             <!-- Quang cao -->
@@ -83,7 +84,7 @@
             </div>
         </div>
         <hr class="hrfooter">
-        <div class="footer"> 
+        <div class="footer">
         </div>
     </div>
     <!-- trang admin -->
@@ -152,7 +153,25 @@
             <div class="body__advertisement"></div>
         </div>
 
-        <div class="footer"> 
+        <div class="footer">
+            <form action="" class="addproduct">
+                <div class="addproduct_item"><label for="">Nhập mã sản phẩm:</label><input type="text" id="addProductId"
+                        placeholder="Mã sản phẩm"></div>
+                <div class="addproduct_item"><label for="">Nhập mã thể loại:</label><input type="text" id="addGenresId"
+                        placeholder="Mã thể loại"></div>
+                <div class="addproduct_item"><label for="">Nhập tên tác giả:</label><input type="text" id="addAuthor"
+                        placeholder="Tác giả"></div>
+                <div class="addproduct_item"><label for="">Nhập đường dẫn hình ảnh:</label><input type="text"
+                        id="addImg" placeholder="Hình ảnh"></div>
+                <div class="addproduct_item"><label for="">Nhập tên sản phẩm:</label><input type="text" id="addName"
+                        placeholder="Tên sản phẩm"></div>
+                <div class="addproduct_item"><label for="">Nhập giá sản phẩm:</label><input type="text" id="addPrice"
+                        placeholder="Giá"></div>
+                <div class="addproduct_item"><label for="">Nhập thông tin sản phẩm:</label><input type="text"
+                        id="addInformation" placeholder="Thông tin chi tiết">
+                </div>
+                <button type="button" id="addproduct_button" onclick="AddProduct()" class="form_button">add</button>
+            </form>
         </div>
     </div>
     <!-- form đăng nhập-->
@@ -220,6 +239,7 @@
         }
         create_admin();
     </script>
+    <i class="fas fa-times    "></i>
 </body>
 
 </html>

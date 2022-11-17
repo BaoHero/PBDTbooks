@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
     <script src="js/index.js"></script>
 </head>
 
@@ -16,7 +18,7 @@
     <!-- trang user -->
     <div id="page_user" class="page_user">
         <div class="header">
-            <div class="header__logo"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
+            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
             <div class="address">
                 <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
                 <div class="address_vt">
@@ -47,11 +49,11 @@
             <div class="header__rightmenu">
                 <div class="admin_button" id="admin_button"></div>
                 <div class="infor_user" id="infor_user"></div>
-                <div><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
+                <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
                         onclick="openf('form_sin')">Đăng Nhập</i></div>
                 <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
-                        onclick="reload_site()">Đăng xuất</i></div>
-                <div><i id="repo" class="fas fa-cart-plus"></i></div>
+                        onclick="logout()">Đăng xuất</i></div>
+                <div class="repo"><i id="repo" class="fas fa-cart-plus"></i></div>
             </div>
         </div>
         <div class="header_2">
@@ -92,9 +94,9 @@
         <form action="#" id="signin_form" name="sign_form" class="form" method="get" onsubmit="return handle_signin()">
             <div class="signin_container">
                 <h2>ĐĂNG NHẬP:</h2>
-                <button type="button" class="hide_button" id="hide_signin" onclick="closef('form_sin')">
-                    <div class="fa fa-times"></div>
-                </button>
+                <div class="hide_button" onclick="closef('form_sin')" id="hide_signin">
+                    <i class="fas fa-times"></i>
+                </div>
                 <hr>
                 <label for="email_sin">Email:</label>
                 <input type="text" name="email_sin" id="email_sin" placeholder="Nhập email của bạn:" required>
@@ -116,9 +118,9 @@
     <div class="form_sin_up" id="form_sup">
         <form action="index.html" method="get" id="signup_form">
             <div class="signin_container">
-                <button class="hide_button" onclick="closef('form_sup')" id="hide">
-                    <div class="fa fa-times"></div>
-                </button>
+                <div class="hide_button" onclick="closef('form_sup')">
+                    <i class="fas fa-times"></i>
+                </div>
                 <h2 id="t1" onclick="changet1()">ĐĂNG KÝ</h2>
                 <p>Điền vào form sau để tạo tài khoản.</p>
                 <hr>
@@ -141,6 +143,41 @@
                 <p>Nếu bạn đã có tài khoản? <a onclick="closef('form_sup') + openf('form_sin')">Đăng nhập</a>.</p>
             </div>
         </form>
+    </div>
+    <div>
+    <div class="infor_book" id="infor_book">
+        <div class="hide_button" onclick="closef('infor_book')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="infor_book_img" id="infor_book_img">
+        </div>
+        <div class="infor_book_inside">
+            <h1 class="book_title" id="book_title">
+            </h1>
+            <div class="author_name" id="author_name">             
+            </div>
+            <div class="stars">
+                <form action="">
+                  <input class="star star-5" id="star-5" type="radio" name="star"/>
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="star"/>
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star"/>
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star"/>
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star"/>
+                  <label class="star star-1" for="star-1"></label>
+                </form>
+            </div>
+            <div class="price" id="price">
+            </div>
+            <hr class="hrbook">
+            <div class="information" id="informa"></div>
+            <hr class="hrbook">
+            <div class="buybt"><a href="">Buy now</a></div>
+        </div>
+    </div>
     </div>
     <script>
         window.onload = function () {

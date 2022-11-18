@@ -110,7 +110,7 @@ body {
 .findbar_left .search_scope {
   position: relative;
   float: left;
-  padding: 9px;
+  padding: 10px;
   background-color: #eaeded;
   overflow: hidden;
   border-radius: 4px 0 0 4px;

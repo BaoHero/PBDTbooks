@@ -384,40 +384,43 @@ body {
   word-wrap: break-word;
   position: relative;
 }
+.infor{
+
+}
 .information{
   overflow: auto;
-  height: 50%;
+
 }
 .buybt{
   background-color: rgba(243, 16, 16, 0) ;
   text-align: center;
   margin-right: 30px;
-  width: 80px;
-}
-
-.buybt button{
-  width: 100%;
-  padding: 5px;
-  border: orange 2px solid;
-  border-radius: 10px;
+  width: 30%;
   
+}
+.buybt button{
+  border-radius: 10px;
+  width: 100px;
+  padding: 5px;
 }
 .buybt button:hover{
   background-color: orange;
 }
 .num_book{
-  width: 30%;
-  height: 33px;
-
+  width: 36%;
+  display: flex;
 }
 .num_book input{
   width: 30%;
-  height: 100%;
-  margin-left:10px;
+  
+  margin-left:0px;
   text-align: center;
 }
 .num_book label{
-  width: 50%;
+  height: 100%;
+  width: 70%;
+  text-align: center;
+
 }
 .list__img {
   margin-top: 1%;
@@ -445,14 +448,16 @@ body {
 .infor_book_img{
   width: 30%;
   margin: 7% 3% 7% 3%;
+  height: 80%;
 }
 
 .infor_book_img img{
   width: 100%;
 }
-.infor_book_inside{
+.infor_book_body{
   width: 65%;
   margin: 50px 20px 50px 0;
+  height: 70%;
 }
 .book_title{
   font-family: Segoe UI Arial;
@@ -464,7 +469,9 @@ body {
   color: #007185;
 }
 .infor_footer{
+
   display: flex;
+  margin-bottom: 10px;
 }
 .price{
 

@@ -261,7 +261,7 @@ function show_genres() {
     var a = '';
     genresArray = JSON.parse(localStorage.getItem('genres'));
     for (i = 0; i < genresArray.length; i++) {
-        a = a + '<a href="?clicked=true&genres=' + genresArray[i].id + '" class="genres__item" id="' + genresArray[i].id + '">' + genresArray[i].genres_name + '</a>'
+        a = a + '<a href="?genres=' + genresArray[i].id + '" class="genres__item" id="' + genresArray[i].id + '">' + genresArray[i].genres_name + '</a>'
     }
     document.getElementById("genres__list").innerHTML += a;
 }
@@ -271,13 +271,12 @@ function show_list() {
     if (localStorage.getItem('product') == null) {
         return false;
     }
-    var b = getQueryVariable('clicked');
 
     productArray = JSON.parse(localStorage.getItem('product'));
     var a = getQueryVariable('genres');
     var temp = '';
     var temp1 = "'infor_book'"
-    if (b != undefined) {
+    if (a != undefined) {
         for (i = 0; i < productArray.length; i++) {
             if (productArray[i].genresId == a) {
                 console.log(productArray[i].productId);

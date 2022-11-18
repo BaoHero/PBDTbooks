@@ -126,10 +126,10 @@ function handle_signin() {
     for (i = 0; i < userArray.length; i++) {
         if (tk == userArray[i].username && mk == userArray[i].password) {
             window.location.href = '?dangnhap=true&taikhoan=' + tk + '&ten=' + userArray[i].fullname;
+            flat = 1;
         }
-        flat = 1;
     }
-    if (flat = 0) {
+    if (flat == 0) {
         alert("sai tài khoản hoặc mật khẩu vui lòng nhập lại");
         document.getElementById("signin_form").reset();
         return false;

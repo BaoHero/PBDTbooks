@@ -154,11 +154,11 @@
                     <span class="title">Đăng nhập</span>
                     <form action="#">
                         <div class="input__field">
-                            <input type="text" placeholder="Nhập tên đăng nhập" required>
+                            <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
                             <i class="uil uil-user icon"></i>
                         </div>
                         <div class="input__field">
-                            <input type="password" class="password" placeholder="Nhập mật khẩu" required>
+                            <input type="password" class="password" id="psw_sin" placeholder="Nhập mật khẩu" required>
                             <i class="uil uil-lock icon"></i>
                             <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
@@ -166,7 +166,7 @@
                             <a href="#" class="checkbox__textbox">Forgot password</a>
                         </div>
                         <div class="input__field button">
-                            <input type="button" value="Đăng nhập" required>
+                            <input type="button" onclick="handle_signin()" value="Đăng nhập" required>
                         </div>
                     </form>
                     <div class="signup__login">
@@ -181,25 +181,26 @@
                     <span class="title">Đăng ký</span>
                     <form action="#">
                         <div class="input__field">
-                            <input type="text" placeholder="Nhập tên đăng nhập" required>
+                            <input type="text" id="usern_sup" placeholder="Nhập tên đăng nhập" required>
                             <i class="uil uil-user icon"></i>
                         </div>
                         <div class="input__field">
-                            <input type="text" placeholder="Nhập Email" required>
+                            <input type="text" id="email_sup" placeholder="Nhập Email" required>
                             <i class="uil uil-envelope-alt icon"></i>
                         </div>
                         <div class="input__field">
-                            <input type="password" class="password" placeholder="Nhập mật khẩu" required>
+                            <input type="password" id="psw_sup" class="password" placeholder="Nhập mật khẩu" required>
                             <i class="uil uil-lock icon"></i>
                             <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
                         <div class="input__field">
-                            <input type="password" class="password" placeholder="Nhập lại mật khẩu" required>
+                            <input type="password" id="psw_repeat" class="password" placeholder="Nhập lại mật khẩu"
+                                required>
                             <i class="uil uil-lock icon"></i>
                             <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
                         <div class="input__field">
-                            <input type="text" placeholder="Nhập họ và tên" required>
+                            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
                             <i class="uil uil-user-circle icon"></i>
                         </div>
                         <div class="input__field button">

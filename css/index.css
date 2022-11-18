@@ -390,6 +390,7 @@ body {
   display: inline;
   word-wrap: break-word;
   position: relative;
+  bottom: 0;
 }
 
 .information {

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,8 +59,14 @@
             </div>
         </div>
         <div class="header_2">
-            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
-                    onclick="batmenu()"></i></button>
+            <div class="nav">
+                <a href="">Today's Deal</a>
+                <a href="">Gift Cards</a>
+                <a href="">Buy Again</a>
+                <!-- <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
+                    onclick="batmenu()"></i></button> -->
+            </div>
+
         </div>
         <div id="container">
             <div class="content_cart">
@@ -69,7 +74,7 @@
                     <h1>Your Amazon Cart is empty.</h1>
                 </div>
 
-                
+
                 <div class="body__list">
 
                 </div>
@@ -86,8 +91,77 @@
         </div>
         <div class="footer"></div>
     </div>
+    <div class="form__login--signup" id="form_sin">
+        <div class="container">
+            <div class="forms">
+                <!-- form dang nhap -->
+                <div class="form login">
+                    <span class="title">Đăng nhập</span>
+                    <form action="#">
+                        <div class="input__field">
+                            <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input__field">
+                            <input type="password" class="password" id="psw_sin" placeholder="Nhập mật khẩu" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="checkbox__text">
+                            <a href="#" class="checkbox__textbox">Forgot password</a>
+                        </div>
+                        <div class="input__field button">
+                            <input type="button" onclick="handle_signin()" value="Đăng nhập" required>
+                        </div>
+                    </form>
+                    <div class="signup__login">
+                        <span class="signup__text">bạn chưa có tài khoản?
+                            <a href="#" class="signup__text signup-link">Đăng ký tại đây.</a>
+                        </span>
+                    </div>
+                </div>
 
-    <script src="js/index.js"></script>
+                <!-- form dang ky -->
+                <div class="form signup">
+                    <span class="title">Đăng ký</span>
+                    <form action="#">
+                        <div class="input__field">
+                            <input type="text" id="usern_sup" placeholder="Nhập tên đăng nhập" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input__field">
+                            <input type="text" id="email_sup" placeholder="Nhập Email" required>
+                            <i class="uil uil-envelope-alt icon"></i>
+                        </div>
+                        <div class="input__field">
+                            <input type="password" id="psw_sup" class="password" placeholder="Nhập mật khẩu" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="input__field">
+                            <input type="password" id="psw_repeat" class="password" placeholder="Nhập lại mật khẩu"
+                                required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="input__field">
+                            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
+                            <i class="uil uil-user-circle icon"></i>
+                        </div>
+                        <div class="input__field button">
+                            <input type="button" value="Đăng ký" required>
+                        </div>
+                    </form>
+                    <div class="signup__login">
+                        <span class="signup__text">
+                            <a onclick="" class="signup__text login-link">Đăng Nhập ngay</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

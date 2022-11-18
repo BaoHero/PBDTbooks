@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -63,7 +63,6 @@ body {
   margin: 16px auto;
   border-radius: 4px;
   display: flex;
-
 }
 
 .address_vt {
@@ -81,7 +80,6 @@ body {
 
 .address_icon {
   width: 20%;
-
 }
 
 .address_icon i {
@@ -107,7 +105,6 @@ body {
   display: flex;
   margin: 0px;
   height: fit-content;
-
 }
 
 .findbar_left .search_scope {
@@ -199,9 +196,11 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {}
+.header__rightmenu div {
+}
 
-.sin_bt {}
+.sin_bt {
+}
 
 .infor_user {
   border-radius: 5px;
@@ -248,7 +247,6 @@ body {
 .repo {
   background-color: #f2f3ab;
   border-radius: 5px;
-
 }
 
 #repo {
@@ -266,9 +264,27 @@ body {
   height: 60px;
   background-color: #232f3e;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   font-size: 12px;
-  line-height: 12px;
+  list-style-type: none;
+  /* line-height: 12px; */
+}
+
+.header_2 .nav {
+  margin-left: 12px;
+}
+
+.header_2 a:hover {
+  opacity: 0.6;
+}
+.header_2 a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  list-style-type: none;
+  padding: 8px 12px;
 }
 
 .header_2 button {
@@ -288,7 +304,6 @@ body {
   border: 1px solid white;
   display: flex;
   margin-top: 40px;
-
 }
 
 .hrgenres {
@@ -362,14 +377,12 @@ body {
   margin: 0 0 15px;
   text-align: center;
   position: relative;
-
 }
 
 .img_book img {
   width: 70%;
   display: inline;
   font-size: 14px;
-
 }
 
 .book_name {
@@ -392,11 +405,11 @@ body {
   position: relative;
 }
 
-.infor {}
+.infor {
+}
 
 .information {
   overflow: auto;
-
 }
 
 .buybt {
@@ -404,7 +417,6 @@ body {
   text-align: center;
   margin-right: 30px;
   width: 30%;
-
 }
 
 .buybt button {
@@ -433,7 +445,6 @@ body {
   height: 100%;
   width: 70%;
   text-align: center;
-
 }
 
 .list__img {
@@ -491,12 +502,12 @@ body {
 }
 
 .infor_footer {
-
   display: flex;
   margin-bottom: 10px;
 }
 
-.price {}
+.price {
+}
 
 .price span {
   color: #b12704;
@@ -521,22 +532,22 @@ label.star {
   padding: 15px;
   font-size: 15px;
   color: #444;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-input.star:checked~label.star:before {
-  content: '\f005';
-  color: #FD4;
-  transition: all .25s;
+input.star:checked ~ label.star:before {
+  content: "\f005";
+  color: #fd4;
+  transition: all 0.25s;
 }
 
-input.star-5:checked~label.star:before {
-  color: #FE7;
+input.star-5:checked ~ label.star:before {
+  color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked~label.star:before {
-  color: #F62;
+input.star-1:checked ~ label.star:before {
+  color: #f62;
 }
 
 label.star:hover {
@@ -544,7 +555,7 @@ label.star:hover {
 }
 
 label.star:before {
-  content: '\f006';
+  content: "\f006";
   font-family: FontAwesome;
 }
 
@@ -651,7 +662,6 @@ label.star:before {
   background-color: white;
   width: 100%;
   position: relative;
-
 }
 
 .signin_container {
@@ -660,7 +670,6 @@ label.star:before {
   display: block;
 }
 
-
 .signup_more {
   background-color: antiquewhite;
   text-align: center;
@@ -668,14 +677,13 @@ label.star:before {
   height: max-content;
 }
 
-
-.signin_container input[type=checkbox] {
+.signin_container input[type="checkbox"] {
   margin: 25px 20px 30px 10px;
   width: 12px;
 }
 
-.signin_container input[type=submit],
-input[type=button] {
+.signin_container input[type="submit"],
+input[type="button"] {
   margin: 20px 0 20px 0;
   width: 100%;
   padding: 10px;
@@ -684,8 +692,8 @@ input[type=button] {
   opacity: 0.5;
 }
 
-.signin_container input[type=submit],
-input[type=button]:hover {
+.signin_container input[type="submit"],
+input[type="button"]:hover {
   opacity: 1;
 }
 
@@ -731,8 +739,6 @@ input[type=button]:hover {
   height: auto;
 }
 
-
-
 .addproduct {
   display: flex;
   flex-direction: column;
@@ -743,11 +749,9 @@ input[type=button]:hover {
   position: absolute;
 }
 
-
 .addproduct_item {
   color: white;
   margin: 10px;
-
 }
 
 .addproduct_item label {
@@ -785,13 +789,10 @@ input[type=button]:hover {
 
 .item:hover {
   opacity: 0.5;
-
 }
 
 /* css form đăng nhập */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .form__login--signup {
   position: fixed;
@@ -835,7 +836,6 @@ input[type=button]:hover {
   transition: height 0.2s ease;
 }
 
-
 .container .form {
   width: 50%;
   padding: 30px;
@@ -870,7 +870,7 @@ input[type=button]:hover {
 }
 
 .form .title::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -913,7 +913,7 @@ input[type=button]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid)~i {
+.input__field input:is(:focus, :valid) ~ i {
   color: #4070f4;
 }
 
@@ -946,7 +946,7 @@ input[type=button]:hover {
 
 .form .checkbox__textbox {
   color: #333;
-  font-size: 14px
+  font-size: 14px;
 }
 
 .form a {

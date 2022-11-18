@@ -45,6 +45,7 @@ function openf(st) {
     a.style.display = "block";
     var b = document.getElementById("page_user");
     b.style.opacity = 0.25;
+    
 }
 function closef(st) {
     var a = document.getElementById(st);
@@ -310,8 +311,7 @@ function show_infor_book(s){
             document.getElementById("informa").innerHTML='<p>'+productArray[i].information+'</p>';
         }
     }
-    }
-
+}
 
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);

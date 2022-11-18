@@ -708,6 +708,16 @@ input[type=button]:hover {
 .hide_button {
   width: 50px;
   position: absolute;
+  right: 50px;
+  top: 0px;
+  font-size: 25px;
+  text-align: center;
+  border: none;
+  background-color: red;
+}
+.hide_button1{
+  width: 50px;
+  position: absolute;
   right: 0px;
   top: 0px;
   font-size: 25px;

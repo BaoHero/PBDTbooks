@@ -419,7 +419,6 @@ function js_login() {
 function buybook() {
     var a = getQueryVariable('dangnhap');
     if (a != 'true') {
-        alert("Bạn phải đăng nhập trước khi mua.");
         closef('infor_book');
         openf('form_sin');
     }

@@ -395,32 +395,40 @@ body {
 
 .information {
   overflow: auto;
-  height: 50%;
+  height: 40%;
 }
 
 .buybt {
-  width: 100px;
+  display: flex;
   background-color: rgba(243, 16, 16, 0);
-
-
   text-align: center;
 }
 
-.buybt a {
+.buybt button {
   text-decoration: none;
   padding: 5px;
   border: orange 2px solid;
   border-radius: 10px;
+  margin-right: 100px;
 }
 
-.buybt a:hover {
+.buybt button:hover {
   background-color: orange;
+}
+
+#numbook {
+  width: 50px;
+  margin-left: 20px;
 }
 
 .list__img {
   margin-top: 1%;
-  margin: 1% 20% 1% 20%;
+  margin: 1% auto auto 17.5%;
   width: 60%;
+}
+
+.list__img img {
+  width: 100%;
 }
 
 /* thong tin sach */

@@ -125,7 +125,7 @@ function handle_signin() {
     var flat = 0;
     for (i = 0; i < userArray.length; i++) {
         if (tk == userArray[i].username && mk == userArray[i].password) {
-            window.location.href = '?dangnhap=true&taikhoan='+tk+'&ten='+userArray[i].fullname;
+            window.location.href = '?dangnhap=true&taikhoan=' + tk + '&ten=' + userArray[i].fullname;
         }
         flat = 1;
     }
@@ -135,12 +135,12 @@ function handle_signin() {
         return false;
     }
 }
-function signin(){
+function signin() {
 
     var a = getQueryVariable('dangnhap');
     var tk = getQueryVariable('taikhoan');
     var fullname = getQueryVariable('ten');
-    if(a != undefined){
+    if (a != undefined) {
         closeb('signin');
         alert("bạn đã đăng nhập tài khoản " + tk);
         document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + fullname + '</i>';
@@ -151,7 +151,7 @@ function signin(){
         closef("form_sin");
     }
 }
-function login_admin(){
+function login_admin() {
     location.href = 'admin.html';
 }
 function reload_site(s) {
@@ -271,7 +271,7 @@ function show_list() {
         return false;
     }
     var b = getQueryVariable('clicked');
-    
+
     productArray = JSON.parse(localStorage.getItem('product'));
     var a = getQueryVariable('genres');
     var temp = '';
@@ -280,37 +280,37 @@ function show_list() {
         for (i = 0; i < productArray.length; i++) {
             if (productArray[i].genresId == a) {
                 console.log(productArray[i].productId);
-                var temp = temp + '<div id="' + productArray[i].productId + '"class="item" onclick="show_infor_book('+productArray[i].productId+') + openflex('+temp1+')"><div class="item__inside"><div class="img_book"><img src="' + productArray[i].img + '" alt=""></div><div class="book_name">' + productArray[i].name + '</div><div class="book_price"><span>$' + productArray[i].price + '</span></div></div></div>';
+                var temp = temp + '<div id="' + productArray[i].productId + '"class="item" onclick="show_infor_book(' + productArray[i].productId + ') + openflex(' + temp1 + ')"><div class="item__inside"><div class="img_book"><img src="' + productArray[i].img + '" alt=""></div><div class="book_name">' + productArray[i].name + '</div><div class="book_price"><span>$' + productArray[i].price + '</span></div></div></div>';
             }
         }
     }
     else {
         for (i = 0; i < productArray.length; i++) {
-            
-            var temp = temp + '<div id="' + productArray[i].productId + '"class="item" onclick="show_infor_book('+productArray[i].productId+') +openflex('+temp1+')"><div class="item__inside"><div class="img_book"><img src="' + productArray[i].img + '" alt=""></div><div class="book_name">' + productArray[i].name + '</div><div class="book_price"><span>$' + productArray[i].price + '</span></div></div></div>';
-            
+
+            var temp = temp + '<div id="' + productArray[i].productId + '"class="item" onclick="show_infor_book(' + productArray[i].productId + ') +openflex(' + temp1 + ')"><div class="item__inside"><div class="img_book"><img src="' + productArray[i].img + '" alt=""></div><div class="book_name">' + productArray[i].name + '</div><div class="book_price"><span>$' + productArray[i].price + '</span></div></div></div>';
+
         }
     }
     document.getElementById("list__books").innerHTML = temp;
 }
 
-function show_infor_book(s){
+function show_infor_book(s) {
     // var s = getQueryVariable("product");
     // var a = getQueryVariable('clicked');
-    if(localStorage.getItem("product") == null){
+    if (localStorage.getItem("product") == null) {
         return false;
     }
-    productArray= JSON.parse(localStorage.getItem('product'));
-    for(i = 0;i < productArray.length;i++){
-        if(productArray[i].productId == s){
-            document.getElementById("infor_book_img").innerHTML = '<img src="'+productArray[i].img+'" alt="">';
-            document.getElementById("book_title").innerHTML = '<span>'+productArray[i].name+'</span>';
-            document.getElementById("author_name").innerHTML='By <span>'+productArray[i].author+'</span> (Author)';
-            document.getElementById("price").innerHTML='$ <span>'+productArray[i].price+'</span>';
-            document.getElementById("informa").innerHTML='<p>'+productArray[i].information+'</p>';
+    productArray = JSON.parse(localStorage.getItem('product'));
+    for (i = 0; i < productArray.length; i++) {
+        if (productArray[i].productId == s) {
+            document.getElementById("infor_book_img").innerHTML = '<img src="' + productArray[i].img + '" alt="">';
+            document.getElementById("book_title").innerHTML = '<span>' + productArray[i].name + '</span>';
+            document.getElementById("author_name").innerHTML = 'By <span>' + productArray[i].author + '</span> (Author)';
+            document.getElementById("price").innerHTML = '$ <span>' + productArray[i].price + '</span>';
+            document.getElementById("informa").innerHTML = '<p>' + productArray[i].information + '</p>';
         }
     }
-    }
+}
 
 
 function getQueryVariable(variable) {
@@ -374,4 +374,44 @@ function editProduct(editProductId) {
             }
         }
     }
+}
+
+// js form dang nhap dang ky
+function js_login() {
+    const container = document.querySelector(".container"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+    console.log("hello");
+
+
+    pwShowHide.forEach(eyeIcon => {
+        eyeIcon.addEventListener('click', () => {
+            console.log("hi");
+            pwFields.forEach(pwField => {
+                if (pwField.type == "password") {
+                    pwField.type = "text";
+
+                    pwShowHide.forEach(icon => {
+                        icon.classList.replace("uil-eye-slash", "uil-eye");
+                    })
+                }
+                else {
+                    pwField.type = "password";
+
+                    pwShowHide.forEach(icon => {
+                        icon.classList.replace("uil-eye", "uil-eye-slash");
+                    })
+                }
+            })
+        })
+    })
+
+    signUp.addEventListener("click", () => {
+        container.classList.add("active");
+    });
+    login.addEventListener('click', () => {
+        container.classList.remove("active");
+    });
 }

@@ -70,7 +70,7 @@
             <!-- The loai -->
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
-                <h1 class="genres_title">Genres</h1>
+                <a class="genres_title" href="?genres=danhsach">Genres</a>
                 <hr class="hrgenres">
                 <div class="genres__list" id="genres__list">
 
@@ -210,12 +210,12 @@
                             <i class="uil uil-user-circle icon"></i>
                         </div>
                         <div class="input__field button">
-                            <input type="button" value="Đăng ký" required>
+                            <input type="button" value="Đăng ký" onclick="adduser()">
                         </div>
                     </form>
                     <div class="signup__login">
                         <span class="signup__text">
-                            <a onclick="" class="signup__text login-link">Đăng Nhập ngay</a>
+                            <a  class="signup__text login-link">Đăng Nhập ngay</a>
                         </span>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
     </div>
     <div>
         <div class="infor_book" id="infor_book">
-            <div class="hide_button" onclick="closef('infor_book')">
+            <div class="hide_button1" onclick="closef('infor_book')">
                 <i class="fas fa-times"></i>
             </div>
             <div class="infor_book_img" id="infor_book_img">

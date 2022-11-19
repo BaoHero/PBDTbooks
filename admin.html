@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/admin.css">
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
@@ -17,26 +18,12 @@
         <div class="header">
             <div class="header__logo" onclick="reload_site('admin.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
             <div class="header__findbar">
-                <div class="findbar_left">
-                    <div id="search_card">
-                        <div class="search_scope">
-                            <div class="serch_facade">
-                                <span class="search_label">books</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <select name="" id="" class="search_dropdown">
-                                <option value="tl">Thể loại</option>
-                                <option value="gia">Giá</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
                 <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
                     required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
-            <div class="header__rightmenu">
-                <div></div>
+            <div class="header__rightmenu" >
+                <div class="ad_rightmenu"><i onclick="usersite()" class="fas fa-backward    "></i></div>
             </div>
         </div>
         <div class="header_2">
@@ -46,7 +33,7 @@
             <!-- The loai -->
             <div class="body__genres">
                 <!-- Danh sách thể loại -->
-                <h1 class="genres_title">Genres</h1>
+                <h1 class="genres_title" onclick="reload_site('admin.html')">Genres</h1>
                 <hr class="hrgenres">
                 <div class="genres__list" id="genres__list">
 

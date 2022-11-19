@@ -268,11 +268,14 @@ body {
   flex-wrap: wrap;
   font-size: 12px;
   list-style-type: none;
-  /* line-height: 12px; */
+  line-height: 12px;
 }
 
 .header_2 .nav {
-  margin-left: 12px;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 7px;
 }
 
 .header_2 a:hover {
@@ -295,7 +298,7 @@ body {
   background-color: #232f3e;
   border: none;
   font-size: 25px;
-  margin: 15px 15px 15px 20px;
+  margin: 8px 16px 12px 20px;
 }
 
 .body {
@@ -724,7 +727,7 @@ input[type="button"]:hover {
   border: none;
   background-color: red;
 }
-.hide_button1{
+.hide_button1 {
   width: 50px;
   position: absolute;
   right: 0px;

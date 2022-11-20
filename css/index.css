@@ -452,9 +452,13 @@ body {
 }
 
 .list__img {
-  margin-top: 1%;
-  margin: 1% 18% 1% 18%;
+  /* margin-top: 1%;
+  margin: 1% 18% 1% 18%; */
   /* width: 60%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .list__img img {

@@ -462,8 +462,8 @@ body {
 }
 
 .list__img img {
-  width: 1000px;
-  height: 300px;
+  width: 95%;
+  height: 400px;
   border-radius: 8px;
 }
 

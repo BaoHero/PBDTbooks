@@ -48,6 +48,7 @@ body {
 
 .header .header__logo img {
   width: 50%;
+  cursor: pointer;
 }
 
 .header .header__logo {
@@ -199,6 +200,7 @@ body {
 }
 
 .sin_bt {
+  cursor: pointer;
 }
 
 .infor_user {
@@ -250,6 +252,7 @@ body {
 
 #repo {
   font-size: large;
+  cursor: pointer;
 }
 
 .signbt {
@@ -286,7 +289,7 @@ body {
   text-decoration: none;
   font-size: 14px;
   list-style-type: none;
-  padding: 8px 12px;
+  padding: 14px 12px;
 }
 
 .header_2 button {
@@ -372,6 +375,7 @@ body {
   border: 1px solid #d5dbdb;
   text-align: center;
   width: 25%;
+  cursor: pointer;
 }
 
 .item__inside {

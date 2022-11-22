@@ -59,12 +59,12 @@
             </div>
         </div>
         <div class="header_2">
+            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
+                    onclick="batmenu()"></i></button>
             <div class="nav">
                 <a href="">Today's Deal</a>
                 <a href="">Gift Cards</a>
                 <a href="">Buy Again</a>
-                <!-- <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
-                    onclick="batmenu()"></i></button> -->
             </div>
 
         </div>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="note">
-                <p>The price and availability of items at Amazon.com are subject to change. The Cart is a temporary
+                <p>The price and availability of items are subject to change. The Cart is a temporary
                     place to
                     store a list of your items and reflects each item's most recent price.</p>
                 <p>Do you have a gift card or promotional code? We'll ask you to enter your claim code when it's
@@ -97,6 +97,9 @@
                 <!-- form dang nhap -->
                 <div class="form login">
                     <span class="title">Đăng nhập</span>
+                    <div class="hide_button" onclick="closef('form_sin')">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <form action="#">
                         <div class="input__field">
                             <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
@@ -123,6 +126,9 @@
 
                 <!-- form dang ky -->
                 <div class="form signup">
+                    <div class="hide_button1 hide_button login-link" onclick="closef('form_sin')">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <span class="title">Đăng ký</span>
                     <form action="#">
                         <div class="input__field">
@@ -149,12 +155,12 @@
                             <i class="uil uil-user-circle icon"></i>
                         </div>
                         <div class="input__field button">
-                            <input type="button" value="Đăng ký" required>
+                            <input type="button" value="Đăng ký" onclick="adduser()">
                         </div>
                     </form>
                     <div class="signup__login">
                         <span class="signup__text">
-                            <a onclick="" class="signup__text login-link">Đăng Nhập ngay</a>
+                            <a class="signup__text login-link">Đăng Nhập ngay</a>
                         </span>
                     </div>
                 </div>

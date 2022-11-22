@@ -203,7 +203,8 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {}
+.header__rightmenu div {
+}
 
 .sin_bt {
   cursor: pointer;
@@ -372,7 +373,7 @@ body {
 }
 
 .body .body__genres {
-  display : none;
+  display: none;
   width: 15%;
   border-right: 2px solid gray;
   display: block;
@@ -469,7 +470,8 @@ body {
   position: relative;
 }
 
-.infor {}
+.infor {
+}
 
 .information {
   overflow: auto;
@@ -575,7 +577,8 @@ body {
   margin-bottom: 10px;
 }
 
-.price {}
+.price {
+}
 
 .price span {
   color: #b12704;
@@ -603,18 +606,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked~label.star:before {
+input.star:checked ~ label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked~label.star:before {
+input.star-5:checked ~ label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked~label.star:before {
+input.star-1:checked ~ label.star:before {
   color: #f62;
 }
 
@@ -1017,7 +1020,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid)~i {
+.input__field input:is(:focus, :valid) ~ i {
   color: #4070f4;
 }
 
@@ -1091,7 +1094,7 @@ input[type="button"]:hover {
   .body__list {
     width: 100%;
   }
-  #body__genres{
+  #body__genres {
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
@@ -1101,13 +1104,13 @@ input[type="button"]:hover {
     font-size: 15px;
     width: 100px;
   }
-  .body{
+  .body {
     display: block;
   }
   .header .header__logo img {
     width: 85%;
   }
-  
+
   .header .address span {
     display: none;
   }
@@ -1148,7 +1151,6 @@ input[type="button"]:hover {
     width: 900px;
     margin-top: 1%;
   }
-  
 
   .list__books {
     display: flex;
@@ -1165,7 +1167,7 @@ input[type="button"]:hover {
     margin-left: 1%;
     margin-bottom: 1%;
   }
-  
+
   .img_book {
     margin: 0 0 15px;
     text-align: center;
@@ -1180,7 +1182,7 @@ input[type="button"]:hover {
   .infor_book {
     height: 60%;
     width: 70%;
-  }  
+  }
   .book_title {
     font-family: Segoe UI Arial;
     font-size: 10px;
@@ -1193,7 +1195,7 @@ input[type="button"]:hover {
     height: 300px;
     border-radius: 8px;
   }
-  .search_scope .serch_facade{
+  .search_scope .serch_facade {
     width: 10px;
   }
   .search_scope .search_label {
@@ -1203,26 +1205,26 @@ input[type="button"]:hover {
   .header .header__findbar button {
     padding: 1px;
   }
-  .sin_bt #signin{
+  .sin_bt #signin {
     font-size: 9px;
     width: 50px;
   }
-  .repo #repo{
+  .repo #repo {
     padding-left: 9px;
     width: 40px;
   }
-  .form__login--signup{
+  .form__login--signup {
     width: 60%;
     left: 23%;
   }
-  .admin_button{
+  .admin_button {
     font-size: 15px;
     width: 50px;
   }
-  .infor_user{
+  .infor_user {
     display: none;
   }
-  #logout{
+  #logout {
     font-size: 9px;
     width: 50px;
   }
@@ -1236,7 +1238,7 @@ input[type="button"]:hover {
   .body__list {
     width: 100%;
   }
-  #body__genres{
+  #body__genres {
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
@@ -1246,13 +1248,13 @@ input[type="button"]:hover {
     font-size: 15px;
     width: 100px;
   }
-  .body{
+  .body {
     display: block;
   }
   .header .header__logo img {
     width: 85%;
   }
-  
+
   .header .address span {
     display: none;
   }
@@ -1293,7 +1295,6 @@ input[type="button"]:hover {
     width: 900px;
     margin-top: 1%;
   }
-  
 
   .list__books {
     display: flex;
@@ -1310,7 +1311,7 @@ input[type="button"]:hover {
     margin-left: 1%;
     margin-bottom: 1%;
   }
-  
+
   .img_book {
     margin: 0 0 15px;
     text-align: center;
@@ -1325,7 +1326,7 @@ input[type="button"]:hover {
   .infor_book {
     height: 60%;
     width: 70%;
-  }  
+  }
   .book_title {
     font-family: Segoe UI Arial;
     font-size: 10px;
@@ -1338,7 +1339,7 @@ input[type="button"]:hover {
     height: 300px;
     border-radius: 8px;
   }
-  .search_scope .serch_facade{
+  .search_scope .serch_facade {
     width: 10px;
   }
   .search_scope .search_label {
@@ -1348,26 +1349,26 @@ input[type="button"]:hover {
   .header .header__findbar button {
     padding: 1px;
   }
-  .sin_bt #signin{
+  .sin_bt #signin {
     font-size: 9px;
     width: 40px;
   }
-  .repo #repo{
+  .repo #repo {
     padding-left: 9px;
     width: 40px;
   }
-  .form__login--signup{
+  .form__login--signup {
     width: 60%;
     left: 23%;
   }
-  .admin_button{
+  .admin_button {
     font-size: 15px;
     width: 50px;
   }
-  .infor_user{
+  .infor_user {
     display: none;
   }
-  #logout{
+  #logout {
     font-size: 9px;
     width: 40px;
   }
@@ -1384,9 +1385,11 @@ input[type="button"]:hover {
   background-color: whitesmoke;
 }
 
-.yes {}
+.yes {
+}
 
-.no {}
+.no {
+}
 
 .comfirm__question {
   font-size: 30px;
@@ -1424,5 +1427,4 @@ input[type="button"]:hover {
   width: 95%;
   height: 300px;
   border-radius: 8px;
-}
 }

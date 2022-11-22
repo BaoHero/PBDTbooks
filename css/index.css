@@ -192,12 +192,12 @@ body {
   display: flex;
   position: relative;
 }
+
 .header__rightmenu div {
   margin: 16px auto;
 }
 
-.header__rightmenu div {
-}
+.header__rightmenu div {}
 
 .sin_bt {
   cursor: pointer;
@@ -284,6 +284,7 @@ body {
 .header_2 a:hover {
   opacity: 0.6;
 }
+
 .header_2 a {
   color: #fff;
   text-decoration: none;
@@ -415,8 +416,7 @@ body {
   position: relative;
 }
 
-.infor {
-}
+.infor {}
 
 .information {
   overflow: auto;
@@ -521,8 +521,7 @@ body {
   margin-bottom: 10px;
 }
 
-.price {
-}
+.price {}
 
 .price span {
   color: #b12704;
@@ -550,18 +549,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked ~ label.star:before {
+input.star:checked~label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked ~ label.star:before {
+input.star-5:checked~label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked ~ label.star:before {
+input.star-1:checked~label.star:before {
   color: #f62;
 }
 
@@ -738,6 +737,7 @@ input[type="button"]:hover {
   border: none;
   background-color: red;
 }
+
 .hide_button1 {
   width: 50px;
   position: absolute;
@@ -807,7 +807,6 @@ input[type="button"]:hover {
 }
 
 /* css form đăng nhập */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .form__login--signup {
   position: fixed;
@@ -928,7 +927,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid) ~ i {
+.input__field input:is(:focus, :valid)~i {
   color: #4070f4;
 }
 
@@ -997,46 +996,59 @@ input[type="button"]:hover {
   margin-top: 30px;
   text-align: center;
 }
+
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
   .body__advertisement {
     width: 0%;
     display: none;
   }
+
   .body__list {
     width: 80%;
   }
+
   .header .header__logo img {
     width: 85%;
   }
+
   .header .address span {
     display: none;
   }
+
   .header .address {
     width: 5%;
   }
+
   .header .address .address_icon {
     margin-left: 20%;
   }
+
   .body .body__genres #CGN {
     font-size: 11px;
   }
+
   .body .body__genres #MTS {
     font-size: 11px;
   }
+
   .body .body__genres #CHH {
     font-size: 11px;
   }
+
   .body .body__genres #CT {
     font-size: 11px;
   }
+
   .list__img {
     width: 100%;
     height: 300px;
   }
+
   .list__img img {
     width: 770px;
     margin-top: 1%;
   }
+
   .list__books {
     display: flex;
     flex-wrap: wrap;
@@ -1064,6 +1076,7 @@ input[type="button"]:hover {
     display: inline;
     font-size: 14px;
   }
+
   .infor_book {
     height: 40%;
   }

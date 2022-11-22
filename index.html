@@ -43,6 +43,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
                         placeholder="Enter the text" required>
                     <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
@@ -59,9 +60,11 @@
             </div>
         </div>
         <div class="header_2">
-            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
-                    onclick="batmenu()"></i></button>
-            <div class="nav">
+
+            <div>
+            <button type="button" id="left-menu"  class="left-menu"><i class="fas fa-bars "
+                    onclick="open_left_menu()"></i></button>
+            </div>
                 <a href="">Today's Deal</a>
                 <a href="">Gift Cards</a>
                 <a href="">Buy Again</a>
@@ -79,7 +82,6 @@
                 <a class="genres_title" href="?genres=danhsach">Genres</a>
                 <hr class="hrgenres">
                 <div class="genres__list" id="genres__list">
-
                 </div>
             </div>
             <!-- Danh sach san pham -->
@@ -87,71 +89,18 @@
                 <div class="list__books" id="list__books">
                     <!-- hien thi sach -->
                 </div>
+                <div class="list_page1">
+                <div class="list_page">
+                    
+                </div>
+                </div>
             </div>
-            <!-- Quang cao -->
-            <div class="body__advertisement">
-                <img src="imgs/tumblr_static_-511703865-content_2048_v2.jpg" alt="">
-            </div>
+
         </div>
         <hr class="hrfooter">
         <div class="footer">
         </div>
     </div>
-    <!-- form đăng nhập-->
-    <!-- <div class="form_sin_up" id="form_sin">
-        <form action="#" id="signin_form" name="sign_form" class="form" method="get" onsubmit="return handle_signin()">
-            <div class="signin_container">
-                <h2>ĐĂNG NHẬP:</h2>
-                <div class="hide_button" onclick="closef('form_sin')" id="hide_signin">
-                    <i class="fas fa-times"></i>
-                </div>
-                <hr>
-                <label for="email_sin">Email:</label>
-                <input type="text" name="email_sin" id="email_sin" placeholder="Nhập email của bạn:" required>
-                <label for="psw_sin"><br>Mật khẩu: </label>
-                <input type="password" name="psw_sin" id="psw_sin" placeholder="Nhập mật khẩu của bạn:" required>
-                <label for="showpsw"><br>Hiển thị mật khẩu</label>
-                <input type="checkbox" name="showpsw" id="showpsw" onchange="show_password('psw_sin')">
-                <input type="button" name="subm" id="subm" value="Đăng nhập" onclick="handle_signin()">
-                <hr>
-            </div>
-            <div class="signin_container signup_more">
-                <small>Nếu bạn chưa có tài khoản.
-                    Vui lòng <a onclick="closef('form_sin') + openf('form_sup')" )>đăng ký</a>.
-                </small>
-            </div>
-        </form>
-    </div> -->
-    <!-- form đăng ký -->
-    <!-- <div class="form_sin_up" id="form_sup">
-        <form action="index.html" method="get" id="signup_form">
-            <div class="signin_container">
-                <div class="hide_button" onclick="closef('form_sup')">
-                    <i class="fas fa-times"></i>
-                </div>
-                <h2 id="t1" onclick="changet1()">ĐĂNG KÝ</h2>
-                <p>Điền vào form sau để tạo tài khoản.</p>
-                <hr>
-                <label for="email_sup"><b>Email</b></label>
-                <input type="text" placeholder="Nhập email" name="email_sup" id="email_sup" required>
-                <label for="usern"><b>Tài khoản:</b></label>
-                <input type="text" id="usern_sup" name="usern_sup" placeholder="Nhập username" required>
-                <label for="psw"><b>Mật khẩu:</b></label>
-                <input type="password" name="psw_sup" id="psw_sup" placeholder="Nhập mật khẩu" required>
-                <label for="psw_repeat"><b>Nhập lại mật khẩu</b></label>
-                <input type="password" name="psw_repeat" id="psw_repeat" placeholder="Repeat your password" required>
-                <label for="fullname"><b>Nhập họ và tên:</b></label>
-                <input type="text" id="fullname" name="fullname" placeholder="Họ và tên:">
-                <label for="rsbtn"><b><br>Làm mới thông tin:</b></label>
-                <input type="reset" name="rsbtn" id="rsbtn">
-                <hr>
-                <input type="submit" value="Đăng ký">
-            </div>
-            <div class="signin_container signup_more">
-                <p>Nếu bạn đã có tài khoản? <a onclick="closef('form_sup') + openf('form_sin')">Đăng nhập</a>.</p>
-            </div>
-        </form>
-    </div> -->
     <div class="form__login--signup" id="form_sin">
         <div class="container">
             <div class="forms">
@@ -280,6 +229,19 @@
             </div>
         </div>
     </div>
+    <div class="menu-background" id="menu-background">
+        
+    </div>
+    <div class="left-menu-close">
+        <div class="left-menu-inside">
+            <div class="left-menu-username"><i class="fas fa-user-circle    "></i><h3>Chưa đăng nhập</h3></div>
+            </div>
+            <div class="left-menu-option">
+                <div class="op1" onclick="openf('form_sin')">Đăng nhập</div>
+                <hr class="hroption">
+            </div>
+        </div>
+    </div>
     <script>
         window.onload = function () {
             //adduser(); cái này còn hơi lỗi chưa sửa
@@ -289,6 +251,7 @@
             show_genres();
             signin();
             js_login();
+            //show_page(4);
         }
         create_admin();
     </script>

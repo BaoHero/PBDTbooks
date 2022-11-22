@@ -276,7 +276,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   font-size: 12px;
   list-style-type: none;
   position: sticky;

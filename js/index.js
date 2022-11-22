@@ -395,28 +395,27 @@ function handle_signin() {
 //         closef("form_sin");
 //     }
 // }
-function signin() {
-  if (sessionStorage.getItem("dangnhap") == null) {
-    return false;
-  } else {
-    openb("logout");
-    dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
-    userArray = JSON.parse(localStorage.getItem("User"));
-    admin = JSON.parse(localStorage.getItem("admin"));
-    for (i = 0; i < admin.length; i++) {
-      if (dangnhap[0].username == admin[i].username) {
-        document.getElementById("admin_button").innerHTML =
-          '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
-      }
-      if (dangnhap[0].username == userArray[i].username) {
-        document.getElementById("infor_user").innerHTML =
-          '<i class="fas fa-user-check" id="infor_user">' +
-          dangnhap[0].fullname +
-          "</i>";
-      }
+function signin(){
+    if(sessionStorage.getItem('dangnhap') == null){
+        return false;
+    }
+    else{
+        openb('logout');
+        dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
+        userArray = JSON.parse(localStorage.getItem('User'));
+        admin = JSON.parse(localStorage.getItem('admin'));
+        for(i = 0; i < admin.length;i++){
+            console.log("heloooooo")
+            if(dangnhap[0].username == admin[i].username){
+                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
+            }
+            if(dangnhap[0].username == userArray[i].username){
+                document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + dangnhap[0].fullname + '</i>';
+            }
+        }
     }
   }
-}
+
 function login_admin() {
   location.href = "admin.html";
 }
@@ -720,17 +719,35 @@ function buybook() {
   } else {
   }
 }
-function usersite() {
-  history.back();
+function usersite(){
+    window.location.href='index.html'
 }
+function open_left_menu(){
+    var a = document.querySelector('.left-menu-close');
+    var c = document.querySelector('.left-menu-inside');
+    c.style.display="block";
+    a.classList.add('left-menu-open');
+    var b = document.querySelector('.menu-background');
 
-var index = 1;
-changeImage = function () {
-  var imgs = ["imgs/slider_1.jpg", "imgs/slider_2.jpg", "imgs/slider_3.jpg"];
-  document.getElementById("image").src = imgs[index];
-  index++;
-  if (index == 3) {
-    index = 0;
-  }
-};
-setInterval(changeImage, 3000);
+    b.style.display="block";
+    b.addEventListener("click",() =>{
+        a.classList.remove('left-menu-open');
+        c.style.display="none";
+        b.style.display="none";
+    })
+}
+function show_page(num_page){
+    var hr = location.href;
+    var temp = '';
+    if(getQueryVariable('genres') != undefined){
+    for(i = 0; i < num_page;i++){
+        temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`
+    }
+    }
+    else{
+        for(i = 0; i < num_page;i++){
+            temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`
+        }
+    }
+    document.querySelector('.list_page').innerHTML = temp;
+}

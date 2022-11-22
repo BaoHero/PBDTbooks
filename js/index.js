@@ -198,6 +198,7 @@ function signin(){
         userArray = JSON.parse(localStorage.getItem('User'));
         admin = JSON.parse(localStorage.getItem('admin'));
         for(i = 0; i < admin.length;i++){
+            console.log("heloooooo")
             if(dangnhap[0].username == admin[i].username){
                 document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
             }
@@ -448,5 +449,34 @@ function buybook() {
     }
 }
 function usersite(){
-    history.back();
+    window.location.href='index.html'
+}
+function open_left_menu(){
+    var a = document.querySelector('.left-menu-close');
+    var c = document.querySelector('.left-menu-inside');
+    c.style.display="block";
+    a.classList.add('left-menu-open');
+    var b = document.querySelector('.menu-background');
+
+    b.style.display="block";
+    b.addEventListener("click",() =>{
+        a.classList.remove('left-menu-open');
+        c.style.display="none";
+        b.style.display="none";
+    })
+}
+function show_page(num_page){
+    var hr = location.href;
+    var temp = '';
+    if(getQueryVariable('genres') != undefined){
+    for(i = 0; i < num_page;i++){
+        temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`
+    }
+    }
+    else{
+        for(i = 0; i < num_page;i++){
+            temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`
+        }
+    }
+    document.querySelector('.list_page').innerHTML = temp;
 }

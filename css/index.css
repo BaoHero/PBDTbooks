@@ -1067,4 +1067,9 @@ input[type="button"]:hover {
   .infor_book {
     height: 40%;
   }
+  .list__img img {
+    width: 95%;
+    height: 300px;
+    border-radius: 8px;
+  }
 }

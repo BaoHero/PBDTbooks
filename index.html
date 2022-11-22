@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
                         placeholder="Enter the text" required>
                     <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
@@ -62,44 +62,44 @@
         <div class="header_2">
 
             <div>
-            <button type="button" id="left-menu"  class="left-menu"><i class="fas fa-bars "
-                    onclick="open_left_menu()"></i></button>
+                <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
+                        onclick="open_left_menu()"></i></button>
             </div>
-                <a href="">Today's Deal</a>
-                <a href="">Gift Cards</a>
-                <a href="">Buy Again</a>
+            <a href="">Today's Deal</a>
+            <a href="">Gift Cards</a>
+            <a href="">Buy Again</a>
 
+        </div>
+    </div>
+    <div class="list__img">
+        <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
+    </div>
+    <hr class="hrbody">
+    <div class="body">
+        <!-- The loai -->
+        <div class="body__genres">
+            <!-- Danh sách thể loại -->
+            <a class="genres_title" href="?genres=danhsach">Genres</a>
+            <hr class="hrgenres">
+            <div class="genres__list" id="genres__list">
             </div>
         </div>
-        <div class="list__img">
-            <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
-        </div>
-        <hr class="hrbody">
-        <div class="body">
-            <!-- The loai -->
-            <div class="body__genres">
-                <!-- Danh sách thể loại -->
-                <a class="genres_title" href="?genres=danhsach">Genres</a>
-                <hr class="hrgenres">
-                <div class="genres__list" id="genres__list">
-                </div>
+        <!-- Danh sach san pham -->
+        <div class="body__list">
+            <div class="list__books" id="list__books">
+                <!-- hien thi sach -->
             </div>
-            <!-- Danh sach san pham -->
-            <div class="body__list">
-                <div class="list__books" id="list__books">
-                    <!-- hien thi sach -->
-                </div>
-                <div class="list_page1">
+            <div class="list_page1">
                 <div class="list_page">
-                    
-                </div>
+
                 </div>
             </div>
+        </div>
 
-        </div>
-        <hr class="hrfooter">
-        <div class="footer">
-        </div>
+    </div>
+    <hr class="hrfooter">
+    <div class="footer">
+    </div>
     </div>
     <div class="form__login--signup" id="form_sin">
         <div class="container">
@@ -212,35 +212,35 @@
                 </div>
 
                 <div class="infor_footer">
-                    <div class="buybt">
-                        <button type="button">Buy now</button>
-                    </div>
+                    <div class="buybt"></div>
                     <div class="num_book"><label for="numbook">Số lượng: </label><input id="numbook" type="number"
                             value="0"></div>
                 </div>
 
             </div>
         </div>
-        <div class="comfirm_buy">
-            <div>Bạn có chắc muốn mua sản phẩm này?</div>
-            <div class="sure">
-                <div>Có</div>
-                <div>Không</div>
+        <div class="comfirm_buy" id="comfirm_buy">
+            <div class="comfirm__question">Bạn có chắc muốn mua sản phẩm này?</div>
+            <div class="comfirm__answer">
+                <div class="answer yes" id="answer__yes">Có</div>
+                <div class="answer no" id="answer__no">Không</div>
             </div>
         </div>
     </div>
     <div class="menu-background" id="menu-background">
-        
+
     </div>
     <div class="left-menu-close">
         <div class="left-menu-inside">
-            <div class="left-menu-username"><i class="fas fa-user-circle    "></i><h3>Chưa đăng nhập</h3></div>
-            </div>
-            <div class="left-menu-option">
-                <div class="op1" onclick="openf('form_sin')">Đăng nhập</div>
-                <hr class="hroption">
+            <div class="left-menu-username"><i class="fas fa-user-circle    "></i>
+                <h3>Chưa đăng nhập</h3>
             </div>
         </div>
+        <div class="left-menu-option">
+            <div class="op1" onclick="openf('form_sin')">Đăng nhập</div>
+            <hr class="hroption">
+        </div>
+    </div>
     </div>
     <script>
         window.onload = function () {

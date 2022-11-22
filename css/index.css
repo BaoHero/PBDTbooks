@@ -1180,3 +1180,50 @@ input[type="button"]:hover {
     height: 40%;
   }
 }
+
+.comfirm_buy {
+  display: none;
+  position: fixed;
+  width: 30%;
+  min-height: 170px;
+  border: 1px pink solid;
+  top: 28%;
+  left: 35%;
+  background-color: whitesmoke;
+}
+
+.yes {}
+
+.no {}
+
+.comfirm__question {
+  font-size: 30px;
+  text-align: center;
+}
+
+.comfirm__answer {
+  font-size: 20px;
+  display: flex;
+  flex: row;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.answer {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.yes {
+  background-color: #4761f7;
+  cursor: pointer;
+}
+
+.no {
+  background-color: red;
+  cursor: pointer;
+}

@@ -395,26 +395,26 @@ function handle_signin() {
 //         closef("form_sin");
 //     }
 // }
-function signin(){
-    if(sessionStorage.getItem('dangnhap') == null){
-        return false;
-    }
-    else{
-        openb('logout');
-        dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-        userArray = JSON.parse(localStorage.getItem('User'));
-        admin = JSON.parse(localStorage.getItem('admin'));
-        for(i = 0; i < admin.length;i++){
-            console.log("heloooooo")
-            if(dangnhap[0].username == admin[i].username){
-                document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
-            }
-            if(dangnhap[0].username == userArray[i].username){
-                document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + dangnhap[0].fullname + '</i>';
-            }
-        }
+function signin() {
+  if (sessionStorage.getItem('dangnhap') == null) {
+    return false;
+  }
+  else {
+    openb('logout');
+    dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
+    userArray = JSON.parse(localStorage.getItem('User'));
+    admin = JSON.parse(localStorage.getItem('admin'));
+    for (i = 0; i < admin.length; i++) {
+      console.log("heloooooo")
+      if (dangnhap[0].username == admin[i].username) {
+        document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
+      }
+      if (dangnhap[0].username == userArray[i].username) {
+        document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + dangnhap[0].fullname + '</i>';
+      }
     }
   }
+}
 
 function login_admin() {
   location.href = "admin.html";
@@ -527,7 +527,7 @@ function show_list() {
         console.log(productArray[i].productId);
         var temp =
           temp +
-          '<div id="' +
+          '<dFiv id="' +
           productArray[i].productId +
           '"class="item" onclick="show_infor_book(' +
           productArray[i].productId +
@@ -539,7 +539,8 @@ function show_list() {
           productArray[i].name +
           '</div><div class="book_price"><span>$' +
           productArray[i].price +
-          "</span></div></div></div>";
+          "</span></div></div></dFiv>";
+
       }
     }
   } else if (a == undefined || a == "danhsach") {
@@ -582,9 +583,41 @@ function show_infor_book(s) {
       document.getElementById("price").innerHTML =
         "$ <span>" + productArray[i].price + "</span>";
       document.getElementById("informa").innerHTML =
-        "<p>" + productArray[i].information + "</p>";
+        "<p>" + productArray[i].information + "</p>"
+      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart('adsfa')">Buy now</button>`;
     }
   }
+}
+var cart = [];
+
+function addtocart(product) {
+  openb('comfirm_buy');
+  console.log(product)
+  if (sessionStorage.getItem('dangnhap') == null) {
+    alert("Bạn chưa đăng nhập!");
+    closeb("infor_book");
+    openb("form_sin");
+    return false;
+  }
+  dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
+  const y = document.querySelector('#answer__yes');
+  const n = document.querySelector('#answer__no');
+
+  var sl = document.getElementById("numbook").value;
+  if (sl <= 0) {
+    alert("Số lượng sai quy tắc!");
+    return false;
+  }
+  y.addEventListener('click', () => {
+    alert("phat ga");
+    item1 = { userid: dangnhap[0].username, product: product, soluong: sl };
+    cart.push(item1);
+  })
+  n.addEventListener('click', () => {
+    closeb('comfirm_buy');
+    return false;
+  })
+  sessionStorage.setItem("tempcart", stringify(cart));
 }
 
 function getQueryVariable(variable) {
@@ -719,35 +752,37 @@ function buybook() {
   } else {
   }
 }
-function usersite(){
-    window.location.href='index.html'
+function usersite() {
+  window.location.href = 'index.html'
 }
-function open_left_menu(){
-    var a = document.querySelector('.left-menu-close');
-    var c = document.querySelector('.left-menu-inside');
-    c.style.display="block";
-    a.classList.add('left-menu-open');
-    var b = document.querySelector('.menu-background');
+function open_left_menu() {
+  var a = document.querySelector('.left-menu-close');
+  var c = document.querySelector('.left-menu-inside');
+  c.style.display = "block";
+  a.classList.add('left-menu-open');
+  var b = document.querySelector('.menu-background');
 
-    b.style.display="block";
-    b.addEventListener("click",() =>{
-        a.classList.remove('left-menu-open');
-        c.style.display="none";
-        b.style.display="none";
-    })
+  b.style.display = "block";
+  b.addEventListener("click", () => {
+    a.classList.remove('left-menu-open');
+    c.style.display = "none";
+    b.style.display = "none";
+  })
 }
-function show_page(num_page){
-    var hr = location.href;
-    var temp = '';
-    if(getQueryVariable('genres') != undefined){
-    for(i = 0; i < num_page;i++){
-        temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`
+function show_page(num_page) {
+  var hr = location.href;
+  var temp = '';
+  if (getQueryVariable('genres') != undefined) {
+    for (i = 0; i < num_page; i++) {
+      temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`
     }
+  }
+  else {
+    for (i = 0; i < num_page; i++) {
+      temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`
     }
-    else{
-        for(i = 0; i < num_page;i++){
-            temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`
-        }
-    }
-    document.querySelector('.list_page').innerHTML = temp;
+  }
+  document.querySelector('.list_page').innerHTML = temp;
 }
+
+

@@ -603,13 +603,13 @@ function addtocart(product) {
     closeb("infor_book");
     closeb("comfirm_buy")
     openb("form_sin");
+    closeb('comfirm_buy')
     return false;
   }
   dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  var y = document.querySelector('#answer__yes');
-  var n = document.querySelector('#answer__no');
-  
-  console.log(y + n);
+  const yes = document.querySelector('.yes');
+  const no = document.querySelector('.no');
+
   var sl = document.getElementById("numbook").value;
   console.log(sl);
   if (sl <= 0) {
@@ -617,14 +617,12 @@ function addtocart(product) {
     closeb('comfirm_buy');
     return false;
   }
-  y.addEventListener("click", () => {
-
-    item1 = { userid: dangnhap[0].username, product: product, soluong: sl };
+  yes.addEventListener("click", () => {
+    item1 = { userid: dangnhap[0], product: product, soluong: sl };
     cart.push(item1);
-  })
-  n.addEventListener("click", () => {
+  });
+  no.addEventListener("click", () => {
     closeb('comfirm_buy');
-    return false;
   })
   sessionStorage.setItem("tempcart", JSON.stringify(cart));
 }
@@ -803,3 +801,6 @@ changeImage = function () {
   }
 };
 setInterval(changeImage, 3000);
+function ShowGenres(){
+  document.getElementById('body__genres').style.display='block';
+}

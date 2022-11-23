@@ -592,35 +592,41 @@ function show_infor_book(s) {
   }
 }
 var cart = [];
-
+function test(){
+  console.log("hellooooo");
+}
 function addtocart(product) {
   openb('comfirm_buy');
   console.log(product)
   if (sessionStorage.getItem('dangnhap') == null) {
     alert("Bạn chưa đăng nhập!");
     closeb("infor_book");
+    closeb("comfirm_buy")
     openb("form_sin");
     return false;
   }
   dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  const y = document.querySelector('#answer__yes');
-  const n = document.querySelector('#answer__no');
-
+  var y = document.querySelector('#answer__yes');
+  var n = document.querySelector('#answer__no');
+  
+  console.log(y + n);
   var sl = document.getElementById("numbook").value;
+  console.log(sl);
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
+    closeb('comfirm_buy');
     return false;
   }
-  y.addEventListener('click', () => {
-    alert("phat ga");
+  y.addEventListener("click", () => {
+
     item1 = { userid: dangnhap[0].username, product: product, soluong: sl };
     cart.push(item1);
   })
-  n.addEventListener('click', () => {
+  n.addEventListener("click", () => {
     closeb('comfirm_buy');
     return false;
   })
-  sessionStorage.setItem("tempcart", stringify(cart));
+  sessionStorage.setItem("tempcart", JSON.stringify(cart));
 }
 
 function getQueryVariable(variable) {

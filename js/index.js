@@ -797,3 +797,6 @@ changeImage = function () {
   }
 };
 setInterval(changeImage, 3000);
+function ShowGenres(){
+  document.getElementById('body__genres').style.display='block';
+}

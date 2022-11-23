@@ -371,7 +371,8 @@ body {
   opacity: 0.2;
 }
 
-.body__genres {
+.body .body__genres {
+  display: none;
   width: 15%;
   border-right: 2px solid gray;
   display: block;
@@ -1081,14 +1082,25 @@ input[type="button"]:hover {
   text-align: center;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
-  .body__advertisement {
-    width: 0%;
-    display: none;
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  .body__list {
+    width: 100%;
   }
 
-  .body__list {
-    width: 80%;
+  #body__genres {
+    border-left: 2px solid gray;
+    margin-left: 5%;
+    width: 90%;
+    height: 240px;
+  }
+
+  .header_2 #ShowGenres {
+    font-size: 15px;
+    width: 100px;
+  }
+
+  .body {
+    display: block;
   }
 
   .header .header__logo img {
@@ -1100,27 +1112,31 @@ input[type="button"]:hover {
   }
 
   .header .address {
-    width: 5%;
+    width: 6%;
   }
 
   .header .address .address_icon {
-    margin-left: 20%;
+    margin-left: 10%;
   }
 
   .body .body__genres #CGN {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .body .body__genres #MTS {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .body .body__genres #CHH {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .body .body__genres #CT {
-    font-size: 11px;
+    font-size: 15px;
+  }
+
+  .body__genres .genres_title {
+    font-size: 30px;
   }
 
   .list__img {
@@ -1128,12 +1144,16 @@ input[type="button"]:hover {
     height: 300px;
   }
 
+  .list__img img {
+    width: 900px;
+    margin-top: 1%;
+  }
 
   .list__books {
     display: flex;
     flex-wrap: wrap;
     margin: 30px;
-    width: 105%;
+    width: 100%;
   }
 
   .item {
@@ -1158,7 +1178,229 @@ input[type="button"]:hover {
   }
 
   .infor_book {
-    height: 40%;
+    height: 60%;
+    width: 70%;
+  }
+
+  .book_title {
+    font-family: Segoe UI Arial;
+    font-size: 10px;
+  }
+
+  .information {
+    font-size: 10px;
+  }
+
+  .list__img img {
+    width: 95%;
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .search_scope .serch_facade {
+    width: 10px;
+  }
+
+  .search_scope .search_label {
+    font-size: 1px;
+    line-height: 30px;
+  }
+
+  .header .header__findbar button {
+    padding: 1px;
+  }
+
+  .sin_bt #signin {
+    font-size: 9px;
+    width: 50px;
+  }
+
+  .repo #repo {
+    padding-left: 9px;
+    width: 40px;
+  }
+
+  .form__login--signup {
+    width: 60%;
+    left: 23%;
+  }
+
+  .admin_button {
+    font-size: 15px;
+    width: 50px;
+  }
+
+  .infor_user {
+    display: none;
+  }
+
+  #logout {
+    font-size: 9px;
+    width: 50px;
+  }
+
+  .list__img img {
+    width: 95%;
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 600px) {
+  .body__list {
+    width: 100%;
+  }
+
+  #body__genres {
+    border-left: 2px solid gray;
+    margin-left: 5%;
+    width: 90%;
+    height: 240px;
+  }
+
+  .header_2 #ShowGenres {
+    font-size: 15px;
+    width: 100px;
+  }
+
+  .body {
+    display: block;
+  }
+
+  .header .header__logo img {
+    width: 85%;
+  }
+
+  .header .address span {
+    display: none;
+  }
+
+  .header .address {
+    width: 6%;
+  }
+
+  .header .address .address_icon {
+    margin-left: 10%;
+  }
+
+  .body .body__genres #CGN {
+    font-size: 15px;
+  }
+
+  .body .body__genres #MTS {
+    font-size: 15px;
+  }
+
+  .body .body__genres #CHH {
+    font-size: 15px;
+  }
+
+  .body .body__genres #CT {
+    font-size: 15px;
+  }
+
+  .body__genres .genres_title {
+    font-size: 30px;
+  }
+
+  .list__img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .list__img img {
+    width: 900px;
+    margin-top: 1%;
+  }
+
+  .list__books {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    width: 100%;
+  }
+
+  .item {
+    border-radius: 10px;
+    border: 1px solid #d5dbdb;
+    text-align: center;
+    width: 45%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+
+  .img_book {
+    margin: 0 0 15px;
+    text-align: center;
+    position: relative;
+  }
+
+  .img_book img {
+    width: 95%;
+    display: inline;
+    font-size: 14px;
+  }
+
+  .infor_book {
+    height: 60%;
+    width: 70%;
+  }
+
+  .book_title {
+    font-family: Segoe UI Arial;
+    font-size: 10px;
+  }
+
+  .information {
+    font-size: 10px;
+  }
+
+  .list__img img {
+    width: 95%;
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .search_scope .serch_facade {
+    width: 10px;
+  }
+
+  .search_scope .search_label {
+    font-size: 1px;
+    line-height: 30px;
+  }
+
+  .header .header__findbar button {
+    padding: 1px;
+  }
+
+  .sin_bt #signin {
+    font-size: 9px;
+    width: 40px;
+  }
+
+  .repo #repo {
+    padding-left: 9px;
+    width: 40px;
+  }
+
+  .form__login--signup {
+    width: 60%;
+    left: 23%;
+  }
+
+  .admin_button {
+    font-size: 15px;
+    width: 50px;
+  }
+
+  .infor_user {
+    display: none;
+  }
+
+  #logout {
+    font-size: 9px;
+    width: 40px;
   }
 }
 

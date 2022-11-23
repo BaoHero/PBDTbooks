@@ -8,7 +8,7 @@
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -203,7 +203,8 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {}
+.header__rightmenu div {
+}
 
 .sin_bt {
   cursor: pointer;
@@ -361,8 +362,8 @@ body {
 .ShowGenres #ShowGenres {
   background-color: black;
   height: 35px;
-  float: left ;
-  color:white;
+  float: left;
+  color: white;
   float: left;
   position: relative;
   margin-top: 1px;
@@ -480,7 +481,8 @@ body {
   position: relative;
 }
 
-.infor {}
+.infor {
+}
 
 .information {
   overflow: auto;
@@ -529,7 +531,6 @@ body {
   justify-content: center;
   /* margin-top: 20px; */
 }
-
 
 /* thong tin sach */
 .infor_book {
@@ -581,7 +582,8 @@ body {
   margin-bottom: 10px;
 }
 
-.price {}
+.price {
+}
 
 .price span {
   color: #b12704;
@@ -609,18 +611,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked~label.star:before {
+input.star:checked ~ label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked~label.star:before {
+input.star-5:checked ~ label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked~label.star:before {
+input.star-1:checked ~ label.star:before {
   color: #f62;
 }
 
@@ -1023,7 +1025,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid)~i {
+.input__field input:is(:focus, :valid) ~ i {
   color: #4070f4;
 }
 
@@ -1099,7 +1101,7 @@ input[type="button"]:hover {
   }
 
   #body__genres {
-    display : none;
+    display: none;
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
@@ -1265,7 +1267,7 @@ input[type="button"]:hover {
   }
 
   #body__genres {
-    display : none;
+    display: none;
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
@@ -1468,3 +1470,4 @@ input[type="button"]:hover {
   border-radius: 8px;
   margin-top: 20px;
 }
+/*  */

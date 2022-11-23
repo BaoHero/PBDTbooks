@@ -600,27 +600,27 @@ function addtocart(product) {
     alert("Bạn chưa đăng nhập!");
     closeb("infor_book");
     openb("form_sin");
+    closeb('comfirm_buy')
     return false;
   }
   dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  const y = document.querySelector('#answer__yes');
-  const n = document.querySelector('#answer__no');
+  const yes = document.querySelector('.yes');
+  const no = document.querySelector('.no');
 
   var sl = document.getElementById("numbook").value;
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
-    return false;
-  }
-  y.addEventListener('click', () => {
-    alert("phat ga");
-    item1 = { userid: dangnhap[0].username, product: product, soluong: sl };
-    cart.push(item1);
-  })
-  n.addEventListener('click', () => {
     closeb('comfirm_buy');
     return false;
+  }
+  yes.addEventListener("click", () => {
+    item1 = { userid: dangnhap[0], product: product, soluong: sl };
+    cart.push(item1);
+  });
+  no.addEventListener("click", () => {
+    closeb('comfirm_buy');
   })
-  sessionStorage.setItem("tempcart", stringify(cart));
+  sessionStorage.setItem("tempcart", JSON.stringify(cart));
 }
 
 function getQueryVariable(variable) {

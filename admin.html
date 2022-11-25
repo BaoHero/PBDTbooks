@@ -28,10 +28,11 @@
         </div>
         <div class="header_2">
             <div><button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "></i></button></div>
+            <div class="ShowGenres"><input id="ShowGenres"  type="button" value="Genres" onclick="ShowGenres()"></div>
         </div>
         <div class="body">
             <!-- The loai -->
-            <div class="body__genres">
+            <div class="body__genres" id="body__genres">
                 <!-- Danh sách thể loại -->
                 <h1 class="genres_title" onclick="reload_site('admin.html')">Genres</h1>
                 <hr class="hrgenres">
@@ -44,10 +45,6 @@
                 <div class="list__books" id="list__booksAdmin">
                     <!-- hien thi sach -->
                 </div>
-            </div>
-            <!-- Quang cao -->
-            <div class="body__advertisement">
-                <img src="imgs/tumblr_static_-511703865-content_2048_v2.jpg" alt="">
             </div>
         </div>
         <hr class="hrfooter">

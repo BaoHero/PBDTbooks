@@ -427,7 +427,7 @@ body {
 
 /* Hiển thị sách */
 .body__list {
-  width: 65%;
+  width: 70%;
 }
 
 .list__books {
@@ -1113,7 +1113,9 @@ input[type="button"]:hover {
     font-size: 15px;
     width: 100px;
   }
-
+  .header_2{
+    height: 50px;
+  }
   .body {
     display: block;
   }
@@ -1278,6 +1280,9 @@ input[type="button"]:hover {
     display: block;
     font-size: 15px;
     width: 100px;
+  }
+  .header_2{
+    height: 50px;
   }
 
   .body {

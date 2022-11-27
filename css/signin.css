@@ -1,9 +1,12 @@
+/* css cho signin.html */
+
 *{
     box-sizing: border-box;
 }
 .background {
     margin :0;
 }
+/* thẻ div ngoài */
 .outside{
     width: 100%;
     height: 1000px;

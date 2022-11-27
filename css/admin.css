@@ -1,3 +1,6 @@
+/* Đây là trang css của admin.html */
+
+/*css nút back lại */
 .ad_rightmenu{
     position: absolute;
     right: 30px;
@@ -7,9 +10,11 @@
     color: whitesmoke;
     cursor: pointer;
 }
+/*css logo nhóm*/
 .header .header__logo{
     width: 15%;
 }
+/* Màn hình nhỏ */
 @media only screen and (min-width: 100px) and (max-width: 600px) {
     .header .header__logo{
         width: 20%;

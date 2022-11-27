@@ -604,12 +604,12 @@ function show_infor_book(s) {
         "$ <span>" + productArray[i].price + "</span>";
       document.getElementById("informa").innerHTML =
         "<p>" + productArray[i].information + "</p>"
-      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart('adsfa')">Buy now</button>`;
+      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart(productArray[i])">Buy now</button>`;
     }
   }
 }
 var cart = [];
-function test(){
+function test() {
   console.log("hellooooo");
 }
 function addtocart(product) {
@@ -637,11 +637,12 @@ function addtocart(product) {
   yes.addEventListener("click", () => {
     item1 = { userid: dangnhap[0], product: product, soluong: sl };
     cart.push(item1);
+    sessionStorage.setItem("tempcart", JSON.stringify(cart));
+    closeb('comfirm_buy');
   });
   no.addEventListener("click", () => {
     closeb('comfirm_buy');
   })
-  sessionStorage.setItem("tempcart", JSON.stringify(cart));
 }
 
 function getQueryVariable(variable) {
@@ -820,6 +821,7 @@ changeImage = function () {
   }
 };
 setInterval(changeImage, 3000);
-function ShowGenres(){
-  document.getElementById('body__genres').style.display='block';
+function ShowGenres() {
+  document.getElementById('body__genres').style.display = 'block';
 }
+

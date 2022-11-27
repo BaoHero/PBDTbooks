@@ -28,6 +28,7 @@ body {
   max-height: max-content;
   display: block;
 }
+
 /* Thẻ div lớn cho 2 thẻ header đầu */
 
 .page_user {
@@ -52,6 +53,7 @@ body {
   width: 100%;
   background-color: #131921;
 }
+
 /* Chỉnh sửa logo */
 .header .header__logo img {
   width: 50%;
@@ -210,8 +212,7 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {
-}
+.header__rightmenu div {}
 
 .sin_bt {
   cursor: pointer;
@@ -493,8 +494,7 @@ body {
   position: relative;
 }
 
-.infor {
-}
+.infor {}
 
 .information {
   overflow: auto;
@@ -597,8 +597,7 @@ body {
   margin-bottom: 10px;
 }
 
-.price {
-}
+.price {}
 
 .price span {
   color: #b12704;
@@ -626,18 +625,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked ~ label.star:before {
+input.star:checked~label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked ~ label.star:before {
+input.star-5:checked~label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked ~ label.star:before {
+input.star-1:checked~label.star:before {
   color: #f62;
 }
 
@@ -841,7 +840,8 @@ input[type="button"]:hover {
   font-size: 25px;
   text-align: center;
   border: none;
-  background-color: red;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -854,7 +854,18 @@ input[type="button"]:hover {
   font-size: 25px;
   text-align: center;
   border: none;
+  background-color: white;
+  color: black;
+}
+
+.hide_button1:hover {
   background-color: red;
+  color: white;
+}
+
+.hide_button:hover {
+  background-color: red;
+  color: white;
 }
 
 #image {
@@ -1040,7 +1051,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid) ~ i {
+.input__field input:is(:focus, :valid)~i {
   color: #4070f4;
 }
 
@@ -1129,9 +1140,11 @@ input[type="button"]:hover {
     font-size: 15px;
     width: 100px;
   }
-  .header_2{
+
+  .header_2 {
     height: 50px;
   }
+
   .body {
     display: block;
   }
@@ -1298,7 +1311,8 @@ input[type="button"]:hover {
     font-size: 15px;
     width: 100px;
   }
-  .header_2{
+
+  .header_2 {
     height: 50px;
   }
 
@@ -1423,6 +1437,8 @@ input[type="button"]:hover {
     width: 40px;
   }
 
+  .repo__item {}
+
   .form__login--signup {
     width: 60%;
     left: 23%;
@@ -1492,4 +1508,47 @@ input[type="button"]:hover {
   border-radius: 8px;
   margin-top: 20px;
 }
-/*  */
+
+/* Css gio hang */
+.cart {
+  display: none;
+  width: 70%;
+  min-height: 500px;
+  background-color: white;
+  border: none;
+  position: fixed;
+  top: 10%;
+  left: 15%;
+}
+
+#cart {}
+
+.title__cart {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+
+.title__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title__item__left {
+  width: 50%;
+  margin-left: 50px;
+}
+
+.title__item__right {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart__product {}
+
+.title__total__money {
+  display: flex;
+}
+
+.total__money {}

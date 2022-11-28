@@ -273,14 +273,6 @@ function addgenres() {
     console.log(genres[i]);
   }
 }
-function show_password(st) {
-  a = document.getElementById(st);
-  b = document.getElementById("showpsw");
-  if (b.checked == true) a.setAttribute("type", "text");
-  else {
-    a.setAttribute("type", "password");
-  }
-}
 
 // Tạo tài khoản admin và lưu vào local storage
 function create_admin() {

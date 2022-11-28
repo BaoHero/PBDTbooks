@@ -609,9 +609,10 @@ function show_infor_book(s) {
     }
   }
 }
-//code trang
-var tempitem = [];
+//PhanTrang
+
 function show_page(num_page) {
+  var tempitem = [];
   var hr = location.href;
   var temp = "";
   if (getQueryVariable("genres") != undefined) {
@@ -682,10 +683,9 @@ function show_list() {
   totalPages = Math.ceil(tempitem.length/itemPerPage);
   renderPagesList(totalPages);
   console.log(totalPages)
-  var start = (a-1)*itemPerPage+1;
+  var start = (a-1)*itemPerPage;
   console.log(start);
   show_l(tempitem,start,itemPerPage+start);
-
 }
 function show_l(arr,start,end){
   var temp1 = "'infor_book'";
@@ -696,7 +696,7 @@ function show_l(arr,start,end){
   if(end > arr.length){
     end = arr.length;
   }
-  for (i = start-1; i < end-1; i++) {
+  for (i = start; i < end; i++) {
     var t =
       t +
       '<div id="' +

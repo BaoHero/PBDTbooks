@@ -254,6 +254,7 @@ body {
 
 .sin_bt {
   cursor: pointer;
+  display: block;
 }
 
 /* Tên tài khoản */

@@ -975,3 +975,22 @@ function turnonflex(st) {
     a.style.display = "none";
   });
 }
+
+function log_in() {
+  if (sessionStorage.getItem("dangnhap") == null) {
+    return false;
+  } else {
+    dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+    userArray = JSON.parse(localStorage.getItem("User"));
+    admin = JSON.parse(localStorage.getItem("admin"));
+    var sinbt = document.querySelector(".sin_bt");
+    for (i = 0; i < admin.length + userArray.length; i++) {
+      if (dangnhap[0].username == admin[i].username) {
+        sinbt.style.display = "none";
+      }
+      else if (dangnhap[0].username == userArray[i].username) {
+        sinbt.style.display = "none";
+      }
+    }
+  }
+}

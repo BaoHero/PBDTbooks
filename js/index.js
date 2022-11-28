@@ -4,6 +4,11 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
+$(window).on('load', function(event) {
+	$('body').removeClass('preloading');
+	// $('.load').delay(1000).fadeOut('fast');
+	$('.load').delay(1000).fadeOut('fast');
+});
 function createProduct() {
   if (localStorage.getItem("product") == null) {
     productArray = [
@@ -516,6 +521,31 @@ function show_genres() {
   document.getElementById("genres__list").innerHTML += a;
 }
 //ham hien thi sach san pham
+function print_item(a){
+
+}
+function show_list1() {
+  if (localStorage.getItem("product") == null) {
+    return false;
+  }
+  var templist = [];
+  productArray = JSON.parse(localStorage.getItem("product"));
+  var a = getQueryVariable("genres");
+  var temp = "";
+  var temp1 = "'infor_book'";
+  if (a != undefined && a != "danhsach") {
+    for (i = 0; i < productArray.length; i++) {
+      if (productArray[i].genresId == a) {
+        templist.push(productArray[i]);
+      }
+    }
+  }else if (a == undefined || a == "danhsach") {
+    for (i = 0; i < productArray.length; i++) {
+
+    }
+  }
+  document.getElementById("list__books").innerHTML = temp;
+}
 function show_list() {
   if (localStorage.getItem("product") == null) {
     return false;
@@ -591,6 +621,49 @@ function show_infor_book(s) {
     }
   }
 }
+//code trang
+function show_page(num_page) {
+  var hr = location.href;
+  var temp = "";
+  if (getQueryVariable("genres") != undefined) {
+    for (i = 0; i < num_page; i++) {
+      temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`;
+    }
+  } else {
+    for (i = 0; i < num_page; i++) {
+      temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`;
+    }
+  }
+  document.querySelector(".list_page").innerHTML = temp;
+}
+
+function renderPagesList(total) {
+  let html = '';
+  for(let i=1; i<=total; i++) {
+      html+= `
+          <a href="#">
+              <li class="page_list-items">${i}</li>
+          </a>
+      `;
+  }
+  document.querySelector(".page_list").innerHTML=html;
+}
+
+// renderPagesList(totalPages);
+
+function changePage(productList) {
+  const pagesList = document.querySelectorAll(".page_list a");
+  pagesList.forEach(function (item, index) {
+      item.onclick = function () {
+          let value = index+1;
+          currentPage = value
+          s = (currentPage-1)*itemPerPage;
+          e = currentPage*itemPerPage;
+          renderProduct(productList, s, e);
+      }
+  })
+}
+
 var cart = [];
 function test(){
   console.log("hellooooo");
@@ -776,22 +849,9 @@ function open_left_menu() {
     b.style.display = "none";
   });
 }
-function show_page(num_page) {
-  var hr = location.href;
-  var temp = "";
-  if (getQueryVariable("genres") != undefined) {
-    for (i = 0; i < num_page; i++) {
-      temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`;
-    }
-  } else {
-    for (i = 0; i < num_page; i++) {
-      temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`;
-    }
-  }
-  document.querySelector(".list_page").innerHTML = temp;
-}
 
 var index = 1;
+
 changeImage = function () {
   var slider = ["imgs/slider_1.jpg", "imgs/slider_2.jpg", "imgs/slider_3.jpg"];
   document.getElementById("image").src = slider[index];

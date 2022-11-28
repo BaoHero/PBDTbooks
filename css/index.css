@@ -10,7 +10,39 @@
 html {
   font-family: Arial, Helvetica, sans-serif
 }
-
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	overflow: hidden;
+}
+.content{
+	width: 1170px;
+	margin: auto;
+	margin-top: 30px;
+}
+/*dùng ảnh gif*/
+.load{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000000000;
+	display: block;
+	overflow: hidden;
+}
+.load img{
+	width: 150px;
+	height: 150px;
+	position: absolute; 
+	top: 50%;
+	left: 50%;
+	margin-top: -75px;
+	margin-left: -75px;
+}
 body {
   min-height: 2000px;
   overflow-x: hidden;
@@ -235,10 +267,12 @@ body {
   padding: 15px;
   color: white;
   font-size: larger;
+  cursor: pointer;
 }
 
 .fa-user-check {
   padding: 15px;
+  cursor: pointer;
 }
 
 #logout {
@@ -263,6 +297,7 @@ body {
 }
 
 .signbt {
+  cursor: pointer;
   border-radius: 4px;
   background-color: #f2f3ab;
   border: none;
@@ -646,7 +681,10 @@ label.star:before {
 .item_page:hover {
   background-color: #959aa1;
 }
-
+.item_page:active{
+  background-color: #4070f4;
+  color:white;
+}
 .item_page:link {
   background-color: yellow;
 }
@@ -1097,6 +1135,7 @@ input[type="button"]:hover {
   .header_2 #ShowGenres {
     font-size: 15px;
     width: 100px;
+
   }
 
   .body {

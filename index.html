@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBDTbooks</title>
+    <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
     <script src="js/index.js"></script>
 </head>
 
-<body>
+<body class="preloading">
+    <div class="load" >
+        <img src="imgs/Loader.gif" alt="">
+    </div>
     <!-- trang user -->
     <div id="page_user" class="page_user">
         <div class="header">
@@ -65,7 +70,8 @@
                 <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
                         onclick="open_left_menu()"></i></button>
             </div>
-            <input id="ShowGenres"  type="button" value="Genres" onclick="ShowGenres()">
+            <div class="" id="ShowGenres"  type="button" onclick="ShowGenres()">Genres</div>
+           
 
         </div>
     </div>

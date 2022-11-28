@@ -13,44 +13,49 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 
+<!-- Đây là trang của admin để chỉnh sửa -->
+<!-- Trang này sẽ hiện ra khi đăng nhập và ấn vào nút chỉnh sửa kế bên ô tìm kiếm -->
 <body>
     <div id="page_admin" class="page_admin">
         <div class="header">
+            <!-- Logo nhóm -->
             <div class="header__logo" onclick="reload_site('admin.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo"></div>
+            <!-- Ô tìm kiếm -->
             <div class="header__findbar">
                 <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
                     required>
                 <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
             </div>
+            <!-- Nút quay lại -->
             <div class="header__rightmenu" >
                 <div class="ad_rightmenu"><i onclick="usersite()" class="fas fa-backward    "></i></div>
             </div>
         </div>
+
         <div class="header_2">
             <div><button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "></i></button></div>
+            <!-- Hiển thị danh mục thể loại ( Chỉ khi ở màn hình nhỏ ) -->
+            <div class="ShowGenres"><input id="ShowGenres"  type="button" value="Genres" onclick="ShowGenres()"></div>
         </div>
         <div class="body">
-            <!-- The loai -->
-            <div class="body__genres">
-                <!-- Danh sách thể loại -->
+            <!-- Thể loại -->
+            <div class="body__genres" id="body__genres">
+                <!-- Danh mục thể loại -->
                 <h1 class="genres_title" onclick="reload_site('admin.html')">Genres</h1>
                 <hr class="hrgenres">
                 <div class="genres__list" id="genres__list">
 
                 </div>
             </div>
-            <!-- Danh sach san pham -->
+            <!-- Danh sách sản phẩm -->
             <div class="body__list">
                 <div class="list__books" id="list__booksAdmin">
-                    <!-- hien thi sach -->
+                    <!-- Hiển thị sách -->
                 </div>
-            </div>
-            <!-- Quang cao -->
-            <div class="body__advertisement">
-                <img src="imgs/tumblr_static_-511703865-content_2048_v2.jpg" alt="">
             </div>
         </div>
         <hr class="hrfooter">
+        <!-- Tạo thêm sản phẩm mới -->
         <div class="footer">
             <form action="" class="addproduct">
                 <div class="addproduct_item"><label for="">Nhập mã sản phẩm:</label><input type="text" id="addProductId"

@@ -220,6 +220,8 @@ function createProduct() {
     localStorage.setItem("product", JSON.stringify(productArray));
   }
 }
+
+// Hàm đóng , mở 
 function openb(st) {
   var a = document.getElementById(st);
   a.style.display = "block";
@@ -246,6 +248,8 @@ function openflex(st) {
   var b = document.getElementById("page_user");
   b.style.opacity = 0.25;
 }
+
+// Hiển thị mật khẩu
 function show_password() {
   a = document.getElementById("psw");
   b = document.getElementById("showpsw");
@@ -254,6 +258,8 @@ function show_password() {
     a.setAttribute("type", "password");
   }
 }
+
+// Thêm sản phẩm
 function addgenres() {
   console.log(genres.length);
   a = document.getElementById("add_genre").value;
@@ -285,6 +291,8 @@ function show_password(st) {
     a.setAttribute("type", "password");
   }
 }
+
+// Tạo tài khoản admin và lưu vào local storage
 function create_admin() {
   var a = "admin";
   if (
@@ -341,6 +349,7 @@ function create_admin() {
   }
 }
 
+// Hàm nút đăng nhập
 function handle_signin() {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -430,11 +439,15 @@ function login_admin() {
 function reload_site(s) {
   location.href = s;
 }
+
+// Hàm đăng xuất
 function logout() {
   confirm("Bạn có chắc muốn đăng xuất");
   sessionStorage.removeItem("dangnhap");
   location.href = "index.html";
 }
+
+// Kiểm tra tài khoản khi đăng ký
 function kiemtratk(st) {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -488,7 +501,8 @@ function adduser() {
     }
   }
 }
-//tao mang danh sach sach
+
+// Tạo mảng danh sách để có thể tìm kiếm dựa trên danh mục
 function createGenres() {
   if (localStorage.getItem("genres") == null) {
     genresArray = [
@@ -500,7 +514,7 @@ function createGenres() {
     localStorage.setItem("genres", JSON.stringify(genresArray));
   }
 }
-//hien thi danh sach the loai
+// Hiển thị danh mục thể loại
 function show_genres() {
   if (localStorage.getItem("genres") == null) {
     return false;
@@ -617,7 +631,7 @@ function show_infor_book(s) {
         "$ <span>" + productArray[i].price + "</span>";
       document.getElementById("informa").innerHTML =
         "<p>" + productArray[i].information + "</p>"
-      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart('adsfa')">Buy now</button>`;
+      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart(productArray[i])">Buy now</button>`;
     }
   }
 }
@@ -665,7 +679,7 @@ function changePage(productList) {
 }
 
 var cart = [];
-function test(){
+function test() {
   console.log("hellooooo");
 }
 function addtocart(product) {
@@ -693,11 +707,12 @@ function addtocart(product) {
   yes.addEventListener("click", () => {
     item1 = { userid: dangnhap[0], product: product, soluong: sl };
     cart.push(item1);
+    sessionStorage.setItem("tempcart", JSON.stringify(cart));
+    closeb('comfirm_buy');
   });
   no.addEventListener("click", () => {
     closeb('comfirm_buy');
   })
-  sessionStorage.setItem("tempcart", JSON.stringify(cart));
 }
 
 function getQueryVariable(variable) {
@@ -711,6 +726,7 @@ function getQueryVariable(variable) {
   }
 }
 
+// Thêm sản phẩm
 function AddProduct() {
   productArray = JSON.parse(localStorage.getItem("product"));
   var newproduct = {
@@ -726,6 +742,7 @@ function AddProduct() {
   localStorage.setItem("product", JSON.stringify(productArray));
 }
 
+//Xóa sản phẩm
 function deleteProduct(deleteproductId) {
   productArray = JSON.parse(localStorage.getItem("product"));
   for (var i = 0; i < productArray.length; i++) {
@@ -861,6 +878,7 @@ changeImage = function () {
   }
 };
 setInterval(changeImage, 3000);
-function ShowGenres(){
-  document.getElementById('body__genres').style.display='block';
+function ShowGenres() {
+  document.getElementById('body__genres').style.display = 'block';
 }
+

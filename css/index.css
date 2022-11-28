@@ -1,3 +1,5 @@
+/* Đây là file css chính cho trang index.html */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
@@ -8,7 +10,7 @@
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 *{
 	margin: 0;
@@ -59,6 +61,8 @@ body {
   display: block;
 }
 
+/* Thẻ div lớn cho 2 thẻ header đầu */
+
 .page_user {
   /* position: fixed; */
   width: auto;
@@ -82,6 +86,7 @@ body {
   background-color: #131921;
 }
 
+/* Chỉnh sửa logo */
 .header .header__logo img {
   width: 50%;
   cursor: pointer;
@@ -95,6 +100,7 @@ body {
   cursor: pointer;
 }
 
+/* Chỉnh sửa ô địa chỉ */
 .address {
   width: 7%;
   background-color: white;
@@ -126,6 +132,7 @@ body {
   margin: 10px 0 7px 3px;
 }
 
+/* Chỉnh sửa thanh tìm kiếm */
 .header form {
   width: 50%;
 }
@@ -209,6 +216,7 @@ body {
   line-height: 35px;
 }
 
+/* css nơi nhập dữ liệu để tìm kiếm */
 .header .header__findbar input[type="text"] {
   width: 80%;
   padding: 10px;
@@ -225,6 +233,7 @@ body {
   cursor: pointer;
 }
 
+/* Thẻ div cho những nút chức năng bên phải */
 .header__rightmenu {
   width: 33%;
   display: flex;
@@ -241,6 +250,7 @@ body {
   cursor: pointer;
 }
 
+/* Tên tài khoản */
 .infor_user {
   border-radius: 5px;
   border: 1px solid #131921;
@@ -253,6 +263,7 @@ body {
   width: 100%;
 }
 
+/* Nút chỉnh sửa */
 .admin_button {
   margin-left: 5px;
   float: left;
@@ -275,6 +286,7 @@ body {
   cursor: pointer;
 }
 
+/* Nút đăng xuất */
 #logout {
   padding: 15px;
   display: none;
@@ -394,6 +406,19 @@ body {
   font-size: 20px;
 }
 
+/* Css danh mục sản phẩm */
+.ShowGenres #ShowGenres {
+  background-color: black;
+  height: 35px;
+  float: left;
+  color: white;
+  float: left;
+  position: relative;
+  margin-top: 1px;
+  cursor: pointer;
+  display: none;
+}
+
 .body {
   width: 100%;
   border: 1px solid white;
@@ -407,7 +432,7 @@ body {
 }
 
 .body .body__genres {
-  display: none;
+  display: block;
   width: 15%;
   border-right: 2px solid gray;
   display: block;
@@ -448,9 +473,9 @@ body {
   background-color: #cccccc;
 }
 
-/* Hiển thị sách */
+/* CSS danh sách toàn bộ sách */
 .body__list {
-  width: 65%;
+  width: 70%;
 }
 
 .list__books {
@@ -510,6 +535,7 @@ body {
   overflow: auto;
 }
 
+/* css nút mua */
 .buybt {
   background-color: rgba(243, 16, 16, 0);
   text-align: center;
@@ -545,17 +571,18 @@ body {
   text-align: center;
 }
 
+/* css ảnh chuyển động */
 .list__img {
   /* margin: 1% 18% 1% 18%; */
   /* width: 60%; */
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   /* margin-top: 20px; */
 }
 
-
-/* thong tin sach */
+/* Thông tin sách khi ấn vào sách bất kì sẽ hiện ra */
 .infor_book {
   transition: 0.4s;
   position: relative;
@@ -615,7 +642,7 @@ body {
   margin: 20px 0 20px 0;
 }
 
-/* đánh giá */
+/* Đánh giá */
 div.stars {
   width: 260px;
   display: inline-block;
@@ -657,7 +684,7 @@ label.star:before {
   font-family: FontAwesome;
 }
 
-/* phan trang */
+/* Phân trang */
 .list_page1 {
   text-align: center;
 }
@@ -851,7 +878,8 @@ input[type="button"]:hover {
   font-size: 25px;
   text-align: center;
   border: none;
-  background-color: red;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -864,12 +892,23 @@ input[type="button"]:hover {
   font-size: 25px;
   text-align: center;
   border: none;
-  background-color: red;
+  background-color: white;
+  color: black;
 }
 
-.image {
-  max-width: 180px;
-  height: auto;
+.hide_button1:hover {
+  background-color: red;
+  color: white;
+}
+
+.hide_button:hover {
+  background-color: red;
+  color: white;
+}
+
+#image {
+  width: 90%;
+  height: 480px;
 }
 
 .addproduct {
@@ -1120,22 +1159,29 @@ input[type="button"]:hover {
   text-align: center;
 }
 
+/* Css giao diện cho màn hình ipad */
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .body__list {
     width: 100%;
   }
 
   #body__genres {
+    display: none;
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
     height: 240px;
   }
 
-  .header_2 #ShowGenres {
+  .ShowGenres #ShowGenres {
+    display: block;
     font-size: 15px;
     width: 100px;
 
+  }
+
+  .header_2 {
+    height: 50px;
   }
 
   .body {
@@ -1183,9 +1229,9 @@ input[type="button"]:hover {
     height: 300px;
   }
 
-  .list__img img {
-    width: 900px;
-    margin-top: 1%;
+  #image {
+    width: 90%;
+    height: 280px;
   }
 
   .list__books {
@@ -1285,21 +1331,28 @@ input[type="button"]:hover {
   }
 }
 
+/* Css cho màn hình iphone */
 @media only screen and (min-width: 100px) and (max-width: 600px) {
   .body__list {
     width: 100%;
   }
 
   #body__genres {
+    display: none;
     border-left: 2px solid gray;
     margin-left: 5%;
     width: 90%;
     height: 240px;
   }
 
-  .header_2 #ShowGenres {
+  .ShowGenres #ShowGenres {
+    display: block;
     font-size: 15px;
     width: 100px;
+  }
+
+  .header_2 {
+    height: 50px;
   }
 
   .body {
@@ -1347,9 +1400,9 @@ input[type="button"]:hover {
     height: 300px;
   }
 
-  .list__img img {
-    width: 900px;
-    margin-top: 1%;
+  #image {
+    width: 90%;
+    height: 280px;
   }
 
   .list__books {
@@ -1423,6 +1476,8 @@ input[type="button"]:hover {
     width: 40px;
   }
 
+  .repo__item {}
+
   .form__login--signup {
     width: 60%;
     left: 23%;
@@ -1492,3 +1547,47 @@ input[type="button"]:hover {
   border-radius: 8px;
   margin-top: 20px;
 }
+
+/* Css gio hang */
+.cart {
+  display: none;
+  width: 70%;
+  min-height: 500px;
+  background-color: white;
+  border: none;
+  position: fixed;
+  top: 10%;
+  left: 15%;
+}
+
+#cart {}
+
+.title__cart {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+
+.title__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title__item__left {
+  width: 50%;
+  margin-left: 50px;
+}
+
+.title__item__right {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart__product {}
+
+.title__total__money {
+  display: flex;
+}
+
+.total__money {}

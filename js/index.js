@@ -535,7 +535,7 @@ function show_genres() {
   document.getElementById("genres__list").innerHTML += a;
 }
 //ham hien thi sach san pham
-function print_item(a) {}
+function print_item(a) { }
 function show_list1() {
   if (localStorage.getItem("product") == null) {
     return false;
@@ -552,7 +552,7 @@ function show_list1() {
       }
     }
   } else if (a == undefined || a == "danhsach") {
-    for (i = 0; i < productArray.length; i++) {}
+    for (i = 0; i < productArray.length; i++) { }
   }
   document.getElementById("list__books").innerHTML = temp;
 }
@@ -899,17 +899,21 @@ function usersite() {
   window.location.href = "index.html";
 }
 function open_left_menu() {
-  var a = document.querySelector(".left-menu-close");
-  var c = document.querySelector(".left-menu-inside");
+  const a = document.querySelector(".left-menu-close");
+  const b = document.querySelector(".left-menu-inside");
+  const c = document.querySelector(".left-menu-option");
+  a.style.display = "block";
+  b.style.display = "block";
   c.style.display = "block";
   a.classList.add("left-menu-open");
-  var b = document.querySelector(".menu-background");
+  var d = document.querySelector(".menu-background");
 
-  b.style.display = "block";
-  b.addEventListener("click", () => {
+  d.style.display = "block";
+  d.addEventListener("click", () => {
     a.classList.remove("left-menu-open");
-    c.style.display = "none";
     b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "none";
   });
 }
 

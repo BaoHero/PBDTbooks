@@ -12,18 +12,22 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   overflow: hidden;
 }
+
 .content {
   width: 1170px;
   margin: auto;
   margin-top: 30px;
 }
+
 /*dùng ảnh gif*/
 .load {
   width: 100%;
@@ -36,6 +40,7 @@ body {
   display: block;
   overflow: hidden;
 }
+
 .load img {
   width: 150px;
   height: 150px;
@@ -45,6 +50,7 @@ body {
   margin-top: -75px;
   margin-left: -75px;
 }
+
 body {
   min-height: 2000px;
   overflow-x: hidden;
@@ -244,8 +250,7 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {
-}
+.header__rightmenu div {}
 
 .sin_bt {
   cursor: pointer;
@@ -379,9 +384,14 @@ body {
   bottom: 0;
   transition: 1s;
   opacity: 0;
+  display: none;
 }
 
 .left-menu-inside {
+  display: none;
+}
+
+.left-menu-option {
   display: none;
 }
 
@@ -531,8 +541,7 @@ body {
   position: relative;
 }
 
-.infor {
-}
+.infor {}
 
 .information {
   overflow: auto;
@@ -635,8 +644,7 @@ body {
   margin-bottom: 10px;
 }
 
-.price {
-}
+.price {}
 
 .price span {
   color: #b12704;
@@ -664,18 +672,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked ~ label.star:before {
+input.star:checked~label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked ~ label.star:before {
+input.star-5:checked~label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked ~ label.star:before {
+input.star-1:checked~label.star:before {
   color: #f62;
 }
 
@@ -699,6 +707,7 @@ label.star:before {
   text-align: center;
   word-wrap: break-word;
 }
+
 .list_page a {
   text-decoration: none;
   padding: 10px;
@@ -716,10 +725,12 @@ label.star:before {
 .item_page:hover {
   background-color: #959aa1;
 }
+
 .item_page:active {
   background-color: #4070f4;
   color: white;
 }
+
 .item_page:link {
   background-color: yellow;
 }
@@ -1097,7 +1108,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid) ~ i {
+.input__field input:is(:focus, :valid)~i {
   color: #4070f4;
 }
 
@@ -1565,8 +1576,7 @@ input[type="button"]:hover {
   left: 15%;
 }
 
-#cart {
-}
+#cart {}
 
 .title__cart {
   width: 100%;
@@ -1590,12 +1600,10 @@ input[type="button"]:hover {
   justify-content: space-around;
 }
 
-.cart__product {
-}
+.cart__product {}
 
 .title__total__money {
   display: flex;
 }
 
-.total__money {
-}
+.total__money {}

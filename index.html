@@ -12,13 +12,13 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script src="js/index.js"></script>
 </head>
 
 <body class="preloading">
-    <div class="load" >
+    <div class="load">
         <img src="imgs/Loader.gif" alt="">
     </div>
     <!-- trang user -->
@@ -72,7 +72,14 @@
                 <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
                         onclick="logout()">Đăng xuất</i></div>
                 <!-- Giỏ hàng -->
-                <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart')"></i></div>
+                <!-- <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart')"></i></div> -->
+                <div class="repo">
+                    <a href="shopping_cart.html">
+                        <i id="repo" class="fas fa-cart-plus">
+                        </i>
+                    </a>
+                </div>
+
             </div>
         </div>
 
@@ -260,13 +267,13 @@
         </div>
 
         <!-- Khung này sẽ hiển thị để hỏi bạn có chắc muốn mua không ? -->
-        <div class="comfirm_buy" id="comfirm_buy">
+        <!-- <div class="comfirm_buy" id="comfirm_buy">
             <div class="comfirm__question">Bạn có chắc muốn mua sản phẩm này?</div>
             <div class="comfirm__answer">
                 <div class="answer yes" id="answer__yes">Có</div>
                 <div class="answer no" id="answer__no">Không</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="menu-background" id="menu-background">
 
@@ -307,12 +314,11 @@
             //adduser(); cái này còn hơi lỗi chưa sửa
             createProduct();
             createGenres();
-            //show_list();
+            show_list();
             show_genres();
             signin();
             js_login();
-            show_list();
-            
+            //show_page(4);
         }
         create_admin();
     </script>

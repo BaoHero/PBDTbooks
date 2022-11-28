@@ -731,17 +731,20 @@ function show_list() {
     case "3":tempitem = filter_price(tempitem,1000,2000);break;
     case "4":tempitem = filter_price(tempitem,2000,-1);break;
   }
-    totalPages = Math.ceil(tempitem.length/itemPerPage);
-    PagesList1(tempitem,itemPerPage,totalPages);
-    return false;
+  totalPages = Math.ceil(tempitem.length/itemPerPage);
+  start = (a-1)*itemPerPage; 
+  console.log(start)
+  PagesList(totalPages); 
   }
-  show(tempitem,start,itemPerPage+start);
-}
 
+  show(tempitem,start,itemPerPage+start);
+
+  
+}
+function search(){
+  
+}
 function show(arr,start,end){
-  if(arr == undefined){
-    document.getElementById("list__books").innerHTML = "Sản phẩm tìm kiếm theo tiêu chí của bạn không có"; 
-  }
   var temp1 = "'infor_book'";
   var t = '';
   console.log(start);
@@ -777,19 +780,6 @@ function PagesList(total) {
           <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
           </a>
       `;
-  }
-  document.querySelector(".list_page").innerHTML = html;
-}
-function PagesList1(arr,itemPerPage,total) {
-  console.log(arr[0]);
-  let html = '';
-  for (let i = 1; i <= total; i++) {
-    html += `
-          <span class="decopage" onclick="show(${arr},${(i-1)*itemPerPage},${itemPerPage+(i-1)*itemPerPage})">${i}              
-          </span>
-      `;
-      console.log((i-1)*itemPerPage);
-      console.log(itemPerPage+(i-1)*itemPerPage);
   }
   document.querySelector(".list_page").innerHTML = html;
 }

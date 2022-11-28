@@ -3,26 +3,37 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ccc;
+}
+
 .table-cart th {
   padding: 0 8px;
 }
 
 .product td {
-  padding-top: 8px;
+  padding: 8px 0;
 }
 
 .product-item img {
   width: 90px;
 }
 
-.product td {
+/* .product td {
   margin: 4px 0px;
+} */
+
+.shopping-cart {
+  margin: 16px 24px;
+  padding: 8px 16px;
+  background-color: #fff;
 }
 
-.shopping-cart,
-h1 {
-  margin: 80px;
-}
 .shopping-cart table {
   width: 100%;
   border-collapse: collapse;
@@ -31,6 +42,15 @@ h1 {
 
 .table-cart tr {
   width: 100%;
+}
+
+.table-cart h1 {
+  margin: 16px 0 24px 0;
+  font-weight: 100;
+}
+
+.table-cart tbody tr {
+  border-bottom: 1px solid #ccc;
 }
 
 .table-cart table th {
@@ -53,9 +73,20 @@ h1 {
   width: 40px;
   height: 30px;
 }
+
+.table-cart thead {
+  height: 32px;
+}
+
+.table-cart thead th {
+  font-weight: 100;
+}
+
+/* total */
 .total-price {
   display: flex;
   justify-content: flex-end;
+  margin-top: 8px;
 }
 
 .total-price table {
@@ -66,4 +97,201 @@ h1 {
 
 td:last-child {
   text-align: right;
+}
+
+.total-price td {
+  padding: 2px 0;
+}
+
+/*  */
+
+.page_user {
+  /* position: fixed; */
+  width: auto;
+  max-height: max-content;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.admin_user {
+  width: 100%;
+  height: 30px;
+}
+
+.header {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background-color: #131921;
+}
+
+/* Chỉnh sửa logo */
+.header .header__logo img {
+  width: 50%;
+  cursor: pointer;
+}
+
+.header .header__logo {
+  width: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Chỉnh sửa ô địa chỉ */
+.address {
+  width: 7%;
+  background-color: white;
+  margin: 16px auto;
+  border-radius: 4px;
+  display: flex;
+}
+
+.address_vt {
+  width: 80%;
+  position: relative;
+}
+
+.address_vt span {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  bottom: 7px;
+  right: 7px;
+}
+
+.address_icon {
+  width: 20%;
+}
+
+.address_icon i {
+  width: 100%;
+  font-size: 25px;
+  margin: 10px 0 7px 3px;
+}
+
+/* Chỉnh sửa thanh tìm kiếm */
+.header form {
+  width: 50%;
+}
+
+.header__findbar {
+  width: 100%;
+  border-radius: 1px;
+  border-color: coral;
+  background-color: #131921;
+  margin: 16px 16px 16px 0px;
+  display: flex;
+}
+
+.findbar_left {
+  display: flex;
+  margin: 0px;
+  height: fit-content;
+}
+
+.findbar_left .search_scope {
+  position: relative;
+  float: left;
+  padding: 10px;
+  background-color: #eaeded;
+  overflow: hidden;
+  border-radius: 4px 0 0 4px;
+  background-position: 0 - 430px;
+}
+
+.search_scope {
+  cursor: default;
+  overflow: hidden;
+  display: flex;
+}
+
+.search_scope .search_label {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #555;
+  font-size: 15px;
+  line-height: 30px;
+  margin-right: 21px;
+  margin-left: 5px;
+  min-width: 19px;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  top: 25px;
+  right: 8px;
+  border-style: solid;
+  border-style: dashed;
+  border-width: 4px;
+  border-color: transparent;
+  border-top: 4px solid #666;
+  border-bottom-width: 0;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+.search_dropdown {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: visible;
+  border: 0;
+  line-height: 35px;
+}
+
+/* css nơi nhập dữ liệu để tìm kiếm */
+.header .header__findbar input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border: none;
+}
+
+.header .header__findbar button {
+  padding: 10px;
+  width: 10%;
+  border: none;
+  font-size: 20px;
+  background-color: rgb(238, 186, 118);
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Thẻ div cho những nút chức năng bên phải */
+.header__rightmenu {
+  width: 33%;
+  display: flex;
+  /* justify-content: flex-end; */
+  position: relative;
+}
+
+.header__rightmenu div {
+  margin: 16px auto;
+}
+
+.header__rightmenu div i {
+  color: #000;
+  /* background-color: #131921;  */
+}
+
+.sin_bt {
+  cursor: pointer;
 }

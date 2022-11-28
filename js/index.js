@@ -435,8 +435,12 @@ function kiemtratk(st) {
     return false;
   }
   userArray = JSON.parse(localStorage.getItem("User"));
-  if (st.length < 5) {
+  if (st.length < 5 && st.length > 0) {
     alert("ten tai khoan phai lon hon 5 ky tu");
+    return false;
+  }
+  if (st == "") {
+    alert("Không được để trống tài khoản.");
     return false;
   }
   for (i = 0; i < userArray.length; i++) {
@@ -448,9 +452,33 @@ function kiemtratk(st) {
   return true;
 }
 function kiemtramk(mk, rpmk) {
-  if (mk <= 5 || mk != rpmk) return false;
+  if (mk == "" || rpmk == "") {
+    alert("Không được để trống mật khẩu");
+    return false
+  }
+  else if (mk <= 5 || mk != rpmk) {
+    alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
+  }
   else return true;
 }
+
+function kiemtraemail(event) {
+  if (event == "") {
+    alert("Không được để trống Email.");
+    return false;
+  }
+  return true;
+}
+
+function kiemtrafullname(event) {
+  if (event == "") {
+    alert("Không được để trống họ tên.");
+    return false;
+  }
+  return true;
+}
+
+
 function adduser() {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -464,25 +492,31 @@ function adduser() {
   console.log(tk + mk + rpmk + mk.length);
   if (kiemtratk(tk) == false) {
     usern_sup.focus();
-  } else {
-    if (kiemtramk(mk, rpmk) == false) {
-      alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
-      document.getElementById("psw_sup").focus();
-    } else {
-      var user = {
-        username: tk,
-        password: mk,
-        email: emai,
-        fullname: name,
-        address: "",
-        phone: "",
-      };
-      userArray.push(user);
-      alert("đăng ký thành công");
-      localStorage.setItem("User", JSON.stringify(userArray));
-    }
+  }
+  else if (kiemtraemail(emai) == false) {
+    email_sup.focus();
+  }
+  else if (kiemtramk(mk, rpmk) == false) {
+    document.getElementById("psw_sup").focus();
+  }
+  else if (kiemtrafullname(name) == false) {
+    fullname.focus();
+  }
+  else {
+    var user = {
+      username: tk,
+      password: mk,
+      email: emai,
+      fullname: name,
+      address: "",
+      phone: "",
+    };
+    userArray.push(user);
+    alert("đăng ký thành công");
+    localStorage.setItem("User", JSON.stringify(userArray));
   }
 }
+
 
 // Tạo mảng danh sách để có thể tìm kiếm dựa trên danh mục
 function createGenres() {

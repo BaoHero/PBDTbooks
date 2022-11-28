@@ -626,6 +626,34 @@ function show_page(num_page) {
   }
   document.querySelector(".list_page").innerHTML = temp;
 }
+function searching(){
+  var tk = document.getElementById('searbox').value;
+
+}
+function increase_sort(list){
+  for(i = 0; i < list.length-1; i++){
+    for(j = i+1; j < list.length; j++){
+      if(list[i].price > list[j].price){
+        var temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
+      }
+    }
+  }
+  return list;
+}
+function decrease_sort(list){
+  for(i = 0; i < list.length-1; i++){
+    for(j = i+1; j < list.length; j++){
+      if(list[i].price < list[j].price){
+        var temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
+      }
+    }
+  }
+  return list;
+}
 function show_list() {
   if (localStorage.getItem("product") == null) {
     return false;
@@ -637,11 +665,10 @@ function show_list() {
   else {    
     var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));   
   }
-  console.log(itemPerPage);
   productArray = JSON.parse(localStorage.getItem("product"));
   sessionStorage.removeItem('sp');
   var a = getQueryVariable('genres');
-  var b = getQueryVariable('tk');
+  var b = getQueryVariable('search');
   const trang =  8
   var tem1 = productArray;
   if ((a != undefined && a!='danhsach') || b != undefined) {      
@@ -670,7 +697,11 @@ function show_list() {
       }
     }     
   }  
-  
+  var d = document.getElementById('sort_gia').value;
+  switch(d){
+    case '0':break;
+    case '1':break;
+  }
   var a = (getQueryVariable("page"));
   if(a == undefined){
     a = 1;
@@ -681,18 +712,40 @@ function show_list() {
   tempitem = tem1;
   tempitem.length;
   totalPages = Math.ceil(tempitem.length/itemPerPage);
-  renderPagesList(totalPages);
-  console.log(totalPages)
-  var start = (a-1)*itemPerPage;
-  console.log(start);
-  show_l(tempitem,start,itemPerPage+start);
+  PagesList(totalPages);
+  var start = (a-1)*itemPerPage;  
+  //sap xep
+  var e = document.getElementById('sort').value;
+  if(e == "1"){
+    tempitem = increase_sort(tempitem);
+  }
+  else if(e == "2"){
+    tempitem = decrease_sort(tempitem);
+  }
+  //loc theo gia
+  var f = document.getElementById('sort_gia').value;
+  if(f != "0"){
+  switch(f){
+    case "1":tempitem = filter_price(tempitem,0,500); break;
+    case "2":tempitem = filter_price(tempitem,500,1000);break;
+    case "3":tempitem = filter_price(tempitem,1000,2000);break;
+    case "4":tempitem = filter_price(tempitem,2000,-1);break;
+  }
+    totalPages = Math.ceil(tempitem.length/itemPerPage);
+    PagesList1(tempitem,itemPerPage,totalPages);
+    return false;
+  }
+  show(tempitem,start,itemPerPage+start);
 }
-function show_l(arr,start,end){
+
+function show(arr,start,end){
+  if(arr == undefined){
+    document.getElementById("list__books").innerHTML = "Sản phẩm tìm kiếm theo tiêu chí của bạn không có"; 
+  }
   var temp1 = "'infor_book'";
   var t = '';
-  console.log("hi")
   console.log(start);
-  console.log(end)
+  console.log(end);
   if(end > arr.length){
     end = arr.length;
   }
@@ -715,17 +768,48 @@ function show_l(arr,start,end){
   }
   document.getElementById("list__books").innerHTML = t;  
 }
-function renderPagesList(total) {
+function PagesList(total) {
   var b = window.location.href;
   let html = '';
   for (let i = 1; i <= total; i++) {
  
     html += `
-          <a href="${getPageVariable(b)}&page=${i}">${i}              
+          <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
           </a>
       `;
   }
   document.querySelector(".list_page").innerHTML = html;
+}
+function PagesList1(arr,itemPerPage,total) {
+  console.log(arr[0]);
+  let html = '';
+  for (let i = 1; i <= total; i++) {
+    html += `
+          <span class="decopage" onclick="show(${arr},${(i-1)*itemPerPage},${itemPerPage+(i-1)*itemPerPage})">${i}              
+          </span>
+      `;
+      console.log((i-1)*itemPerPage);
+      console.log(itemPerPage+(i-1)*itemPerPage);
+  }
+  document.querySelector(".list_page").innerHTML = html;
+}
+function filter_price(arr,start,end){
+  var temp = [];
+  if(end != -1){
+  for(i = 0; i < arr.length; i++){
+    if(arr[i].price >= start && arr[i].price <= end){
+      temp.push(arr[i]);
+    }
+  }
+  } 
+  else {
+    for(i = 0; i < arr.length; i++){
+      if(arr[i].price >= start){
+        temp.push(arr[i]);
+      }
+    }
+  }
+  return temp;
 }
 function getPageVariable(variable) {
   var query = window.location.href;
@@ -949,4 +1033,3 @@ setInterval(changeImage, 3000);
 function ShowGenres() {
   document.getElementById('body__genres').style.display = 'block';
 }
-

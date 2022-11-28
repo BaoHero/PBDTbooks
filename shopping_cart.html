@@ -6,166 +6,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBDTbooks</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script src="js/index.js"></script>
 </head>
 
 <!-- Trang giỏ hàng sẽ chứa những sản phẩm đã ấn mua -->
-<body>
-    <div id="page_user" class="page_user">
-        <div class="header">
-            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
-            </div>
-            <div class="address">
-                <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
-                <div class="address_vt">
-                    <span>Địa chỉ</span>
-                </div>
-            </div>
-            <form action="">
-                <div class="header__findbar">
-                    <div class="findbar_left">
-                        <div id="search_card">
-                            <div class="search_scope">
-                                <div class="serch_facade">
-                                    <span class="search_label">Lọc theo giá</span>
-                                    <i class="fas fa-chevron-down"></i>
+
+<body onload="showcarts()">
+    <h1>Shopping Cart</h1>
+
+    <div class="shopping-cart">
+
+        <div class="table-cart">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th style="text-align: right;">Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="showcart">
+
+                    <!-- <tr class="product">
+                        <td class="product-item">
+                            <div class="info">
+                                <img src="imgs/10010.webp" alt="">
+                                <div>
+                                    <p>Name</p>
                                 </div>
-                                <select name="" id="" class="search_dropdown">
-                                    <option value="tl">2000000 - 3000000</option>
-                                    <option value="gia">30000000 - 4000000</option>
-                                </select>
                             </div>
-                        </div>
-                    </div>
-                    <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
-                        placeholder="Enter the text" required>
-                    <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
-            <div class="header__rightmenu">
-                <div class="admin_button" id="admin_button"></div>
-                <div class="infor_user" id="infor_user"></div>
-                <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
-                        onclick="openf('form_sin')">Đăng Nhập</i></div>
-                <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
-                        onclick="logout()">Đăng xuất</i></div>
-                <div class="repo"><i id="repo" class="fas fa-cart-plus"></i></div>
+                        </td>
+                        <td class="product-price">300$</td>
+                        <td><input type="number" value="1" min="1" class="product-quantity"></td>
+                        <td class="product-total">300</td>
+                        <td class="remove">
+                            <button>Remove</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+
+        </div>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>$35</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$500</td>
+                </tr>
+            </table>
+        </div>
+        <!-- <div class="product">
+            <div class="product-image">
+                <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+            </div>
+            <div class="product-details">
+                <div class="product-title">Dingo Dog Bones</div>
+                <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for
+                    these things! I got curious once and ate one myself. I'm a fan.</p>
+            </div>
+            <div class="product-price">12.99</div>
+            <div class="product-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product">
+                    Remove
+                </button>
+            </div>
+            <div class="product-line-price">25.98</div>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
+            </div>
+            <div class="product-details">
+                <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
+                <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while
+                    quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
+            </div>
+            <div class="product-price">45.99</div>
+            <div class="product-quantity">
+                <input type="number" value="1" min="1">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product">
+                    Remove
+                </button>
+            </div>
+            <div class="product-line-price">45.99</div>
+        </div> -->
+
+        <!-- <div class="totals">
+            <div class="totals-item">
+                <label>Subtotal</label>
+                <div class="totals-value" id="cart-subtotal">71.97</div>
+            </div>
+            <div class="totals-item">
+                <label>Tax (5%)</label>
+                <div class="totals-value" id="cart-tax">3.60</div>
+            </div>
+            <div class="totals-item">
+                <label>Shipping</label>
+                <div class="totals-value" id="cart-shipping">15.00</div>
+            </div>
+            <div class="totals-item totals-item-total">
+                <label>Grand Total</label>
+                <div class="totals-value" id="cart-total">90.57</div>
             </div>
         </div>
-        <div class="header_2">
-            <button type="button" id="left-menu" name="left-menu"><i class="fas fa-bars "
-                    onclick="batmenu()"></i></button>
-            <div class="nav">
-                <a href="">Today's Deal</a>
-                <a href="">Gift Cards</a>
-                <a href="">Buy Again</a>
-            </div>
-<!-- Hiển thị những đơn hàng đã mua -->
-        </div>
-        <div id="container">
-            <div class="content_cart">
-                <div class="shopping_cart">
-                    <h1>Your Amazon Cart is empty.</h1>
-                </div>
 
+        <button class="checkout">Checkout</button> -->
 
-                <div class="body__list">
-
-                </div>
-            </div>
-
-            <div class="note">
-                <p>The price and availability of items are subject to change. The Cart is a temporary
-                    place to
-                    store a list of your items and reflects each item's most recent price.</p>
-                <p>Do you have a gift card or promotional code? We'll ask you to enter your claim code when it's
-                    time to
-                    pay.</p>
-            </div>
-        </div>
-        <div class="footer"></div>
-    </div>
-    <div class="form__login--signup" id="form_sin">
-        <div class="container">
-            <div class="forms">
-                <!-- form đăng nhập -->
-                <div class="form login">
-                    <span class="title">Đăng nhập</span>
-                    <div class="hide_button" onclick="closef('form_sin')">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <form action="#">
-                        <div class="input__field">
-                            <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
-                            <i class="uil uil-user icon"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="password" class="password" id="psw_sin" placeholder="Nhập mật khẩu" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <div class="checkbox__text">
-                            <a href="#" class="checkbox__textbox">Forgot password</a>
-                        </div>
-                        <div class="input__field button">
-                            <input type="button" onclick="handle_signin()" value="Đăng nhập" required>
-                        </div>
-                    </form>
-                    <div class="signup__login">
-                        <span class="signup__text">bạn chưa có tài khoản?
-                            <a href="#" class="signup__text signup-link">Đăng ký tại đây.</a>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- form đăng ký -->
-                <div class="form signup">
-                    <div class="hide_button1 hide_button login-link" onclick="closef('form_sin')">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <span class="title">Đăng ký</span>
-                    <form action="#">
-                        <div class="input__field">
-                            <input type="text" id="usern_sup" placeholder="Nhập tên đăng nhập" required>
-                            <i class="uil uil-user icon"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="text" id="email_sup" placeholder="Nhập Email" required>
-                            <i class="uil uil-envelope-alt icon"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="password" id="psw_sup" class="password" placeholder="Nhập mật khẩu" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="password" id="psw_repeat" class="password" placeholder="Nhập lại mật khẩu"
-                                required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
-                            <i class="uil uil-user-circle icon"></i>
-                        </div>
-                        <div class="input__field button">
-                            <input type="button" value="Đăng ký" onclick="adduser()">
-                        </div>
-                    </form>
-                    <div class="signup__login">
-                        <span class="signup__text">
-                            <a class="signup__text login-link">Đăng Nhập ngay</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 </body>

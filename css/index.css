@@ -687,13 +687,18 @@ label.star:before {
 /* Phân trang */
 .list_page1 {
   text-align: center;
+
 }
 
 .list_page {
   margin: 0 25% 0 25%;
   width: 50%;
   text-align: center;
-  word-wrap: break-word;
+  word-wrap: break-word;  
+}
+.list_page a{
+  text-decoration: none;
+  padding: 10px;
 }
 
 .item_page {
@@ -1476,7 +1481,7 @@ input[type="button"]:hover {
     width: 40px;
   }
 
-  .repo__item {}
+ 
 
   .form__login--signup {
     width: 60%;

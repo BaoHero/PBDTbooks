@@ -4,10 +4,10 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
-$(window).on('load', function(event) {
-	$('body').removeClass('preloading');
-	// $('.load').delay(1000).fadeOut('fast');
-	$('.load').delay(1000).fadeOut('fast');
+$(window).on('load', function (event) {
+  $('body').removeClass('preloading');
+  // $('.load').delay(1000).fadeOut('fast');
+  $('.load').delay(1000).fadeOut('fast');
 });
 function createProduct() {
   if (localStorage.getItem("product") == null) {
@@ -535,82 +535,56 @@ function show_genres() {
   document.getElementById("genres__list").innerHTML += a;
 }
 //ham hien thi sach san pham
-function print_item(a){
-
-}
-function show_list1() {
-  if (localStorage.getItem("product") == null) {
-    return false;
-  }
-  var templist = [];
-  productArray = JSON.parse(localStorage.getItem("product"));
-  var a = getQueryVariable("genres");
-  var temp = "";
-  var temp1 = "'infor_book'";
-  if (a != undefined && a != "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
-      if (productArray[i].genresId == a) {
-        templist.push(productArray[i]);
-      }
-    }
-  }else if (a == undefined || a == "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
-
-    }
-  }
-  document.getElementById("list__books").innerHTML = temp;
-}
-function show_list() {
-  if (localStorage.getItem("product") == null) {
-    return false;
-  }
-  productArray = JSON.parse(localStorage.getItem("product"));
-  var a = getQueryVariable("genres");
-  var temp = "";
-  var temp1 = "'infor_book'";
-  if (a != undefined && a != "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
-      if (productArray[i].genresId == a) {
-        console.log(productArray[i].productId);
-        var temp =
-          temp +
-          '<dFiv id="' +
-          productArray[i].productId +
-          '"class="item" onclick="show_infor_book(' +
-          productArray[i].productId +
-          ") + openflex(" +
-          temp1 +
-          ')"><div class="item__inside"><div class="img_book"><img src="' +
-          productArray[i].img +
-          '" alt=""></div><div class="book_name">' +
-          productArray[i].name +
-          '</div><div class="book_price"><span>$' +
-          productArray[i].price +
-          "</span></div></div></dFiv>";
-
-      }
-    }
-  } else if (a == undefined || a == "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
-      var temp =
-        temp +
-        '<div id="' +
-        productArray[i].productId +
-        '"class="item" onclick="show_infor_book(' +
-        productArray[i].productId +
-        ") +openflex(" +
-        temp1 +
-        ')"><div class="item__inside"><div class="img_book"><img src="' +
-        productArray[i].img +
-        '" alt=""></div><div class="book_name">' +
-        productArray[i].name +
-        '</div><div class="book_price"><span>$' +
-        productArray[i].price +
-        "</span></div></div></div>";
-    }
-  }
-  document.getElementById("list__books").innerHTML = temp;
-}
+// function show_list() {
+//   if (sessionStorage.getItem("sp") == null) {
+//     return false;
+//   }
+//   productArray = JSON.parse(localStorage.getItem("product"));
+//   var a = getQueryVariable("genres");
+//   var temp = "";
+//   var temp1 = "'infor_book'";
+//   if (a != undefined && a != "danhsach") {
+//     for (i = 0; i < productArray.length; i++) {
+//       if (productArray[i].genresId == a) {
+//         console.log(productArray[i].productId);
+//         var temp =
+//           temp +
+//           '<dFiv id="' +
+//           productArray[i].productId +
+//           '"class="item" onclick="show_infor_book(' +
+//           productArray[i].productId +
+//           ") + openflex(" +
+//           temp1 +
+//           ')"><div class="item__inside"><div class="img_book"><img src="' +
+//           productArray[i].img +
+//           '" alt=""></div><div class="book_name">' +
+//           productArray[i].name +
+//           '</div><div class="book_price"><span>$' +
+//           productArray[i].price +
+//           "</span></div></div></dFiv>";
+//       }
+//     }
+//   } else if (a == undefined || a == "danhsach") {
+//     for (i = 0; i < productArray.length; i++) {
+//       var temp =
+//         temp +
+//         '<div id="' +
+//         productArray[i].productId +
+//         '"class="item" onclick="show_infor_book(' +
+//         productArray[i].productId +
+//         ") +openflex(" +
+//         temp1 +
+//         ')"><div class="item__inside"><div class="img_book"><img src="' +
+//         productArray[i].img +
+//         '" alt=""></div><div class="book_name">' +
+//         productArray[i].name +
+//         '</div><div class="book_price"><span>$' +
+//         productArray[i].price +
+//         "</span></div></div></div>";
+//     }
+//   }
+//   document.getElementById("list__books").innerHTML = temp;
+// }
 
 function show_infor_book(s) {
   // var s = getQueryVariable("product");
@@ -636,6 +610,7 @@ function show_infor_book(s) {
   }
 }
 //code trang
+var tempitem = [];
 function show_page(num_page) {
   var hr = location.href;
   var temp = "";
@@ -650,38 +625,131 @@ function show_page(num_page) {
   }
   document.querySelector(".list_page").innerHTML = temp;
 }
+function show_list() {
+  if (localStorage.getItem("product") == null) {
+    return false;
+  }  
+  var itemPerPage = 0;
+  if(localStorage.getItem('num_page') == null){    
+    var itemPerPage = 8;
+  }
+  else {    
+    var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));   
+  }
+  console.log(itemPerPage);
+  productArray = JSON.parse(localStorage.getItem("product"));
+  sessionStorage.removeItem('sp');
+  var a = getQueryVariable('genres');
+  var b = getQueryVariable('tk');
+  const trang =  8
+  var tem1 = productArray;
+  if ((a != undefined && a!='danhsach') || b != undefined) {      
+    var tem1 = [];  
+    if (a != undefined && b ==undefined) {
+      for (i = 0; i < productArray.length; i++) {        
+        if (productArray[i].genresId == a) {                 
+          tem1.push(productArray[i]);           
+        }
+      }
+    }
+    else if (b != undefined && a ==undefined) {
+      console.log("ha");
+      for (i = 0; i < productArray.length; i++) {
+        if (productArray[i].name == b) {          
+          tem1.push(productArray[i]);
+        }
+      }
+    }
+    else {
+      console.log("he");
+      for (i = 0; i < productArray.length; i++) {
+        if (productArray[i].name == b && productArray[i].genresID == a) {
+          tem1.push(productArray[i]);
+        }
+      }
+    }     
+  }  
+  
+  var a = (getQueryVariable("page"));
+  if(a == undefined){
+    a = 1;
+  }
+  else{
+    a = Number(a);
+  }
+  tempitem = tem1;
+  tempitem.length;
+  totalPages = Math.ceil(tempitem.length/itemPerPage);
+  renderPagesList(totalPages);
+  console.log(totalPages)
+  var start = (a-1)*itemPerPage+1;
+  console.log(start);
+  show_l(tempitem,start,itemPerPage+start);
 
+}
+function show_l(arr,start,end){
+  var temp1 = "'infor_book'";
+  var t = '';
+  console.log("hi")
+  console.log(start);
+  console.log(end)
+  if(end > arr.length){
+    end = arr.length;
+  }
+  for (i = start-1; i < end-1; i++) {
+    var t =
+      t +
+      '<div id="' +
+      arr[i].productId +
+      '"class="item" onclick="show_infor_book(' +
+      arr[i].productId +
+      ") +openflex(" +
+      temp1 +
+      ')"><div class="item__inside"><div class="img_book"><img src="' +
+      arr[i].img +
+      '" alt=""></div><div class="book_name">' +
+      arr[i].name +
+      '</div><div class="book_price"><span>$' +
+      arr[i].price +
+      "</span></div></div></div>";
+  }
+  document.getElementById("list__books").innerHTML = t;  
+}
 function renderPagesList(total) {
+  var b = window.location.href;
   let html = '';
-  for(let i=1; i<=total; i++) {
-      html+= `
-          <a href="#">
-              <li class="page_list-items">${i}</li>
+  for (let i = 1; i <= total; i++) {
+ 
+    html += `
+          <a href="${getPageVariable(b)}&page=${i}">${i}              
           </a>
       `;
   }
-  document.querySelector(".page_list").innerHTML=html;
+  document.querySelector(".list_page").innerHTML = html;
 }
-
+function getPageVariable(variable) {
+  var query = window.location.href;
+  var temp = query.split("&page=");
+  if(temp[0].indexOf('?') == -1){
+    temp[0] = temp[0]+'?';
+  }
+  return decodeURIComponent(temp[0]);
+}
 // renderPagesList(totalPages);
-
 function changePage(productList) {
   const pagesList = document.querySelectorAll(".page_list a");
   pagesList.forEach(function (item, index) {
-      item.onclick = function () {
-          let value = index+1;
-          currentPage = value
-          s = (currentPage-1)*itemPerPage;
-          e = currentPage*itemPerPage;
-          renderProduct(productList, s, e);
-      }
+    item.onclick = function () {
+      let value = index + 1;
+      currentPage = value
+      s = (currentPage - 1) * itemPerPage;
+      e = currentPage * itemPerPage;
+      renderProduct(productList, s, e);
+    }
   })
 }
 
 var cart = [];
-function test() {
-  console.log("hellooooo");
-}
 function addtocart(product) {
   openb('comfirm_buy');
   console.log(product)

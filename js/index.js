@@ -249,16 +249,6 @@ function openflex(st) {
   b.style.opacity = 0.25;
 }
 
-// Hiển thị mật khẩu
-function show_password() {
-  a = document.getElementById("psw");
-  b = document.getElementById("showpsw");
-  if (b.checked == true) a.setAttribute("type", "text");
-  else {
-    a.setAttribute("type", "password");
-  }
-}
-
 // Thêm sản phẩm
 function addgenres() {
   console.log(genres.length);
@@ -281,14 +271,6 @@ function addgenres() {
     '<a href="#">' + genres[genres.length - 1] + "</a>";
   for (i = 0; i < genres.length; i++) {
     console.log(genres[i]);
-  }
-}
-function show_password(st) {
-  a = document.getElementById(st);
-  b = document.getElementById("showpsw");
-  if (b.checked == true) a.setAttribute("type", "text");
-  else {
-    a.setAttribute("type", "password");
   }
 }
 
@@ -453,8 +435,12 @@ function kiemtratk(st) {
     return false;
   }
   userArray = JSON.parse(localStorage.getItem("User"));
-  if (st.length < 5) {
+  if (st.length < 5 && st.length > 0) {
     alert("ten tai khoan phai lon hon 5 ky tu");
+    return false;
+  }
+  if (st == "") {
+    alert("Không được để trống tài khoản.");
     return false;
   }
   for (i = 0; i < userArray.length; i++) {
@@ -466,9 +452,34 @@ function kiemtratk(st) {
   return true;
 }
 function kiemtramk(mk, rpmk) {
-  if (mk <= 5 || mk != rpmk) return false;
+  if (mk == "" || rpmk == "") {
+    alert("Không được để trống mật khẩu");
+    return false
+  }
+  else if (mk <= 5 || mk != rpmk) {
+    alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
+    return false;
+  }
   else return true;
 }
+
+function kiemtraemail(event) {
+  if (event == "") {
+    alert("Không được để trống Email.");
+    return false;
+  }
+  return true;
+}
+
+function kiemtrafullname(event) {
+  if (event == "") {
+    alert("Không được để trống họ tên.");
+    return false;
+  }
+  return true;
+}
+
+
 function adduser() {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -481,26 +492,42 @@ function adduser() {
   var name = document.getElementById("fullname").value;
   console.log(tk + mk + rpmk + mk.length);
   if (kiemtratk(tk) == false) {
+    var inputtk = document.getElementById("usern_sup");
+    inputtk.style.borderBlockEndColor = "red";
     usern_sup.focus();
-  } else {
-    if (kiemtramk(mk, rpmk) == false) {
-      alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
-      document.getElementById("psw_sup").focus();
-    } else {
-      var user = {
-        username: tk,
-        password: mk,
-        email: emai,
-        fullname: name,
-        address: "",
-        phone: "",
-      };
-      userArray.push(user);
-      alert("đăng ký thành công");
-      localStorage.setItem("User", JSON.stringify(userArray));
-    }
+  }
+  else if (kiemtraemail(emai) == false) {
+    var inputemail = document.getElementById("email_sup");
+    inputemail.style.borderBlockEndColor = "red";
+    email_sup.focus();
+  }
+  else if (kiemtramk(mk, rpmk) == false) {
+    var inputmk = document.getElementById("psw_sup");
+    var inputrpmk = document.getElementById("psw_repeat");
+    inputmk.style.borderBlockEndColor = "red";
+    inputrpmk.style.borderBlockEndColor = "red";
+    document.getElementById("psw_sup").focus();
+  }
+  else if (kiemtrafullname(name) == false) {
+    var inputfullname = document.getElementById("fullname");
+    inputfullname.style.borderBlockEndColor = "red";
+    fullname.focus();
+  }
+  else {
+    var user = {
+      username: tk,
+      password: mk,
+      email: emai,
+      fullname: name,
+      address: "",
+      phone: "",
+    };
+    userArray.push(user);
+    alert("đăng ký thành công");
+    localStorage.setItem("User", JSON.stringify(userArray));
   }
 }
+
 
 // Tạo mảng danh sách để có thể tìm kiếm dựa trên danh mục
 function createGenres() {
@@ -1022,4 +1049,23 @@ changeImage = function () {
 setInterval(changeImage, 3000);
 function ShowGenres() {
   document.getElementById('body__genres').style.display = 'block';
+}
+
+function log_in() {
+  if (sessionStorage.getItem("dangnhap") == null) {
+    return false;
+  } else {
+    dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+    userArray = JSON.parse(localStorage.getItem("User"));
+    admin = JSON.parse(localStorage.getItem("admin"));
+    var sinbt = document.querySelector(".sin_bt");
+    for (i = 0; i < admin.length + userArray.length; i++) {
+      if (dangnhap[0].username == admin[i].username) {
+        sinbt.style.display = "none";
+      }
+      else if (dangnhap[0].username == userArray[i].username) {
+        sinbt.style.display = "none";
+      }
+    }
+  }
 }

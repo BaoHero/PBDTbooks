@@ -249,16 +249,6 @@ function openflex(st) {
   b.style.opacity = 0.25;
 }
 
-// Hiển thị mật khẩu
-function show_password() {
-  a = document.getElementById("psw");
-  b = document.getElementById("showpsw");
-  if (b.checked == true) a.setAttribute("type", "text");
-  else {
-    a.setAttribute("type", "password");
-  }
-}
-
 // Thêm sản phẩm
 function addgenres() {
   console.log(genres.length);

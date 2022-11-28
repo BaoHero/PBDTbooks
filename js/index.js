@@ -458,6 +458,7 @@ function kiemtramk(mk, rpmk) {
   }
   else if (mk <= 5 || mk != rpmk) {
     alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
+    return false;
   }
   else return true;
 }
@@ -491,15 +492,25 @@ function adduser() {
   var name = document.getElementById("fullname").value;
   console.log(tk + mk + rpmk + mk.length);
   if (kiemtratk(tk) == false) {
+    var inputtk = document.getElementById("usern_sup");
+    inputtk.style.borderBlockEndColor = "red";
     usern_sup.focus();
   }
   else if (kiemtraemail(emai) == false) {
+    var inputemail = document.getElementById("email_sup");
+    inputemail.style.borderBlockEndColor = "red";
     email_sup.focus();
   }
   else if (kiemtramk(mk, rpmk) == false) {
+    var inputmk = document.getElementById("psw_sup");
+    var inputrpmk = document.getElementById("psw_repeat");
+    inputmk.style.borderBlockEndColor = "red";
+    inputrpmk.style.borderBlockEndColor = "red";
     document.getElementById("psw_sup").focus();
   }
   else if (kiemtrafullname(name) == false) {
+    var inputfullname = document.getElementById("fullname");
+    inputfullname.style.borderBlockEndColor = "red";
     fullname.focus();
   }
   else {

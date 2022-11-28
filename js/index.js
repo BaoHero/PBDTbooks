@@ -593,7 +593,7 @@ function show_list() {
         productArray[i].productId +
         '"class="item" onclick="show_infor_book(' +
         productArray[i].productId +
-        ") +openflex(" +
+        ") +turnonflex(" +
         temp1 +
         ')"><div class="item__inside"><div class="img_book"><img src="' +
         productArray[i].img +
@@ -960,4 +960,18 @@ function turnon(idturnon) {
 function turnoff() {
   const a = document.querySelector(".menu-background");
   a.style.display = "none";
+}
+
+function turnonflex(st) {
+  const a = document.querySelector(".menu-background");
+  var b = document.getElementById("page_main");
+  var c = document.getElementById(st);
+  a.style.display = "block";
+  c.style.display = "flex";
+  b.style.opacity = 0.25;
+  a.addEventListener("click", () => {
+    c.style.display = "none";
+    b.style.opacity = 1;
+    a.style.display = "none";
+  });
 }

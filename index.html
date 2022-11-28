@@ -71,7 +71,7 @@
                     <div class="infor_user" id="infor_user"></div>
                     <!-- Nút đăng nhập -->
                     <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
-                            onclick="openf('form_sin')">Sign in</i></div>
+                            onclick="openf('form_sin') + turnon('.form__login--signup')">Sign in</i></div>
                     <!-- Nút đăng xuất -->
                     <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
                             onclick="logout()">Log out</i></div>
@@ -143,7 +143,7 @@
                 <div class="form login">
                     <span class="title">Đăng nhập</span>
                     <!-- Đóng -->
-                    <div class="hide_button1 hide_button" onclick="closef('form_sin')">
+                    <div class="hide_button1 hide_button" onclick="closef('form_sin') + turnoff()">
                         <i class="fas fa-times"></i>
                     </div>
                     <!-- Ô đăng nhập -->
@@ -177,7 +177,7 @@
 
                 <!-- Form đăng ký -->
                 <div class="form signup">
-                    <div class="hide_button1 hide_button" onclick="closef('form_sin')">
+                    <div class="hide_button1 hide_button" onclick="closef('form_sin') + turnoff()">
                         <i class="fas fa-times"></i>
                     </div>
                     <span class="title">Đăng ký</span>

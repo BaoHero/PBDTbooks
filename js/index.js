@@ -944,3 +944,20 @@ function close_left_menu() {
   d.style.display = "none";
 }
 
+function turnon(idturnon) {
+  const a = document.querySelector(idturnon);
+  const b = document.querySelector(".menu-background");
+  var c = document.getElementById("page_main");
+  b.style.display = "block";
+  a.style.display = "block";
+  b.addEventListener("click", () => {
+    a.style.display = "none";
+    c.style.opacity = 1;
+    b.style.display = "none";
+  });
+}
+
+function turnoff() {
+  const a = document.querySelector(".menu-background");
+  a.style.display = "none";
+}

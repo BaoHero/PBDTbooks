@@ -233,19 +233,19 @@ function closeb(st) {
 function openf(st) {
   var a = document.getElementById(st);
   a.style.display = "block";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 0.25;
 }
 function closef(st) {
   var a = document.getElementById(st);
   a.style.display = "none";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 1;
 }
 function openflex(st) {
   var a = document.getElementById(st);
   a.style.display = "flex";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 0.25;
 }
 
@@ -931,3 +931,16 @@ setInterval(changeImage, 3000);
 function ShowGenres() {
   document.getElementById("body__genres").style.display = "block";
 }
+
+// ham tat tag
+function close_left_menu() {
+  const a = document.querySelector(".left-menu-close");
+  const b = document.querySelector(".left-menu-inside");
+  const c = document.querySelector(".left-menu-option");
+  const d = document.querySelector(".menu-background");
+  a.classList.remove("left-menu-open");
+  b.style.display = "none";
+  c.style.display = "none";
+  d.style.display = "none";
+}
+

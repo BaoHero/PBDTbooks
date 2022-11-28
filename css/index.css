@@ -12,38 +12,38 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
-*{
-	margin: 0;
-	padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-	overflow: hidden;
+body {
+  overflow: hidden;
 }
-.content{
-	width: 1170px;
-	margin: auto;
-	margin-top: 30px;
+.content {
+  width: 1170px;
+  margin: auto;
+  margin-top: 30px;
 }
 /*dùng ảnh gif*/
-.load{
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 100000000000;
-	display: block;
-	overflow: hidden;
+.load {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000000000;
+  display: block;
+  overflow: hidden;
 }
-.load img{
-	width: 150px;
-	height: 150px;
-	position: absolute; 
-	top: 50%;
-	left: 50%;
-	margin-top: -75px;
-	margin-left: -75px;
+.load img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px;
 }
 body {
   min-height: 2000px;
@@ -244,7 +244,8 @@ body {
   margin: 16px auto;
 }
 
-.header__rightmenu div {}
+.header__rightmenu div {
+}
 
 .sin_bt {
   cursor: pointer;
@@ -306,6 +307,7 @@ body {
 #repo {
   font-size: large;
   cursor: pointer;
+  color: #000;
 }
 
 .signbt {
@@ -529,7 +531,8 @@ body {
   position: relative;
 }
 
-.infor {}
+.infor {
+}
 
 .information {
   overflow: auto;
@@ -632,7 +635,8 @@ body {
   margin-bottom: 10px;
 }
 
-.price {}
+.price {
+}
 
 .price span {
   color: #b12704;
@@ -660,18 +664,18 @@ label.star {
   transition: all 0.2s;
 }
 
-input.star:checked~label.star:before {
+input.star:checked ~ label.star:before {
   content: "\f005";
   color: #fd4;
   transition: all 0.25s;
 }
 
-input.star-5:checked~label.star:before {
+input.star-5:checked ~ label.star:before {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked~label.star:before {
+input.star-1:checked ~ label.star:before {
   color: #f62;
 }
 
@@ -687,16 +691,15 @@ label.star:before {
 /* Phân trang */
 .list_page1 {
   text-align: center;
-
 }
 
 .list_page {
   margin: 0 25% 0 25%;
   width: 50%;
   text-align: center;
-  word-wrap: break-word;  
+  word-wrap: break-word;
 }
-.list_page a{
+.list_page a {
   text-decoration: none;
   padding: 10px;
 }
@@ -713,9 +716,9 @@ label.star:before {
 .item_page:hover {
   background-color: #959aa1;
 }
-.item_page:active{
+.item_page:active {
   background-color: #4070f4;
-  color:white;
+  color: white;
 }
 .item_page:link {
   background-color: yellow;
@@ -1094,7 +1097,7 @@ input[type="button"]:hover {
   transition: all 0.2s ease;
 }
 
-.input__field input:is(:focus, :valid)~i {
+.input__field input:is(:focus, :valid) ~ i {
   color: #4070f4;
 }
 
@@ -1182,7 +1185,6 @@ input[type="button"]:hover {
     display: block;
     font-size: 15px;
     width: 100px;
-
   }
 
   .header_2 {
@@ -1481,8 +1483,6 @@ input[type="button"]:hover {
     width: 40px;
   }
 
- 
-
   .form__login--signup {
     width: 60%;
     left: 23%;
@@ -1565,7 +1565,8 @@ input[type="button"]:hover {
   left: 15%;
 }
 
-#cart {}
+#cart {
+}
 
 .title__cart {
   width: 100%;
@@ -1589,10 +1590,12 @@ input[type="button"]:hover {
   justify-content: space-around;
 }
 
-.cart__product {}
+.cart__product {
+}
 
 .title__total__money {
   display: flex;
 }
 
-.total__money {}
+.total__money {
+}

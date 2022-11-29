@@ -486,13 +486,14 @@ body {
 }
 
 /* CSS danh sách toàn bộ sách */
-.decopage{
+.decopage {
   padding: 5px;
   border: 1px solid black;
   border-radius: 2px;
   margin: 5px;
   width: 20px;
 }
+
 .body__list {
   width: 75%;
 }
@@ -771,9 +772,11 @@ label.star:before {
   margin-top: 50%;
   width: 90%;
 }
-.sort_filter{
+
+.sort_filter {
   margin-left: 28px;
 }
+
 .genres {
   color: red;
   font-family: Segie UI 1px;

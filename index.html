@@ -77,7 +77,8 @@
                     <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
                             onclick="logout()">Đăng xuất</i></div>
                     <!-- Giỏ hàng -->
-                    <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart')"></i></div>
+                    <div class="repo"><i id="repo" class="fas fa-cart-plus"
+                            onclick="openb('cart') + turnon('.cart')"></i></div>
                 </div>
             </div>
 
@@ -143,7 +144,7 @@
                 <div class="form login">
                     <span class="title">Đăng nhập</span>
                     <!-- Đóng -->
-                    <div class="hide_button" onclick="closef('form_sin')">
+                    <div class="hide_button" onclick="closef('form_sin')+ turnoff()">
                         <i class="fas fa-times"></i>
                     </div>
                     <!-- Ô đăng nhập -->
@@ -177,7 +178,7 @@
 
                 <!-- Form đăng ký -->
                 <div class="form signup">
-                    <div class="hide_button" onclick="closef('form_sin')">
+                    <div class="hide_button" onclick="closef('form_sin') + turnoff()">
                         <i class="fas fa-times"></i>
                     </div>
                     <span class="title">Đăng ký</span>
@@ -228,7 +229,7 @@
         <!-- Chọn vào bất kỳ cuốn sách nào để mua -->
         <!-- Hiển thị khung để chọn số lượng -->
         <div class="infor_book" id="infor_book">
-            <div class="hide_button" onclick="closef('infor_book')">
+            <div class="hide_button" onclick="closef('infor_book') + turnoff()">
                 <i class="fas fa-times"></i>
             </div>
             <!-- Hình ảnh -->
@@ -310,7 +311,7 @@
         <div class="title__total__money"><span>Tổng tiền : </span>
             <div class="total__money">0</div>
         </div>
-        <div class="hide_button hide_button1" onclick="closeb('cart')">
+        <div class="hide_button hide_button1" onclick="closeb('cart') + turnoff()">
             <i class="fas fa-times"></i>
         </div>
     </div>

@@ -12,122 +12,129 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 
     <script src="js/index.js"></script>
 </head>
 
 <body class="preloading">
-    <div class="load" >
-        <img src="imgs/Loader.gif" alt="">
-    </div>
-    <!-- trang user -->
-    <div id="page_user" class="page_user">
-        <div class="header">
-            <!-- Logo nhóm -->
-            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
-            </div>
-            <!-- ô địa chỉ -->
-            <div class="address">
-                <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
-                <div class="address_vt">
-                    <span>Địa chỉ</span>
+    <div class="page_main" id="page_main">
+        <div class="load">
+            <img src="imgs/Loader.gif" alt="">
+        </div>
+        <!-- trang user -->
+        <div id="page_user" class="page_user">
+            <div class="header">
+                <!-- Logo nhóm -->
+                <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png"
+                        alt="PBDTbooks-logo">
                 </div>
-            </div>
-            <!-- Thanh tìm kiếm -->
-            <form action="">
-                <div class="header__findbar">
-                    <div class="findbar_left">
-                        <div id="search_card">
-                            <div class="search_scope">
-                                <div class="serch_facade">
-                                    <span class="search_label">Lọc theo giá</span>
-                                    <i class="fas fa-chevron-down"></i>
+                <!-- ô địa chỉ -->
+                <div class="address">
+                    <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
+                    <div class="address_vt">
+                        <span>Địa chỉ</span>
+                    </div>
+                </div>
+                <!-- Thanh tìm kiếm -->
+                <form action="">
+                    <div class="header__findbar">
+                        <div class="findbar_left">
+                            <div id="search_card">
+                                <div class="search_scope">
+                                    <div class="serch_facade">
+                                        <span class="search_label">Lọc theo giá</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <!-- Mức giá -->
+                                    <select name="" id="sort_gia" class="search_dropdown" onchange="show_list()">
+                                        <option value="0" selected="selected">Tất cả giá</option>
+                                        <option value="1"> 0 - 500 </option>
+                                        <option value="2">500 - 1000</option>
+                                        <option value="3">1000 - 2000</option>
+                                        <option value="4">2000 - .....</option>
+                                    </select>
                                 </div>
-                                <!-- Mức giá -->
-                                <select name="" id="sort_gia" class="search_dropdown" onchange="show_list()">
-                                    <option value="0" selected="selected" >Tất cả giá</option>
-                                    <option value="1"> 0 - 500 </option>
-                                    <option value="2">500 - 1000</option>
-                                    <option value="3">1000 - 2000</option>
-                                    <option value="4">2000 - .....</option>
-                                </select>
                             </div>
                         </div>
+                        <!-- Ô nhập tên sản phẩm cần tìm -->
+                        <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
+                            placeholder="Enter the text" required>
+                        <!-- Nút tìm kiếm -->
+                        <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
                     </div>
-                    <!-- Ô nhập tên sản phẩm cần tìm -->
-                    <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
-                        placeholder="Enter the text" required>
-                    <!-- Nút tìm kiếm -->
-                    <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
+                </form>
+                <!-- Những mục về trang admin , giỏ hàng -->
+                <div class="header__rightmenu">
+                    <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
+                    <div class="admin_button" id="admin_button"></div>
+                    <!-- Hiển thị người dùng -->
+                    <div class="infor_user" id="infor_user"></div>
+                    <!-- Nút đăng nhập -->
+                    <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
+                            onclick="openf('form_sin') + turnon('.form__login--signup')">Đăng Nhập</i></div>
+                    <!-- Nút đăng xuất -->
+                    <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
+                            onclick="logout()">Đăng xuất</i></div>
+                    <!-- Giỏ hàng -->
+                    <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart')"></i></div>
                 </div>
-            </form>
-            <!-- Những mục về trang admin , giỏ hàng -->
-            <div class="header__rightmenu">
-                <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
-                <div class="admin_button" id="admin_button"></div>
-                <!-- Hiển thị người dùng -->
-                <div class="infor_user" id="infor_user"></div>
-                <!-- Nút đăng nhập -->
-                <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
-                        onclick="openf('form_sin')">Đăng Nhập</i></div>
-                <!-- Nút đăng xuất -->
-                <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
-                        onclick="logout()">Đăng xuất</i></div>
-                <!-- Giỏ hàng -->
-                <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart')"></i></div>
             </div>
-        </div>
 
-        <div class="header_2">
-            <!-- Nút hiển thị bên trái -->
-            <div>
-                <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
-                        onclick="open_left_menu()"></i></button>
-            </div>
-            <!-- Nút hiển thị danh sách loại sách (Chỉ hiển thị ở màn hình nhỏ )-->
-            <div class="ShowGenres"><input id="ShowGenres" type="button" value="Genres" onclick="ShowGenres()"></div>
-        </div>
-    </div>
-    <!-- Ảnh chuyển động -->
-    <div class="list__img">
-        <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
-    </div>
-    <hr class="hrbody">
-    <!-- Danh mục các thể loại bên trái -->
-    <div class="body">
-        <!-- Thể loại -->
-        <div class="body__genres" id="body__genres">
-            <!-- Genres -->
-            <a class="genres_title" href="?genres=danhsach">Genres</a>
-            <hr class="hrgenres">
-            <!-- Danh mục các loại để lựa chọn -->
-            <div class="genres__list" id="genres__list">
-            </div>
-        </div>
-        <!-- Danh sách sản phẩm -->
-        <div class="body__list">
-            <div class="sort_filter">
-                <select name="" id="sort" onchange="show_list()">
-                    <option value="0"  id="sort0" >Binh Thuong</option>
-                    <option value="1" id="sort1">Gia tang dan</option>
-                    <option value="2" id="sort2">Gia giam dan</option>
-                </select>
-            </div>
-            <div class="list__books" id="list__books">
-                <!-- Hiển thị sách -->
-            </div>
-            <div class="list_page1">
-                <div class="list_page">
+            <div class="header_2">
+                <!-- Nút hiển thị bên trái -->
+                <div>
+                    <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
+                            onclick="open_left_menu()"></i></button>
+                </div>
+                <!-- Nút hiển thị danh sách loại sách (Chỉ hiển thị ở màn hình nhỏ )-->
+                <div class="ShowGenres"><input id="ShowGenres" type="button" value="Genres" onclick="ShowGenres()">
                 </div>
             </div>
         </div>
+        <!-- Ảnh chuyển động -->
+        <div class="list__img">
+            <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
+        </div>
+        <hr class="hrbody">
+        <!-- Danh mục các thể loại bên trái -->
+        <div class="body">
+            <!-- Thể loại -->
+            <div class="body__genres" id="body__genres">
+                <!-- Genres -->
+                <a class="genres_title" href="?genres=danhsach">Genres</a>
+                <hr class="hrgenres">
+                <!-- Danh mục các loại để lựa chọn -->
+                <div class="genres__list" id="genres__list">
+                </div>
+            </div>
+            <!-- Danh sách sản phẩm -->
+            <div class="body__list">
+                <div class="sort_filter">
+                    <select name="" id="sort" onchange="show_list()">
+                        <option value="0" id="sort0">Binh Thuong</option>
+                        <option value="1" id="sort1">Gia tang dan</option>
+                        <option value="2" id="sort2">Gia giam dan</option>
+                    </select>
+                </div>
+                <div class="list__books" id="list__books">
+                    <!-- Hiển thị sách -->
+                </div>
+                <div class="list_page1">
+                    <div class="list_page">
+                    </div>
+                </div>
+            </div>
 
-    </div>
+        </div>
 
-    <hr class="hrfooter">
-    <div class="footer">
+        <hr class="hrfooter">
+        <div class="footer">
+        </div>
     </div>
+    <div class="menu-background" id="menu-background">
+
+        <!-- Hiển thị tên tài khoản khi ấn vào nút ngay bên dưới logo nhóm-->
     </div>
     <div class="form__login--signup" id="form_sin">
         <div class="container">
@@ -277,10 +284,6 @@
             </div>
         </div>
     </div>
-    <div class="menu-background" id="menu-background">
-
-        <!-- Hiển thị tên tài khoản khi ấn vào nút ngay bên dưới logo nhóm-->
-    </div>
     <div class="left-menu-close">
         <div class="left-menu-inside">
             <div class="left-menu-username"><i class="fas fa-user-circle    "></i>
@@ -311,6 +314,7 @@
             <i class="fas fa-times"></i>
         </div>
     </div>
+    </div>
     <script>
         window.onload = function () {
             //adduser(); cái này còn hơi lỗi chưa sửa
@@ -321,6 +325,7 @@
             signin();
             js_login();
             show_list();
+            log_in();
         }
         create_admin();
     </script>

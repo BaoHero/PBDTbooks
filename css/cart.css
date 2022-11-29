@@ -82,6 +82,16 @@ body {
   font-weight: 100;
 }
 
+.ip {
+  display: flex;
+  align-items: center;
+}
+input.product-quantity {
+  text-align: center;
+  width: 36px;
+  height: 20px;
+}
+
 /* total */
 .total-price {
   display: flex;

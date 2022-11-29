@@ -454,13 +454,11 @@ function kiemtratk(st) {
 function kiemtramk(mk, rpmk) {
   if (mk == "" || rpmk == "") {
     alert("Không được để trống mật khẩu");
-    return false
-  }
-  else if (mk <= 5 || mk != rpmk) {
+    return false;
+  } else if (mk <= 5 || mk != rpmk) {
     alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
     return false;
-  }
-  else return true;
+  } else return true;
 }
 
 function kiemtraemail(event) {
@@ -479,7 +477,6 @@ function kiemtrafullname(event) {
   return true;
 }
 
-
 function adduser() {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -495,25 +492,21 @@ function adduser() {
     var inputtk = document.getElementById("usern_sup");
     inputtk.style.borderBlockEndColor = "red";
     usern_sup.focus();
-  }
-  else if (kiemtraemail(emai) == false) {
+  } else if (kiemtraemail(emai) == false) {
     var inputemail = document.getElementById("email_sup");
     inputemail.style.borderBlockEndColor = "red";
     email_sup.focus();
-  }
-  else if (kiemtramk(mk, rpmk) == false) {
+  } else if (kiemtramk(mk, rpmk) == false) {
     var inputmk = document.getElementById("psw_sup");
     var inputrpmk = document.getElementById("psw_repeat");
     inputmk.style.borderBlockEndColor = "red";
     inputrpmk.style.borderBlockEndColor = "red";
     document.getElementById("psw_sup").focus();
-  }
-  else if (kiemtrafullname(name) == false) {
+  } else if (kiemtrafullname(name) == false) {
     var inputfullname = document.getElementById("fullname");
     inputfullname.style.borderBlockEndColor = "red";
     fullname.focus();
-  }
-  else {
+  } else {
     var user = {
       username: tk,
       password: mk,
@@ -529,7 +522,7 @@ function adduser() {
 }
 function splitgenres(a) {
   var b = a.split(" ");
-  var c = ''
+  var c = "";
   for (i = 0; i < b.length; i++) {
     c += b[i][0];
   }
@@ -571,7 +564,7 @@ function show_genres() {
   document.getElementById("genres__list").innerHTML += a;
 }
 //ham hien thi sach san pham
-function print_item(a) { }
+function print_item(a) {}
 function show_list1() {
   if (localStorage.getItem("product") == null) {
     return false;
@@ -588,7 +581,7 @@ function show_list1() {
       }
     }
   } else if (a == undefined || a == "danhsach") {
-    for (i = 0; i < productArray.length; i++) { }
+    for (i = 0; i < productArray.length; i++) {}
   }
   document.getElementById("list__books").innerHTML = temp;
 }
@@ -673,8 +666,6 @@ function show_infor_book(s) {
 }
 //code trang
 
-
-
 function increase_sort(list) {
   for (i = 0; i < list.length - 1; i++) {
     for (j = i + 1; j < list.length; j++) {
@@ -704,19 +695,18 @@ function show_list() {
     return false;
   }
   var itemPerPage = 0;
-  if (localStorage.getItem('num_page') == null) {
+  if (localStorage.getItem("num_page") == null) {
     var itemPerPage = 8;
-  }
-  else {
+  } else {
     var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));
   }
   productArray = JSON.parse(localStorage.getItem("product"));
-  sessionStorage.removeItem('sp');
-  var a = getQueryVariable('genres');
-  var b = getQueryVariable('search');
-  const trang = 8
+  sessionStorage.removeItem("sp");
+  var a = getQueryVariable("genres");
+  var b = getQueryVariable("search");
+  const trang = 8;
   var tem1 = productArray;
-  if ((a != undefined && a != 'danhsach') || b != undefined) {
+  if ((a != undefined && a != "danhsach") || b != undefined) {
     var tem1 = [];
     if (a != undefined && b == undefined) {
       for (i = 0; i < productArray.length; i++) {
@@ -724,15 +714,13 @@ function show_list() {
           tem1.push(productArray[i]);
         }
       }
-    }
-    else if (b != undefined && a == undefined) {
+    } else if (b != undefined && a == undefined) {
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b) {
           tem1.push(productArray[i]);
         }
       }
-    }
-    else {
+    } else {
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b && productArray[i].genresID == a) {
           tem1.push(productArray[i]);
@@ -740,16 +728,17 @@ function show_list() {
       }
     }
   }
-  var d = document.getElementById('sort_gia').value;
+  var d = document.getElementById("sort_gia").value;
   switch (d) {
-    case '0': break;
-    case '1': break;
+    case "0":
+      break;
+    case "1":
+      break;
   }
-  var a = (getQueryVariable("page"));
+  var a = getQueryVariable("page");
   if (a == undefined) {
     a = 1;
-  }
-  else {
+  } else {
     a = Number(a);
   }
   tempitem = tem1;
@@ -758,35 +747,40 @@ function show_list() {
   PagesList(totalPages);
   var start = (a - 1) * itemPerPage;
   //sap xep
-  var e = document.getElementById('sort').value;
+  var e = document.getElementById("sort").value;
   if (e == "1") {
     tempitem = increase_sort(tempitem);
-  }
-  else if (e == "2") {
+  } else if (e == "2") {
     tempitem = decrease_sort(tempitem);
   }
   //loc theo gia
-  var f = document.getElementById('sort_gia').value;
+  var f = document.getElementById("sort_gia").value;
   if (f != "0") {
     switch (f) {
-      case "1": tempitem = filter_price(tempitem, 0, 500); break;
-      case "2": tempitem = filter_price(tempitem, 500, 1000); break;
-      case "3": tempitem = filter_price(tempitem, 1000, 2000); break;
-      case "4": tempitem = filter_price(tempitem, 2000, -1); break;
+      case "1":
+        tempitem = filter_price(tempitem, 0, 500);
+        break;
+      case "2":
+        tempitem = filter_price(tempitem, 500, 1000);
+        break;
+      case "3":
+        tempitem = filter_price(tempitem, 1000, 2000);
+        break;
+      case "4":
+        tempitem = filter_price(tempitem, 2000, -1);
+        break;
     }
     totalPages = Math.ceil(tempitem.length / itemPerPage);
     start = (a - 1) * itemPerPage;
-    console.log(start)
+    console.log(start);
     PagesList(totalPages);
   }
   show(tempitem, start, itemPerPage + start);
 }
-function search() {
-
-}
+function search() {}
 function show(arr, start, end) {
   var temp1 = "'infor_book'";
-  var t = '';
+  var t = "";
   console.log(start);
   console.log(end);
   if (end > arr.length) {
@@ -814,10 +808,12 @@ function show(arr, start, end) {
 
 function PagesList(total) {
   var b = window.location.href;
-  let html = '';
+  let html = "";
   for (let i = 1; i <= total; i++) {
     html += `
-          <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
+          <a class="decopage" href="${getPageVariable(
+            b
+          )}&page=${i}">${i}              
           </a>
       `;
   }
@@ -826,8 +822,8 @@ function PagesList(total) {
 function getPageVariable(variable) {
   var query = window.location.href;
   var temp = query.split("&page=");
-  if (temp[0].indexOf('?') == -1) {
-    temp[0] = temp[0] + '?';
+  if (temp[0].indexOf("?") == -1) {
+    temp[0] = temp[0] + "?";
   }
   return decodeURIComponent(temp[0]);
 }
@@ -847,6 +843,10 @@ function changePage(productList) {
 }
 
 var cart = [];
+//kiem tra cart tren session
+if (sessionStorage.getItem("cart")) {
+  cart = JSON.parse(sessionStorage.getItem("cart"));
+}
 function test() {
   console.log("hellooooo");
 }
@@ -865,8 +865,9 @@ function addtocart(product) {
   // const yes = document.querySelector(".yes");
   // const no = document.querySelector(".no");
 
-  var sl = document.getElementById("numbook").value;
-  console.log(sl);
+  var sl = parseInt(document.getElementById("numbook").value);
+  console.log(typeof sl);
+  // console.log(parseInt(cart[0][sl]));
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
     closeb("comfirm_buy");
@@ -877,16 +878,36 @@ function addtocart(product) {
   var hinh = btn.children[1].children[0].src;
   var ten = btn.children[2].children[0].children[0].children[0].innerHTML;
   var gia = btn.children[2].children[0].children[3].children[0].innerHTML;
-  var item = { hinh, ten, gia, sl };
-  //kiem tra cart tren session
-  if (sessionStorage.getItem("cart")) {
-    cart = JSON.parse(sessionStorage.getItem("cart"));
+  console.log();
+  if (checksp(ten) >= 0) {
+    capnhatsl(checksp(ten));
+  } else {
+    var item = { hinh, ten, gia, sl };
+    cart.push(item);
   }
-  cart.push(item);
+
   sessionStorage.setItem("cart", JSON.stringify(cart));
-  // window.location.href = "shopping_cart.html";
 }
 
+function checksp(x) {
+  let vt = -1;
+  for (i = 0; i < cart.length; i++) {
+    if (cart[i].ten == x) {
+      vt = i;
+      break;
+    }
+  }
+  return vt;
+}
+function capnhatsl(vt) {
+  for (let i = 0; i < cart.length; i++) {
+    if (i == vt) {
+      let sl = parseInt(document.getElementById("numbook").value);
+      cart[i].sl += sl;
+      break;
+    }
+  }
+}
 //Hien thi cart
 function showcarts() {
   // window.location.href = "shopping_cart.html";
@@ -1156,7 +1177,7 @@ function log_in() {
     dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
     userArray = JSON.parse(localStorage.getItem("User"));
     admin = JSON.parse(localStorage.getItem("admin"));
-    console.log(admin[0].username)
+    console.log(admin[0].username);
     var sinbt = document.querySelector(".sin_bt");
     for (i = 0; i < userArray.length; i++) {
       if (dangnhap[0].username == userArray[i].username) {

@@ -236,7 +236,7 @@ function show_infor_book(s) {
       document.getElementById("informa").innerHTML =
         "<p>" + productArray[i].information + "</p>"
       document.querySelector(".modify").innerHTML = `<a href = "#addsp" type="button" onclick="closef('infor_book') + suasanpham('${productArray[i].productId}')">Thay doi thong tin san pham</a>`;
-      // document.querySelector('.deletebook').innerHTML = 
+      document.querySelector('.deletebook').innerHTML = `<div onclick="deleteProduct('${productArray[i].productId}')">xoa</div>`
     }
   }
 }
@@ -246,7 +246,7 @@ function splitgenres(a) {
   for (i = 0; i < b.length; i++) {
     c += b[i][0];
   }
-  
+
   c = c.toUpperCase();
   return c;
 }
@@ -288,19 +288,19 @@ function ModifyProduct(a) {
     }
   }
   productArray[index].productId = Number(a);
-  productArray[index].genresId= document.getElementById("modifyGenresId").value;
-  productArray[index].author= document.getElementById("modifyAuthor").value;
-  productArray[index].img= document.getElementById("modifyImg").value;
-  productArray[index].name= document.getElementById("modifyName").value;
-  productArray[index].price= Number(document.getElementById("modifyPrice").value);
-  productArray[index].information= document.getElementById("modifyInformation").value;
+  productArray[index].genresId = document.getElementById("modifyGenresId").value;
+  productArray[index].author = document.getElementById("modifyAuthor").value;
+  productArray[index].img = document.getElementById("modifyImg").value;
+  productArray[index].name = document.getElementById("modifyName").value;
+  productArray[index].price = Number(document.getElementById("modifyPrice").value);
+  productArray[index].information = document.getElementById("modifyInformation").value;
 
-    localStorage.setItem("product", JSON.stringify(productArray));
+  localStorage.setItem("product", JSON.stringify(productArray));
 }
 // Thêm sản phẩm
 function AddProduct() {
   productArray = JSON.parse(localStorage.getItem("product"));
-  var newid = Number(productArray[productArray.length-1].productId+1);
+  var newid = Number(productArray[productArray.length - 1].productId + 1);
   var newproduct = {
     productId: newid,
     genresId: splitgenres(document.getElementById("addGenresId").value),
@@ -316,30 +316,34 @@ function AddProduct() {
   var genrestemp = splitgenres(document.getElementById('addGenresId').value);
   console.log(genrestemp);
   console.log(genresArray[0].id)
-  for(i = 0; i< genresArray.length; i++){
-    if(genresArray[i].id == genrestemp){
+  for (i = 0; i < genresArray.length; i++) {
+    if (genresArray[i].id == genrestemp) {
       check = 1;
       break;
     }
   }
-  if(check == 0){
-    var newgenres = {genres_name:document.getElementById("addGenresId").value,id:splitgenres(document.getElementById("addGenresId").value)};
+  if (check == 0) {
+    var newgenres = { genres_name: document.getElementById("addGenresId").value, id: splitgenres(document.getElementById("addGenresId").value) };
     genresArray.push(newgenres);
     localStorage.setItem("genres", JSON.stringify(genresArray));
   }
   localStorage.setItem("product", JSON.stringify(productArray));
+  location.reload();
 }
 
 //Xóa sản phẩm
 function deleteProduct(deleteproductId) {
+  console.log("hello");
   productArray = JSON.parse(localStorage.getItem("product"));
   for (var i = 0; i < productArray.length; i++) {
     if (productArray[i].productId == deleteproductId) {
-      if (confirm("Chắc chưa?")) {
+      if (confirm("Chắc muốn xoá quyển sách này?")) {
         productArray.splice(i, 1);
       }
     }
   }
+  localStorage.setItem("product", JSON.stringify(productArray));
+  location.reload();
 }
 //PhanTrang
 

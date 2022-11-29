@@ -288,7 +288,7 @@ function create_admin() {
       fullname: "Nguyễn Thịnh Phát",
       address: "2 adv - P16 - Q8",
       phone: "012341",
-      giohang:cart
+      giohang: cart
     };
     var user2 = {
       username: "quocdai",
@@ -297,7 +297,7 @@ function create_admin() {
       fullname: "Lâm Quốc Đại",
       address: "2 adv - P16 - Q8",
       phone: "012342",
-      giohang:cart
+      giohang: cart
     };
     var user3 = {
       username: "ducthang",
@@ -306,7 +306,7 @@ function create_admin() {
       fullname: "Đào Đức Thắng",
       address: "2 adv - P16 - Q8",
       phone: "012343",
-      giohang:cart
+      giohang: cart
     };
     var user4 = {
       username: "giabao",
@@ -315,7 +315,7 @@ function create_admin() {
       fullname: "Trần Gia Bảo",
       address: "2 adv - P16 - Q8",
       phone: "012344",
-      giohang:cart
+      giohang: cart
     };
     userArray.push(user1);
     userArray.push(user2);
@@ -643,10 +643,10 @@ function show_infor_book(s) {
 }
 //code trang
 
-function increase_sort(list){
-  for(i = 0; i < list.length-1; i++){
-    for(j = i+1; j < list.length; j++){
-      if(list[i].price > list[j].price){
+function increase_sort(list) {
+  for (i = 0; i < list.length - 1; i++) {
+    for (j = i + 1; j < list.length; j++) {
+      if (list[i].price > list[j].price) {
         var temp = list[i];
         list[i] = list[j];
         list[j] = temp;
@@ -754,7 +754,7 @@ function show_list() {
   }
   show(tempitem, start, itemPerPage + start);
 }
-function search() {}
+function search() { }
 function show(arr, start, end) {
   var temp1 = "'infor_book'";
   var t = "";
@@ -789,8 +789,8 @@ function PagesList(total) {
   for (let i = 1; i <= total; i++) {
     html += `
           <a class="decopage" href="${getPageVariable(
-            b
-          )}&page=${i}">${i}              
+      b
+    )}&page=${i}">${i}              
           </a>
       `;
   }
@@ -834,14 +834,14 @@ function addtocart(product) {
     return false;
   }
   productArray = JSON.parse(localStorage.getItem('product'));
-  for(i = 0; i < productArray.length; i++){
-    if(productArray[i] == product){
-      index = i;break;
+  for (i = 0; i < productArray.length; i++) {
+    if (productArray[i] == product) {
+      index = i; break;
     }
   }
   const date = new Date();
-  var tdon = dangnhap[0].username+"" + date.toISOString()
-  item = {tendon:tdon,makh:dangnhap[0].username,sp:productArray[index],soluong:sl,date:date.getDate(),month:date.getMonth(),year:date.getFullYear(),tt:"Chưa xử lý"};
+  var tdon = dangnhap[0].username + "" + date.toISOString()
+  item = { tendon: tdon, makh: dangnhap[0].username, sp: productArray[index], soluong: sl, date: date.getDate(), month: date.getMonth(), year: date.getFullYear(), tt: "Chưa xử lý" };
   cart.push(item);
 
   sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -905,9 +905,9 @@ function showcarts() {
 
   document.getElementById("showcart").innerHTML = kq;
 }
-function showdonhang(){
+function showdonhang() {
 
-  if(sessionStorage.getItem('cart') == null ){
+  if (sessionStorage.getItem('cart') == null) {
     document.querySelector('.name_cart').innerHTML = "Bạn chưa có đơn hàng nào";
     return false;
   }
@@ -917,11 +917,11 @@ function showdonhang(){
   var sl = 'Số Lượng';
   var ch = 'Chọn'
   var tong = 0;
-  for(i = 0; i <cart.length; i++){
+  for (i = 0; i < cart.length; i++) {
     sp = sp + `<div>${cart[i].sp.name}</div>`;
     gia = gia + `<div>${cart[i].sp.price}</div>`;
-    sl = sl + `<div>${cart[i].soluong}</div>`;    
-    tong = tong + cart[i].sp.price*cart[i].soluong;
+    sl = sl + `<div>${cart[i].soluong}</div>`;
+    tong = tong + cart[i].sp.price * cart[i].soluong;
   }
   console.log(sp);
   document.querySelector('.title__item__left').innerHTML = sp;
@@ -1127,7 +1127,7 @@ function turnon(idturnon) {
   });
 }
 
-function turnoff() {
+function turnoffbg() {
   const a = document.querySelector(".menu-background");
   a.style.display = "none";
 }
@@ -1168,28 +1168,28 @@ function log_in() {
   }
 }
 var cartlist = [];
-function xacnhancart(){
+function xacnhancart() {
   var date = new Date();
   if (sessionStorage.getItem("dangnhap") == null) {
     alert("Vui lòng đăng nhập trước khi mua");
     return false;
   }
-  if(sessionStorage.getItem('cart') == null){
+  if (sessionStorage.getItem('cart') == null) {
     alert("Chưa có đơn hàng nào");
     return false;
   }
   userArray = JSON.parse(localStorage.getItem('User'));
   cart = JSON.parse(sessionStorage.getItem('cart'));
   dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  for(i = 0; i < userArray.length; i++){
-    if(userArray[i].username == dangnhap[0].username){
-      index = i;break;
+  for (i = 0; i < userArray.length; i++) {
+    if (userArray[i].username == dangnhap[0].username) {
+      index = i; break;
     }
   }
-  var mahd = dangnhap[0].username + "-"+date.toISOString;
-  var newproduct = {mahd:mahd,giohang:cart,date:date.getDate(),month:date.getMonth(),year:date.getFullYear()};
+  var mahd = dangnhap[0].username + "-" + date.toISOString;
+  var newproduct = { mahd: mahd, giohang: cart, date: date.getDate(), month: date.getMonth(), year: date.getFullYear() };
   userArray[index].giohang.push(newproduct);
-  localStorage.setItem("User",JSON.stringify(userArray));
+  localStorage.setItem("User", JSON.stringify(userArray));
   sessionStorage.removeItem('cart');
   location.reload();
 }

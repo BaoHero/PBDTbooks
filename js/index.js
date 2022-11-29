@@ -4,10 +4,10 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
-$(window).on('load', function (event) {
-  $('body').removeClass('preloading');
+$(window).on("load", function (event) {
+  $("body").removeClass("preloading");
   // $('.load').delay(1000).fadeOut('fast');
-  $('.load').delay(1000).fadeOut('fast');
+  $(".load").delay(1000).fadeOut("fast");
 });
 function createProduct() {
   if (localStorage.getItem("product") == null) {
@@ -221,7 +221,7 @@ function createProduct() {
   }
 }
 
-// Hàm đóng , mở 
+// Hàm đóng , mở
 function openb(st) {
   var a = document.getElementById(st);
   a.style.display = "block";
@@ -233,19 +233,19 @@ function closeb(st) {
 function openf(st) {
   var a = document.getElementById(st);
   a.style.display = "block";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 0.25;
 }
 function closef(st) {
   var a = document.getElementById(st);
   a.style.display = "none";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 1;
 }
 function openflex(st) {
   var a = document.getElementById(st);
   a.style.display = "flex";
-  var b = document.getElementById("page_user");
+  var b = document.getElementById("page_main");
   b.style.opacity = 0.25;
 }
 
@@ -571,56 +571,77 @@ function show_genres() {
   document.getElementById("genres__list").innerHTML += a;
 }
 //ham hien thi sach san pham
-// function show_list() {
-//   if (sessionStorage.getItem("sp") == null) {
-//     return false;
-//   }
-//   productArray = JSON.parse(localStorage.getItem("product"));
-//   var a = getQueryVariable("genres");
-//   var temp = "";
-//   var temp1 = "'infor_book'";
-//   if (a != undefined && a != "danhsach") {
-//     for (i = 0; i < productArray.length; i++) {
-//       if (productArray[i].genresId == a) {
-//         console.log(productArray[i].productId);
-//         var temp =
-//           temp +
-//           '<dFiv id="' +
-//           productArray[i].productId +
-//           '"class="item" onclick="show_infor_book(' +
-//           productArray[i].productId +
-//           ") + openflex(" +
-//           temp1 +
-//           ')"><div class="item__inside"><div class="img_book"><img src="' +
-//           productArray[i].img +
-//           '" alt=""></div><div class="book_name">' +
-//           productArray[i].name +
-//           '</div><div class="book_price"><span>$' +
-//           productArray[i].price +
-//           "</span></div></div></dFiv>";
-//       }
-//     }
-//   } else if (a == undefined || a == "danhsach") {
-//     for (i = 0; i < productArray.length; i++) {
-//       var temp =
-//         temp +
-//         '<div id="' +
-//         productArray[i].productId +
-//         '"class="item" onclick="show_infor_book(' +
-//         productArray[i].productId +
-//         ") +openflex(" +
-//         temp1 +
-//         ')"><div class="item__inside"><div class="img_book"><img src="' +
-//         productArray[i].img +
-//         '" alt=""></div><div class="book_name">' +
-//         productArray[i].name +
-//         '</div><div class="book_price"><span>$' +
-//         productArray[i].price +
-//         "</span></div></div></div>";
-//     }
-//   }
-//   document.getElementById("list__books").innerHTML = temp;
-// }
+function print_item(a) { }
+function show_list1() {
+  if (localStorage.getItem("product") == null) {
+    return false;
+  }
+  var templist = [];
+  productArray = JSON.parse(localStorage.getItem("product"));
+  var a = getQueryVariable("genres");
+  var temp = "";
+  var temp1 = "'infor_book'";
+  if (a != undefined && a != "danhsach") {
+    for (i = 0; i < productArray.length; i++) {
+      if (productArray[i].genresId == a) {
+        templist.push(productArray[i]);
+      }
+    }
+  } else if (a == undefined || a == "danhsach") {
+    for (i = 0; i < productArray.length; i++) { }
+  }
+  document.getElementById("list__books").innerHTML = temp;
+}
+function show_list() {
+  if (localStorage.getItem("product") == null) {
+    return false;
+  }
+  productArray = JSON.parse(localStorage.getItem("product"));
+  var a = getQueryVariable("genres");
+  var temp = "";
+  var temp1 = "'infor_book'";
+  if (a != undefined && a != "danhsach") {
+    for (i = 0; i < productArray.length; i++) {
+      if (productArray[i].genresId == a) {
+        console.log(productArray[i].productId);
+        var temp =
+          temp +
+          '<dFiv id="' +
+          productArray[i].productId +
+          '"class="item" onclick="show_infor_book(' +
+          productArray[i].productId +
+          ") + openflex(" +
+          temp1 +
+          ')"><div class="item__inside"><div class="img_book"><img src="' +
+          productArray[i].img +
+          '" alt=""></div><div class="book_name">' +
+          productArray[i].name +
+          '</div><div class="book_price"><span>$' +
+          productArray[i].price +
+          "</span></div></div></dFiv>";
+      }
+    }
+  } else if (a == undefined || a == "danhsach") {
+    for (i = 0; i < productArray.length; i++) {
+      var temp =
+        temp +
+        '<div id="' +
+        productArray[i].productId +
+        '"class="item" onclick="show_infor_book(' +
+        productArray[i].productId +
+        ") +turnonflex(" +
+        temp1 +
+        ')"><div class="item__inside"><div class="img_book"><img src="' +
+        productArray[i].img +
+        '" alt=""></div><div class="book_name">' +
+        productArray[i].name +
+        '</div><div class="book_price"><span>$' +
+        productArray[i].price +
+        "</span></div></div></div>";
+    }
+  }
+  document.getElementById("list__books").innerHTML = temp;
+}
 
 function show_infor_book(s) {
   // var s = getQueryVariable("product");
@@ -640,15 +661,18 @@ function show_infor_book(s) {
       document.getElementById("price").innerHTML =
         "$ <span>" + productArray[i].price + "</span>";
       document.getElementById("informa").innerHTML =
-        "<p>" + productArray[i].information + "</p>"
-      document.querySelector(".buybt").innerHTML = `<button type="button" onclick="addtocart(productArray[i])">Buy now</button>`;
+        "<p>" + productArray[i].information + "</p>";
+      // document.querySelector(
+      //   ".buybt"
+      // ).innerHTML = `<button type="button" onclick="addtocart(productArray[i])">Buy now</button>`;
+      document.querySelector(
+        ".buybt"
+      ).innerHTML = `<button type="button" onclick="addtocart(this)">Buy now</button>`;
     }
   }
 }
-//PhanTrang
-
+//code trang
 function show_page(num_page) {
-  var tempitem = [];
   var hr = location.href;
   var temp = "";
   if (getQueryVariable("genres") != undefined) {
@@ -662,10 +686,8 @@ function show_page(num_page) {
   }
   document.querySelector(".list_page").innerHTML = temp;
 }
-function searching(){
-  var tk = document.getElementById('searbox').value;
 
-}
+
 function increase_sort(list){
   for(i = 0; i < list.length-1; i++){
     for(j = i+1; j < list.length; j++){
@@ -806,86 +828,111 @@ function PagesList(total) {
   var b = window.location.href;
   let html = '';
   for (let i = 1; i <= total; i++) {
- 
     html += `
-          <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
+          <a href="#">
+              <li class="page_list-items">${i}</li>
           </a>
       `;
   }
-  document.querySelector(".list_page").innerHTML = html;
+  document.querySelector(".page_list").innerHTML = html;
 }
-function filter_price(arr,start,end){
-  var temp = [];
-  if(end != -1){
-  for(i = 0; i < arr.length; i++){
-    if(arr[i].price >= start && arr[i].price <= end){
-      temp.push(arr[i]);
-    }
-  }
-  } 
-  else {
-    for(i = 0; i < arr.length; i++){
-      if(arr[i].price >= start){
-        temp.push(arr[i]);
-      }
-    }
-  }
-  return temp;
-}
-function getPageVariable(variable) {
-  var query = window.location.href;
-  var temp = query.split("&page=");
-  if(temp[0].indexOf('?') == -1){
-    temp[0] = temp[0]+'?';
-  }
-  return decodeURIComponent(temp[0]);
-}
+
 // renderPagesList(totalPages);
+
 function changePage(productList) {
   const pagesList = document.querySelectorAll(".page_list a");
   pagesList.forEach(function (item, index) {
     item.onclick = function () {
       let value = index + 1;
-      currentPage = value
+      currentPage = value;
       s = (currentPage - 1) * itemPerPage;
       e = currentPage * itemPerPage;
       renderProduct(productList, s, e);
-    }
-  })
+    };
+  });
 }
 
 var cart = [];
+function test() {
+  console.log("hellooooo");
+}
 function addtocart(product) {
-  openb('comfirm_buy');
-  console.log(product)
-  if (sessionStorage.getItem('dangnhap') == null) {
+  // openb("comfirm_buy");
+  console.log(product);
+  if (sessionStorage.getItem("dangnhap") == null) {
     alert("Bạn chưa đăng nhập!");
     closeb("infor_book");
-    closeb("comfirm_buy")
+    closeb("comfirm_buy");
     openb("form_sin");
-    closeb('comfirm_buy')
+    closeb("comfirm_buy");
     return false;
   }
-  dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  const yes = document.querySelector('.yes');
-  const no = document.querySelector('.no');
+  dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+  // const yes = document.querySelector(".yes");
+  // const no = document.querySelector(".no");
 
   var sl = document.getElementById("numbook").value;
   console.log(sl);
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
-    closeb('comfirm_buy');
+    closeb("comfirm_buy");
     return false;
   }
-  yes.addEventListener("click", () => {
-    item1 = { userid: dangnhap[0], product: product, soluong: sl };
-    cart.push(item1);
-    sessionStorage.setItem("tempcart", JSON.stringify(cart));
-    closeb('comfirm_buy');
-  });
-  no.addEventListener("click", () => {
-    closeb('comfirm_buy');
-  })
+
+  var btn = product.parentElement.parentElement.parentElement.parentElement;
+  var hinh = btn.children[1].children[0].src;
+  var ten = btn.children[2].children[0].children[0].children[0].innerHTML;
+  var gia = btn.children[2].children[0].children[3].children[0].innerHTML;
+  var item = { hinh, ten, gia, sl };
+  //kiem tra cart tren session
+  if (sessionStorage.getItem("cart")) {
+    cart = JSON.parse(sessionStorage.getItem("cart"));
+  }
+  cart.push(item);
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+  // window.location.href = "shopping_cart.html";
+}
+
+//Hien thi cart
+function showcarts() {
+  // window.location.href = "shopping_cart.html";
+  var gh = JSON.parse(sessionStorage.getItem("cart"));
+  var kq = "";
+  if (gh != null) {
+    for (let i = 0; i < gh.length; i++) {
+      let total = parseInt(gh[i]["gia"]) * parseInt(gh[i]["sl"]);
+      kq +=
+        `<tr class="product">
+              <td class="product-item">
+                  <div class="info">
+                      <img src="` +
+        gh[i]["hinh"] +
+        `" alt="">
+                      <div>
+                          <p>` +
+        gh[i]["ten"] +
+        `</p>
+                      </div>
+                  </div>
+              </td>
+              <td class="product-price">$` +
+        gh[i]["gia"] +
+        `</td>
+              <td><input type="number" value="` +
+        gh[i]["sl"] +
+        `" min="1" class="product-quantity"></td>
+              <td class="product-total">$` +
+        total +
+        `</td>
+              <td class="remove">
+                  <button>Remove</button>
+              </td></tr>`;
+    }
+  } else {
+    kq += "Your Cart is empty.";
+  }
+
+  document.getElementById("showcart").innerHTML = kq;
 }
 
 function getQueryVariable(variable) {
@@ -1026,17 +1073,21 @@ function usersite() {
   window.location.href = "index.html";
 }
 function open_left_menu() {
-  var a = document.querySelector(".left-menu-close");
-  var c = document.querySelector(".left-menu-inside");
-  c.style.display = "block";
+  const a = document.querySelector(".left-menu-close");
+  const b = document.querySelector(".left-menu-inside");
+  const c = document.querySelector(".left-menu-option");
+  a.style.display = "block";
   a.classList.add("left-menu-open");
-  var b = document.querySelector(".menu-background");
-
   b.style.display = "block";
-  b.addEventListener("click", () => {
+  c.style.display = "block";
+  var d = document.querySelector(".menu-background");
+
+  d.style.display = "block";
+  d.addEventListener("click", () => {
     a.classList.remove("left-menu-open");
-    c.style.display = "none";
     b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "none";
   });
 }
 
@@ -1052,7 +1103,51 @@ changeImage = function () {
 };
 setInterval(changeImage, 3000);
 function ShowGenres() {
-  document.getElementById('body__genres').style.display = 'block';
+  document.getElementById("body__genres").style.display = "block";
+}
+
+// ham tat tag
+function close_left_menu() {
+  const a = document.querySelector(".left-menu-close");
+  const b = document.querySelector(".left-menu-inside");
+  const c = document.querySelector(".left-menu-option");
+  const d = document.querySelector(".menu-background");
+  a.classList.remove("left-menu-open");
+  b.style.display = "none";
+  c.style.display = "none";
+  d.style.display = "none";
+}
+
+function turnon(idturnon) {
+  const a = document.querySelector(idturnon);
+  const b = document.querySelector(".menu-background");
+  var c = document.getElementById("page_main");
+  b.style.display = "block";
+  a.style.display = "block";
+  b.addEventListener("click", () => {
+    a.style.display = "none";
+    c.style.opacity = 1;
+    b.style.display = "none";
+  });
+}
+
+function turnoff() {
+  const a = document.querySelector(".menu-background");
+  a.style.display = "none";
+}
+
+function turnonflex(st) {
+  const a = document.querySelector(".menu-background");
+  var b = document.getElementById("page_main");
+  var c = document.getElementById(st);
+  a.style.display = "block";
+  c.style.display = "flex";
+  b.style.opacity = 0.25;
+  a.addEventListener("click", () => {
+    c.style.display = "none";
+    b.style.opacity = 1;
+    a.style.display = "none";
+  });
 }
 
 function log_in() {

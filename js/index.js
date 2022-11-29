@@ -565,7 +565,6 @@ function show_genres() {
 }
 //ham hien thi sach san pham
 
-
 function show_list() {
   if (localStorage.getItem("product") == null) {
     return false;

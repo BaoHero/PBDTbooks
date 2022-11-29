@@ -533,7 +533,7 @@ function splitgenres(a) {
   for (i = 0; i < b.length; i++) {
     c += b[i][0];
   }
-  
+
   c = c.toUpperCase();
   console.log(c);
   return c;
@@ -610,7 +610,7 @@ function show_list() {
           productArray[i].productId +
           '"class="item" onclick="show_infor_book(' +
           productArray[i].productId +
-          ") + openflex(" +
+          ") +turnonflex(" +
           temp1 +
           ')"><div class="item__inside"><div class="img_book"><img src="' +
           productArray[i].img +
@@ -675,10 +675,10 @@ function show_infor_book(s) {
 
 
 
-function increase_sort(list){
-  for(i = 0; i < list.length-1; i++){
-    for(j = i+1; j < list.length; j++){
-      if(list[i].price > list[j].price){
+function increase_sort(list) {
+  for (i = 0; i < list.length - 1; i++) {
+    for (j = i + 1; j < list.length; j++) {
+      if (list[i].price > list[j].price) {
         var temp = list[i];
         list[i] = list[j];
         list[j] = temp;
@@ -687,10 +687,10 @@ function increase_sort(list){
   }
   return list;
 }
-function decrease_sort(list){
-  for(i = 0; i < list.length-1; i++){
-    for(j = i+1; j < list.length; j++){
-      if(list[i].price < list[j].price){
+function decrease_sort(list) {
+  for (i = 0; i < list.length - 1; i++) {
+    for (j = i + 1; j < list.length; j++) {
+      if (list[i].price < list[j].price) {
         var temp = list[i];
         list[i] = list[j];
         list[j] = temp;
@@ -702,32 +702,32 @@ function decrease_sort(list){
 function show_list() {
   if (localStorage.getItem("product") == null) {
     return false;
-  }  
+  }
   var itemPerPage = 0;
-  if(localStorage.getItem('num_page') == null){    
+  if (localStorage.getItem('num_page') == null) {
     var itemPerPage = 8;
   }
-  else {    
-    var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));   
+  else {
+    var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));
   }
   productArray = JSON.parse(localStorage.getItem("product"));
   sessionStorage.removeItem('sp');
   var a = getQueryVariable('genres');
   var b = getQueryVariable('search');
-  const trang =  8
+  const trang = 8
   var tem1 = productArray;
-  if ((a != undefined && a!='danhsach') || b != undefined) {      
-    var tem1 = [];  
-    if (a != undefined && b ==undefined) {
-      for (i = 0; i < productArray.length; i++) {        
-        if (productArray[i].genresId == a) {                 
-          tem1.push(productArray[i]);           
+  if ((a != undefined && a != 'danhsach') || b != undefined) {
+    var tem1 = [];
+    if (a != undefined && b == undefined) {
+      for (i = 0; i < productArray.length; i++) {
+        if (productArray[i].genresId == a) {
+          tem1.push(productArray[i]);
         }
       }
     }
-    else if (b != undefined && a ==undefined) {
+    else if (b != undefined && a == undefined) {
       for (i = 0; i < productArray.length; i++) {
-        if (productArray[i].name == b) {          
+        if (productArray[i].name == b) {
           tem1.push(productArray[i]);
         }
       }
@@ -738,58 +738,58 @@ function show_list() {
           tem1.push(productArray[i]);
         }
       }
-    }     
-  }  
+    }
+  }
   var d = document.getElementById('sort_gia').value;
-  switch(d){
-    case '0':break;
-    case '1':break;
+  switch (d) {
+    case '0': break;
+    case '1': break;
   }
   var a = (getQueryVariable("page"));
-  if(a == undefined){
+  if (a == undefined) {
     a = 1;
   }
-  else{
+  else {
     a = Number(a);
   }
   tempitem = tem1;
   tempitem.length;
-  totalPages = Math.ceil(tempitem.length/itemPerPage);
+  totalPages = Math.ceil(tempitem.length / itemPerPage);
   PagesList(totalPages);
-  var start = (a-1)*itemPerPage;  
+  var start = (a - 1) * itemPerPage;
   //sap xep
   var e = document.getElementById('sort').value;
-  if(e == "1"){
+  if (e == "1") {
     tempitem = increase_sort(tempitem);
   }
-  else if(e == "2"){
+  else if (e == "2") {
     tempitem = decrease_sort(tempitem);
   }
   //loc theo gia
   var f = document.getElementById('sort_gia').value;
-  if(f != "0"){
-  switch(f){
-    case "1":tempitem = filter_price(tempitem,0,500); break;
-    case "2":tempitem = filter_price(tempitem,500,1000);break;
-    case "3":tempitem = filter_price(tempitem,1000,2000);break;
-    case "4":tempitem = filter_price(tempitem,2000,-1);break;
+  if (f != "0") {
+    switch (f) {
+      case "1": tempitem = filter_price(tempitem, 0, 500); break;
+      case "2": tempitem = filter_price(tempitem, 500, 1000); break;
+      case "3": tempitem = filter_price(tempitem, 1000, 2000); break;
+      case "4": tempitem = filter_price(tempitem, 2000, -1); break;
+    }
+    totalPages = Math.ceil(tempitem.length / itemPerPage);
+    start = (a - 1) * itemPerPage;
+    console.log(start)
+    PagesList(totalPages);
   }
-  totalPages = Math.ceil(tempitem.length/itemPerPage);
-  start = (a-1)*itemPerPage; 
-  console.log(start)
-  PagesList(totalPages); 
-  }
-  show(tempitem,start,itemPerPage+start);
+  show(tempitem, start, itemPerPage + start);
 }
-function search(){
-  
+function search() {
+
 }
-function show(arr,start,end){
+function show(arr, start, end) {
   var temp1 = "'infor_book'";
   var t = '';
   console.log(start);
   console.log(end);
-  if(end > arr.length){
+  if (end > arr.length) {
     end = arr.length;
   }
   for (i = start; i < end; i++) {
@@ -799,7 +799,7 @@ function show(arr,start,end){
       arr[i].productId +
       '"class="item" onclick="show_infor_book(' +
       arr[i].productId +
-      ") +openflex(" +
+      ") +turnonflex(" +
       temp1 +
       ')"><div class="item__inside"><div class="img_book"><img src="' +
       arr[i].img +
@@ -809,7 +809,7 @@ function show(arr,start,end){
       arr[i].price +
       "</span></div></div></div>";
   }
-  document.getElementById("list__books").innerHTML = t;  
+  document.getElementById("list__books").innerHTML = t;
 }
 
 function PagesList(total) {
@@ -1130,13 +1130,18 @@ function turnoff() {
   a.style.display = "none";
 }
 
+function turnoff(evnet) {
+  const a = document.querySelector(evnet);
+  a.style.display = "none";
+}
+
 function turnonflex(st) {
   const a = document.querySelector(".menu-background");
   var b = document.getElementById("page_main");
   var c = document.getElementById(st);
   a.style.display = "block";
   c.style.display = "flex";
-  b.style.opacity = 0.25;
+  // b.style.opacity = 0.25;
   a.addEventListener("click", () => {
     c.style.display = "none";
     b.style.opacity = 1;
@@ -1153,7 +1158,7 @@ function log_in() {
     admin = JSON.parse(localStorage.getItem("admin"));
     console.log(admin[0].username)
     var sinbt = document.querySelector(".sin_bt");
-    for (i = 0; i <userArray.length; i++) {
+    for (i = 0; i < userArray.length; i++) {
       if (dangnhap[0].username == userArray[i].username) {
         sinbt.style.display = "none";
       }

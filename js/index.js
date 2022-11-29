@@ -249,7 +249,7 @@ function openflex(st) {
   b.style.opacity = 0.25;
 }
 
-// Thêm sản phẩm
+// Thêm thể loại
 function addgenres() {
   console.log(genres.length);
   a = document.getElementById("add_genre").value;

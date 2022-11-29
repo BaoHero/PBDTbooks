@@ -236,6 +236,7 @@ function show_infor_book(s) {
       document.getElementById("informa").innerHTML =
         "<p>" + productArray[i].information + "</p>"
       document.querySelector(".modify").innerHTML = `<a href = "#addsp" type="button" onclick="closef('infor_book') + suasanpham('${productArray[i].productId}')">Thay doi thong tin san pham</a>`;
+      // document.querySelector('.deletebook').innerHTML = 
     }
   }
 }

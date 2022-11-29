@@ -672,20 +672,7 @@ function show_infor_book(s) {
   }
 }
 //code trang
-function show_page(num_page) {
-  var hr = location.href;
-  var temp = "";
-  if (getQueryVariable("genres") != undefined) {
-    for (i = 0; i < num_page; i++) {
-      temp += `<a class="item_page" href="${hr}&page=${i}">${i}</a>`;
-    }
-  } else {
-    for (i = 0; i < num_page; i++) {
-      temp += `<a class="item_page" href="${hr}?page=${i}">${i}</a>`;
-    }
-  }
-  document.querySelector(".list_page").innerHTML = temp;
-}
+
 
 
 function increase_sort(list){
@@ -824,19 +811,26 @@ function show(arr,start,end){
   }
   document.getElementById("list__books").innerHTML = t;  
 }
+
 function PagesList(total) {
   var b = window.location.href;
   let html = '';
   for (let i = 1; i <= total; i++) {
     html += `
-          <a href="#">
-              <li class="page_list-items">${i}</li>
+          <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
           </a>
       `;
   }
-  document.querySelector(".page_list").innerHTML = html;
+  document.querySelector(".list_page").innerHTML = html;
 }
-
+function getPageVariable(variable) {
+  var query = window.location.href;
+  var temp = query.split("&page=");
+  if (temp[0].indexOf('?') == -1) {
+    temp[0] = temp[0] + '?';
+  }
+  return decodeURIComponent(temp[0]);
+}
 // renderPagesList(totalPages);
 
 function changePage(productList) {
@@ -1157,12 +1151,10 @@ function log_in() {
     dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
     userArray = JSON.parse(localStorage.getItem("User"));
     admin = JSON.parse(localStorage.getItem("admin"));
+    console.log(admin[0].username)
     var sinbt = document.querySelector(".sin_bt");
-    for (i = 0; i < admin.length + userArray.length; i++) {
-      if (dangnhap[0].username == admin[i].username) {
-        sinbt.style.display = "none";
-      }
-      else if (dangnhap[0].username == userArray[i].username) {
+    for (i = 0; i <userArray.length; i++) {
+      if (dangnhap[0].username == userArray[i].username) {
         sinbt.style.display = "none";
       }
     }

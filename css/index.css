@@ -254,6 +254,17 @@ body {
  border: #000 solid 1px;
  border-radius: 3px;
 }
+.deletebook{
+  margin-left: 5px;
+}
+.deletebook div{
+  
+  cursor: pointer;
+}
+.deletebook div:hover{
+  background-color: red;
+}
+
 .modify a:hover{
   background-color: orchid;
 }
@@ -945,9 +956,7 @@ input[type="button"]:hover {
   min-height: 200px;
 
 }
-.modifysp{
 
-}
 #modifysp{
 
   margin:  top 100px;

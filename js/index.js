@@ -908,9 +908,51 @@ function capnhatsl(vt) {
     }
   }
 }
+function tangsl(x) {
+  let ongnoi = x.parentElement.parentElement;
+  let vt = ongnoi.children[0].value;
+  let sl = ongnoi.children[2];
+  let slmoi;
+  let thanhtien = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (i == vt) {
+      slmoi = cart[i].sl + 1;
+      thanhtien = slmoi * cart[i].gia;
+      cart[i].sl += 1;
+      break;
+    }
+  }
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+  sl.value = slmoi;
+  let tt = ongnoi.parentElement.parentElement.children[3].children[0];
+  tt.innerText = thanhtien;
+}
+function giamsl(x) {
+  let ongnoi = x.parentElement.parentElement;
+  let vt = ongnoi.children[0].value;
+  let sl = ongnoi.children[2];
+  if (parseInt(sl.value) > 1) {
+    let slmoi = 0;
+    let thanhtien = 0;
+    for (let i = 0; i < cart.length; i++) {
+      if (i == vt) {
+        slmoi = cart[i].sl - 1;
+        thanhtien = slmoi * cart[i].gia;
+        cart[i].sl -= 1;
+        break;
+      }
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    sl.value = slmoi;
+    let tt = ongnoi.parentElement.parentElement.children[3].children[0];
+    tt.innerText = thanhtien;
+  } else {
+    alert("Khong the giam!");
+  }
+}
+
 //Hien thi cart
 function showcarts() {
-  // window.location.href = "shopping_cart.html";
   var gh = JSON.parse(sessionStorage.getItem("cart"));
   var kq = "";
   if (gh != null) {
@@ -933,12 +975,29 @@ function showcarts() {
               <td class="product-price">$` +
         gh[i]["gia"] +
         `</td>
-              <td><input type="number" value="` +
+              <td>
+              <div class="ip">
+              <input type="hidden" value="` +
+        i +
+        `">
+              <div class="ip-btn">
+                  <button onclick="giamsl(this)" class="btn-minus">
+                      <i class="fa fa-minus"></i>
+                  </button>
+              </div>
+              <input type="text" value="` +
         gh[i]["sl"] +
-        `" min="1" class="product-quantity"></td>
-              <td class="product-total">$` +
+        `" min="1" class="product-quantity">
+              <div class="ip-btn">
+                  <button onclick="tangsl(this)" class="btn-plus">
+                      <i class="fa fa-plus"></i>
+                  </button>
+              </div>
+          </div>
+              </td>
+              <td class="product-total">$<span>` +
         total +
-        `</td>
+        `</span></td>
               <td class="remove">
                   <button>Remove</button>
               </td></tr>`;

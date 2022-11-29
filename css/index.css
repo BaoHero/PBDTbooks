@@ -249,8 +249,19 @@ body {
 .header__rightmenu div {
   margin: 16px auto;
 }
-
-
+/* nut them sp */
+.modify{
+ border: #000 solid 1px;
+ border-radius: 3px;
+}
+.modify a:hover{
+  background-color: orchid;
+}
+.modify a{
+  text-align: center;
+  text-decoration: none;
+  padding: 4px;
+}
 .sin_bt {
   cursor: pointer;
   display: block;
@@ -493,6 +504,7 @@ body {
   margin: 5px;
   width: 20px;
 }
+
 .body__list {
   width: 75%;
 }
@@ -923,33 +935,63 @@ input[type="button"]:hover {
 }
 
 .addproduct {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  border: #000 1px solid;
+
+
   width: 500px;
   min-height: 200px;
-  position: absolute;
-}
 
+}
+.modifysp{
+
+}
+#modifysp{
+
+  margin:  top 100px;
+}
+.addsp{
+
+  border: 1px solid black;
+  margin-left: 0;
+}
 .addproduct_item {
-  color: white;
+
   margin: 10px;
 }
-
-.addproduct_item label {
-  position: absolute;
-  left: 0px;
+.sp{
+  display: flex;
 }
+#addsp{
+  position: relative;
+  left: 20%;
+  right: 20%;
+  margin-left: 20px;
+}
+.addproduct_item label {
 
+
+}
+#modifysp{
+  
+    position: relative;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    margin-left: 20px;
+  
+}
 .addproduct_item input {
+  outline: 1px black solid;
   position: absolute;
   right: 0px;
   border: none;
   width: 250px;
   min-height: 18px;
-  border-radius: 15px;
-  text-align: center;
+  border-radius: 2px;
+  margin: 5px 20px 5px 5px;
+  padding: 5px;
+  
 }
 
 .form_button {

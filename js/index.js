@@ -15,7 +15,7 @@ function createProduct() {
       // Comics & Graphic Novels
       {
         productId: 1001,
-        genresId: "CGN",
+        genresId: "C&GN",
         author: "Todd Mcfarlane",
         img: "imgs/1001.webp",
         name: "Spawn Compendium, Color Edition, Volume 1",
@@ -25,7 +25,7 @@ function createProduct() {
       },
       {
         productId: 1002,
-        genresId: "CGN",
+        genresId: "C&GN",
         author: "Sam Hamm",
         img: "imgs/1002.webp",
         name: "Batman 89",
@@ -35,7 +35,7 @@ function createProduct() {
       },
       {
         productId: 1003,
-        genresId: "CGN",
+        genresId: "C&GN",
         author: "Ryan north",
         img: "imgs/1003.jpg",
         name: "Fantastic Four (2022-)",
@@ -45,7 +45,7 @@ function createProduct() {
       },
       {
         productId: 1004,
-        genresId: "CGN",
+        genresId: "C&GN",
         author: "Stan Lee",
         img: "imgs/1004.webp",
         name: "Doctor Doom: The Book Of Doom Omnibus",
@@ -55,7 +55,7 @@ function createProduct() {
       },
       {
         productId: 1005,
-        genresId: "CGN",
+        genresId: "C&GN",
         author: "Brian Michael Bendis",
         img: "imgs/1005.jpg",
         name: "Avengers Vs. X-Men Omnibus",
@@ -66,7 +66,7 @@ function createProduct() {
       // Mystery, thriller and suspense
       {
         productId: 1006,
-        genresId: "MTS",
+        genresId: "MTAS",
         author: "Stephen King",
         img: "imgs/1006.webp",
         name: "Fairy Tale",
@@ -76,7 +76,7 @@ function createProduct() {
       },
       {
         productId: 1007,
-        genresId: "MTS",
+        genresId: "MTAS",
         author: "Colleen Hoover",
         img: "imgs/1007.webp",
         name: "Verity",
@@ -86,7 +86,7 @@ function createProduct() {
       },
       {
         productId: 1008,
-        genresId: "MTS",
+        genresId: "MTAS",
         author: "Ashley Flowers",
         img: "imgs/1008.webp",
         name: "All Good People Here: A Novel",
@@ -96,7 +96,7 @@ function createProduct() {
       },
       {
         productId: 1009,
-        genresId: "MTS",
+        genresId: "MTAS",
         author: "Louise Penny",
         img: "imgs/1009.jpg",
         name: "A World of Curiosities: A Novel (Chief Inspector Gamache Novel, 18)",
@@ -106,7 +106,7 @@ function createProduct() {
       },
       {
         productId: 1010,
-        genresId: "MTS",
+        genresId: "MTAS",
         author: "Laura Dave",
         img: "imgs/10010.webp",
         name: "The Last Thing He Told Me: A Novel",
@@ -117,7 +117,7 @@ function createProduct() {
       //Crafts, Hobbies & Home
       {
         productId: 1011,
-        genresId: "CHH",
+        genresId: "CH&H",
         author: "John Kanell",
         img: "imgs/10011.webp",
         name: "Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)",
@@ -127,7 +127,7 @@ function createProduct() {
       },
       {
         productId: 1012,
-        genresId: "CHH",
+        genresId: "CH&H",
         author: "Coloring Book Cafe",
         img: "imgs/10012.webp",
         name: "Country Collection Coloring Book",
@@ -137,7 +137,7 @@ function createProduct() {
       },
       {
         productId: 1013,
-        genresId: "CHH",
+        genresId: "CH&H",
         author: "Anthony William",
         img: "imgs/10013.jpg",
         name: "Medical Medium Brain Saver",
@@ -147,7 +147,7 @@ function createProduct() {
       },
       {
         productId: 1014,
-        genresId: "CHH",
+        genresId: "CH&H",
         author: "Bridget Coloring Press",
         img: "imgs/10014.webp",
         name: "You Fucking Got This",
@@ -157,7 +157,7 @@ function createProduct() {
       },
       {
         productId: 1015,
-        genresId: "CHH",
+        genresId: "CH&H",
         author: "KC Davis LPC",
         img: "imgs/10015.jpg",
         name: "How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ",
@@ -168,7 +168,7 @@ function createProduct() {
       //Computers and Technology
       {
         productId: 1016,
-        genresId: "CT",
+        genresId: "CAT",
         author: "Chris Miller",
         img: "imgs/10016.jpg",
         name: "Chip War: The Quest to Dominate the World's Most Critical Technology",
@@ -178,7 +178,7 @@ function createProduct() {
       },
       {
         productId: 1017,
-        genresId: "CT",
+        genresId: "CAT",
         author: "Martin Kleppmann",
         img: "imgs/10017.webp",
         name: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
@@ -188,7 +188,7 @@ function createProduct() {
       },
       {
         productId: 1018,
-        genresId: "CT",
+        genresId: "CAT",
         author: "Eric Matthes",
         img: "imgs/10018.webp",
         name: "Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming",
@@ -198,7 +198,7 @@ function createProduct() {
       },
       {
         productId: 1019,
-        genresId: "CT",
+        genresId: "CAT",
         author: "Gayle Laakmann McDowell",
         img: "imgs/10019.webp",
         name: "Cracking the Coding Interview: 189 Programming Questions and Solutions",
@@ -208,7 +208,7 @@ function createProduct() {
       },
       {
         productId: 1020,
-        genresId: "CT",
+        genresId: "CAT",
         author: "Alex Xu",
         img: "imgs/10020.webp",
         name: "System Design Interview – An insider's guide",
@@ -527,16 +527,25 @@ function adduser() {
     localStorage.setItem("User", JSON.stringify(userArray));
   }
 }
-
-
+function splitgenres(a) {
+  var b = a.split(" ");
+  var c = ''
+  for (i = 0; i < b.length; i++) {
+    c += b[i][0];
+  }
+  
+  c = c.toUpperCase();
+  console.log(c);
+  return c;
+}
 // Tạo mảng danh sách để có thể tìm kiếm dựa trên danh mục
 function createGenres() {
   if (localStorage.getItem("genres") == null) {
     genresArray = [
-      { genres_name: "Comics & Graphic Novels", id: "CGN" },
-      { genres_name: "Mystery, thriller and suspense", id: "MTS" },
-      { genres_name: "Crafts, Hobbies & Home", id: "CHH" },
-      { genres_name: "Computers and Technology", id: "CT" },
+      { genres_name: "Comics & Graphic Novels", id: "C&GN" },
+      { genres_name: "Mystery, thriller and suspense", id: "MTAS" },
+      { genres_name: "Crafts, Hobbies & Home", id: "CH&H" },
+      { genres_name: "Computers and Technology", id: "CAT" },
     ];
     localStorage.setItem("genres", JSON.stringify(genresArray));
   }
@@ -708,7 +717,6 @@ function show_list() {
       }
     }
     else if (b != undefined && a ==undefined) {
-      console.log("ha");
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b) {          
           tem1.push(productArray[i]);
@@ -716,7 +724,6 @@ function show_list() {
       }
     }
     else {
-      console.log("he");
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b && productArray[i].genresID == a) {
           tem1.push(productArray[i]);
@@ -763,10 +770,7 @@ function show_list() {
   console.log(start)
   PagesList(totalPages); 
   }
-
   show(tempitem,start,itemPerPage+start);
-
-  
 }
 function search(){
   

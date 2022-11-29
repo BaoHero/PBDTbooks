@@ -1630,9 +1630,8 @@ input[type="button"]:hover {
   position: fixed;
   top: 10%;
   left: 15%;
+  overflow: auto;
 }
-
-#cart {}
 
 .title__cart {
   width: 100%;
@@ -1656,10 +1655,32 @@ input[type="button"]:hover {
   justify-content: space-around;
 }
 
-.cart__product {}
-
-.title__total__money {
+.tongtien{
   display: flex;
+  margin-top: 10%;
+}
+.tongtien div{
+  cursor: pointer;
+  padding: 3px;
+}
+.xacnhancart:hover{
+  background-color: orange;
 }
 
-.total__money {}
+.giohang:hover{
+  background-color: dodgerblue;
+}
+.xacnhancart{
+  margin: 10px 10px 10px 10px;
+  border: black 1px solid;
+}
+.giohang{
+  margin: 10px 10px 10px 10px;
+  border: black 1px solid;
+}
+.title__total__money {
+  margin: 10px 10px 10px 10px;
+  display: flex;
+  border: black 1px solid;
+}
+

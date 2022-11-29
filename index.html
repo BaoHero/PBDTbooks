@@ -78,7 +78,7 @@
                             onclick="logout()">Đăng xuất</i></div>
                     <!-- Giỏ hàng -->
                     <div class="repo"><i id="repo" class="fas fa-cart-plus"
-                            onclick="openb('cart') + turnon('.cart')"></i></div>
+                            onclick="openb('cart') + turnon('.cart')+showdonhang()"></i></div>
                 </div>
             </div>
 
@@ -276,13 +276,13 @@
         </div>
 
         <!-- Khung này sẽ hiển thị để hỏi bạn có chắc muốn mua không ? -->
-        <div class="comfirm_buy" id="comfirm_buy">
+        <!-- <div class="comfirm_buy" id="comfirm_buy">
             <div class="comfirm__question">Bạn có chắc muốn mua sản phẩm này?</div>
             <div class="comfirm__answer">
                 <div class="answer yes" id="answer__yes">Có</div>
                 <div class="answer no" id="answer__no">Không</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="left-menu-close">
         <div class="left-menu-inside">
@@ -297,18 +297,30 @@
     </div>
     </div>
     <div class="cart" id="cart">
-        <div class="title__cart">Giỏ hàng</div>
+        <div class="title__cart">Đơn hàng</div>
+        <div class="name_cart"></div>
+        <hr>
         <div class="title__item">
-            <div class="title__item__left">Sản Phẩm</div>
+            <div class="title__item__left">
+
+            </div>
             <div class="title__item__right">
-                <div>Giá</div>
-                <div>Số lượng</div>
-                <div>Chọn</div>
+                <div id="gia">
+                    <div></div>
+                </div>
+                <div id="soluong">
+                    <div></div>
+                </div>
+                <div id="chon"></div>
             </div>
         </div>
         <div class="cart__product" id="cart__product"></div>
-        <div class="title__total__money"><span>Tổng tiền : </span>
-            <div class="total__money">0</div>
+        <div class="tongtien">
+        <div class="title__total__money"><span>Tổng tiền: </span>
+            <div class="total__money"></div>
+        </div>
+        <div class="xacnhancart" type="button" onclick="xacnhancart()">Xác nhận đơn hàng</div>
+        <div class="giohang">Xem giỏ hàng</div>
         </div>
         <div class="hide_button hide_button1" onclick="closeb('cart') + turnoff()">
             <i class="fas fa-times"></i>

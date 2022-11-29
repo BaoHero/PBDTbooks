@@ -249,30 +249,36 @@ body {
 .header__rightmenu div {
   margin: 16px auto;
 }
+
 /* nut them sp */
-.modify{
- border: #000 solid 1px;
- border-radius: 3px;
+.modify {
+  border: #000 solid 1px;
+  border-radius: 3px;
 }
-.deletebook{
+
+.deletebook {
   margin-left: 5px;
 }
-.deletebook div{
-  
+
+.deletebook div {
+
   cursor: pointer;
 }
-.deletebook div:hover{
+
+.deletebook div:hover {
   background-color: red;
 }
 
-.modify a:hover{
+.modify a:hover {
   background-color: orchid;
 }
-.modify a{
+
+.modify a {
   text-align: center;
   text-decoration: none;
   padding: 4px;
 }
+
 .sin_bt {
   cursor: pointer;
   display: block;
@@ -957,41 +963,46 @@ input[type="button"]:hover {
 
 }
 
-#modifysp{
+#modifysp {
 
-  margin:  top 100px;
+  margin: top 100px;
 }
-.addsp{
+
+.addsp {
 
   border: 1px solid black;
   margin-left: 0;
 }
+
 .addproduct_item {
 
   margin: 10px;
 }
-.sp{
+
+.sp {
   display: flex;
+  flex-wrap: wrap;
 }
-#addsp{
+
+#addsp {
   position: relative;
   left: 20%;
   right: 20%;
   margin-left: 20px;
 }
-.addproduct_item label {
 
+.addproduct_item label {}
+
+#modifysp {
+  min-width: 500px;
+  position: relative;
+  top: 30%;
+  left: 20%;
+  right: 20%;
+  margin-left: 20px;
 
 }
-#modifysp{
-  
-    position: relative;
-    top: 30%;
-    left: 20%;
-    right: 20%;
-    margin-left: 20px;
-  
-}
+
 .addproduct_item input {
   outline: 1px black solid;
   position: absolute;
@@ -1002,7 +1013,7 @@ input[type="button"]:hover {
   border-radius: 2px;
   margin: 5px 20px 5px 5px;
   padding: 5px;
-  
+
 }
 
 .form_button {

@@ -7,6 +7,7 @@ function num_page() {
     localStorage.removeItem('num_page');
     localStorage.setItem("num_page", JSON.stringify(a));
   }
+  location.reload();
 }
 var userArray = [];
 var productArray = [];
@@ -14,11 +15,6 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
-$(window).on('load', function (event) {
-  $('body').removeClass('preloading');
-  // $('.load').delay(1000).fadeOut('fast');
-  $('.load').delay(1000).fadeOut('fast');
-});
 // Hàm đóng , mở 
 function openb(st) {
   var a = document.getElementById(st);
@@ -592,4 +588,185 @@ function open_left_menu() {
     c.style.display = "none";
     b.style.display = "none";
   });
+}
+function addborder(st){
+  removeborder();
+  document.querySelector('.'+st).classList.add('qlactive');
+}
+function removeborder(){
+  document.querySelector('.QLSP').classList.remove('qlactive');
+  document.querySelector('.QLHD').classList.remove('qlactive');
+  document.querySelector('.QLKH').classList.remove('qlactive');
+  document.querySelector('.TKDT').classList.remove('qlactive');
+}
+function removeborder(){
+  document.querySelector('.QLSP').classList.remove('qlactive');
+  document.querySelector('.QLHD').classList.remove('qlactive');
+  document.querySelector('.QLKH').classList.remove('qlactive');
+  document.querySelector('.TKDT').classList.remove('qlactive');
+}
+function active(s){
+  removeactive();
+  document.querySelector('.'+s).style.display = 'block';
+}
+function removeactive(){
+  document.querySelector('.qlsp').style.display = 'none';
+  document.querySelector('.qlhd').style.display = 'none';
+  document.querySelector('.qlkh').style.display = 'none';
+  document.querySelector('.tkdt').style.display = 'none';
+}
+
+function showcarts() {
+  userArray = JSON.parse(localStorage.getItem('User'));
+  var s = ''
+  for(e = 0; e < userArray.length;e++){
+    if(userArray[e].giohang !=[]){
+      console.log(e)
+  for (i = 0; i < userArray[e].giohang.length; i++) {
+      s = s + `<div id="hoadon">
+      <div class="hoadon_infor">
+          <div class="tendon">${userArray[e].giohang[i].mahd}</div>
+          <div class="buydate">${userArray[e].giohang[i].buydate}</div>
+          <div class="${ttcolor(userArray[e].giohang[i].tt)}">${userArray[e].giohang[i].tt}</div>
+          <div class="giadon">${userArray[e].giohang[i].total}</div>
+          <div class="huydon_right">
+              <div class="huydon" onclick="xuly(${e + ',' +i})">Xử lý</div>
+              <i class="fa fa-caret-down" aria-hidden="true" onclick="open_hoadon('${String(e)+String(i)}')"></i>
+          </div>
+      </div>
+  </div>
+  <hr>
+  <div class="hoadon_dropdown" id="${'sp' +e+ i}">
+      <div class="dropdown" id=${'dsp' +e+ i}>
+          <div class="ct_hoadon">
+              ${'' + show_item(e, i)}
+          </div>
+          <div class="total-price">
+              <table>
+                  <tr>
+                      <td>Phí vận hành web:</td>
+                      <td>$30</td>
+                  </tr>
+                  <tr>
+                      <td>Tổng cộng:</td>
+                   
+                  </tr>
+              </table>
+          </div>
+      </div>
+  </div>
+  <hr>`;
+  }}}
+  document.querySelector('.chuahoadon').innerHTML = s;
+}
+function xuly(index,n) {
+  if (localStorage.getItem('User') == null) {
+      return false;
+  }
+  userArray= JSON.parse(localStorage.getItem('User'));
+  for(i = 0; i< userArray[index].giohang.length; i++){
+      if (i == n) {
+          if (confirm("Bạn chắc muốn xử lý sản phẩm này??")) {
+              userArray[index].giohang[i].tt = "Đã xử lý";
+              localStorage.setItem("User", JSON.stringify(userArray));
+              location.reload();
+          }
+      }
+  }
+}
+
+function show_item(index, cart) {
+  dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
+  userArray = JSON.parse(localStorage.getItem('User'));
+  var temp = ''
+  for (j = 0; j < userArray[index].giohang[cart].item.length; j++) {
+      temp = temp + showsp(userArray[index].giohang[cart].item[j].sp);
+  }
+  return temp;
+}
+function showsp(sp) {
+  temp = `<div id="${sp.productId}" class="item" onclick="show_infor_book('${sp.productId}') +turnonflex('infor_book')">
+      <div class="item__inside">
+          <div class="img_book"><img src="${sp.img}" alt=""></div>
+          <div class="book_name">${sp.name}</div>
+          <div class="book_price"><span>$${sp.price}</span></div>
+      </div>
+  </div>`
+
+  return temp;
+}
+function open_hoadon(id) {
+  var a = document.querySelector('#sp' + id);
+  var b = document.querySelector('#dsp' + id);
+  console.log(a)
+  b.classList.toggle('drop')
+  a.classList.toggle('open_hoadon');
+}
+function ttcolor(st){
+  if(st == "Đã xử lý"){
+    return 'trangthaixanh'
+  }
+  else return 'trangthai'
+}
+//qlkh
+function dskh(){
+  if(localStorage.getItem('User') == null){
+    return false;
+  }
+  var s = ''
+  userArray = JSON.parse(localStorage.getItem('User'));
+  for(i = 0; i < userArray.length; i++){
+    s = s + `<div class="flexkh">
+    <div class="username">${userArray[i].username}</div>
+    <div class="tenkh">${userArray[i].fullname}</div>
+    <div class="sdt">${checkphone(i)}</div>
+    <div class="diachi">${checkaddress(i)}</div>
+    <div class="trangthaikh">${checkttkh(userArray[i].tt)}</div>
+    <div class="block" onclick="block_unlock('${i}')">Block/Unlock</div></div>`
+  }
+  document.querySelector('.chuadskh').innerHTML = s;
+}
+function block_unlock(n){
+  userArray = JSON.parse(localStorage.getItem('User'));
+  if(userArray[n].tt == 'block'){
+    userArray[n].tt = 'unblock'
+    localStorage.setItem("User",JSON.stringify(userArray));
+    location.reload();
+    return true;
+  }
+  else{
+    userArray[n].tt = 'block';
+    localStorage.setItem("User",JSON.stringify(userArray));
+    location.reload();
+    return true;
+  }
+}
+function checkttkh(st){
+  if(st == 'unblock') return '<i class="fa fa-user-md" aria-hidden="true"></i>'
+  else return '<i class="fas fa-user-lock"></i>'
+}
+function checkphone(n){
+  userArray = JSON.parse(localStorage.getItem('User'));
+  if(userArray[n].phone != ''){
+    return userArray[n].phone;
+  }
+  else return 'Chưa có';
+}
+function checkaddress(n){
+  userArray = JSON.parse(localStorage.getItem('User'));
+  if(userArray[n].address != ''){
+    return userArray[n].address;
+  }
+  else return 'Chưa có';
+}
+function doanhthu(){
+  userArray = JSON.parse(localStorage.getItem('User'));
+  var sum = 0;
+  for(i = 0; i < userArray.length; i++){
+    for(j = 0; j < userArray[i].giohang.length; j++){
+      sum = sum + userArray[i].giohang[j].total+30;
+    }
+  }
+  console.log(sum);
+  document.querySelector('.chuadt').innerHTML = '$'+sum;
 }

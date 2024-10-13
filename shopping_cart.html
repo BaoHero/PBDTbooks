@@ -13,43 +13,17 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
 </head>
 
 <!-- Trang giỏ hàng sẽ chứa những sản phẩm đã ấn mua -->
 
-<body onload="showcarts()">
+<body>
     <div id="page_user" class="page_user">
         <div class="header">
             <!-- Logo nhóm -->
             <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
             </div>
-            <!-- Thanh tìm kiếm -->
-            <form action="">
-                <div class="header__findbar">
-                    <div class="findbar_left">
-                        <div id="search_card">
-                            <div class="search_scope">
-                                <div class="serch_facade">
-                                    <span class="search_label">Filter by price</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <!-- Mức giá -->
-                                <select name="" id="" class="search_dropdown">
-                                    <option value="tl">2000000 - 3000000</option>
-                                    <option value="gia">30000000 - 4000000</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Ô nhập tên sản phẩm cần tìm -->
-                    <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
-                        placeholder="Enter the text" required>
-                    <!-- Nút tìm kiếm -->
-                    <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
             <!-- Những mục về trang admin , giỏ hàng -->
             <div class="header__rightmenu">
                 <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
@@ -61,61 +35,73 @@
     </div>
 
     <div class="shopping-cart">
-
         <div class="table-cart">
-            <h1>Shopping Cart</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th style="text-align: right;">Remove</th>
-                    </tr>
-                </thead>
-                <tbody id="showcart">
-
-                    <!-- <tr class="product">
-                        <td class="product-item">
-                            <div class="info">
-                                <img src="imgs/10010.webp" alt="">
-                                <div>
-                                    <p>Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="product-price">300$</td>
-                        <td><input type="number" value="1" min="1" class="product-quantity"></td>
-                        <td class="product-total">300</td>
-                        <td class="remove">
-                            <button>Remove</button>
-                        </td>
-                    </tr> -->
-                </tbody>
-            </table>
-
+            <h1>Giỏ Hàng</h1>
+            <div class="hoadon">
+                <div class="tendon">Đơn hàng</div>
+                <div class="buydate">Ngày mua</div>
+                <div class="trangthai">Trạng thái</div>
+                <div class="giadon">Giá đơn</div>
+            </div>
+            <div class="chuahoadon">
+            </div>
         </div>
-        <div class="total-price">
-            <table>
-                <tr>
-                    <td>Subtotal</td>
-                    <td>$200</td>
-                </tr>
-                <tr>
-                    <td>Tax</td>
-                    <td>$35</td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>$500</td>
-                </tr>
-            </table>
-        </div>
-
     </div>
-    <!-- </div> -->
+    <!-- Chọn vào bất kỳ cuốn sách nào để mua -->
+    <!-- Hiển thị khung để chọn số lượng -->
+    <div class="infor_book" id="infor_book">
+        <div class="hide_button" onclick="closef('infor_book')+turnoffbg()">
+            <i class="fas fa-times"></i>
+        </div>
+        <!-- Hình ảnh -->
+        <div class="infor_book_img" id="infor_book_img">
+        </div>
+        <!-- Thông tin sách -->
+        <div class="infor_book_body">
+            <div class="infor">
+                <!-- Tên sách-->
+                <h1 class="book_title" id="book_title">
+                </h1>
+                <!-- Tên tác giả -->
+                <div class="author_name" id="author_name">
+                </div>
+                <!-- Đánh giá mấy sao -->
+                <div class="stars">
+                    <form action="">
+                        <input class="star star-5" id="star-5" type="radio" name="star" />
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star" />
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star" />
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star" />
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star" />
+                        <label class="star star-1" for="star-1"></label>
+                    </form>
+                </div>
+                <!-- Giá bán của sách -->
+                <div class="price" id="price">
+                </div>
+                <hr class="hrbook">
+                <div class="information" id="informa"></div>
+                <hr class="hrbook">
+            </div>
+            <!-- Hiển thị nút mua và chọn số lượng -->
+            <div class="infor_footer">
+                <div class="num_book">3</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-background" id="menu-background">
 
+        <!-- Hiển thị tên tài khoản khi ấn vào nút ngay bên dưới logo nhóm-->
+    </div>
+    <script>
+        window.onload = function () {
+            showcarts();
+        }
+    </script>
 
 </body>
 

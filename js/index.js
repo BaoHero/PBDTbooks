@@ -4,18 +4,13 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
-$(window).on("load", function (event) {
-  $("body").removeClass("preloading");
-  // $('.load').delay(1000).fadeOut('fast');
-  $(".load").delay(1000).fadeOut("fast");
-});
 function createProduct() {
   if (localStorage.getItem("product") == null) {
     productArray = [
       // Comics & Graphic Novels
       {
         productId: 1001,
-        genresId: "C&GN",
+        genresId: "CGN",
         author: "Todd Mcfarlane",
         img: "imgs/1001.webp",
         name: "Spawn Compendium, Color Edition, Volume 1",
@@ -25,7 +20,7 @@ function createProduct() {
       },
       {
         productId: 1002,
-        genresId: "C&GN",
+        genresId: "CGN",
         author: "Sam Hamm",
         img: "imgs/1002.webp",
         name: "Batman 89",
@@ -35,7 +30,7 @@ function createProduct() {
       },
       {
         productId: 1003,
-        genresId: "C&GN",
+        genresId: "CGN",
         author: "Ryan north",
         img: "imgs/1003.jpg",
         name: "Fantastic Four (2022-)",
@@ -45,7 +40,7 @@ function createProduct() {
       },
       {
         productId: 1004,
-        genresId: "C&GN",
+        genresId: "CGN",
         author: "Stan Lee",
         img: "imgs/1004.webp",
         name: "Doctor Doom: The Book Of Doom Omnibus",
@@ -55,7 +50,7 @@ function createProduct() {
       },
       {
         productId: 1005,
-        genresId: "C&GN",
+        genresId: "CGN",
         author: "Brian Michael Bendis",
         img: "imgs/1005.jpg",
         name: "Avengers Vs. X-Men Omnibus",
@@ -117,7 +112,7 @@ function createProduct() {
       //Crafts, Hobbies & Home
       {
         productId: 1011,
-        genresId: "CH&H",
+        genresId: "CHH",
         author: "John Kanell",
         img: "imgs/10011.webp",
         name: "Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)",
@@ -127,7 +122,7 @@ function createProduct() {
       },
       {
         productId: 1012,
-        genresId: "CH&H",
+        genresId: "CHH",
         author: "Coloring Book Cafe",
         img: "imgs/10012.webp",
         name: "Country Collection Coloring Book",
@@ -137,7 +132,7 @@ function createProduct() {
       },
       {
         productId: 1013,
-        genresId: "CH&H",
+        genresId: "CHH",
         author: "Anthony William",
         img: "imgs/10013.jpg",
         name: "Medical Medium Brain Saver",
@@ -147,7 +142,7 @@ function createProduct() {
       },
       {
         productId: 1014,
-        genresId: "CH&H",
+        genresId: "CHH",
         author: "Bridget Coloring Press",
         img: "imgs/10014.webp",
         name: "You Fucking Got This",
@@ -157,7 +152,7 @@ function createProduct() {
       },
       {
         productId: 1015,
-        genresId: "CH&H",
+        genresId: "CHH",
         author: "KC Davis LPC",
         img: "imgs/10015.jpg",
         name: "How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ",
@@ -215,7 +210,7 @@ function createProduct() {
         price: 710,
         information:
           "System design interviews are the most difficult to tackle of all technical interview questions. This book is Volume 1 of the System Design Interview - An insider’s guide series that provides a reliable strategy and knowledge base for approaching a broad range of system design questions.",
-      },
+      }
     ];
     localStorage.setItem("product", JSON.stringify(productArray));
   }
@@ -288,7 +283,8 @@ function create_admin() {
       fullname: "Nguyễn Thịnh Phát",
       address: "2 adv - P16 - Q8",
       phone: "012341",
-      giohang: cart
+      giohang: cart,
+      tt:'unblock'
     };
     var user2 = {
       username: "quocdai",
@@ -297,7 +293,8 @@ function create_admin() {
       fullname: "Lâm Quốc Đại",
       address: "2 adv - P16 - Q8",
       phone: "012342",
-      giohang: cart
+      giohang: cart,
+      tt:'unblock'
     };
     var user3 = {
       username: "ducthang",
@@ -306,7 +303,9 @@ function create_admin() {
       fullname: "Đào Đức Thắng",
       address: "2 adv - P16 - Q8",
       phone: "012343",
-      giohang: cart
+      giohang: cart,
+      tt:'unblock'
+      
     };
     var user4 = {
       username: "giabao",
@@ -315,7 +314,8 @@ function create_admin() {
       fullname: "Trần Gia Bảo",
       address: "2 adv - P16 - Q8",
       phone: "012344",
-      giohang: cart
+      giohang: cart,
+      tt:'unblock'
     };
     userArray.push(user1);
     userArray.push(user2);
@@ -350,10 +350,13 @@ function handle_signin() {
 
     return false;
   }
-  console.log(tk + mk);
   var flat = 0;
   for (i = 0; i < userArray.length; i++) {
     if (tk == userArray[i].username && mk == userArray[i].password) {
+      if(userArray[i].tt == 'block'){
+        alert('Tài khoản của bạn đã bị khoá!');
+        return false;
+      }
       if (sessionStorage.getItem("dangnhap") == null) {
         var a = userArray[i];
         dangnhap.push(a);
@@ -378,40 +381,33 @@ function handle_signin() {
   }
   location.reload();
 }
-// function signin12() {
-
-//     if (a != undefined) {
-//         closeb('signin');
-//         alert("bạn đã đăng nhập tài khoản " + tk);
-//         document.getElementById('infor_user').innerHTML = '<i class="fas fa-user-check" id="infor_user">' + fullname + '</i>';
-//         openb('logout');
-//         if (tk == 'thinhphat' || tk == 'quocdai' || tk == 'giabao' || tk == 'ducthang') {
-//             document.getElementById("admin_button").innerHTML = '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
-//         }
-//         closef("form_sin");
-//     }
-// }
 function signin() {
   if (sessionStorage.getItem("dangnhap") == null) {
     return false;
   } else {
     openb("logout");
+    var temp = ''
     dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
     userArray = JSON.parse(localStorage.getItem("User"));
     admin = JSON.parse(localStorage.getItem("admin"));
     for (i = 0; i < admin.length; i++) {
-      console.log("heloooooo");
       if (dangnhap[0].username == admin[i].username) {
         document.getElementById("admin_button").innerHTML =
           '<i class="fas fa-pencil-alt" type="button" onclick="login_admin()"></i>';
       }
-      if (dangnhap[0].username == userArray[i].username) {
-        document.getElementById("infor_user").innerHTML =
-          '<i class="fas fa-user-check" id="infor_user">' +
-          dangnhap[0].fullname +
-          "</i>";
+      if (dangnhap[0].address != '') {
+        document.querySelector('.address_vt').innerHTML = `<span>${dangnhap[0].address}</span>`
       }
     }
+    for (i = 0; i < userArray.length; i++) {
+      if (dangnhap[0].username == userArray[i].username) {
+        temp = '<i class="fas fa-user-check" id="infor_user">' +
+          dangnhap[0].fullname +
+          "</i>"
+      }
+    }
+    console.log(temp)
+    document.getElementById("infor_user").innerHTML = temp + document.getElementById("infor_user").innerHTML;
   }
 }
 
@@ -424,11 +420,11 @@ function reload_site(s) {
 
 // Hàm đăng xuất
 function logout() {
-  confirm("Bạn có chắc muốn đăng xuất");
-  sessionStorage.removeItem("dangnhap");
-  location.href = "index.html";
+  if (confirm("Bạn có chắc muốn đăng xuất")) {
+    sessionStorage.removeItem("dangnhap");
+    location.href = "index.html";
+  }
 }
-
 // Kiểm tra tài khoản khi đăng ký
 function kiemtratk(st) {
   if (localStorage.getItem("User") == null) {
@@ -439,6 +435,17 @@ function kiemtratk(st) {
     alert("ten tai khoan phai lon hon 5 ky tu");
     return false;
   }
+
+  if (check_space(st) == false) {
+    alert("Tài khoảng không được có khoảng trắng!");
+    return false;
+  }
+
+  if (check_dau(st) == false) {
+    alert("Tài khoản không được chứa ký tự đặc biệt.");
+    return false;
+  }
+
   if (st == "") {
     alert("Không được để trống tài khoản.");
     return false;
@@ -451,19 +458,98 @@ function kiemtratk(st) {
   }
   return true;
 }
+
 function kiemtramk(mk, rpmk) {
   if (mk == "" || rpmk == "") {
     alert("Không được để trống mật khẩu");
     return false;
-  } else if (mk <= 5 || mk != rpmk) {
+  }
+
+  if (check_space(mk) == false) {
+    alert("Mật khẩu không được có khoảng trắng!");
+    return false;
+  }
+
+  if (check_dau(mk) == false) {
+    alert("Mật khẩu không được chứa ký tự đặc biệt.");
+    return false;
+  }
+
+  if (mk <= 5 || mk != rpmk) {
     alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
     return false;
-  } else return true;
+  }
+  return true;
 }
 
 function kiemtraemail(event) {
+  var pattern = /^\w+@[a-zA-Z]{3,}\.com$/i;
   if (event == "") {
     alert("Không được để trống Email.");
+    return false;
+  }
+  else if (!pattern.test(event)) {
+    alert("Không đúng cú pháp email!");
+    return false;
+  }
+  return true;
+}
+function check_infor() {
+  if (sessionStorage.getItem("dangnhap") == null) {
+    return false;
+  }
+  else {
+    dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+    if (dangnhap[0].phone != "") {
+      document.getElementById("sdt").innerHTML = dangnhap[0].phone;
+    }
+    if (dangnhap[0].address != "") {
+      document.getElementById("diachi").innerHTML = dangnhap[0].address;
+    }
+    sessionStorage.setItem("dangnhap", JSON.stringify(dangnhap));
+  }
+}
+
+function add_infor() {
+  if (sessionStorage.getItem("dangnhap") == null) {
+    return false;
+  }
+  else {
+    userArray = JSON.parse(localStorage.getItem("User"));
+    dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+    for (i = 0; i < userArray.length; i++) {
+      if (userArray[i].username == dangnhap[0].username) {
+        if (check_phone(document.getElementById("phone_num").value) == true) {
+          userArray[i].phone = document.getElementById("phone_num").value;
+          userArray[i].address = document.getElementById("address").value;
+          dangnhap[0].phone = document.getElementById("phone_num").value;
+          dangnhap[0].address = document.getElementById("address").value;
+          localStorage.setItem("User", JSON.stringify(userArray));
+          sessionStorage.setItem("dangnhap", JSON.stringify(dangnhap));
+          location.reload();
+        }
+      }
+    }
+  }
+}
+function check_dau(event) {
+  dem = 0;
+  for (i = 0; i < event.length; i++) {
+    if ((event[i] >= 'a' && event[i] <= 'z') || (event[i] >= 'A' && event[i] <= 'Z') || (event[i] >= 0 && event[i] <= 9)) {
+      dem++;
+    }
+  }
+
+  console.log(dem);
+  console.log(event.length);
+  if (dem != event.length) {
+    return false;
+  }
+  return true;
+}
+
+function check_space(event) {
+  if (event.indexOf(' ') != -1) {
     return false;
   }
   return true;
@@ -472,6 +558,15 @@ function kiemtraemail(event) {
 function kiemtrafullname(event) {
   if (event == "") {
     alert("Không được để trống họ tên.");
+    return false;
+  }
+  return true;
+}
+
+function check_phone(event) {
+  var phone = /^0\d{9}$/;
+  if (!phone.test(event)) {
+    alert("Số điện thoại không có ký tự đặt biệt và phải 10 ký tự và bắt đầu bằng 0!");
     return false;
   }
   return true;
@@ -512,8 +607,10 @@ function adduser() {
       password: mk,
       email: emai,
       fullname: name,
+      giohang: [],
       address: "",
       phone: "",
+      tt:'unblock'
     };
     userArray.push(user);
     alert("đăng ký thành công");
@@ -535,9 +632,9 @@ function splitgenres(a) {
 function createGenres() {
   if (localStorage.getItem("genres") == null) {
     genresArray = [
-      { genres_name: "Comics & Graphic Novels", id: "C&GN" },
+      { genres_name: "Comics & Graphic Novels", id: "CGN" },
       { genres_name: "Mystery, thriller and suspense", id: "MTAS" },
-      { genres_name: "Crafts, Hobbies & Home", id: "CH&H" },
+      { genres_name: "Crafts, Hobbies & Home", id: "CHH" },
       { genres_name: "Computers and Technology", id: "CAT" },
     ];
     localStorage.setItem("genres", JSON.stringify(genresArray));
@@ -574,12 +671,12 @@ function show_list() {
   var temp = "";
   var temp1 = "'infor_book'";
   if (a != undefined && a != "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
+    for (i = 0; i < productArray.length ; i++) {
       if (productArray[i].genresId == a) {
         console.log(productArray[i].productId);
         var temp =
           temp +
-          '<dFiv id="' +
+          '<div id="' +
           productArray[i].productId +
           '"class="item" onclick="show_infor_book(' +
           productArray[i].productId +
@@ -591,11 +688,11 @@ function show_list() {
           productArray[i].name +
           '</div><div class="book_price"><span>$' +
           productArray[i].price +
-          "</span></div></div></dFiv>";
+          "</span></div></div></div>";
       }
     }
   } else if (a == undefined || a == "danhsach") {
-    for (i = 0; i < productArray.length; i++) {
+    for (i = 0; i < productArray.length ; i++) {
       var temp =
         temp +
         '<div id="' +
@@ -617,8 +714,6 @@ function show_list() {
 }
 
 function show_infor_book(s) {
-  // var s = getQueryVariable("product");
-  // var a = getQueryVariable('clicked');
   if (localStorage.getItem("product") == null) {
     return false;
   }
@@ -680,29 +775,18 @@ function show_list() {
   productArray = JSON.parse(localStorage.getItem("product"));
   sessionStorage.removeItem("sp");
   var a = getQueryVariable("genres");
-  var b = getQueryVariable("search");
+
   const trang = 8;
   var tem1 = productArray;
-  if ((a != undefined && a != "danhsach") || b != undefined) {
+  if ((a != undefined && a != "danhsach")) {
     var tem1 = [];
-    if (a != undefined && b == undefined) {
+    if (a != undefined) {
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].genresId == a) {
           tem1.push(productArray[i]);
         }
       }
-    } else if (b != undefined && a == undefined) {
-      for (i = 0; i < productArray.length; i++) {
-        if (productArray[i].name == b) {
-          tem1.push(productArray[i]);
-        }
-      }
-    } else {
-      for (i = 0; i < productArray.length; i++) {
-        if (productArray[i].name == b && productArray[i].genresID == a) {
-          tem1.push(productArray[i]);
-        }
-      }
+
     }
   }
   var d = document.getElementById("sort_gia").value;
@@ -723,6 +807,17 @@ function show_list() {
   totalPages = Math.ceil(tempitem.length / itemPerPage);
   PagesList(totalPages);
   var start = (a - 1) * itemPerPage;
+  //timkiem
+  var b = document.querySelector('#searbox');
+  if( b.value != ''){
+    var searchar = [];
+    for(i = 0; i <tempitem.length; i++){
+      if(chuanhoa(tempitem[i].name).indexOf(chuanhoa(b.value)) != -1){
+        searchar.push(tempitem[i]);
+      }
+    }
+    tempitem = searchar;
+  }
   //sap xep
   var e = document.getElementById("sort").value;
   if (e == "1") {
@@ -731,6 +826,7 @@ function show_list() {
     tempitem = decrease_sort(tempitem);
   }
   //loc theo gia
+
   var f = document.getElementById("sort_gia").value;
   if (f != "0") {
     switch (f) {
@@ -754,16 +850,43 @@ function show_list() {
   }
   show(tempitem, start, itemPerPage + start);
 }
-function search() { }
+function chuanhoa(st){
+  st = st.toUpperCase();
+  var temp = st.split(' ');
+  var s = '';
+  for(f = 0; f < st.length; f++){
+    s = s + st[f];
+  }
+  return s;
+}
+function filter_price(arr, start, end) {
+  var temp = [];
+  if (end != -1) {
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i].price >= start && arr[i].price <= end) {
+        temp.push(arr[i]);
+      }
+    }
+  }
+  else {
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i].price >= start) {
+        temp.push(arr[i]);
+      }
+    }
+  }
+  return temp;
+}
 function show(arr, start, end) {
   var temp1 = "'infor_book'";
   var t = "";
   console.log(start);
   console.log(end);
   if (end > arr.length) {
-    end = arr.length;
+    end = arr.length -1;
   }
   for (i = start; i < end; i++) {
+
     var t =
       t +
       '<div id="' +
@@ -780,6 +903,7 @@ function show(arr, start, end) {
       arr[i].price +
       "</span></div></div></div>";
   }
+
   document.getElementById("list__books").innerHTML = t;
 }
 
@@ -805,7 +929,17 @@ function getPageVariable(variable) {
   return decodeURIComponent(temp[0]);
 }
 
-
+function opengiohang() {
+  if (sessionStorage.getItem('dangnhap') == null) {
+    alert("Bạn chưa đăng nhập");
+    turnoff('.cart')
+    turnoffbg();
+    return false;
+  }
+  else {
+    location.href = "shopping_cart.html";
+  }
+}
 var cart = [];
 function addtocart(product) {
   if (sessionStorage.getItem("cart") == null) {
@@ -813,16 +947,28 @@ function addtocart(product) {
   }
   cart = JSON.parse(sessionStorage.getItem('cart'));
   // openb("comfirm_buy");
-  console.log(product);
+
   if (sessionStorage.getItem("dangnhap") == null) {
     alert("Bạn chưa đăng nhập!");
     closeb("infor_book");
-    closeb("comfirm_buy");
-    openb("form_sin");
-    closeb("comfirm_buy");
+    turnon('.form__login--signup')
     return false;
   }
+  
   dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+  userArray = JSON.parse(localStorage.getItem('User'));
+  for(i = 0; i < userArray.length; i++){
+    if(dangnhap[0].username == userArray[i].username){
+      var index = i;
+      break;
+    }
+  }
+  if(userArray[i].address == '' || userArray[i].phone == ''){
+    alert("Bạn chưa bổ sung địa chỉ hoặc số điện thoại!");
+    closeb("infor_book");
+    turnon('.add_userinfor');
+    return false;
+  }
   // const yes = document.querySelector(".yes");
   // const no = document.querySelector(".no");
 
@@ -830,105 +976,72 @@ function addtocart(product) {
   console.log(sl);
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
-    closeb("comfirm_buy");
     return false;
   }
   productArray = JSON.parse(localStorage.getItem('product'));
   for (i = 0; i < productArray.length; i++) {
-    if (productArray[i] == product) {
+    if (productArray[i].productId == product) {
+      console.log(productArray[i].productId)
       index = i; break;
     }
   }
   const date = new Date();
-  var tdon = dangnhap[0].username + "" + date.toISOString()
-  item = { tendon: tdon, makh: dangnhap[0].username, sp: productArray[index], soluong: sl, date: date.getDate(), month: date.getMonth(), year: date.getFullYear(), tt: "Chưa xử lý" };
+  item = { makh: dangnhap[0].username, sp: productArray[index], soluong: sl, date: date };
+  console.log(item)
   cart.push(item);
-
+  alert("Thêm vào đơn hàng thành công")
   sessionStorage.setItem("cart", JSON.stringify(cart));
-
-}
-
-//Hien thi cart
-function showcarts() {
-  var gh = JSON.parse(sessionStorage.getItem("cart"));
-  var kq = "";
-  if (gh != null) {
-    for (let i = 0; i < gh.length; i++) {
-      let total = parseInt(gh[i]["gia"]) * parseInt(gh[i]["sl"]);
-      kq +=
-        `<tr class="product">
-              <td class="product-item">
-                  <div class="info">
-                      <img src="` +
-        gh[i]["hinh"] +
-        `" alt="">
-                      <div>
-                          <p>` +
-        gh[i]["ten"] +
-        `</p>
-                      </div>
-                  </div>
-              </td>
-              <td class="product-price">$` +
-        gh[i]["gia"] +
-        `</td>
-              <td>
-              <div class="ip">
-              <input type="hidden" value="` +
-        i +
-        `">
-              <div class="ip-btn">
-                  <button onclick="giamsl(this)" class="btn-minus">
-                      <i class="fa fa-minus"></i>
-                  </button>
-              </div>
-              <input type="text" value="` +
-        gh[i]["sl"] +
-        `" min="1" class="product-quantity">
-              <div class="ip-btn">
-                  <button onclick="tangsl(this)" class="btn-plus">
-                      <i class="fa fa-plus"></i>
-                  </button>
-              </div>
-          </div>
-              </td>
-              <td class="product-total">$<span>` +
-        total +
-        `</span></td>
-              <td class="remove">
-                  <button>Remove</button>
-              </td></tr>`;
-    }
-  } else {
-    kq += "Your Cart is empty.";
+  if (cart.length == 1) {
+    location.reload();
   }
-
-  document.getElementById("showcart").innerHTML = kq;
+  location.reload();
 }
-function showdonhang() {
 
+
+function showdonhang() {
   if (sessionStorage.getItem('cart') == null) {
     document.querySelector('.name_cart').innerHTML = "Bạn chưa có đơn hàng nào";
     return false;
   }
   cart = JSON.parse(sessionStorage.getItem('cart'));
-  var sp = 'Sản Phẩm';
-  var gia = 'Giá';
-  var sl = 'Số Lượng';
-  var ch = 'Chọn'
+  console.log("a" + cart.length)
   var tong = 0;
+  var s = '';
   for (i = 0; i < cart.length; i++) {
-    sp = sp + `<div>${cart[i].sp.name}</div>`;
-    gia = gia + `<div>${cart[i].sp.price}</div>`;
-    sl = sl + `<div>${cart[i].soluong}</div>`;
+    s = s + `<div class="title__item__inside">         
+      <div class="tenitem">${cart[i].sp.name}</div>
+      <div class="tacgia">${cart[i].sp.author}</div>
+      <div class="giaitem">${cart[i].sp.price}</div>
+      <div class="soluong">${cart[i].soluong}</div>
+      <div ><span class="huyitem" onclick="huyitem('${i}')">Huỷ</span></div>        
+    </div>    
+    <hr class="hrcart"> `
     tong = tong + cart[i].sp.price * cart[i].soluong;
   }
-  console.log(sp);
-  document.querySelector('.title__item__left').innerHTML = sp;
-  document.querySelector('#gia').innerHTML = gia;
-  document.querySelector('#soluong').innerHTML = sl;
-  document.querySelector('#chon').innerHTML = ch;
+  document.querySelector('.title__item_2').innerHTML = s;
   document.querySelector('.total__money').innerHTML = tong;
+}
+function huyitem(n) {
+  if (sessionStorage.getItem('cart') == null) {
+    return false;
+  }
+  cart = JSON.parse(sessionStorage.getItem('cart'));
+  for (i = 0; i < cart.length; i++) {
+    if (cart.length == 1) {
+      if (confirm("Bạn chắc muốn huỷ sản phẩm này??")) {
+        sessionStorage.removeItem('cart');
+        location.reload();
+      }
+    }
+    else if (i == n) {
+      console.log(n);
+      if (confirm("Bạn chắc muốn huỷ sản phẩm này??")) {
+        cart.splice(i, 1);
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+      }
+    }
+  }
 }
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -1034,7 +1147,6 @@ function js_login() {
       pwFields.forEach((pwField) => {
         if (pwField.type == "password") {
           pwField.type = "text";
-
           pwShowHide.forEach((icon) => {
             icon.classList.replace("uil-eye-slash", "uil-eye");
           });
@@ -1101,7 +1213,10 @@ setInterval(changeImage, 3000);
 function ShowGenres() {
   document.getElementById("body__genres").style.display = "block";
 }
-
+function ShowGenres() {
+  var a = document.querySelector('.body__genres');
+  a.style.display = 'block';
+}
 // ham tat tag
 function close_left_menu() {
   const a = document.querySelector(".left-menu-close");
@@ -1163,6 +1278,8 @@ function log_in() {
     for (i = 0; i < userArray.length; i++) {
       if (dangnhap[0].username == userArray[i].username) {
         sinbt.style.display = "none";
+        document.querySelector('.username').innerHTML = dangnhap[0].fullname;
+        document.querySelector('.username').innerHTML = dangnhap[0].fullname;
       }
     }
   }
@@ -1186,8 +1303,12 @@ function xacnhancart() {
       index = i; break;
     }
   }
-  var mahd = dangnhap[0].username + "-" + date.toISOString;
-  var newproduct = { mahd: mahd, giohang: cart, date: date.getDate(), month: date.getMonth(), year: date.getFullYear() };
+  var mahd = dangnhap[0].username + "-" + date;
+  var total = 0;
+  for (i = 0; i < cart.length; i++) {
+    total = total + cart[i].sp.price * cart[i].soluong;
+  }
+  var newproduct = { mahd: mahd, item: cart, buydate: date, tt: "Chưa xử lý", total: total };
   userArray[index].giohang.push(newproduct);
   localStorage.setItem("User", JSON.stringify(userArray));
   sessionStorage.removeItem('cart');

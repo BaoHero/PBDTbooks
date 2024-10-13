@@ -12,335 +12,397 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
     <script src="js/index.js"></script>
 </head>
 
-<body class="preloading">
-    <div class="page_main" id="page_main">
-        <div class="load">
-            <img src="imgs/Loader.gif" alt="">
-        </div>
-        <!-- trang user -->
-        <div id="page_user" class="page_user">
-            <div class="header">
-                <!-- Logo nhóm -->
-                <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png"
-                        alt="PBDTbooks-logo">
+<!-- <body> -->
+<div class="page_main" id="page_main">
+
+    <!-- trang user -->
+    <div id="page_user" class="page_user">
+        <div class="header">
+            <!-- Logo nhóm -->
+            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
+            </div>
+            <!-- ô địa chỉ -->
+            <div class="address">
+                <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
+                <div class="address_vt">
+                    <span>Địa chỉ</span>
                 </div>
-                <!-- ô địa chỉ -->
-                <div class="address">
-                    <div class="address_icon"><i class="fas fa-map-marker-alt    "></i></div>
-                    <div class="address_vt">
-                        <span>Địa chỉ</span>
-                    </div>
-                </div>
-                <!-- Thanh tìm kiếm -->
-                <form action="">
-                    <div class="header__findbar">
-                        <div class="findbar_left">
-                            <div id="search_card">
-                                <div class="search_scope">
-                                    <div class="serch_facade">
-                                        <span class="search_label">Lọc theo giá</span>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                    <!-- Mức giá -->
-                                    <select name="" id="sort_gia" class="search_dropdown" onchange="show_list()">
-                                        <option value="0" selected="selected">Tất cả giá</option>
-                                        <option value="1"> 0 - 500 </option>
-                                        <option value="2">500 - 1000</option>
-                                        <option value="3">1000 - 2000</option>
-                                        <option value="4">2000 - .....</option>
-                                    </select>
+            </div>
+            <!-- Thanh tìm kiếm -->
+            <form action="">
+                <div class="header__findbar">
+                    <div class="findbar_left">
+                        <div id="search_card">
+                            <div class="search_scope">
+                                <div class="serch_facade">
+                                    <span class="search_label">Lọc theo giá</span>
+                                    <i class="fas fa-chevron-down"></i>
                                 </div>
+                                <!-- Mức giá -->
+                                <select name="" id="sort_gia" class="search_dropdown" onchange="show_list()">
+                                    <option value="0" selected="selected">Tất cả giá</option>
+                                    <option value="1"> 0 - 500 </option>
+                                    <option value="2">500 - 1000</option>
+                                    <option value="3">1000 - 2000</option>
+                                    <option value="4">2000 - .....</option>
+                                </select>
                             </div>
                         </div>
-                        <!-- Ô nhập tên sản phẩm cần tìm -->
-                        <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
-                            placeholder="Enter the text" required>
-                        <!-- Nút tìm kiếm -->
-                        <button type="button" class="findbar__searbutton"><i class="fa fa-search"></i></button>
+                    </div>
+                    <!-- Ô nhập tên sản phẩm cần tìm -->
+                    <input type="text" class="findbar__searchbox" name="searbox" id="searbox"
+                        placeholder="Enter the text" required>
+                    <!-- Nút tìm kiếm -->
+                    <button type="button" class="findbar__searbutton" onclick="show_list()"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Những mục về trang admin , giỏ hàng -->
+            <div class="header__rightmenu">
+                <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
+                <div class="admin_button" id="admin_button"></div>
+                <!-- Hiển thị người dùng -->
+                <div class="infor_user" id="infor_user">
+                    <div class="dropdown-content">
+                        <div class="infor-content">
+                            <div><u>SDT:</u><span id="sdt"> Chưa có</span></div>
+                            <div><u>Địa chỉ:</u><span id="diachi"> Chưa có</span></div>
+                            <div class="add_infor_bt" onclick="turnon('.add_userinfor')">Bổ sung thông tin</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nút đăng nhập -->
+                <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
+                        onclick="openf('form_sin') + turnon('.form__login--signup')">Đăng Nhập</i></div>
+                <!-- Nút đăng xuất -->
+                <div class="logout"><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
+                        onclick="logout()">Đăng xuất</i></div>
+                <!-- Giỏ hàng -->
+                <div class="repo"><i id="repo" class="fas fa-cart-plus"
+                        onclick="openb('cart') + turnon('.cart')+showdonhang()"></i></div>
+            </div>
+        </div>
+
+        <div class="header_2">
+            <!-- Nút hiển thị bên trái -->
+            <div>
+                <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
+                        onclick="open_left_menu()"></i></button>
+            </div>
+            <!-- Nút hiển thị danh sách loại sách (Chỉ hiển thị ở màn hình nhỏ )-->
+            <div class="ShowGenres"><input id="ShowGenres" type="button" value="Genres" onclick="ShowGenres()">
+            </div>
+        </div>
+    </div>
+    <!-- Ảnh chuyển động -->
+    <div class="list__img">
+        <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
+    </div>
+    <hr class="hrbody">
+    <!-- Danh mục các thể loại bên trái -->
+    <div class="body">
+        <!-- Thể loại -->
+        <div class="body__genres" id="body__genres">
+            <!-- Genres -->
+            <a class="genres_title" href="?genres=danhsach">Genres</a>
+            <hr class="hrgenres">
+            <!-- Danh mục các loại để lựa chọn -->
+            <div class="genres__list" id="genres__list">
+            </div>
+        </div>
+        <!-- Danh sách sản phẩm -->
+        <div class="body__list">
+            <div class="sort_filter">
+                <select name="" id="sort" onchange="show_list()">
+                    <option value="0" id="sort0">Binh Thuong</option>
+                    <option value="1" id="sort1">Gia tang dan</option>
+                    <option value="2" id="sort2">Gia giam dan</option>
+                </select>
+            </div>
+            <div class="list__books" id="list__books">
+                <!-- Hiển thị sách -->
+            </div>
+            <div class="list_page1">
+                <div class="list_page">
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="hrfooter">
+    <div id="footer">
+        <div class="container-footer">
+            <div class="about">
+                <h2>Về Chúng Tôi</h2>
+                <p>Đào Đức Thắng <br />Lâm Quốc Đại<br />Nguyễn Thịnh Phát<br />Trần Quốc Bảo</p>
+                <ul class="social-icon">
+                    <li><a href="#footer"><i class="uil uil-facebook-f"></i></a></li>
+                    <li><a href="#footer"><i class="uil uil-twitter"></i></a></li>
+                    <li><a href="#footer"><i class="uil uil-instagram-alt"></i></a></li>
+                    <li><a href="#footer"><i class="uil uil-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="service">
+                <i class="fas fa-people-carry"></i>
+                <div class="service-detail">
+                    <h2>Đổi trả dễ dàng</h2>
+                    <p>1 đổi 1 trong 15 ngày</p>
+                </div>
+            </div>
+            <div class="links">
+                <h2>Đường Dẫn</h2>
+                <ul>
+                    <li><a href="#page_user">Trang Chủ</a></li>
+                    <li><a href="#footer">Về Chúng Tôi</a></li>
+                    <li><a href="#footer">Thông Tin Liên Lạc</a></li>
+                    <li><a href="#footer">Dịch Vụ</a></li>
+                    <li><a href="#footer">Điều Kiện Chính Sách</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>Thông Tin Liên Hệ</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker"></i></span>
+                        <p>Trường Đại Học Sài Gòn</p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone"></i></span>
+                        <p><a href="#footer">+84 123 456 789</a>
+                            <br />
+                            <a href="#footer">+84 987 654 321</a>
+                        </p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope"></i></span>
+                        <p><a href="#footer">pbdt@gmail.com</a></p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu-background" id="menu-background">
+
+    <!-- Hiển thị tên tài khoản khi ấn vào nút ngay bên dưới logo nhóm-->
+</div>
+<div class="form__login--signup" id="form_sin">
+    <div class="container">
+        <div class="forms">
+            <!-- Form đăng nhập -->
+            <div class="form login">
+                <span class="title">Đăng nhập</span>
+                <!-- Đóng -->
+                <div class="hide_button" onclick="closef('form_sin')+ turnoffbg()">
+                    <i class="fas fa-times"></i>
+                </div>
+                <!-- Ô đăng nhập -->
+                <form action="#">
+                    <div class="input__field">
+                        <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
+                        <i class="uil uil-user icon"></i>
+                    </div>
+                    <!-- Ô mật khẩu -->
+                    <div class="input__field">
+                        <input type="password" class="password" id="psw_sin" placeholder="Nhập mật khẩu" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <!-- Quên mật khẩu -->
+                    <div class="checkbox__text">
+                        <a href="#" class="checkbox__textbox">Forgot password</a>
+                    </div>
+                    <!-- Đăng nhập -->
+                    <div class="input__field button">
+                        <input type="button" onclick="handle_signin()" value="Đăng nhập" required>
                     </div>
                 </form>
-                <!-- Những mục về trang admin , giỏ hàng -->
-                <div class="header__rightmenu">
-                    <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
-                    <div class="admin_button" id="admin_button"></div>
-                    <!-- Hiển thị người dùng -->
-                    <div class="infor_user" id="infor_user"></div>
-                    <!-- Nút đăng nhập -->
-                    <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
-                            onclick="openf('form_sin') + turnon('.form__login--signup')">Đăng Nhập</i></div>
-                    <!-- Nút đăng xuất -->
-                    <div><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
-                            onclick="logout()">Đăng xuất</i></div>
-                    <!-- Giỏ hàng -->
-                    <div class="repo"><i id="repo" class="fas fa-cart-plus"
-                            onclick="openb('cart') + turnon('.cart')+showdonhang()"></i></div>
+                <!-- Nếu chưa có tài khoản -->
+                <div class="signup__login">
+                    <span class="signup__text">bạn chưa có tài khoản?
+                        <a href="#" class="signup__text signup-link">Đăng ký tại đây.</a>
+                    </span>
                 </div>
             </div>
 
-            <div class="header_2">
-                <!-- Nút hiển thị bên trái -->
-                <div>
-                    <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
-                            onclick="open_left_menu()"></i></button>
+            <!-- Form đăng ký -->
+            <div class="form signup">
+                <div class="hide_button" onclick="closef('form_sin') + turnoffbg()">
+                    <i class="fas fa-times"></i>
                 </div>
-                <!-- Nút hiển thị danh sách loại sách (Chỉ hiển thị ở màn hình nhỏ )-->
-                <div class="ShowGenres"><input id="ShowGenres" type="button" value="Genres" onclick="ShowGenres()">
-                </div>
-            </div>
-        </div>
-        <!-- Ảnh chuyển động -->
-        <div class="list__img">
-            <img id="image" onclick="changeImage()" src="imgs/slider_1.jpg" alt="">
-        </div>
-        <hr class="hrbody">
-        <!-- Danh mục các thể loại bên trái -->
-        <div class="body">
-            <!-- Thể loại -->
-            <div class="body__genres" id="body__genres">
-                <!-- Genres -->
-                <a class="genres_title" href="?genres=danhsach">Genres</a>
-                <hr class="hrgenres">
-                <!-- Danh mục các loại để lựa chọn -->
-                <div class="genres__list" id="genres__list">
-                </div>
-            </div>
-            <!-- Danh sách sản phẩm -->
-            <div class="body__list">
-                <div class="sort_filter">
-                    <select name="" id="sort" onchange="show_list()">
-                        <option value="0" id="sort0">Binh Thuong</option>
-                        <option value="1" id="sort1">Gia tang dan</option>
-                        <option value="2" id="sort2">Gia giam dan</option>
-                    </select>
-                </div>
-                <div class="list__books" id="list__books">
-                    <!-- Hiển thị sách -->
-                </div>
-                <div class="list_page1">
-                    <div class="list_page">
+                <span class="title">Đăng ký</span>
+                <!-- Nhập tên -->
+                <form action="#">
+                    <div class="input__field">
+                        <input type="text" id="usern_sup" placeholder="Nhập tên đăng nhập" required>
+                        <i class="uil uil-user icon"></i>
                     </div>
-                </div>
-            </div>
-
-        </div>
-
-        <hr class="hrfooter">
-        <div class="footer">
-        </div>
-    </div>
-    <div class="menu-background" id="menu-background">
-
-        <!-- Hiển thị tên tài khoản khi ấn vào nút ngay bên dưới logo nhóm-->
-    </div>
-    <div class="form__login--signup" id="form_sin">
-        <div class="container">
-            <div class="forms">
-                <!-- Form đăng nhập -->
-                <div class="form login">
-                    <span class="title">Đăng nhập</span>
-                    <!-- Đóng -->
-                    <div class="hide_button" onclick="closef('form_sin')+ turnoffbg()">
-                        <i class="fas fa-times"></i>
+                    <!-- Nhập email -->
+                    <div class="input__field">
+                        <input type="text" id="email_sup" placeholder="Nhập Email" required>
+                        <i class="uil uil-envelope-alt icon"></i>
                     </div>
-                    <!-- Ô đăng nhập -->
-                    <form action="#">
-                        <div class="input__field">
-                            <input type="text" id="email_sin" placeholder="Nhập tên đăng nhập" required>
-                            <i class="uil uil-user icon"></i>
-                        </div>
-                        <!-- Ô mật khẩu -->
-                        <div class="input__field">
-                            <input type="password" class="password" id="psw_sin" placeholder="Nhập mật khẩu" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <!-- Quên mật khẩu -->
-                        <div class="checkbox__text">
-                            <a href="#" class="checkbox__textbox">Forgot password</a>
-                        </div>
-                        <!-- Đăng nhập -->
-                        <div class="input__field button">
-                            <input type="button" onclick="handle_signin()" value="Đăng nhập" required>
-                        </div>
-                    </form>
-                    <!-- Nếu chưa có tài khoản -->
-                    <div class="signup__login">
-                        <span class="signup__text">bạn chưa có tài khoản?
-                            <a href="#" class="signup__text signup-link">Đăng ký tại đây.</a>
-                        </span>
+                    <!-- Nhập mật khẩu -->
+                    <div class="input__field">
+                        <input type="password" id="psw_sup" class="password" placeholder="Nhập mật khẩu" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
-                </div>
-
-                <!-- Form đăng ký -->
-                <div class="form signup">
-                    <div class="hide_button" onclick="closef('form_sin') + turnoffbg()">
-                        <i class="fas fa-times"></i>
+                    <div class="input__field">
+                        <input type="password" id="psw_repeat" class="password" placeholder="Nhập lại mật khẩu"
+                            required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
-                    <span class="title">Đăng ký</span>
-                    <!-- Nhập tên -->
-                    <form action="#">
-                        <div class="input__field">
-                            <input type="text" id="usern_sup" placeholder="Nhập tên đăng nhập" required>
-                            <i class="uil uil-user icon"></i>
-                        </div>
-                        <!-- Nhập email -->
-                        <div class="input__field">
-                            <input type="text" id="email_sup" placeholder="Nhập Email" required>
-                            <i class="uil uil-envelope-alt icon"></i>
-                        </div>
-                        <!-- Nhập mật khẩu -->
-                        <div class="input__field">
-                            <input type="password" id="psw_sup" class="password" placeholder="Nhập mật khẩu" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <div class="input__field">
-                            <input type="password" id="psw_repeat" class="password" placeholder="Nhập lại mật khẩu"
-                                required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <!-- Nhập họ và tên -->
-                        <div class="input__field">
-                            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
-                            <i class="uil uil-user-circle icon"></i>
-                        </div>
-                        <!-- Đăng ký -->
-                        <div class="input__field button">
-                            <input type="button" value="Đăng ký" onclick="adduser()">
-                        </div>
-                    </form>
-                    <div class="signup__login">
-                        <span class="signup__text">
-                            <a href="#" class="signup__text login-link">Đăng Nhập ngay</a>
-                        </span>
+                    <!-- Nhập họ và tên -->
+                    <div class="input__field">
+                        <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
+                        <i class="uil uil-user-circle icon"></i>
                     </div>
+                    <!-- Đăng ký -->
+                    <div class="input__field button">
+                        <input type="button" value="Đăng ký" onclick="adduser()">
+                    </div>
+                </form>
+                <div class="signup__login">
+                    <span class="signup__text">
+                        <a href="#" class="signup__text login-link">Đăng Nhập ngay</a>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <div>
+</div>
+<div>
 
-        <!-- Chọn vào bất kỳ cuốn sách nào để mua -->
-        <!-- Hiển thị khung để chọn số lượng -->
-        <div class="infor_book" id="infor_book">
-            <div class="hide_button" onclick="closef('infor_book')+turnoffbg()">
-                <i class="fas fa-times"></i>
-            </div>
-            <!-- Hình ảnh -->
-            <div class="infor_book_img" id="infor_book_img">
-            </div>
-            <!-- Thông tin sách -->
-            <div class="infor_book_body">
-                <div class="infor">
-                    <!-- Tên sách-->
-                    <h1 class="book_title" id="book_title">
-                    </h1>
-                    <!-- Tên tác giả -->
-                    <div class="author_name" id="author_name">
-                    </div>
-                    <!-- Đánh giá mấy sao -->
-                    <div class="stars">
-                        <form action="">
-                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                            <label class="star star-1" for="star-1"></label>
-                        </form>
-                    </div>
-                    <!-- Giá bán của sách -->
-                    <div class="price" id="price">
-                    </div>
-                    <hr class="hrbook">
-                    <div class="information" id="informa"></div>
-                    <hr class="hrbook">
-                </div>
-                <!-- Hiển thị nút mua và chọn số lượng -->
-                <div class="infor_footer">
-                    <div class="buybt"></div>
-                    <div class="num_book"><label for="numbook">Số lượng: </label><input id="numbook" type="number"
-                            value="0"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Khung này sẽ hiển thị để hỏi bạn có chắc muốn mua không ? -->
-        <!-- <div class="comfirm_buy" id="comfirm_buy">
-            <div class="comfirm__question">Bạn có chắc muốn mua sản phẩm này?</div>
-            <div class="comfirm__answer">
-                <div class="answer yes" id="answer__yes">Có</div>
-                <div class="answer no" id="answer__no">Không</div>
-            </div>
-        </div> -->
-    </div>
-    <div class="left-menu-close">
-        <div class="left-menu-inside">
-            <div class="left-menu-username"><i class="fas fa-user-circle    "></i>
-                <h3>Chưa đăng nhập</h3>
-            </div>
-        </div>
-        <div class="left-menu-option">
-            <div class="op1" onclick="turnon('.form__login--signup') + turnoff('.left-menu-close')">Đăng nhập</div>
-            <hr class="hroption">
-        </div>
-    </div>
-    </div>
-    <div class="cart" id="cart">
-        <div class="title__cart">Đơn hàng</div>
-        <div class="name_cart"></div>
-        <hr>
-        <div class="title__item">
-            <div class="title__item__left">
-
-            </div>
-            <div class="title__item__right">
-                <div id="gia">
-                    <div></div>
-                </div>
-                <div id="soluong">
-                    <div></div>
-                </div>
-                <div id="chon"></div>
-            </div>
-        </div>
-        <div class="cart__product" id="cart__product"></div>
-        <div class="tongtien">
-            <div class="title__total__money"><span>Tổng tiền: </span>
-                <div class="total__money"></div>
-            </div>
-            <div class="xacnhancart" type="button" onclick="xacnhancart()">Xác nhận đơn hàng</div>
-            <div class="giohang">Xem giỏ hàng</div>
-        </div>
-        <div class="hide_button hide_button1" onclick="closeb('cart') + turnoff()">
+    <!-- Chọn vào bất kỳ cuốn sách nào để mua -->
+    <!-- Hiển thị khung để chọn số lượng -->
+    <div class="infor_book" id="infor_book">
+        <div class="hide_button" onclick="closef('infor_book')+turnoffbg()">
             <i class="fas fa-times"></i>
         </div>
+        <!-- Hình ảnh -->
+        <div class="infor_book_img" id="infor_book_img">
+        </div>
+        <!-- Thông tin sách -->
+        <div class="infor_book_body">
+            <div class="infor">
+                <!-- Tên sách-->
+                <h1 class="book_title" id="book_title">
+                </h1>
+                <!-- Tên tác giả -->
+                <div class="author_name" id="author_name">
+                </div>
+                <!-- Đánh giá mấy sao -->
+                <div class="stars">
+                    <form action="">
+                        <input class="star star-5" id="star-5" type="radio" name="star" />
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star" />
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star" />
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star" />
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star" />
+                        <label class="star star-1" for="star-1"></label>
+                    </form>
+                </div>
+                <!-- Giá bán của sách -->
+                <div class="price" id="price">
+                </div>
+                <hr class="hrbook">
+                <div class="information" id="informa"></div>
+                <hr class="hrbook">
+            </div>
+            <!-- Hiển thị nút mua và chọn số lượng -->
+            <div class="infor_footer">
+                <div class="buybt"></div>
+                <div class="num_book"><label for="numbook">Số lượng: </label><input id="numbook" type="number"
+                        value="0"></div>
+            </div>
+        </div>
     </div>
+</div>
+<div class="left-menu-close">
+    <div class="left-menu-inside">
+        <div class="left-menu-username"><i class="fas fa-user-circle    "></i>
+            <h3 class="username">Chưa đăng nhập</h3>
+        </div>
     </div>
-    <script>
-        window.onload = function () {
-            //adduser(); cái này còn hơi lỗi chưa sửa
-            createProduct();
-            createGenres();
-            //show_list();
-            show_genres();
-            signin();
-            js_login();
-            show_list();
-            log_in();
-        }
-        create_admin();
-    </script>
+    <div class="left-menu-option">
+        <div class="op1" onclick="turnon('.form__login--signup') + turnoff('.left-menu-close')">Đăng nhập</div>
+        <hr class="hroption">
+        <div class="op1" onclick="logout()">Đăng xuất</div>
+        <hr class="hroption">
+        <div class="op1" onclick="opengiohang()">Xem giỏ hàng</div>
+    </div>
+</div>
+</div>
+<div class="cart" id="cart">
+    <div class="title__cart"><b>Đơn hàng</b></div>
+    <div class="name_cart"></div>
+    <hr>
+    <div class="title__item">
+        <div class="title__item_1">
+            <div class="tenitem">Tên sản phẩm</div>
+            <div class="tacgia">Tác giả</div>
+            <div class="giaitem">Giá</div>
+            <div class="soluong">Số lượng</div>
+        </div>
+        <hr class="hrcart">
+        <div class="title__item_2">
+
+        </div>
+    </div>
+    <div class="tongtien">
+        <div class="title__total__money"><span>Tổng tiền: </span>
+            <div class="total__money"></div>
+        </div>
+        <div class="xacnhancart" type="button" onclick="xacnhancart()">Xác nhận đơn hàng</div>
+        <div class="giohang" onclick="opengiohang()">Xem giỏ hàng</div>
+    </div>
+    <div class="hide_button hide_button1" onclick="closeb('cart') + turnoffbg()">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+<div class="add_userinfor">
+    <div class="hide_button" onclick="turnoff('.add_userinfor') + turnoffbg()">
+        <i class="fas fa-times"></i>
+    </div>
+    <h3 class="">Bổ sung thông tin</h3>
+    <hr>
+    <div class="add_userinfor_content">
+        <div>
+            <label for="phone_num">Số điện thoại: </label>
+            <input type="text" name="" id="phone_num" placeholder="Nhập số điện thoại:">
+        </div>
+        <div>
+            <label for="address">Địa chỉ: </label>
+            <input type="text" name="" id="address" placeholder="Nhập địa chỉ:">
+        </div>
+        <div class="xn_add_infor" onclick="add_infor()">Xác Nhận</div>
+    </div>
+</div>
+</div>
+<script>
+    window.onload = function () {
+        //adduser(); cái này còn hơi lỗi chưa sửa
+        createProduct();
+        createGenres();
+        //show_list();
+        show_genres();
+        signin();
+        js_login();
+        show_list();
+        log_in();
+        check_infor();
+    }
+    create_admin();
+</script>
 </body>
 
 </html>

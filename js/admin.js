@@ -1,10 +1,9 @@
 function num_page() {
-  var a = document.getElementById('num_page').value;
-  if (localStorage.getItem('num_page') == null) {
+  var a = document.getElementById("num_page").value;
+  if (localStorage.getItem("num_page") == null) {
     localStorage.setItem("num_page", JSON.stringify(a));
-  }
-  else {
-    localStorage.removeItem('num_page');
+  } else {
+    localStorage.removeItem("num_page");
     localStorage.setItem("num_page", JSON.stringify(a));
   }
   location.reload();
@@ -15,7 +14,7 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
-// Hàm đóng , mở 
+// Hàm đóng , mở
 function openb(st) {
   var a = document.getElementById(st);
   a.style.display = "block";
@@ -107,13 +106,11 @@ function kiemtratk(st) {
 function kiemtramk(mk, rpmk) {
   if (mk == "" || rpmk == "") {
     alert("Không được để trống mật khẩu");
-    return false
-  }
-  else if (mk <= 5 || mk != rpmk) {
+    return false;
+  } else if (mk <= 5 || mk != rpmk) {
     alert("mật khẩu phải lớn hơn 5 ký tự và lặp lại phải giống");
     return false;
-  }
-  else return true;
+  } else return true;
 }
 
 function kiemtraemail(event) {
@@ -132,7 +129,6 @@ function kiemtrafullname(event) {
   return true;
 }
 
-
 function adduser() {
   if (localStorage.getItem("User") == null) {
     return false;
@@ -148,25 +144,21 @@ function adduser() {
     var inputtk = document.getElementById("usern_sup");
     inputtk.style.borderBlockEndColor = "red";
     usern_sup.focus();
-  }
-  else if (kiemtraemail(emai) == false) {
+  } else if (kiemtraemail(emai) == false) {
     var inputemail = document.getElementById("email_sup");
     inputemail.style.borderBlockEndColor = "red";
     email_sup.focus();
-  }
-  else if (kiemtramk(mk, rpmk) == false) {
+  } else if (kiemtramk(mk, rpmk) == false) {
     var inputmk = document.getElementById("psw_sup");
     var inputrpmk = document.getElementById("psw_repeat");
     inputmk.style.borderBlockEndColor = "red";
     inputrpmk.style.borderBlockEndColor = "red";
     document.getElementById("psw_sup").focus();
-  }
-  else if (kiemtrafullname(name) == false) {
+  } else if (kiemtrafullname(name) == false) {
     var inputfullname = document.getElementById("fullname");
     inputfullname.style.borderBlockEndColor = "red";
     fullname.focus();
-  }
-  else {
+  } else {
     var user = {
       username: tk,
       password: mk,
@@ -180,7 +172,6 @@ function adduser() {
     localStorage.setItem("User", JSON.stringify(userArray));
   }
 }
-
 
 // Tạo mảng danh sách để có thể tìm kiếm dựa trên danh mục
 function createGenres() {
@@ -199,21 +190,31 @@ function show_genres() {
   if (localStorage.getItem("genres") == null) {
     return false;
   }
-  var a = "";
-  genresArray = JSON.parse(localStorage.getItem("genres"));
-  for (i = 0; i < genresArray.length; i++) {
-    a =
-      a +
-      '<a href="?genres=' +
-      genresArray[i].id +
-      '" class="genres__item" id="' +
-      genresArray[i].id +
-      '">' +
-      genresArray[i].genres_name +
-      "</a>";
+
+  let a = "";
+  const genresArray = JSON.parse(localStorage.getItem("genres"));
+
+  for (let i = 0; i < genresArray.length; i++) {
+    if (genresArray[i].genres_name) {
+      a += `
+        <li 
+          onClick="activeSidebar('${genresArray[i].id}')"
+          class="item_genres">
+          <a 
+            href="?genres=${genresArray[i].id}" 
+            class="genres__item">
+            ${genresArray[i].genres_name}
+          </a>
+        </li>
+      `;
+    }
   }
-  document.getElementById("genres__list").innerHTML += a;
+
+  document.getElementById("genres__list").innerHTML = a;
 }
+
+
+
 function show_infor_book(s) {
   if (localStorage.getItem("product") == null) {
     return false;
@@ -223,22 +224,46 @@ function show_infor_book(s) {
     if (productArray[i].productId == s) {
       document.getElementById("infor_book_img").innerHTML =
         '<img src="' + productArray[i].img + '" alt="">';
+
       document.getElementById("book_title").innerHTML =
         "<span>" + productArray[i].name + "</span>";
-      document.getElementById("author_name").innerHTML =
-        "By <span>" + productArray[i].author + "</span> (Author)";
-      document.getElementById("price").innerHTML =
-        "$ <span>" + productArray[i].price + "</span>";
-      document.getElementById("informa").innerHTML =
-        "<p>" + productArray[i].information + "</p>"
-      document.querySelector(".modify").innerHTML = `<a href = "#addsp" type="button" onclick="closef('infor_book') + suasanpham('${productArray[i].productId}')">Thay doi thong tin san pham</a>`;
-      document.querySelector('.deletebook').innerHTML = `<div onclick="deleteProduct('${productArray[i].productId}')">xoa</div>`
+
+      document.getElementById(
+        "author_name"
+      ).innerHTML = `<p class="detail_product_author"> Tác giả:  ${productArray[i].author} </p>`;
+
+      document.getElementById(
+        "price"
+      ).innerHTML = `<p class="detail_product_price"> Giá: ${productArray[i].price} $</p>`;
+
+      document.getElementById("informa").innerHTML = `
+        <div>
+          <p class="title_description">Mô tả</p>
+          <p>${productArray[i].information}</p>
+        </div>
+          
+        `;
+
+      document.querySelector(".modify").innerHTML = `<a 
+        class="bnt__edit"
+        href = "#addsp" type="button" 
+        onclick="closef('infor_book') + 
+        suasanpham('${productArray[i].productId}')
+      ">
+      Chỉnh sửa
+      </a>`;
+
+      document.querySelector(".deletebook").innerHTML = `<div 
+        class="bnt__edit bnt__remove "
+        onclick="deleteProduct('${productArray[i].productId}')">
+        Xoá
+      </div>`;
     }
   }
 }
 function splitgenres(a) {
   var b = a.split(" ");
-  var c = ''
+  var c = "";
   for (i = 0; i < b.length; i++) {
     c += b[i][0];
   }
@@ -247,16 +272,18 @@ function splitgenres(a) {
   return c;
 }
 function suasanpham(a) {
-  if (localStorage.getItem('product') == null) {
+  const modalCreate = document.querySelector(".add_modify_sp");
+  modalCreate.style.display = "block";
+  if (localStorage.getItem("product") == null) {
     return false;
   }
-  if (localStorage.getItem('genres') == null) {
+  if (localStorage.getItem("genres") == null) {
     return false;
   }
   var index;
   var index2;
-  productArray = JSON.parse(localStorage.getItem('product'));
-  genresArray = JSON.parse(localStorage.getItem('genres'));
+  productArray = JSON.parse(localStorage.getItem("product"));
+  genresArray = JSON.parse(localStorage.getItem("genres"));
   for (i = 0; i < productArray.length; i++) {
     if (productArray[i].productId == a) {
       index = i;
@@ -268,13 +295,30 @@ function suasanpham(a) {
     }
   }
   console.log(genresArray[index2].genres_name);
-  document.getElementById('modifyGenresId').setAttribute("value", genresArray[index2].genres_name);
-  document.getElementById('modifyAuthor').setAttribute("value", productArray[index].author);
-  document.getElementById('modifyImg').setAttribute("value", productArray[index].img);
-  document.getElementById('modifyName').setAttribute("value", productArray[index].name);
-  document.getElementById('modifyPrice').setAttribute("value", productArray[index].price);
-  document.getElementById('modifyInformation').setAttribute("value", productArray[index].information);
-  document.getElementById('modifyproduct_button').setAttribute("onclick", `ModifyProduct('${productArray[index].productId}')`);
+  document
+    .getElementById("modifyGenresId")
+    .setAttribute("value", genresArray[index2].genres_name);
+  document
+    .getElementById("modifyAuthor")
+    .setAttribute("value", productArray[index].author);
+  document
+    .getElementById("modifyImg")
+    .setAttribute("value", productArray[index].img);
+  document
+    .getElementById("modifyName")
+    .setAttribute("value", productArray[index].name);
+  document
+    .getElementById("modifyPrice")
+    .setAttribute("value", productArray[index].price);
+  document
+    .getElementById("modifyInformation")
+    .setAttribute("value", productArray[index].information);
+  document
+    .getElementById("modifyproduct_button")
+    .setAttribute(
+      "onclick",
+      `ModifyProduct('${productArray[index].productId}')`
+    );
 }
 function ModifyProduct(a) {
   productArray = JSON.parse(localStorage.getItem("product"));
@@ -284,12 +328,16 @@ function ModifyProduct(a) {
     }
   }
   productArray[index].productId = Number(a);
-  productArray[index].genresId = document.getElementById("modifyGenresId").value;
+  productArray[index].genresId =
+    document.getElementById("modifyGenresId").value;
   productArray[index].author = document.getElementById("modifyAuthor").value;
   productArray[index].img = document.getElementById("modifyImg").value;
   productArray[index].name = document.getElementById("modifyName").value;
-  productArray[index].price = Number(document.getElementById("modifyPrice").value);
-  productArray[index].information = document.getElementById("modifyInformation").value;
+  productArray[index].price = Number(
+    document.getElementById("modifyPrice").value
+  );
+  productArray[index].information =
+    document.getElementById("modifyInformation").value;
 
   localStorage.setItem("product", JSON.stringify(productArray));
 }
@@ -309,9 +357,9 @@ function AddProduct() {
   productArray.push(newproduct);
   genresArray = JSON.parse(localStorage.getItem("genres"));
   var check = 0;
-  var genrestemp = splitgenres(document.getElementById('addGenresId').value);
+  var genrestemp = splitgenres(document.getElementById("addGenresId").value);
   console.log(genrestemp);
-  console.log(genresArray[0].id)
+  console.log(genresArray[0].id);
   for (i = 0; i < genresArray.length; i++) {
     if (genresArray[i].id == genrestemp) {
       check = 1;
@@ -319,7 +367,10 @@ function AddProduct() {
     }
   }
   if (check == 0) {
-    var newgenres = { genres_name: document.getElementById("addGenresId").value, id: splitgenres(document.getElementById("addGenresId").value) };
+    var newgenres = {
+      genres_name: document.getElementById("addGenresId").value,
+      id: splitgenres(document.getElementById("addGenresId").value),
+    };
     genresArray.push(newgenres);
     localStorage.setItem("genres", JSON.stringify(genresArray));
   }
@@ -344,8 +395,7 @@ function deleteProduct(deleteproductId) {
 //PhanTrang
 
 function searching() {
-  var tk = document.getElementById('searbox').value;
-
+  var tk = document.getElementById("searbox").value;
 }
 function increase_sort(list) {
   for (i = 0; i < list.length - 1; i++) {
@@ -376,19 +426,18 @@ function show_list() {
     return false;
   }
   var itemPerPage = 0;
-  if (localStorage.getItem('num_page') == null) {
+  if (localStorage.getItem("num_page") == null) {
     var itemPerPage = 8;
-  }
-  else {
+  } else {
     var itemPerPage = Number(JSON.parse(localStorage.getItem("num_page")));
   }
   productArray = JSON.parse(localStorage.getItem("product"));
-  sessionStorage.removeItem('sp');
-  var a = getQueryVariable('genres');
-  var b = getQueryVariable('search');
-  const trang = 8
+  sessionStorage.removeItem("sp");
+  var a = getQueryVariable("genres");
+  var b = getQueryVariable("search");
+  const trang = 8;
   var tem1 = productArray;
-  if ((a != undefined && a != 'danhsach') || b != undefined) {
+  if ((a != undefined && a != "danhsach") || b != undefined) {
     var tem1 = [];
     if (a != undefined && b == undefined) {
       for (i = 0; i < productArray.length; i++) {
@@ -396,15 +445,13 @@ function show_list() {
           tem1.push(productArray[i]);
         }
       }
-    }
-    else if (b != undefined && a == undefined) {
+    } else if (b != undefined && a == undefined) {
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b) {
           tem1.push(productArray[i]);
         }
       }
-    }
-    else {
+    } else {
       for (i = 0; i < productArray.length; i++) {
         if (productArray[i].name == b && productArray[i].genresID == a) {
           tem1.push(productArray[i]);
@@ -413,11 +460,10 @@ function show_list() {
     }
   }
 
-  var a = (getQueryVariable("page"));
+  var a = getQueryVariable("page");
   if (a == undefined) {
     a = 1;
-  }
-  else {
+  } else {
     a = Number(a);
   }
   tempitem = tem1;
@@ -426,21 +472,18 @@ function show_list() {
   PagesList(totalPages);
   var start = (a - 1) * itemPerPage;
   //sap xep
-  var e = document.getElementById('sort').value;
+  var e = document.getElementById("sort").value;
   if (e == "1") {
     tempitem = increase_sort(tempitem);
-  }
-  else if (e == "2") {
+  } else if (e == "2") {
     tempitem = decrease_sort(tempitem);
   }
   show(tempitem, start, itemPerPage + start);
 }
-function search() {
-
-}
+function search() {}
 function show(arr, start, end) {
   var temp1 = "'infor_book'";
-  var t = '';
+  var t = "";
   console.log(start);
   console.log(end);
   if (end > arr.length) {
@@ -468,11 +511,12 @@ function show(arr, start, end) {
 
 function PagesList(total) {
   var b = window.location.href;
-  let html = '';
+  let html = "";
   for (let i = 1; i <= total; i++) {
-
     html += `
-          <a class="decopage" href="${getPageVariable(b)}&page=${i}">${i}              
+          <a class="decopage" href="${getPageVariable(
+            b
+          )}&page=${i}">${i}              
           </a>
       `;
   }
@@ -486,8 +530,7 @@ function filter_price(arr, start, end) {
         temp.push(arr[i]);
       }
     }
-  }
-  else {
+  } else {
     for (i = 0; i < arr.length; i++) {
       if (arr[i].price >= start) {
         temp.push(arr[i]);
@@ -499,8 +542,8 @@ function filter_price(arr, start, end) {
 function getPageVariable(variable) {
   var query = window.location.href;
   var temp = query.split("&page=");
-  if (temp[0].indexOf('?') == -1) {
-    temp[0] = temp[0] + '?';
+  if (temp[0].indexOf("?") == -1) {
+    temp[0] = temp[0] + "?";
   }
   return decodeURIComponent(temp[0]);
 }
@@ -510,46 +553,46 @@ function changePage(productList) {
   pagesList.forEach(function (item, index) {
     item.onclick = function () {
       let value = index + 1;
-      currentPage = value
+      currentPage = value;
       s = (currentPage - 1) * itemPerPage;
       e = currentPage * itemPerPage;
       renderProduct(productList, s, e);
-    }
-  })
+    };
+  });
 }
 
 var cart = [];
 function addtocart(product) {
-  openb('comfirm_buy');
-  console.log(product)
-  if (sessionStorage.getItem('dangnhap') == null) {
+  openb("comfirm_buy");
+  console.log(product);
+  if (sessionStorage.getItem("dangnhap") == null) {
     alert("Bạn chưa đăng nhập!");
     closeb("infor_book");
-    closeb("comfirm_buy")
+    closeb("comfirm_buy");
     openb("form_sin");
-    closeb('comfirm_buy')
+    closeb("comfirm_buy");
     return false;
   }
-  dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  const yes = document.querySelector('.yes');
-  const no = document.querySelector('.no');
+  dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+  const yes = document.querySelector(".yes");
+  const no = document.querySelector(".no");
 
   var sl = document.getElementById("numbook").value;
   console.log(sl);
   if (sl <= 0) {
     alert("Số lượng sai quy tắc!");
-    closeb('comfirm_buy');
+    closeb("comfirm_buy");
     return false;
   }
   yes.addEventListener("click", () => {
     item1 = { userid: dangnhap[0], product: product, soluong: sl };
     cart.push(item1);
     sessionStorage.setItem("tempcart", JSON.stringify(cart));
-    closeb('comfirm_buy');
+    closeb("comfirm_buy");
   });
   no.addEventListener("click", () => {
-    closeb('comfirm_buy');
-  })
+    closeb("comfirm_buy");
+  });
 }
 
 function getQueryVariable(variable) {
@@ -562,7 +605,6 @@ function getQueryVariable(variable) {
     }
   }
 }
-
 
 function buybook() {
   var a = getQueryVariable("dangnhap");
@@ -589,57 +631,63 @@ function open_left_menu() {
     b.style.display = "none";
   });
 }
-function addborder(st){
+function addborder(st) {
   removeborder();
-  document.querySelector('.'+st).classList.add('qlactive');
+  document.querySelector("." + st).classList.add("qlactive");
 }
-function removeborder(){
-  document.querySelector('.QLSP').classList.remove('qlactive');
-  document.querySelector('.QLHD').classList.remove('qlactive');
-  document.querySelector('.QLKH').classList.remove('qlactive');
-  document.querySelector('.TKDT').classList.remove('qlactive');
+function removeborder() {
+  document.querySelector(".QLSP").classList.remove("qlactive");
+  document.querySelector(".QLHD").classList.remove("qlactive");
+  document.querySelector(".QLKH").classList.remove("qlactive");
+  document.querySelector(".TKDT").classList.remove("qlactive");
 }
-function removeborder(){
-  document.querySelector('.QLSP').classList.remove('qlactive');
-  document.querySelector('.QLHD').classList.remove('qlactive');
-  document.querySelector('.QLKH').classList.remove('qlactive');
-  document.querySelector('.TKDT').classList.remove('qlactive');
+function removeborder() {
+  document.querySelector(".QLSP").classList.remove("qlactive");
+  document.querySelector(".QLHD").classList.remove("qlactive");
+  document.querySelector(".QLKH").classList.remove("qlactive");
+  document.querySelector(".TKDT").classList.remove("qlactive");
 }
-function active(s){
+function active(s) {
   removeactive();
-  document.querySelector('.'+s).style.display = 'block';
+  document.querySelector("." + s).style.display = "block";
 }
-function removeactive(){
-  document.querySelector('.qlsp').style.display = 'none';
-  document.querySelector('.qlhd').style.display = 'none';
-  document.querySelector('.qlkh').style.display = 'none';
-  document.querySelector('.tkdt').style.display = 'none';
+function removeactive() {
+  document.querySelector(".qlsp").style.display = "none";
+  document.querySelector(".qlhd").style.display = "none";
+  document.querySelector(".qlkh").style.display = "none";
+  document.querySelector(".tkdt").style.display = "none";
 }
 
 function showcarts() {
-  userArray = JSON.parse(localStorage.getItem('User'));
-  var s = ''
-  for(e = 0; e < userArray.length;e++){
-    if(userArray[e].giohang !=[]){
-      console.log(e)
-  for (i = 0; i < userArray[e].giohang.length; i++) {
-      s = s + `<div id="hoadon">
+  userArray = JSON.parse(localStorage.getItem("User"));
+  var s = "";
+  for (e = 0; e < userArray.length; e++) {
+    if (userArray[e].giohang != []) {
+      console.log(e);
+      for (i = 0; i < userArray[e].giohang.length; i++) {
+        s =
+          s +
+          `<div id="hoadon">
       <div class="hoadon_infor">
           <div class="tendon">${userArray[e].giohang[i].mahd}</div>
           <div class="buydate">${userArray[e].giohang[i].buydate}</div>
-          <div class="${ttcolor(userArray[e].giohang[i].tt)}">${userArray[e].giohang[i].tt}</div>
+          <div class="${ttcolor(userArray[e].giohang[i].tt)}">${
+            userArray[e].giohang[i].tt
+          }</div>
           <div class="giadon">${userArray[e].giohang[i].total}</div>
           <div class="huydon_right">
-              <div class="huydon" onclick="xuly(${e + ',' +i})">Xử lý</div>
-              <i class="fa fa-caret-down" aria-hidden="true" onclick="open_hoadon('${String(e)+String(i)}')"></i>
+              <div class="huydon" onclick="xuly(${e + "," + i})">Xử lý</div>
+              <i class="fa fa-caret-down" aria-hidden="true" onclick="open_hoadon('${
+                String(e) + String(i)
+              }')"></i>
           </div>
       </div>
   </div>
   <hr>
-  <div class="hoadon_dropdown" id="${'sp' +e+ i}">
-      <div class="dropdown" id=${'dsp' +e+ i}>
+  <div class="hoadon_dropdown" id="${"sp" + e + i}">
+      <div class="dropdown" id=${"dsp" + e + i}>
           <div class="ct_hoadon">
-              ${'' + show_item(e, i)}
+              ${"" + show_item(e, i)}
           </div>
           <div class="total-price">
               <table>
@@ -656,31 +704,33 @@ function showcarts() {
       </div>
   </div>
   <hr>`;
-  }}}
-  document.querySelector('.chuahoadon').innerHTML = s;
-}
-function xuly(index,n) {
-  if (localStorage.getItem('User') == null) {
-      return false;
-  }
-  userArray= JSON.parse(localStorage.getItem('User'));
-  for(i = 0; i< userArray[index].giohang.length; i++){
-      if (i == n) {
-          if (confirm("Bạn chắc muốn xử lý sản phẩm này??")) {
-              userArray[index].giohang[i].tt = "Đã xử lý";
-              localStorage.setItem("User", JSON.stringify(userArray));
-              location.reload();
-          }
       }
+    }
+  }
+  document.querySelector(".chuahoadon").innerHTML = s;
+}
+function xuly(index, n) {
+  if (localStorage.getItem("User") == null) {
+    return false;
+  }
+  userArray = JSON.parse(localStorage.getItem("User"));
+  for (i = 0; i < userArray[index].giohang.length; i++) {
+    if (i == n) {
+      if (confirm("Bạn chắc muốn xử lý sản phẩm này??")) {
+        userArray[index].giohang[i].tt = "Đã xử lý";
+        localStorage.setItem("User", JSON.stringify(userArray));
+        location.reload();
+      }
+    }
   }
 }
 
 function show_item(index, cart) {
-  dangnhap = JSON.parse(sessionStorage.getItem('dangnhap'));
-  userArray = JSON.parse(localStorage.getItem('User'));
-  var temp = ''
+  dangnhap = JSON.parse(sessionStorage.getItem("dangnhap"));
+  userArray = JSON.parse(localStorage.getItem("User"));
+  var temp = "";
   for (j = 0; j < userArray[index].giohang[cart].item.length; j++) {
-      temp = temp + showsp(userArray[index].giohang[cart].item[j].sp);
+    temp = temp + showsp(userArray[index].giohang[cart].item[j].sp);
   }
   return temp;
 }
@@ -691,82 +741,81 @@ function showsp(sp) {
           <div class="book_name">${sp.name}</div>
           <div class="book_price"><span>$${sp.price}</span></div>
       </div>
-  </div>`
+  </div>`;
 
   return temp;
 }
 function open_hoadon(id) {
-  var a = document.querySelector('#sp' + id);
-  var b = document.querySelector('#dsp' + id);
-  console.log(a)
-  b.classList.toggle('drop')
-  a.classList.toggle('open_hoadon');
+  var a = document.querySelector("#sp" + id);
+  var b = document.querySelector("#dsp" + id);
+  console.log(a);
+  b.classList.toggle("drop");
+  a.classList.toggle("open_hoadon");
 }
-function ttcolor(st){
-  if(st == "Đã xử lý"){
-    return 'trangthaixanh'
-  }
-  else return 'trangthai'
+function ttcolor(st) {
+  if (st == "Đã xử lý") {
+    return "trangthaixanh";
+  } else return "trangthai";
 }
 //qlkh
-function dskh(){
-  if(localStorage.getItem('User') == null){
+function dskh() {
+  if (localStorage.getItem("User") == null) {
     return false;
   }
-  var s = ''
-  userArray = JSON.parse(localStorage.getItem('User'));
-  for(i = 0; i < userArray.length; i++){
-    s = s + `<div class="flexkh">
+  var s = "";
+  userArray = JSON.parse(localStorage.getItem("User"));
+  for (i = 0; i < userArray.length; i++) {
+    s =
+      s +
+      `<div class="flexkh">
     <div class="username">${userArray[i].username}</div>
     <div class="tenkh">${userArray[i].fullname}</div>
     <div class="sdt">${checkphone(i)}</div>
     <div class="diachi">${checkaddress(i)}</div>
     <div class="trangthaikh">${checkttkh(userArray[i].tt)}</div>
-    <div class="block" onclick="block_unlock('${i}')">Block/Unlock</div></div>`
+    <div class="block" onclick="block_unlock('${i}')">Block/Unlock</div></div>`;
   }
-  document.querySelector('.chuadskh').innerHTML = s;
+  document.querySelector(".chuadskh").innerHTML = s;
 }
-function block_unlock(n){
-  userArray = JSON.parse(localStorage.getItem('User'));
-  if(userArray[n].tt == 'block'){
-    userArray[n].tt = 'unblock'
-    localStorage.setItem("User",JSON.stringify(userArray));
+function block_unlock(n) {
+  userArray = JSON.parse(localStorage.getItem("User"));
+  if (userArray[n].tt == "block") {
+    userArray[n].tt = "unblock";
+    localStorage.setItem("User", JSON.stringify(userArray));
+    location.reload();
+    return true;
+  } else {
+    userArray[n].tt = "block";
+    localStorage.setItem("User", JSON.stringify(userArray));
     location.reload();
     return true;
   }
-  else{
-    userArray[n].tt = 'block';
-    localStorage.setItem("User",JSON.stringify(userArray));
-    location.reload();
-    return true;
-  }
 }
-function checkttkh(st){
-  if(st == 'unblock') return '<i class="fa fa-user-md" aria-hidden="true"></i>'
-  else return '<i class="fas fa-user-lock"></i>'
+function checkttkh(st) {
+  if (st == "unblock")
+    return '<i class="fa fa-user-md" aria-hidden="true"></i>';
+  else return '<i class="fas fa-user-lock"></i>';
 }
-function checkphone(n){
-  userArray = JSON.parse(localStorage.getItem('User'));
-  if(userArray[n].phone != ''){
+function checkphone(n) {
+  userArray = JSON.parse(localStorage.getItem("User"));
+  if (userArray[n].phone != "") {
     return userArray[n].phone;
-  }
-  else return 'Chưa có';
+  } else return "Chưa có";
 }
-function checkaddress(n){
-  userArray = JSON.parse(localStorage.getItem('User'));
-  if(userArray[n].address != ''){
+function checkaddress(n) {
+  userArray = JSON.parse(localStorage.getItem("User"));
+  if (userArray[n].address != "") {
     return userArray[n].address;
-  }
-  else return 'Chưa có';
+  } else return "Chưa có";
 }
-function doanhthu(){
-  userArray = JSON.parse(localStorage.getItem('User'));
+function doanhthu() {
+  userArray = JSON.parse(localStorage.getItem("User"));
   var sum = 0;
-  for(i = 0; i < userArray.length; i++){
-    for(j = 0; j < userArray[i].giohang.length; j++){
-      sum = sum + userArray[i].giohang[j].total+30;
+  for (i = 0; i < userArray.length; i++) {
+    for (j = 0; j < userArray[i].giohang.length; j++) {
+      sum = sum + userArray[i].giohang[j].total + 30;
     }
   }
   console.log(sum);
-  document.querySelector('.chuadt').innerHTML = '$'+sum;
+  document.querySelector(".chuadt").innerHTML = "$" + sum;
 }

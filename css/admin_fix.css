@@ -1,0 +1,291 @@
+.item_genres {
+    width: auto;
+    height: 40;
+    border: 1px solid black 
+}
+.body__genres {
+    height: auto;
+}
+
+.num_page {
+    margin-top: 20px;
+}
+.list_page {
+    width: auto;
+}
+.list_page1 {
+   
+}
+
+.input_choose_page{
+    height: 40px;
+    width: 100px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.btnLimit{
+    height: 40px;
+    width: 40px;
+    outline: none;
+}
+
+.box_option {
+    display: flex;
+    column-gap: 30px;
+}
+.filter {
+    width: 180px;
+    height: 40px;
+    background-color: #f1f1f1;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+.btn__create {
+    width: 150px;
+    height: 40px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.bnt__edit {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(234 179 8);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.bnt__remove {
+    background-color: rgb(220 38 38);
+}
+.addsp {
+    position: relative;
+    background-color: white;
+    width: 600px;
+    height: 700px;
+    padding: 30px;
+}
+.addproduct_item {
+    display: flex;
+}
+.model_create_product,
+.add_modify_sp {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.addproduct,
+#modifysp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+}
+.close {
+    position: absolute;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    top: 0;
+    right: 20px;
+}
+
+
+.addproduct_item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addproduct_item label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.addproduct_item input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.addproduct_item input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.form_button {
+    width: 150px;
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.form_button:hover {
+    background-color: #0056b3;
+}
+
+.form_button:active {
+    transform: scale(0.95);
+}
+
+.tile_modal_edit {
+    margin-bottom: 10px;
+}
+
+/* css modal detail product admnin */
+
+.detail_product_author {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.detail_product_price {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: rgb(239 68 68);
+}
+
+.title_description {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Container styling for header */
+.header_2 {
+    height: 80px;
+   
+}
+.box__header {
+    height: 80px;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for each header item */
+.box__header div {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for each header item */
+.box__header div:hover {
+    background-color: #495057;
+    color: #f8f9fa;
+}
+
+/* Active border effect */
+.box__header div.active {
+    border: 2px solid #28a745;
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+/* Style for each section to change when active */
+.QLSP.active,
+.QLHD.active,
+.QLKH.active,
+.TKDT.active {
+    display: none;
+    border-bottom: 3px solid #ffc107;
+}
+
+
+.qlhd, 
+.qlkh, 
+.tkdt {
+    display: none;
+}
+
+
+
+/* list genres */
+/* Container styling for the genres list */
+
+
+/* List item styling */
+.box_title_genres {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.genres_title {
+    font-size: 30px;
+    color: #333;
+}
+.genres__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item_genres {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+.item_genres:hover {
+    background-color: #f1f1f1;
+}
+
+.genres__item {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+

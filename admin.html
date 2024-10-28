@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/admin.css">
     <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/admin_fix.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -42,94 +43,73 @@
         </div>
 
         <div class="header_2" >
-            <div class="QLSP" onclick="addborder('QLSP') + active('qlsp')">Quản lý sản phẩm</div>
-            <div class="QLHD" onclick="addborder('QLHD') + active('qlhd')">Quản lý giỏ hàng</div>
-            <div class="QLKH" onclick="addborder('QLKH') + active('qlkh')">Quản lý khách hàng</div>
-            <div class="TKDT" onclick="addborder('TKDT') + active('tkdt')">Thống kê doanh thu</div>
+            <div class="box__header">
+                <div class="QLSP qlactive" onclick="addborder('QLSP') + active('qlsp')">Quản lý sản phẩm</div>
+                <div class="QLHD" onclick="addborder('QLHD') + active('qlhd')">Quản lý giỏ hàng</div>
+                <div class="QLKH" onclick="addborder('QLKH') + active('qlkh')">Quản lý khách hàng</div>
+                <div class="TKDT" onclick="addborder('TKDT') + active('tkdt')">Thống kê doanh thu</div>
+            </div>
         </div>
+
         <div class="qlsp">
             <div class="body">
                 <!-- Thể loại -->
+                
                 <div class="body__genres" id="body__genres">
                     <!-- Genres -->
-                    <a class="genres_title" href="?genres=danhsach">Genres</a>
-                    <hr class="hrgenres">
+                     <div class="box_title_genres">
+                         <a class="genres_title" href="?genres=danhsach">Thể loại</a>
+                     </div>
+                    <!-- <hr class="hrgenres"> -->
                     <!-- Danh mục các loại để lựa chọn -->
-                    <div class="genres__list" id="genres__list">
+                    <div class="genres__list" >
+                        <ul id="genres__list">
+
+                        </ul>
                     </div>
                 </div>
+
                 <!-- Danh sách sản phẩm -->
                 <div class="body__list">
-                    <div class="sort_filter">
-                        <select name="" id="sort" onchange="show_list()">
-                            <option value="0" id="sort0">Binh Thuong</option>
-                            <option value="1" id="sort1">Gia tang dan</option>
-                            <option value="2" id="sort2">Gia giam dan</option>
-                        </select>
+                    <div class="box_option">
+                        <div class="sort_filter">
+                            <select class="filter" name="" id="sort" onchange="show_list()">
+                                <option value="0" id="sort0">Bình thường</option>
+                                <option value="1" id="sort1">Giá tăng dần</option>
+                                <option value="2" id="sort2">Giá giảm dần</option>
+                            </select>
+                        </div>
+                        <div class="">
+                           <button onclick="handleClickCreate()" class="btn__create">Tạo mới sản phẩm</button>
+                        </div>
+                        <!-- <div class="">
+                           <button onclick="handleClickEditProduct()" class="bnt__edit">Chỉnh sửa sản phẩm</button>
+                        </div> -->
                     </div>
+
+
                     <div class="list__books" id="list__books">
                         <!-- Hiển thị sách -->
+                        
                     </div>
                     <div class="list_page1">
+                       
                         <div class="list_page">
+                        </div>
+                        <div class="num_page">
+                            <input id="num_page" class="input_choose_page" type="text" placeholder="Giới hạn" required>
+                            <button type="button" class="btnLimit" onclick="num_page()">OK</button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <input id="num_page" type="text" placeholder="Nhap so trang cho trang admin" required>
-                    <button type="button" onclick="num_page()">OK</button>
-                </div>
+                
             </div>
             <hr class="hrfooter">
             <!-- Tạo thêm sản phẩm mới -->
-            <div class="add_modify_sp">
-                <div id="addsp">
-                    <form action="" class="addproduct">
-                        <div class="addsp">
-                            <div class="addproduct_item"><label for="addGenresId">Nhập tên thể loai:</label><input
-                                    type="text" id="addGenresId" placeholder="Tên thể loại" required></div>
-                            <div class="addproduct_item"><label for="addAuthor">Nhập tên tác giả:</label><input
-                                    type="text" id="addAuthor" placeholder="Tác giả" required></div>
-                            <div class="addproduct_item"><label for="addImg">Nhập đường dẫn hình ảnh:</label><input
-                                    type="text" id="addImg" placeholder="Hình ảnh" required></div>
-                            <div class="addproduct_item"><label for="addName">Nhập tên sản phẩm:</label><input
-                                    type="text" id="addName" placeholder="Tên sản phẩm" required></div>
-                            <div class="addproduct_item"><label for="addPrice">Nhập giá sản phẩm:</label><input
-                                    type="text" id="addPrice" placeholder="Giá" required></div>
-                            <div class="addproduct_item"><label for="addInformation">Nhập thông tin sản
-                                    phẩm:</label><input type="text" id="addInformation" placeholder="Thông tin chi tiết"
-                                    required>
-                            </div>
-                            <button type="button" id="addproduct_button" onclick="AddProduct()"
-                                class="form_button">add</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="modifysp">
-                    <form action="" class="modifysp">
-                        <div class="addsp">
-                            <div class="addproduct_item"><label for="modifyGenresId">Nhập tên thể loai:</label><input
-                                    type="text" id="modifyGenresId" placeholder="Tên thể loại"></div>
-                            <div class="addproduct_item"><label for="modifyAuthor">Nhập tên tác giả:</label><input
-                                    type="text" id="modifyAuthor" placeholder="Tác giả"></div>
-                            <div class="addproduct_item"><label for="modifyImg">Nhập đường dẫn hình ảnh:</label><input
-                                    type="text" id="modifyImg" placeholder="Hình ảnh"></div>
-                            <div class="addproduct_item"><label for="modifyName">Nhập tên sản phẩm:</label><input
-                                    type="text" id="modifyName" placeholder="Tên sản phẩm"></div>
-                            <div class="addproduct_item"><label for="modifyPrice">Nhập giá sản phẩm:</label><input
-                                    type="text" id="modifyPrice" placeholder="Giá"></div>
-                            <div class="addproduct_item"><label for="modifyInformation">Nhập thông tin sản
-                                    phẩm:</label><input type="text" id="modifyInformation"
-                                    placeholder="Thông tin chi tiết">
-                            </div>
-                            <button type="button" id="modifyproduct_button" onclick="ModifyProduct()"
-                                class="form_button">Modify</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
         </div>
     </div>
+
     <div class="qlhd">
         <div class="table-cart">
             <h1>Giỏ Hàng</h1>
@@ -143,6 +123,7 @@
             </div>
         </div>
     </div>
+
     <div class="qlkh">
         <div class="table-cart">
             <h1>Danh sách khách hàng</h1>
@@ -159,12 +140,15 @@
             </div>
         </div>
     </div>
+
     <div class="tkdt">
         <div class="hoadon">
             <div class="doanhthu">TỔNG DOANH THU</div>
         </div>
         <div class="chuadt"></div>
     </div>
+
+
     <div class="infor_book" id="infor_book">
         <div class="hide_button" onclick="closef('infor_book')">
             <i class="fas fa-times"></i>
@@ -212,6 +196,72 @@
             </div>
         </div>
     </div>
+
+    <!-- modal create product -->
+    <div class="model_create_product">
+        <div id="addsp">
+            <form action="" class="addproduct">
+                <div class="addsp">
+                    <h2 class="tile_modal_edit">Tạo mới sản phẩm</h2>
+
+                    <p id="closeModalCreate" onclick="handleCloseModalCreate()" class="close">X</p>
+    
+                    <div class="addproduct_item">
+                        <label for="addGenresId">Nhập tên thể loai:</label>
+                        <input type="text" id="addGenresId" placeholder="Tên thể loại" required>
+                    </div>
+    
+                    <div class="addproduct_item"><label for="addAuthor">Nhập tên tác giả:</label><input
+                            type="text" id="addAuthor" placeholder="Tác giả" required></div>
+                    <div class="addproduct_item"><label for="addImg">Nhập đường dẫn hình ảnh:</label><input
+                            type="text" id="addImg" placeholder="Hình ảnh" required></div>
+                    <div class="addproduct_item"><label for="addName">Nhập tên sản phẩm:</label><input
+                            type="text" id="addName" placeholder="Tên sản phẩm" required></div>
+                    <div class="addproduct_item"><label for="addPrice">Nhập giá sản phẩm:</label><input
+                            type="text" id="addPrice" placeholder="Giá" required></div>
+                    <div class="addproduct_item"><label for="addInformation">Nhập thông tin sản
+                            phẩm:</label><input type="text" id="addInformation" placeholder="Thông tin chi tiết"
+                            required>
+                    </div>
+                    <button type="button" id="addproduct_button" onclick="AddProduct()"
+                        class="form_button">Tạo mới</button>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <!-- modal edit product -->
+    <div class="add_modify_sp">
+    
+        <div id="modifysp">
+            
+            <form action="" class="modifysp">
+                <div class="addsp">
+                    <h2 class="tile_modal_edit">Chỉnh sửa sản phẩm</h2>
+                    <p id="closeModalEdit" onclick="handleCloseModalEdit()" class="close">X</p>
+                    <div class="addproduct_item"><label for="modifyGenresId">Nhập tên thể loai:</label><input type="text"
+                            id="modifyGenresId" placeholder="Tên thể loại"></div>
+                    <div class="addproduct_item"><label for="modifyAuthor">Nhập tên tác giả:</label><input type="text"
+                            id="modifyAuthor" placeholder="Tác giả"></div>
+                    <div class="addproduct_item"><label for="modifyImg">Nhập đường dẫn hình ảnh:</label><input type="text"
+                            id="modifyImg" placeholder="Hình ảnh"></div>
+                    <div class="addproduct_item"><label for="modifyName">Nhập tên sản phẩm:</label><input type="text"
+                            id="modifyName" placeholder="Tên sản phẩm"></div>
+                    <div class="addproduct_item"><label for="modifyPrice">Nhập giá sản phẩm:</label><input type="text"
+                            id="modifyPrice" placeholder="Giá"></div>
+                    <div class="addproduct_item"><label for="modifyInformation">Nhập thông tin sản
+                            phẩm:</label><input type="text" id="modifyInformation" placeholder="Thông tin chi tiết">
+                    </div>
+                    <button type="button" id="modifyproduct_button" onclick="ModifyProduct()"
+                        class="form_button">Chỉnh sửa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js/admin_fix.js"></script>
     <script>
         window.onload = function () {
             show_genres();

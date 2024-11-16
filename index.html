@@ -8,6 +8,8 @@
     <title>PBDTbooks</title>
     <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index_fix.css">
+    <link rel="stylesheet" href="css/admin_fix.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -63,39 +65,70 @@
             <!-- Những mục về trang admin , giỏ hàng -->
             <div class="header__rightmenu">
                 <!-- Nút chỉnh sửa sản phẩm (Phải đăng nhập bằng tk admin mới hiện ra) -->
-                <div class="admin_button" id="admin_button"></div>
+                <!-- <div class="admin_button" id="admin_button"></div> -->
+                
                 <!-- Hiển thị người dùng -->
                 <div class="infor_user" id="infor_user">
                     <div class="dropdown-content">
                         <div class="infor-content">
+                            <ul class="list_info">
+                                <li class="item_info">
+                                    <div class="item_left">Số điện thoại:</div>
+                                    <div id="sdt"></div>
+                                </li>
+                                <li class="item_info">
+                                    <div class="item_left">Địa chỉ:</div>
+                                    <div id="diachi"></div>
+                                </li>
+                                <li class="item_info">
+                                    <div class="item_left">Trang admin:</div>
+                                    <div  id="admin_button">
+                                        
+                                    </div>
+                                </li>
+                                <li class="item_info">
+                                    <div class="item_left">Chỉnh sửa:</div>
+                                    <div class="add_infor_bt_client" onclick="turnon('.add_userinfor')">Bổ sung thông tin</div> 
+                                </li>
+                                <li class="item_info">
+                                    <div class="item_left">Đơn hàng:</div>
+                                    <div class="add_infor_bt_client" onclick="opengiohang()">Đơn đã đặt</div>
+                                </li>
+                              
+                            </ul>
+<!--                            
                             <div><u>SDT:</u><span id="sdt"> Chưa có</span></div>
                             <div><u>Địa chỉ:</u><span id="diachi"> Chưa có</span></div>
-                            <div class="add_infor_bt" onclick="turnon('.add_userinfor')">Bổ sung thông tin</div>
+                            <div class="add_infor_bt" onclick="turnon('.add_userinfor')">Bổ sung thông tin</div> -->
                         </div>
                     </div>
                 </div>
+                
+                <!-- Giỏ hàng -->
+                <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart') + turnon('.cart')+showdonhang()"></i>
+                </div>
+
                 <!-- Nút đăng nhập -->
                 <div class="sin_bt"><i id="signin" class="fas fa-user-ninja signbt  " name="signin" type="button"
                         onclick="openf('form_sin') + turnon('.form__login--signup')">Đăng Nhập</i></div>
-                <!-- Nút đăng xuất -->
-                <div class="logout"><i id="logout" class="fas fa-user-ninja signbt   " name="logout" type="button"
+                
+            
+                        <!-- Nút đăng xuất -->
+                <div class="logout"><i id="logout" class="fas fa-user-ninja signbt" name="logout" type="button"
                         onclick="logout()">Đăng xuất</i></div>
-                <!-- Giỏ hàng -->
-                <div class="repo"><i id="repo" class="fas fa-cart-plus"
-                        onclick="openb('cart') + turnon('.cart')+showdonhang()"></i></div>
+               
+               
             </div>
         </div>
 
-        <div class="header_2">
-            <!-- Nút hiển thị bên trái -->
+        <!-- <div class="header_2">
             <div>
                 <button type="button" id="left-menu" class="left-menu"><i class="fas fa-bars "
                         onclick="open_left_menu()"></i></button>
             </div>
-            <!-- Nút hiển thị danh sách loại sách (Chỉ hiển thị ở màn hình nhỏ )-->
             <div class="ShowGenres"><input id="ShowGenres" type="button" value="Genres" onclick="ShowGenres()">
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- Ảnh chuyển động -->
     <div class="list__img">
@@ -105,22 +138,27 @@
     <!-- Danh mục các thể loại bên trái -->
     <div class="body">
         <!-- Thể loại -->
-        <div class="body__genres" id="body__genres">
+        <div class="body__genres " id="body__genres">
             <!-- Genres -->
-            <a class="genres_title" href="?genres=danhsach">Genres</a>
+            <div class="box_title_genres">
+                <a class="genres_title" href="?genres=danhsach">Thể loại</a>
+            </div>
             <hr class="hrgenres">
             <!-- Danh mục các loại để lựa chọn -->
-            <div class="genres__list" id="genres__list">
+            <div class="genres__list_client" id="genres__list">
             </div>
         </div>
         <!-- Danh sách sản phẩm -->
         <div class="body__list">
             <div class="sort_filter">
-                <select name="" id="sort" onchange="show_list()">
-                    <option value="0" id="sort0">Binh Thuong</option>
-                    <option value="1" id="sort1">Gia tang dan</option>
-                    <option value="2" id="sort2">Gia giam dan</option>
-                </select>
+                <div class="sort_filter">
+                    <select class="filter" name="" id="sort" onchange="show_list()">
+                        <option value="0" id="sort0">Bình thường</option>
+                        <option value="1" id="sort1">Giá tăng dần</option>
+                        <option value="2" id="sort2">Giá giảm dần</option>
+                    </select>
+                </div>
+                
             </div>
             <div class="list__books" id="list__books">
                 <!-- Hiển thị sách -->
@@ -321,8 +359,10 @@
             <!-- Hiển thị nút mua và chọn số lượng -->
             <div class="infor_footer">
                 <div class="buybt"></div>
-                <div class="num_book"><label for="numbook">Số lượng: </label><input id="numbook" type="number"
-                        value="0"></div>
+                <div class="num_book">
+                    <p for="numbook">Số lượng: </p>
+                    <input id="numbook" type="number" value="0" min="0">
+                </div>
             </div>
         </div>
     </div>
@@ -342,6 +382,8 @@
     </div>
 </div>
 </div>
+
+
 <div class="cart" id="cart">
     <div class="title__cart"><b>Đơn hàng</b></div>
     <div class="name_cart"></div>
@@ -352,23 +394,30 @@
             <div class="tacgia">Tác giả</div>
             <div class="giaitem">Giá</div>
             <div class="soluong">Số lượng</div>
+            <div class="soluong">Hành động</div>
         </div>
         <hr class="hrcart">
         <div class="title__item_2">
 
         </div>
-    </div>
-    <div class="tongtien">
-        <div class="title__total__money"><span>Tổng tiền: </span>
+        <div class="title__item_2_content">
+            Tổng tiền: 
             <div class="total__money"></div>
         </div>
+    </div>
+
+    <div class="tongtien">
+       
         <div class="xacnhancart" type="button" onclick="xacnhancart()">Xác nhận đơn hàng</div>
-        <div class="giohang" onclick="opengiohang()">Xem giỏ hàng</div>
+        
     </div>
     <div class="hide_button hide_button1" onclick="closeb('cart') + turnoffbg()">
         <i class="fas fa-times"></i>
     </div>
 </div>
+
+
+
 <div class="add_userinfor">
     <div class="hide_button" onclick="turnoff('.add_userinfor') + turnoffbg()">
         <i class="fas fa-times"></i>

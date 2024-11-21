@@ -7,13 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="imgs/LOGO.png-removebg-preview.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/admin_fix.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <script src="js/admin.js"></script>
 
 </head>
@@ -28,13 +24,13 @@
     <div id="page_admin" class="page_admin">
         <div class="header">
             <!-- Logo nhóm -->
-            <div class="header__logo" onclick="reload_site('admin.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
+            <div class="header__logo" onclick="reload_site('admin.html')"><img src="imgs/LOGO.png-removebg-preview.png" alt="PBDTbooks-logo">
             </div>
             <!-- Ô tìm kiếm -->
             <div class="header__findbar">
                 <input type="text" class="findbar__searchbox" name="searbox" id="searbox" placeholder="Enter the text"
                     required>
-                <button type="submit" class="findbar__searbutton"><i class="fa fa-search"></i></button>
+            <button type="submit" class="findbar__searbutton"><i class="fa fa-search"><img style="width:20px" src="imgs/search.png" alt=""></i></button>
             </div>
             <!-- Nút quay lại -->
             <div class="header__rightmenu">
@@ -46,7 +42,7 @@
             <div class="box__header">
                 <div class="QLSP qlactive" onclick="addborder('QLSP') + active('qlsp')">Quản lý sản phẩm</div>
                 <div class="QLHD" onclick="addborder('QLHD') + active('qlhd')">Quản lý giỏ hàng</div>
-                <div class="QLKH" onclick="addborder('QLKH') + active('qlkh')">Quản lý khách hàng</div>
+                <div class="QLKH" onclick="addborder('QLKH') + active('qlkh')">Danh sách khách hàng</div>
                 <div class="TKDT" onclick="addborder('TKDT') + active('tkdt')">Thống kê doanh thu</div>
             </div>
         </div>
@@ -74,7 +70,7 @@
                     <div class="box_option">
                         <div class="sort_filter">
                             <select class="filter" name="" id="sort" onchange="show_list()">
-                                <option value="0" id="sort0">Bình thường</option>
+                                <option value="0" id="sort0">Mặc định</option>
                                 <option value="1" id="sort1">Giá tăng dần</option>
                                 <option value="2" id="sort2">Giá giảm dần</option>
                             </select>
@@ -165,21 +161,7 @@
                 <!-- Tên tác giả -->
                 <div class="author_name" id="author_name">
                 </div>
-                <!-- Đánh giá mấy sao -->
-                <div class="stars">
-                    <form action="">
-                        <input class="star star-5" id="star-5" type="radio" name="star" />
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star" />
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star" />
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star" />
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star" />
-                        <label class="star star-1" for="star-1"></label>
-                    </form>
-                </div>
+                
                 <!-- Giá bán của sách -->
                 <div class="price" id="price">
                 </div>
@@ -191,7 +173,7 @@
             <div class="infor_footer">
                 <div class="modify"></div>
                 <div class="modify deletebook">
-                    <div>xoa</div>
+                    <div>xóa</div>
                 </div>
             </div>
         </div>

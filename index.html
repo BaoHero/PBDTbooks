@@ -6,14 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBDTbooks</title>
-    <link rel="icon" href="imgs/LOGO.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="imgs/LOGO.png-removebg-preview.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/index_fix.css">
     <link rel="stylesheet" href="css/admin_fix.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <script src="js/index.js"></script>
 </head>
 
@@ -24,7 +20,7 @@
     <div id="page_user" class="page_user">
         <div class="header">
             <!-- Logo nhóm -->
-            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png" alt="PBDTbooks-logo">
+            <div class="header__logo" onclick="reload_site('index.html')"><img src="imgs/LOGO.png-removebg-preview.png" alt="PBDTbooks-logo">
             </div>
             <!-- ô địa chỉ -->
             <div class="address">
@@ -46,10 +42,10 @@
                                 <!-- Mức giá -->
                                 <select name="" id="sort_gia" class="search_dropdown" onchange="show_list()">
                                     <option value="0" selected="selected">Tất cả giá</option>
-                                    <option value="1"> 0 - 500 </option>
-                                    <option value="2">500 - 1000</option>
-                                    <option value="3">1000 - 2000</option>
-                                    <option value="4">2000 - .....</option>
+                                    <option value="1"> 0 - 30000 </option>
+                                    <option value="2"> 30000 - 70000</option>
+                                    <option value="3"> 70000 - 100000</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -59,7 +55,7 @@
                         placeholder="Enter the text" required>
                     <!-- Nút tìm kiếm -->
                     <button type="button" class="findbar__searbutton" onclick="show_list()"><i
-                            class="fa fa-search"></i></button>
+                        class="fa fa-search"> <img style="width:20%" src="imgs/search.png" alt=""></i></button>
                 </div>
             </form>
             <!-- Những mục về trang admin , giỏ hàng -->
@@ -105,7 +101,7 @@
                 </div>
                 
                 <!-- Giỏ hàng -->
-                <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart') + turnon('.cart')+showdonhang()"></i>
+            <div class="repo"><i id="repo" class="fas fa-cart-plus" onclick="openb('cart') + turnon('.cart')+showdonhang()"> <img style="width: 30px" src="imgs/cart.png" alt=""></i>
                 </div>
 
                 <!-- Nút đăng nhập -->
@@ -174,7 +170,7 @@
         <div class="container-footer">
             <div class="about">
                 <h2>Về Chúng Tôi</h2>
-                <p>Đào Đức Thắng <br />Lâm Quốc Đại<br />Nguyễn Thịnh Phát<br />Trần Quốc Bảo</p>
+                <p>Trần Phước Thuận <br />Trần Gia Bảo <br />Mã Nguyên Anh Khoa <br />Mai Phước An <br />Nguyễn Thanh Ngân</p>
                 <ul class="social-icon">
                     <li><a href="#footer"><i class="uil uil-facebook-f"></i></a></li>
                     <li><a href="#footer"><i class="uil uil-twitter"></i></a></li>
@@ -215,7 +211,7 @@
                     </li>
                     <li>
                         <span><i class="fa fa-envelope"></i></span>
-                        <p><a href="#footer">pbdt@gmail.com</a></p>
+                        <p><a href="#footer">giabao5994@gmail.com</a></p>
                     </li>
 
                 </ul>
@@ -334,21 +330,6 @@
                 <!-- Tên tác giả -->
                 <div class="author_name" id="author_name">
                 </div>
-                <!-- Đánh giá mấy sao -->
-                <div class="stars">
-                    <form action="">
-                        <input class="star star-5" id="star-5" type="radio" name="star" />
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star" />
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star" />
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star" />
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star" />
-                        <label class="star star-1" for="star-1"></label>
-                    </form>
-                </div>
                 <!-- Giá bán của sách -->
                 <div class="price" id="price">
                 </div>
@@ -439,7 +420,7 @@
 </div>
 <script>
     window.onload = function () {
-        //adduser(); cái này còn hơi lỗi chưa sửa
+        //adduser(); 
         createProduct();
         createGenres();
         //show_list();

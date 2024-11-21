@@ -4,212 +4,523 @@ var genresArray = [];
 var dangnhap = [];
 var admin = [];
 var sanpham = [];
+//localStorage.clear()
 function createProduct() {
   if (localStorage.getItem("product") == null) {
     productArray = [
-      // Comics & Graphic Novels
+      // English Books
       {
-        productId: 1001,
-        genresId: "CGN",
+        productId: 1,
+        genresId: "EngBooks",
         author: "Todd Mcfarlane",
-        img: "imgs/1001.webp",
+        img: "imgs/EngBooks/1.webp",
         name: "Spawn Compendium, Color Edition, Volume 1",
-        price: 1000,
+        price: 20000,
         information:
           "TODD McFARLANE unleashed his signature creation, SPAWN, in 1992. In doing so, he created the most successful independent comic book in history. Add in collaborations with industry giants ALAN MOORE, FRANK MILLER, TONY DANIEL, and GRANT MORRISON, and SPAWN's future as a legend was sealed.",
       },
       {
-        productId: 1002,
-        genresId: "CGN",
+        productId: 2,
+        genresId: "EngBooks",
         author: "Sam Hamm",
-        img: "imgs/1002.webp",
+        img: "imgs/EngBooks/2.webp",
         name: "Batman 89",
-        price: 400,
+        price: 40000,
         information:
           "Continuing the adventures of the Dark Knight from Tim Burton's classic movie Batman, Batman '89 pulls on a number of threads left dangling by that film while continuing in the tradition of DC's very successful Batman '66 series.",
       },
       {
-        productId: 1003,
-        genresId: "CGN",
+        productId: 3,
+        genresId: "EngBooks",
         author: "Ryan north",
-        img: "imgs/1003.jpg",
-        name: "Fantastic Four (2022-)",
-        price: 100,
+        img: "imgs/EngBooks/3.jpg",
+        name: "Fantastic Four (2022)",
+        price: 10000,
         information:
-          "Whatever Happened To The Fantastic Four?” It’s the start of a new era for the Fantastic Four...and they’re already in a ton of trouble. Something has gone terribly wrong in New York, and the Thing and Alicia are traveling across America to escape it! But when they stop in a small town for the night and wake up the morning before they arrived, they find themselves caught in a time loop that’s been going on since before they were born...",
+          "Whatever Happened To The Fantastic Four? Its the start of a new era for the Fantastic Four...and they are already in a ton of trouble. Something has gone terribly wrong in New York, and the Thing and Alicia are traveling across America to escape it! But when they stop in a small town for the night and wake up the morning before they arrived, they find themselves caught in a time loop that is been going on since before they were born...",
       },
       {
-        productId: 1004,
-        genresId: "CGN",
+        productId: 4,
+        genresId: "EngBooks",
         author: "Stan Lee",
-        img: "imgs/1004.webp",
+        img: "imgs/EngBooks/4.webp",
         name: "Doctor Doom: The Book Of Doom Omnibus",
-        price: 1750,
+        price: 17500,
         information:
           "Bow before the majesty of Doctor Doom! The greatest villain of all is celebrated in a tome of tyranny six decades in the making! Featuring the Latverian ruler's first battle with the accursed Reed Richards and his Fantastic Four — and their most epic clashes since!",
       },
       {
-        productId: 1005,
-        genresId: "CGN",
+        productId: 5,
+        genresId: "EngBooks",
         author: "Brian Michael Bendis",
-        img: "imgs/1005.jpg",
+        img: "imgs/EngBooks/5.jpg",
         name: "Avengers Vs. X-Men Omnibus",
-        price: 2200,
+        price: 22000,
         information:
           "arth’s Mightiest Heroes battle the Children of the Atom in a crossover so huge it calls for Marvel’s biggest ever Omnibus! Get the whole story of the Phoenix Force’s return to Earth, an event that kicks off an all-out war between the Avengers and the X-Men!",
       },
-      // Mystery, thriller and suspense
       {
-        productId: 1006,
-        genresId: "MTAS",
+        productId: 6,
+        genresId: "EngBooks",
         author: "Stephen King",
-        img: "imgs/1006.webp",
+        img: "imgs/EngBooks/6.webp",
         name: "Fairy Tale",
-        price: 370,
+        price: 37000,
         information:
           "Legendary storyteller Stephen King goes into the deepest well of his imagination in this spellbinding novel about a seventeen-year-old boy who inherits the keys to a parallel world where good and evil are at war, and the stakes could not be higher—for that world or ours.",
       },
       {
-        productId: 1007,
-        genresId: "MTAS",
+        productId: 7,
+        genresId: "EngBooks",
         author: "Colleen Hoover",
-        img: "imgs/1007.webp",
+        img: "imgs/EngBooks/7.webp",
         name: "Verity",
-        price: 210,
+        price: 21000,
         information:
           "Whose truth is the lie? Stay up all night reading the sensational psychological thriller that has readers obsessed, from the #1 New York Times bestselling author of It Ends With Us.",
       },
       {
-        productId: 1008,
-        genresId: "MTAS",
+        productId: 8,
+        genresId: "EngBooks",
         author: "Ashley Flowers",
-        img: "imgs/1008.webp",
+        img: "imgs/EngBooks/8.webp",
         name: "All Good People Here: A Novel",
-        price: 350,
+        price: 35000,
         information:
           "#1 NEW YORK TIMES BESTSELLER • In the propulsive debut novel from the host of the #1 true crime podcast Crime Junkie, a journalist uncovers her hometown’s dark secrets when she becomes obsessed with the unsolved murder of her childhood neighbor—and the disappearance of another girl twenty years later.",
       },
       {
-        productId: 1009,
-        genresId: "MTAS",
+        productId: 9,
+        genresId: "EngBooks",
         author: "Louise Penny",
-        img: "imgs/1009.jpg",
+        img: "imgs/EngBooks/9.jpg",
         name: "A World of Curiosities: A Novel (Chief Inspector Gamache Novel, 18)",
-        price: 420,
+        price: 42000,
         information:
           "Chief Inspector Armand Gamache returns in the eighteenth book in #1 New York Times bestseller Louise Penny's beloved series.",
       },
       {
-        productId: 1010,
-        genresId: "MTAS",
+        productId: 10,
+        genresId: "EngBooks",
         author: "Laura Dave",
-        img: "imgs/10010.webp",
+        img: "imgs/EngBooks/10.webp",
         name: "The Last Thing He Told Me: A Novel",
-        price: 230,
+        price: 23000,
         information:
           "The instant #1 New York Times bestselling mystery and Reese Witherspoon Book Club pick that’s captivated more than two million readers about a woman searching for the truth about her husband’s disappearance…at any cost.",
       },
-      //Crafts, Hobbies & Home
       {
-        productId: 1011,
-        genresId: "CHH",
+        productId: 11,
+        genresId: "EngBooks",
         author: "John Kanell",
-        img: "imgs/10011.webp",
+        img: "imgs/EngBooks/11.webp",
         name: "Preppy Kitchen: Recipes for Seasonal Dishes and Simple Pleasures (A Cookbook)",
-        price: 400,
+        price: 40000,
         information:
           "Decadent, delicious seasonal comfort foods and desserts you can make at home no matter what your cooking level from the beloved social media star @PreppyKitchen.",
       },
       {
-        productId: 1012,
-        genresId: "CHH",
+        productId: 12,
+        genresId: "EngBooks",
         author: "Coloring Book Cafe",
-        img: "imgs/10012.webp",
+        img: "imgs/EngBooks/12.webp",
         name: "Country Collection Coloring Book",
-        price: 200,
+        price: 20000,
         information:
           "Are you looking for a delightful country collection of coloring pages which feature all kinds of different scenes? Want to breathe life into tons of different settings and scenery? Or are you looking for a way to relieve anxiety and destress? Then this book is for you!",
       },
       {
-        productId: 1013,
-        genresId: "CHH",
+        productId: 13,
+        genresId: "EngBooks",
         author: "Anthony William",
-        img: "imgs/10013.jpg",
+        img: "imgs/EngBooks/13.jpg",
         name: "Medical Medium Brain Saver",
-        price: 600,
+        price: 60000,
         information:
           "Discover why millions rely on the #1 New York Times best-selling Medical Medium for health answers and natural healing protocols they can’t find anywhere else to over 100 symptoms, nervous system diseases, and disorders.",
       },
       {
-        productId: 1014,
-        genresId: "CHH",
+        productId: 14,
+        genresId: "EngBooks",
         author: "Bridget Coloring Press",
-        img: "imgs/10014.webp",
+        img: "imgs/EngBooks/14.webp",
         name: "You Fucking Got This",
-        price: 100,
+        price: 90000,
         information:
           "Relax Your Mind With This Beautiful Sweary Adult Coloring Book.Be Honest, You’ve had a Shitty Day.",
       },
       {
-        productId: 1015,
-        genresId: "CHH",
+        productId: 15,
+        genresId: "EngBooks",
         author: "KC Davis LPC",
-        img: "imgs/10015.jpg",
+        img: "imgs/EngBooks/15.jpg",
         name: "How to Keep House While Drowning: A Gentle Approach to Cleaning and Organizing ",
-        price: 20,
+        price: 20000,
         information:
           "This revolutionary approach to cleaning and organizing helps free you from feeling ashamed or overwhelmed by a messy home.",
       },
-      //Computers and Technology
       {
-        productId: 1016,
-        genresId: "CAT",
+        productId: 16,
+        genresId: "EngBooks",
         author: "Chris Miller",
-        img: "imgs/10016.jpg",
+        img: "imgs/EngBooks/16.jpg",
         name: "Chip War: The Quest to Dominate the World's Most Critical Technology",
-        price: 0,
+        price: 30000,
         information:
           "An epic account of the decades-long battle to control what has emerged as the world’s most critical resource—microchip technology—with the United States and China increasingly in conflict.",
       },
       {
-        productId: 1017,
-        genresId: "CAT",
+        productId: 17,
+        genresId: "EngBooks",
         author: "Martin Kleppmann",
-        img: "imgs/10017.webp",
+        img: "imgs/EngBooks/17.webp",
         name: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
-        price: 460,
+        price: 46000,
         information:
           "Data is at the center of many challenges in system design today. Difficult issues need to be figured out, such as scalability, consistency, reliability, efficiency, and maintainability. In addition, we have an overwhelming variety of tools, including relational databases, NoSQL datastores, stream or batch processors, and message brokers.",
       },
       {
-        productId: 1018,
-        genresId: "CAT",
+        productId: 18,
+        genresId: "EngBooks",
         author: "Eric Matthes",
-        img: "imgs/10018.webp",
+        img: "imgs/EngBooks/18.webp",
         name: "Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming",
-        price: 430,
+        price: 43000,
         information:
           "The best-selling Python book in the world, with over 1 million copies sold! A fast-paced, no-nonsense, updated guide to programming in Python.",
       },
       {
-        productId: 1019,
-        genresId: "CAT",
+        productId: 19,
+        genresId: "EngBooks",
         author: "Gayle Laakmann McDowell",
-        img: "imgs/10019.webp",
+        img: "imgs/EngBooks/19.webp",
         name: "Cracking the Coding Interview: 189 Programming Questions and Solutions",
-        price: 700,
+        price: 70000,
         information:
           "I am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and as an interviewer.",
       },
       {
-        productId: 1020,
-        genresId: "CAT",
+        productId: 20,
+        genresId: "EngBooks",
         author: "Alex Xu",
-        img: "imgs/10020.webp",
+        img: "imgs/EngBooks/20.webp",
         name: "System Design Interview – An insider's guide",
-        price: 710,
+        price: 71000,
         information:
           "System design interviews are the most difficult to tackle of all technical interview questions. This book is Volume 1 of the System Design Interview - An insider’s guide series that provides a reliable strategy and knowledge base for approaching a broad range of system design questions.",
+      },
+      // Life books
+      {
+        productId: 21,
+        genresId: "Life",
+        author: "Trần Khánh Dư",
+        img: "imgs/Life/1.jpg",
+        name: "Tiểu thuyết lịch sử lưu sơn minh",
+        price: 80000,
+        information:
+          "Sách nói về lịch sử của lưu sơn minh.",
+      },
+      {
+        productId: 22,
+        genresId: "Life",
+        author: "Nguyễn Thanh Xuân",
+        img: "imgs/Life/2.png",
+        name: "Sự trỗi dậy và suy tàn của các vương quốc",
+        price: 40000,
+        information:
+          "Biến đổi kinh tế và quân sự từ năm 1500 đến năm 2000.",
+      },
+      {
+        productId: 23,
+        genresId: "Life",
+        author: "Đinh Mạc",
+        img: "imgs/Life/3.jpg",
+        name: "Thời gian tươi đẹp",
+        price: 15000,
+        information:
+          "Tiểu thuyết về tuổi thanh xuân.",
+      },
+      {
+        productId: 24,
+        genresId: "Life",
+        author: "Đỗ Thùy Dương",
+        img: "imgs/Life/4.jpg",
+        name: "Con gái Bà Triệu thế kỉ 21",
+        price: 27500,
+        information:
+          "Câu chuyện về những người phụ nữ Việt Nam ghi dấu ấn",
+      },
+      {
+        productId: 25,
+        genresId: "Life",
+        author: "Vũ Trọng Phụng",
+        img: "imgs/Life/5.jpg",
+        name: "Làm gì",
+        price: 22000,
+        information:
+          "Câu chuyện về cuộc sống mưu sinh của người con gái nghèo khổ",
+      },
+      {
+        productId: 26,
+        genresId: "Life",
+        author: "Thùy Dương",
+        img: "imgs/Life/6.jpg",
+        name: "Vẽ theo phong cách Kawaii",
+        price: 37000,
+        information:
+          "Hướng dẫn vẽ theo mẫu.",
+      },
+      {
+        productId: 27,
+        genresId: "Life",
+        author: "Mai Rio",
+        img: "imgs/Life/7.jpg",
+        name: "Hiểu về hóa học",
+        price: 29000,
+        information:
+          "Kiến thức về hóa học dành cho học sinh dở hóa.",
+      },
+      {
+        productId: 28,
+        genresId: "Life",
+        author: "Dominic",
+        img: "imgs/Life/8.jpg",
+        name: "Siêu trí nhớ",
+        price: 32000,
+        information:
+          "Sách về cậu bé với trí nhớ siêu việt.",
+      },
+      {
+        productId: 29,
+        genresId: "Life",
+        author: "Nguyễn Thị Nhung",
+        img: "imgs/Life/9.jpg",
+        name: "Mỹ Thuật 7",
+        price: 45000,
+        information:
+          "Sách mỹ thuật lớp 7.",
+      },
+      {
+        productId: 30,
+        genresId: "Life",
+        author: "Thùy Dương",
+        img: "imgs/Life/10.jpg",
+        name: "Cậu không hề nhỏ bé",
+        price: 29000,
+        information:
+          "Sách kể về câu chuyện sâu sắc đáng suy ngẫm.",
+      },
+      {
+        productId: 31,
+        genresId: "Life",
+        author: "Hoàng Văn Vân",
+        img: "imgs/Life/11.jpg",
+        name: "Tiếng Anh 6",
+        price: 40000,
+        information:
+          "Sách tiếng anh dành cho học sinh lớp 6.",
+      },
+      // Manga
+      {
+        productId: 32,
+        genresId: "Manga",
+        author: "Kim Đồng",
+        img: "imgs/Manga/1.jpg",
+        name: "Cây khế",
+        price: 20000,
+        information:
+          "Chuyện về 2 anh em và cây khế",
+      },
+      {
+        productId: 33,
+        genresId: "Manga",
+        author: "Kim Đồng",
+        img: "imgs/Manga/2.jpg",
+        name: "Thần đồng Đất việt",
+        price: 40000,
+        information:
+          "Truyện cười kể về một cậu bé hài hước.",
+      },
+      {
+        productId: 34,
+        genresId: "Manga",
+        author: "Tô Hoài",
+        img: "imgs/Manga/3.jpg",
+        name: "Dế mèn phiêu lưu kí",
+        price: 70000,
+        information:
+          "Chuyến phiêu lưu đầy mạo hiểm của dế mèn và nhiều bài học được đúc kết.",
+      },
+      {
+        productId: 35,
+        genresId: "Manga",
+        author: "Kim đồng",
+        img: "imgs/Manga/4.jpg",
+        name: "Tấm Cám",
+        price: 57500,
+        information:
+          "Truyện về gia đình có 2 chị em đấu đá nhau.",
+      },
+      {
+        productId: 36,
+        genresId: "Manga",
+        author: "Kim Đồng",
+        img: "imgs/Manga/5.jpg",
+        name: "Con rồng cháu tiên",
+        price: 22000,
+        information:
+          "Truyện kể về cặp đôi Âu Cơ và Lạc Long Quân sinh đẻ.",
+      },
+      {
+        productId: 37,
+        genresId: "Manga",
+        author: "Trương Tố Lan",
+        img: "imgs/Manga/6.jpg",
+        name: "Phải chủ động nói ra",
+        price: 37000,
+        information:
+          "Cuốn sách đọc để rèn lại nhân cách sống.",
+      },
+      {
+        productId: 38,
+        genresId: "Manga",
+        author: "Hosoda Mamoru",
+        img: "imgs/Manga/7.jpg",
+        name: "Những đứa con của sói",
+        price: 61000,
+        information:
+          "Truyện nhật bản kể về câu chuyện của cậu bé sói.",
+      },
+      {
+        productId: 39,
+        genresId: "Manga",
+        author: "Himiko",
+        img: "imgs/Manga/8.jpg",
+        name: "Đứa con của thần tượng",
+        price: 45000,
+        information:
+          "Truyện kể về số phận của nữ thần tượng Aoi.",
+      },
+      {
+        productId: 40,
+        genresId: "Manga",
+        author: "Kirito",
+        img: "imgs/Manga/9.jpg",
+        name: "Sword art Online",
+        price: 42000,
+        information:
+          "Câu chuyện về kiếm sĩ trong trò chơi nọ .",
+      },
+      // Novel
+      {
+        productId: 41,
+        genresId: "Novel",
+        author: "Paolo Coelo",
+        img: "imgs/Novel/1.jpg",
+        name: "Nhà Giả Kim",
+        price: 53000,
+        information:
+          "Sách nói về giả kim thuật sư và chuyến hành trình của ông.",
+      },
+      {
+        productId: 42,
+        genresId: "Novel",
+        author: "Lô Lô",
+        img: "imgs/Novel/2.jpg",
+        name: "Vì em gặp anh",
+        price: 43000,
+        information:
+          "Sách nói về câu chuyện tình yêu của đôi nam nữ.",
+      },
+      {
+        productId: 43,
+        genresId: "Novel",
+        author: "Ekuni Kaori",
+        img: "imgs/Novel/3.jpg",
+        name: "Lấp Lánh",
+        price: 57000,
+        information:
+          "Tiểu thuyết về một câu chuyện động lòng người.",
+      },
+      {
+        productId: 44,
+        genresId: "Novel",
+        author: "JK Rowling",
+        img: "imgs/Novel/4.jpeg",
+        name: "Harry Porter",
+        price: 73000,
+        information:
+          "Câu chuyện về cậu bé sử dụng phép thuật làm chấn động thế giới.",
+      },
+      {
+        productId: 45,
+        genresId: "Novel",
+        author: "Nguyễn Thành Vũ",
+        img: "imgs/Novel/5.jpg",
+        name: "Hoàng Tử Bé",
+        price: 93000,
+        information:
+          "Câu chuyện về cậu bé và chú chó phiêu lưu cùng nhau.",
+      },
+      {
+        productId: 46,
+        genresId: "Novel",
+        author: "Cơ Hiểu An",
+        img: "imgs/Novel/6.jpg",
+        name: "Đơn Giản",
+        price: 63000,
+        information:
+          "Vũ khí sắc bén ứng phó với thế gian phức tạp.",
+      },
+      {
+        productId: 47,
+        genresId: "Novel",
+        author: "Hồng Sakura",
+        img: "imgs/Novel/7.jpg",
+        name: "Xu Xu đừng khóc",
+        price: 23000,
+        information:
+          "Tiểu thuyết về cô bé hay khóc nhè và câu chuyện cảm động phía sau.",
+      },
+      {
+        productId: 48,
+        genresId: "Novel",
+        author: "Hân Như",
+        img: "imgs/Novel/8.jpg",
+        name: "Điều bí mật",
+        price: 57000,
+        information:
+          "Tiểu thuyết về một câu chuyện bí mật, bạn mua đọc thì sẽ biết bí mật là gì =)).",
+      },
+      {
+        productId: 49,
+        genresId: "Novel",
+        author: "Nam Cố",
+        img: "imgs/Novel/9.jpg",
+        name: "Sống là âm thầm bùng nổ",
+        price: 83000,
+        information:
+          "Câu chuyện khiến ta suy ngẫm về cuộc sống và sự cống hiến của mình.",
+      },
+      {
+        productId: 50,
+        genresId: "Novel",
+        author: "Jo Kyung ran",
+        img: "imgs/Novel/10.jpg",
+        name: "Ái Tình nơi đầu lưỡi",
+        price: 47000,
+        information:
+          "Chuyện tình yêu của tuổi thanh xuân như thế nào , cuốn sách này sẽ giải đáp tất cả !",
+      },
+      {
+        productId: 51,
+        genresId: "Novel",
+        author: "Emilli William",
+        img: "imgs/Novel/22.jpg",
+        name: "Học cách để yêu",
+        price: 53000,
+        information:
+          "Tôi chưa bao giờ biết yêu thương là gì, đó là nội dung của sách, đọc để biết yêu thương là gì !",
       },
     ];
     localStorage.setItem("product", JSON.stringify(productArray));
@@ -277,53 +588,41 @@ function create_admin() {
     localStorage.getItem("admin") == null
   ) {
     var user1 = {
-      username: "thinhphat",
+      username: "thuan",
       password: "admin",
-      email: "ntp@gmail.com",
-      fullname: "Nguyễn Thịnh Phát",
+      email: "thuan@gmail.com",
+      fullname: "Thuận",
       address: "2 adv - P16 - Q8",
-      phone: "012341",
+      phone: "0123466431",
       giohang: cart,
       tt: "unblock",
     };
     var user2 = {
-      username: "quocdai",
+      username: "anhkhoa",
       password: "admin",
-      email: "lqd@gmail.com",
-      fullname: "Lâm Quốc Đại",
+      email: "khoa@gmail.com",
+      fullname: "Anh Khoa",
       address: "2 adv - P16 - Q8",
-      phone: "012342",
+      phone: "0124321342",
       giohang: cart,
       tt: "unblock",
     };
     var user3 = {
-      username: "ducthang",
-      password: "admin",
-      email: "ddt@gmail.com",
-      fullname: "Đào Đức Thắng",
-      address: "2 adv - P16 - Q8",
-      phone: "012343",
-      giohang: cart,
-      tt: "unblock",
-    };
-    var user4 = {
       username: "giabao",
       password: "admin",
-      email: "tgb@gmail.com",
+      email: "giabao@gmail.com",
       fullname: "Trần Gia Bảo",
       address: "2 adv - P16 - Q8",
-      phone: "012344",
+      phone: "0123238944",
       giohang: cart,
       tt: "unblock",
     };
     userArray.push(user1);
     userArray.push(user2);
     userArray.push(user3);
-    userArray.push(user4);
     admin.push(user1);
     admin.push(user2);
     admin.push(user3);
-    admin.push(user4);
 
     localStorage.setItem("admin", JSON.stringify(admin));
     localStorage.setItem("User", JSON.stringify(userArray));
@@ -639,10 +938,10 @@ function splitgenres(a) {
 function createGenres() {
   if (localStorage.getItem("genres") == null) {
     genresArray = [
-      { genres_name: "Comics & Graphic Novels", id: "CGN" },
-      { genres_name: "Mystery, thriller and suspense", id: "MTAS" },
-      { genres_name: "Crafts, Hobbies & Home", id: "CHH" },
-      { genres_name: "Computers and Technology", id: "CAT" },
+      { genres_name: "Sách tiếng anh", id: "EngBooks" },
+      { genres_name: "Đời sống con người", id: "Life" },
+      { genres_name: "Truyện tranh trẻ em", id: "Manga" },
+      { genres_name: "Tiểu thuyết", id: "Novel" },
     ];
     localStorage.setItem("genres", JSON.stringify(genresArray));
   }
@@ -844,16 +1143,13 @@ function show_list() {
   if (f != "0") {
     switch (f) {
       case "1":
-        tempitem = filter_price(tempitem, 0, 500);
+        tempitem = filter_price(tempitem, 0, 30000);
         break;
       case "2":
-        tempitem = filter_price(tempitem, 500, 1000);
+        tempitem = filter_price(tempitem, 30000, 70000);
         break;
       case "3":
-        tempitem = filter_price(tempitem, 1000, 2000);
-        break;
-      case "4":
-        tempitem = filter_price(tempitem, 2000, -1);
+        tempitem = filter_price(tempitem, 70000, 100000);
         break;
     }
     totalPages = Math.ceil(tempitem.length / itemPerPage);
